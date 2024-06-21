@@ -1,0 +1,40 @@
+{% extends "blog/layout.html.jinja2" %}
+
+{% block blog_post %}
+  <div>
+    <img itemprop="image" src="{{ url_for('img', path=post.teaser_image.url) }}" alt="{{ post.teaser_image.alt }}" class="w-full border rounded-md md:shadow-md">
+    <p>Leases share a lot of similarities with lending. Think of it as a lending agreement between a landlord and a tenant who can’t (or chooses not to) buy property themselves. So when a landlord signs a lease with a business, they are investing in that business. And as most investors know, the key to reducing risk is to diversify your investments—not to put all your eggs in one basket.</p>
+    <p>Seen through the investing lens, a landlord’s choice is easy between a large, credit-worthy tenant such as British Petroleum vs. a single small, financially precarious oil & gas business. The lease to British Petroleum is preferable. Ultimately, though, both businesses are involved in the petroleum industry and face the same underlying risks.</p>
+    <p>But to frame a landlord’s choice as a comparison between two alternative sole occupants is to artificially narrow their options. Rather than leasing to a single, large tenant, the landlord can subdivide the space, providing small, flexible leases to dozens of tenants, thereby reducing their risk. Not only will the landlord benefit from diversifying across different sectors of the economy, but smaller, flexible leases also have the benefit of earning a premium, and they appeal to a larger pool of potential tenants.</p>
+    <p>This landlord has applied the principles of investment portfolio theory to their leasing strategy, resulting in the coveted combination of higher returns and lower risk.</p>
+
+    <h2>Like an Apartment. But for Businesses.</h2>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md" src="{{ url_for('img', path='/blog/2023-01-25/cap-rates-by-city-2019-canada.png') }}" alt="Capitalization rate by city (Canada, 2019)">
+      <figcaption class="text-gray-700">Capitalization rate by city (Canada, 2019)</figcaption>
+    </figure>
+    <p>When I was a commercial landlord, we would explain to anyone who cared to listen that by switching to flexible leasing, we were de-risking our properties. That by taking single tenant commercial spaces and converting it to dozens of small flexible leases we were creating a portfolio from a single asset.</p>
+    <p>I had noticed that the sector with the lowest capitalization rates was multifamily, so I’d often compare our flexible leasing strategy to the difference between offices and apartments.</p>
+    <p>Almost every single major market in Canada and the United States has lower capitalization rates in multifamily. Whether in central business districts or suburbs. Both before and after Covid. In high and low grade buildings alike.</p>
+    <p>Multifamily does have some structural advantages over offices, so comparing capitalization rates isn’t a perfect proxy. However, I do believe that one of the reasons for the difference is that multifamily leasing is more diverse.</p>
+
+    <div>
+      <h2>The Theory Pans Out</h2>
+      <figure class="pl-0 lg:pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2 md:float-right">
+        <img class="rounded-md w-4/5 lg:w-full" style="max-width: 50ch;" src="{{ url_for('img', path='/blog/2023-01-25/capitalization-rate-differences-2019.png') }}" alt="Capitalization rate differences (US, 2019)">
+        <figcaption class="text-gray-700">Capitalization rate differences (US, 2019)</figcaption>
+      </figure>
+      <div>
+        <p>One of the knocks against flexible leasing is that it supposedly doesn't protect the landlord in a down market, but our experience during Covid was the exact opposite. While a landlord might have the ‘safety’ of a long-term lease, in practice, by the time a tenant defaults, the landlord is nowhere near the front of the line of creditors.</p>
+        <p>In early March 2020 we completed a risk assessment of the rent rolls in all our buildings to determine the likelihood each tenant would cancel their lease in an attempt to predict our future cash flows. There was undeniable pandemic damage to some of our tenants, with knock-on impacts to our own business. Unsurprisingly, tourism businesses on flexible leases were quick to reduce costs. The ultra-flexible meeting room revenues disappeared as well. Our single largest tenant was a legacy long-term tenant: a restaurant/pool hall. Despite government programs supporting the industry and us providing rent breaks, the business folded about six months into the pandemic.</p>
+        <p>But because our ‘portfolio’ of tenants was diversified, while some submarkets fell, others increased. We added new tenants, like the administration offices for a delivery company and a security contractor. An existing tenant—a cleaning company whose business benefited from the new emphasis on sanitized environments—needed to expand to a larger office.</p>
+        <p>With the largest employers sending everyone home from the office, tenants who had shared living arrangements preferred to come into our offices.</p>
+        <p>The upshot was that in our largest property, which ran almost exclusively flexible leasing, our revenue only ebbed 8% below our March 2020 revenue numbers and had completely rebounded by the spring of 2021.</p>
+      </div>
+    </div>
+
+    <h2>The Take-Home</h2>
+    <p>Unfortunately, traditional valuation tools are blind to the diversification benefits of small flexible leases. They simply weren't developed with modern risk profiles in mind.</p>
+    <p>The good news is that this isn’t an unsolved problem—there are tools used in the wider finance industry that we can import and adapt for real estate. With the landlords facing strong headwinds and predictions of flexible leasing becoming 30% of the market, the sooner we adapt modern valuation practices, the better.</p>
+  </div>
+{% endblock %}

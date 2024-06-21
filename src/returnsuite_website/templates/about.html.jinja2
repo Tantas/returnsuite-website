@@ -1,0 +1,52 @@
+{% extends "layout.html.jinja2" %}
+{% set page_title = 'About - ' + app_title %}
+
+{% block content %}
+  <article class="border-b-2">
+    <section class="flex flex-col place-items-center pt-8 xl:pt-16 pb-12 bg-gray-100 w-full">
+      <div class="mx-4 md:mx-12 xl:mx-32 xl:w-1/2 pb-6">
+        <h1 class="text-lg tracking-wider text-blue-500 uppercase">About</h1>
+        <h2 class="text-4xl font-bold">Is it Time to Rethink How Commercial Real Estate is Valued?</h2>
+        <p class="py-4 leading-6 text-lg text-gray-900">
+          ReturnSuite is on a mission to create a powerful way to model and manage portfolios and share the results between stakeholders. We believe the risk-adjusted value approach alongside traditional discounted cash flows are the best way to value real estate and aim to make these powerful tools available to everyone.
+        </p>
+      </div>
+      <div class="px-4 md:px-12 xl:px-0 w-full xl:w-1/2">
+        <div class="relative w-full rounded-md overflow-hidden" style="aspect-ratio: 16 / 9;">
+          <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/vyo5D5CQwDU" title="YouTube video player - Is it Time to Rethink How Commercial Real Estate is Valued?" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+    <section class="flex flex-col place-items-center py-16 pb-8 w-full border-t-2">
+      <div class="mx-4 md:mx-12 xl:mx-32 xl:w-1/2 pb-10">
+        <h1 class="text-lg tracking-wider text-blue-500 uppercase">Our Story</h1>
+        <h2 class="pb-6 text-4xl font-bold">
+          How could increasing profit by 40% not lead to higher valuations and better lending terms?
+        </h2>
+        <p class="py-4 leading-6 text-lg text-gray-900">
+          Through a down market and then the Covid-19 pandemic, the CRE company I co-founded was able to earn superior returns across the entire portfolio by increasing our flexible leasing footprint - yet our values were unchanged and our financing looked more like car loans than traditional mortgages.
+        </p>
+        <p class="py-4 leading-6 text-lg text-gray-900">
+          Everyone pointed to the increased risk in flexible leasing, but that felt intuitively wrong and ignored the results we were achieving. I decided to do a deep dive into the question of valuing flexible real estate - producing a video and dedicating my master's dissertation to the topic.
+        </p>
+        <p class="py-4 leading-6 text-lg text-gray-900">
+          Here’s the quick summary: The tools used in real estate valuation are built around very basic financial theories. While bond and equity valuation practices have evolved, real estate valuation methodologies became a sort of Lost World. As long as real estate remained separate from the outside world, supplied by long-term leases, the traditional tools for valuing commercial real estate could thrive.
+        </p>
+        <p class="py-4 leading-6 text-lg text-gray-900">
+          But the outside world has arrived and the traditional financial models are failing. With cash flows becoming increasingly volatile, the old asset management tools no longer work - they are blind to the risks in the modern real estate market.
+        </p>
+        <p class="py-4 leading-6 text-lg text-gray-900">
+          We created ReturnSuite to solve this issue. By bringing more sophisticated financial tools into the real estate industry, our software allows you to maximize your returns while fully understanding your risks.
+        </p>
+        <p class="py-4 leading-6 text-lg text-gray-900">
+          With ReturnSuite, you will gain important insights and be able to easily communicate your asset management strategy, forecasts, budgets and results with all your key stakeholders.
+        </p>
+        <p class="py-4 leading-6 text-lg text-gray-900">
+          <a target="_blank" href="https://www.linkedin.com/in/sam-gamble-rs" class="text-blue-500 float-right italic text-xl tracking-wide hover:underline">— Sam Gamble</a>
+        </p>
+      </div>
+    </section>
+  </article>
+  {% include "components/cta.html.jinja2" %}
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "blog/layout.html.jinja2" %}
+
+{% block blog_post %}
+  <div>
+    <img itemprop="image" src="{{ url_for('img', path=post.teaser_image.url) }}" alt="{{ post.teaser_image.alt }}" class="w-full border rounded-md md:shadow-md">
+    <p>A lot of smart people in office real estate are rightly looking to the hotel industry as a model for the future, like prioritizing customer experience and the operator/asset owner business model.</p>
+    <p>However, if we’re going to use the hotel industry for guidance on valuations and risk, we need to make sure we’re learning the right lessons.</p>
+
+    <h2>Tiered Income Approach</h2>
+    <p>One idea pulled from the hotel industry is the <a target="_blank" href="https://www.cushmanwakefield.com/en/united-kingdom/insights/valuation-of-flexible-workspace">Tiered Valuation model</a> - that income generated from a building can be split into two (or more) tiers.</p>
+    <p>Here’s how it would work in the office market:</p>
+    <p>The first tier of income is the rent that could be earned if the entire building was leased traditionally - that first tier of (theoretical) income would then be discounted at the market capitalization rate.</p>
+    <p>The second tier of income is the marginal difference earned through non-traditional leasing, which is then discounted at a higher capitalization rate.</p>
+    <p>Example: The market rate of an office building is $20 psf. However, some of the building is cowork space and earns $30 psf. The first tier of income would be $20 psf for the entire area of the building and the second tier of income is the $10 psf premium earned in just the cowork area.</p>
+    <p>The two tiers would be capitalized at different rates and added together for a total value.</p>
+    <p>I like the concept behind this approach - a kind of ‘Economic Profit’ calculation that could be useful for determining profits of internal departments, but I think it’s a bad fit for total building valuation.</p>
+
+    <h2>Hotels in Real Life</h2>
+    <p>Embedded in this approach is the assumption that the additional income is riskier and should be discounted at a higher rate. In theory, as the proportion of income generated from services rises, so does the average capitalization rate.</p>
+    <p>If this were true, the hotels with the lowest capitalization rates would have the least amount of services. However, we see the exact opposite in most markets - full service hotels generally trade at lower capitalization rates than their select service competitors. Why would we see the opposite result?</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md" src="{{ url_for('img', path='/blog/2022-12-21/difference-in-value-between-full-and-select-service-hotels-2022.webp') }}" alt="Difference in value between Full Service and Select Service Hotels">
+      <figcaption class="text-gray-700">Difference in value between Full Service and Select Service Hotels</figcaption>
+    </figure>
+    <p>My theory is that the Tiered model misses the complementary nature of the additional services.</p>
+    <p>The rate a hotelier can charge goes up if there are related services in the hotel. Imagine if an overzealous manager canceled the free continental breakfast or stopped hosting wedding receptions - costs might go down, but did they just make the hotel’s income more or less risky?</p>
+    <p>The same can be said in the office market. An office landlord that provides access to swing space, cowork areas, exercise equipment, specialty meeting rooms, bike storage and dining options can earn a premium income on the specialty spaces <b>and</b> charge more for their traditional leases. If done right landlords can de-risk their properties by adding more variable income sources - and unfortunately the Tiered method can’t demonstrate this.</p>
+  </div>
+{% endblock blog_post %}

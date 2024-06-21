@@ -1,0 +1,100 @@
+{% extends "blog/layout.html.jinja2" %}
+
+{% block blog_post %}
+  <div>
+    <img itemprop="image" src="{{ url_for('img', path=post.teaser_image.url) }}" alt="{{ post.teaser_image.alt }}" class="w-full border rounded-md md:shadow-md">
+    <p>Upside opportunities: They can come from increasing density, improving operating efficiencies or stabilizing the rent roll—anything where the amount and quality of the Net Operating Income (NOI) improves. Wherever those opportunities come from, a landlord scouting for new acquisitions is keeping an eye out for upside.</p>
+    <p>Taking advantage of the upside opportunities usually requires some landlord investment, but the return on these investments can be huge.</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md shadow-md p-6 border border-gray-300" src="{{ url_for('img', path='/blog/2023-03-08/choice-properties-retail-intensification-slide.png') }}" alt="2023 Choice Properties slide about retail intensifications">
+      <figcaption class="text-gray-700">2023 Choice Properties slide about retail intensifications.</figcaption>
+    </figure>
+    <p>They can serve as a defensive move as well. In a tough market, a landlord might be able to offset dropping rental rates by intensifying their investment. For example, they may find energy efficiency improvements that earn 20% on the marginal investment, improving the overall NOI for the property.</p>
+    <p>Landlords are hampered by not having direct contact with their end users. They face the classic business-to-business sales issue in which the person who signs the lease is not the day-to-day occupant of a property. But this disadvantage shouldn’t restrict their imagination. Part of providing a high level of service is dealing with the pain points of users, even if the pain point isn’t directly in the landlord’s realm.</p>
+    <p>In my previous company, we operated in a tertiary market, so we often signed leases with managers who would never step foot in our regional location. We found success by providing additional services to our building users on the assumption that, when it came time to renew, they would tell their headquarters that they <b>needed</b> to stay within our ecosystem.</p>
+    <p>Charging customers for the additional services isn’t a limiter. For various accounting and internal control issues, companies will often treat leases differently from the purchase of services. The decision on leasing was often made at headquarters, but internet, meeting room bookings and temporary staff housing choices were made locally. This disconnect provides landlords with an opportunity to strengthen their relationship with their customers—and provides an opportunity to intensify investment.</p>
+
+    <h2>A Case Study on Intensifying Investments</h2>
+    <p>A common pain point for most Canadians is the high cost of internet access, with introductory rates for fibre internet costing $135 per month.</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md" src="{{ url_for('img', path='/blog/2023-03-08/canadian-isp-internet-cost.png') }}" alt="Sample Canadian monthly internet costs">
+      <figcaption class="text-gray-700">Sample Canadian monthly internet costs.</figcaption>
+    </figure>
+    <p>Normally residential landlords stay away from internet services, but it does provide an interesting opportunity for them to increase their NOI while improving the stickiness of their tenants.</p>
+    <p>I spoke to a local internet service provider that owns and operates a fibre optic network covering approximately 110 kilometres (66 miles) of mostly rural properties in the west end of Ottawa. I’ve always found the economics of his business interesting and felt there was an opportunity for landlords to partner with internet providers to intensify investment in their properties.</p>
+    <p>As a thought experiment, I asked him how he would price out service to a 50 unit multifamily property.</p>
+    <p>He stressed that there are a lot of variables, but here’s the basic math:</p>
+    <ul class="flex flex-col gap-2 pl-6 list-disc text-gray-700 leading-7 text-lg">
+      <li>For approximately $45,000, he would be able to bring gigabit fibre internet to the property ($20,000) and install interior connections to each unit ($25,000).</li>
+      <li>For $60 per unit / month, he would provide each customer with a router, gigabit internet and a home phone line (VOIP).</li>
+      <li>The landlord would pay him directly, but each customer could deal with his company directly for customer service issues (the landlord doesn't become middleman for internet issues)</li>
+    </ul>
+    <p>The landlord could add internet services to their offering, let’s say at $120/month. It’s a slight savings over what’s offered by the traditional telecom companies (and substantially more savings once the telco teaser rate runs out).</p>
+    <p>If all 50 units switched their internet over, the landlord could expect to make an additional $36,000—an investment that would pay itself back in 15 months!</p>
+
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <div class="text-base font-medium text-gray-800 p-6 border border-gray-300 rounded-md shadow-md">
+        <table>
+          <tr>
+            <th></th>
+            <th class="underline text-right pr-8">Per Unit</th>
+            <th class="underline text-right">Building</th>
+          </tr>
+          <tr>
+            <td>Internet Charges (Monthly)</td>
+            <td class=" text-right pr-8">$120</td>
+            <td class=" text-right">$6,000</td>
+          </tr>
+          <tr class="border-b border-gray-700">
+            <td class="pb-1 pr-20">Less: Expenses (Monthly)</td>
+            <td class="pb-1 text-right pr-8">$60</td>
+            <td class="pb-1 text-right">$3,000</td>
+          </tr>
+          <tr>
+            <td class="pt-1">Internet Profit (Monthly)</td>
+            <td class="pt-1 text-right pr-8">$60</td>
+            <td class="pt-1 text-right">$3,000</td>
+          </tr>
+          <tr>
+            <td class="pt-4">Annual NOI Increase</td>
+            <td class="pt-4 text-right pr-8">$720</td>
+            <td class="pt-4 text-right">$36,000</td>
+          </tr>
+          <tr class="border-b border-gray-700">
+            <td class="pb-1">Capitalization Rate</td>
+            <td class="pb-1 text-right pr-8">6.0%</td>
+            <td class="pb-1 text-right">6.0%</td>
+          </tr>
+          <tr>
+            <td class="pt-1">Increase in Value</td>
+            <td class="pt-1 text-right pr-8">$12,000</td>
+            <td class="pt-1 text-right">$600,000</td>
+          </tr>
+          <tr>
+            <td class="py-4">Capital Investment</td>
+            <td class="py-4 text-right pr-8">$900</td>
+            <td class="py-4 text-right">$45,000</td>
+          </tr>
+          <tr>
+            <td>Payback Period</td>
+            <td class="text-right pr-8">15 Months</td>
+          </tr>
+          <tr>
+            <td>Value Multiplier</td>
+            <td class="text-right pr-8">13x</td>
+          </tr>
+        </table>
+      </div>
+      <figcaption class="text-gray-700">Payback and valuation table.</figcaption>
+    </figure>
+
+    <h2>Questions to Answer Before Investing</h2>
+    <p>Before anyone rushes out to install fibre or add any other form of service that requires landlord investment, there are a few questions landlords should resolve.</p>
+    <p>Firstly, should the service be included in the lease or should it constitute an additional service? If it’s included in the lease, the rental income <b>might</b> be cleanly added into NOI, but for residential properties it may then also be subject to rent controls.</p>
+    <p>How will your lender see the additional source of income? Internet services are especially sticky, but real estate lenders aren’t necessarily familiar with it. If you are relying on the income to contribute towards debt service ratios, best to speak with your lender ahead of time to see how it will be handled.</p>
+    <p>Finally, how will valuers account for the additional income from the services you are looking to add? <a target="_blank" href="https://www.linkedin.com/in/benjaminbach/">Benjamin Bach</a>, Vice President of Cushman Wakefield in the Waterloo region, mentioned to me that he is seeing residential landlords adding internet in his market. He has noticed that valuers and lenders see the income as part of the NOI but treat it as a different tier of income like laundry machine income, using a higher capitalization rate.</p>
+
+    <h2>Prioritize Income, Regardless of How it’s Classified</h2>
+    <p>Commercial landlords, especially those in the office sector, are facing some tough headwinds. A paradigm shift in demand coupled with rising interest rates have landlords looking for solutions to get through the <a target="_blank" href="https://www.youtube.com/watch?v=yBvXgAu_Z0M">upcoming storm</a>. And while landlords don’t want to be caught by surprise that certain services (or flexible leases) are less financeable or negatively affect value, at the end of the day, income is income. It doesn't really matter if the income is above or below the NOI line in a valuation if it widens the margin of safety over debt service or increases distributions to investors. Eventually, it will be rewarded.</p>
+  </div>
+{% endblock %}

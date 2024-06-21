@@ -1,0 +1,107 @@
+{% extends "layout.html.jinja2" %}
+{% set page_title = "Blog - " + app_title %}
+
+{% block content %}
+  <div class="flex flex-col place-items-center gap-6 w-full border-b-2 pb-16">
+    <div class="pt-6 md:pt-12 px-6 md:px-16 w-full flex place-items-center justify-between" style="max-width: 1200px">
+      <h1 class="text-lg text-gray-800 font-medium"><a href="{{ url_for('get_blog') }}" class="hover:text-blue-500">Blog</a></h1>
+      <div class="flex gap-3 place-items-center text-gray-500 font-medium">
+        <span class="hidden sm:block">Sort</span>
+        <div class="flex place-items-center text-gray-600">
+          <ul class="flex place-items-center text-xs rounded-lg p-1 py-0.5 border-gray-300 bg-gray-100">
+            {% set is_spotlight = page_response.sort_options.options[0].selected %}
+            {% if is_spotlight %}
+              {% set sort_option = "spotlight" %}
+            {% else %}
+              {% set sort_option = "chronological" %}
+            {% endif %}
+            <li class="font-semibold h-full py-2.5 border-gray-300 tracking-wide text-gray-600">
+              <a href="{{ url_for('get_blog').include_query_params(sort='chronological') }}" class="{% if not is_spotlight %}bg-white border shadow-sm text-blue-600{% endif %} rounded-lg border-gray-300 py-2 px-4">
+                Chronological
+              </a>
+            </li>
+            <li class="font-semibold h-full py-2.5 border-gray-300 tracking-wide text-gray-600">
+              <a href="{{ url_for('get_blog').include_query_params(sort='spotlight') }}" class="{% if is_spotlight %}bg-white border shadow-sm text-blue-600{% endif %} rounded-lg border-gray-300 py-2 px-4">
+                Spotlight
+              </a>
+            </li>
+          </ul>
+          {% if page_response.has_previous %}
+            <a href="{{ url_for('get_blog').include_query_params(sort=sort_option, offset=(page_response.offset - page_response.size, 0)|max) }}"
+              title="Previous page"
+              class="rounded-md pr-0.5 flex place-items-center justify-center hover:bg-blue-500 hover:text-white">
+              <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"></path>
+              </svg>
+            </a>
+          {% endif %}
+          {% if page_response.has_next %}
+            <a href="{{ url_for('get_blog').include_query_params(sort=sort_option, offset=(page_response.offset + page_response.size, page_response.total)|min) }}"
+             title="Next page"
+             class="rounded-md pl-0.5 flex place-items-center justify-center hover:bg-blue-500 hover:text-white">
+              <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+              </svg>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <ol class="px-6 md:px-16 flex flex-col gap-16" style="max-width: 1200px">
+      {% for post in page_response.items %}
+        <li>
+          <article itemscope itemtype="https://schema.org/Article">
+            <div class="flex flex-col md:flex-row justify-between md:gap-16">
+              <div class="flex flex-col gap-2 md:w-3/5" >
+                <p class="text-blue-500 font-medium text-base uppercase" itemprop="articleSection">{{ post.category }}</p>
+                <a href="{{ url_for('get_blog_post', slug=post.slug) }}">
+                  <h2 class="pb-2 sm:pb-6 text-4xl font-semibold" itemprop="name">{{ post.title }}</h2>
+                </a>
+              </div>
+              <div class="flex md:flex-col gap-2 md:w-1/5">
+                <time itemprop="datePublished" datetime="{{ post.published }}" class="text-gray-700">{{ post.published|format_date_medium(locale=locale) }}</time>
+                <div class="hidden md:flex gap-2 place-items-center ml-auto md:ml-0">
+                  {% if post.author.profile_image_url %}
+                    <img src="{{ post.author.profile_image_url }}" alt="{{ post.author.name }}'s profile image" class="w-12 h-12 hidden sm:block">
+                  {% else %}
+                    <div class="w-1 h-full bg-blue-500"></div>
+                  {% endif %}
+                  <div class="flex flex-col">
+                    <a target="_blank" href="{{ post.author.url }}" class="whitespace-nowrap text-base font-medium text-gray-900 hover:text-blue-500" itemprop="author">{{ post.author.name }}</a>
+                    <span itemprop="name" class="whitespace-nowrap text-gray-700 ">{{ post.author.organization_title }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col-reverse sm:flex-row sm:gap-8">
+              {% if post.teaser_image %}
+                <div class="sm:w-1/2">
+                  <p itemprop="about" class="py-4 leading-6 text-lg text-gray-900">{{ post.teaser }}</p>
+                  <a itemprop="url" href="{{ url_for('get_blog_post', slug=post.slug) }}" class="text-blue-500 font-medium text-base hover:underline">
+                    <span>Read more</span>
+                    <svg class="inline-block h-7 pb-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                    </svg>
+                  </a>
+                </div>
+                <img itemprop="thumbnail" src="{{ url_for('img', path=post.teaser_image.url) }}" alt="{{ post.teaser_image.alt }}" class="sm:w-1/2 border rounded-md sm:shadow-md mt-4 sm:mt-8">
+              {% else %}
+                <div class="md:w-4/5 md:pr-4">
+                  <p itemprop="about" class="py-4 leading-6 text-lg text-gray-900">{{ post.teaser }}</p>
+                  <a itemprop="url" href="{{ url_for('get_blog_post', slug=post.slug) }}" class="text-blue-500 font-medium text-base hover:underline">
+                    <span>Read more</span>
+                    <svg class="inline-block h-7 pb-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                    </svg>
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </article>
+        </li>
+      {% endfor %}
+    </ol>
+    {% from "components/paging.html.jinja2" import pager %}
+    {{ pager(page_response, url_for("get_blog").include_query_params(sort=sort_option)) }}
+  </div>
+{% endblock %}

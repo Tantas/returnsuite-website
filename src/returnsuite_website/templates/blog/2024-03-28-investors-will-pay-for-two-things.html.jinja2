@@ -1,0 +1,66 @@
+{% extends "blog/layout.html.jinja2" %}
+
+{% block blog_post %}
+  <div>
+    <img itemprop="image" src="{{ url_for('img', path=post.teaser_image.url) }}" alt="{{ post.teaser_image.alt }}" class="w-full border rounded-md md:shadow-md">
+    <p>Last week while at the PwC event at MIPIM, I was speaking with <a target="_blank" href="https://www.linkedin.com/in/marcus-moufarrige-57732b71/">Marcus Moufarrige</a> from <a href="https://ility.com">ility</a> about the challenges facing the office market, and he said something that stuck with me for the rest of the week: “There are only two industries that can get 20x multiples–real estate & software”.</p>
+    <p>I felt Marcus’s comment really captured the essence of the issue in the office market–investors will pay high prices for two things: high levels of safety (real estate) or high levels of growth (software). And by extension, investors will stop paying high prices if either the level of safety or growth decreases.</p>
+
+    <h2>Where Values Come From</h2>
+    <p>A fundamental idea behind all investing is that investors forfeit money today in order to receive a stream of cash flows in the future. The formula for valuing an investment property is, by no coincidence, a slight variation on the formula for valuing an investment that pays out a cash flow forever (a perpetuity).</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md" src="{{ url_for('img', path='/blog/2024-03-28/value-comparison-formula.jpg') }}" alt="Comparison in value between a generic investment and investment property">
+      <figcaption class="text-gray-700">Comparison in value between a generic investment and investment property.</figcaption>
+    </figure>
+    <p>When interest rates first began to rise, I noticed the occasional internet meme poking fun at brokers asking for lower Capitalization Rates than the Discount Rates (interest rate) being paid to retail customers on fixed deposits–the punchline could be summed up as why invest in a suburban strip mall at a 5.0% Capitalization Rate when a government insured bank will pay you 5.5% to simply park the same money in a fixed deposit?</p>
+    <p>I’d generally agree–if given the choice, I’d expect investors to refuse to pay the asking price on the Strip Mall until the price dropped enough to compensate them for the additional risk over a government backed Fixed Deposit investment.</p>
+
+    <h2>Apples-to-Apples Comparison</h2>
+    <p>But the simple comparison between the two returns isn’t comparing apples-to-apples. In both formulas the Discount Rate is an “all risk rate”–a discount rate that encompasses the risk-free rate, growth and all the other forms of risk.</p>
+    <p>To get a better sense of what’s happening, we can break down an All Risk Discount Rate into it’s more component parts:</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md" src="{{ url_for('img', path='/blog/2024-03-28/all-risk-rate-formula.jpg') }}" alt="Components of the All Risk Discount Rate">
+      <figcaption class="text-gray-700">Components of the All Risk Discount Rate.</figcaption>
+    </figure>
+    <p>So how would the component parts look for our two investment options?</p>
+    <p>The return paid by government bonds is typically used as the proxy for the Risk Free Rate and would be the same for both the fixed deposit and the Strip Mall, however, there can be significant differences in the Risk Premium and Growth Rates.</p>
+    <p>For a fixed deposit investment, there will be a small risk premium over the risk-free rate–even though it is backed by the same government as the risk-free rate, since it’s less liquid than market traded bonds.</p>
+    <p>For example, if the Risk Free Rate is 4.5%, a Fixed Deposit earning a 5.5% return must have a Risk Premium of 1% since the investment is a loan and there is no ability for the payment size to grow.</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md" src="{{ url_for('img', path='/blog/2024-03-28/fixed-deposit-return-breakdown.jpg') }}" alt="Sample Fixed Deposit return breakdown">
+      <figcaption class="text-gray-700">Sample Fixed Deposit return breakdown.</figcaption>
+    </figure>
+    <p>However, for our Strip Mall, there is likely a much higher Risk Premium than the fixed deposit–it’s less liquid and is a physical asset that requires management. So assuming the Strip Mall is priced fairly and for the Discount Rate to be lower than the fixed deposit, there must be significant potential for growth in the income stream as well.</p>
+    <p>It’s possible that in our strip mall example has a Risk Premium of say 3.5%, but that additional risk is almost completely offset by an expected rental Growth of 3.0% annually, thereby giving us a return of 5.0%.</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md" src="{{ url_for('img', path='/blog/2024-03-28/strip-mall-return-breakdown.jpg') }}" alt="Sample Strip Mall return breakdown">
+      <figcaption class="text-gray-700">Sample Strip Mall return breakdown.</figcaption>
+    </figure>
+
+    <h2>The Double Hit in the Office Market</h2>
+    <p>Office investors are currently facing a double headwind–not only has the Risk Free Rate increased, but market sentiment has also moved against offices.</p>
+    <p>By substituting in our more detailed breakdown of the All Risk Rate into the valuation formula, it exposes the levers which an active real estate investor can pull to affect value.</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md" src="{{ url_for('img', path='/blog/2024-03-28/all-risk-valuation-formula.jpg') }}" alt="All risk valuation formula">
+      <figcaption class="text-gray-700">All risk valuation formula.</figcaption>
+    </figure>
+    <p>Based on the formula, four things can increase the value of a property:</p>
+    <ul class="flex flex-col gap-2 pl-6 list-disc text-gray-800 font-medium leading-7 text-lg">
+      <li>The Risk-Free Rate can decrease, or</li>
+      <li>the Risk Premium can decrease, or</li>
+      <li>the Net Operating Income can increase, or</li>
+      <li>the Growth rate of the net operating income can increase.</li>
+    </ul>
+    <p>And given that individual investors have no control over the Risk Free Rate, there really are only three levers to choose from.</p>
+
+    <h2>Office Investors–What’s in Your Control?</h2>
+    <p>If the trick to staying sane is focusing on what’s within your control, what levers should an office investor pull?</p>
+    <p>One option is to wait it out–real estate is famously cyclical, so lengthening hold periods until the Risk Free Rate returns to previous levels is an option. But if demand for office space has been permanently shifted, the increased Risk Premium may be too much for a change in the Risk Free Rate to offset.</p>
+    <p>In fact, Michael Kovacs from CastleForge makes a compelling argument in his <a target="_blank" href="https://castleforge.com/wp-content/uploads/2023/09/Only-the-Paranoid-Office-Investors-Survive-August-2023.pdf">white paper</a> and on the <a target="_blank" href="https://podcasts.apple.com/ca/podcast/workbold-podcast/id1497599549?i=1000649812563">#WorkBold Podcast</a> that major structural shifts in the office market began well before Covid and as a result, the market is only beginning to recognize that Net Operating Incomes are likely to be below what was previously expected.</p>
+    <p>If his prediction holds true, office investors could be looking at more headwinds, even if the Risk Free Rate begins to move in their favor.</p>
+    <p>One path forward is to fully embrace flexible leasing and provide services beyond what’s offered in traditional leases. By simply leasing space and ignoring other sources of income, landlords risk being a price-taker–providing a commodity product with little opportunity for differentiation. And by being a price-taker, landlords forfeit control over the Growth Rate component of the calculation. By expanding the potential sources of revenue to more active operations, landlords can make a meaningful impact on the Growth Rate and therefore values.</p>
+    <p>Granted, the current valuation methods don’t recognize the additional Net Operating Income and there is a risk that the additional Net Operating Income and increased Growth could be offset by the market perceiving additional risk, thereby increasing the Risk Premium. But if valuations are down anyway, maybe it’s best to <a href="{{ url_for('get_blog_post', slug='prioritize-income-regardless-of-how-it-is-classified') }}">prioritize Net Operating Income over valuations</a> until the valuation methodology catches up?</p>
+    <p>An important note is that while the Risk Free Rate is indisputable and is instantly available on our phones and computers and Net Operating Income is an accounting fact, the Risk Premium and Growth Rates are both subjective and individual to each asset–it’s <b>market perception</b> that drives these two variables.</p>
+    <p>Consumers will hand beloved brands like Nike and Apple high margins compared with the competition. A portfolio of small tenants can have diversification effects that make being their landlord less risky than a single multinational tenant. Office investors need to demonstrate that while the overall market sentiment may be negative, their specific assets are producing cash flows that are safe and growing.</p>
+  </div>
+{% endblock %}

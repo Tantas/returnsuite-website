@@ -1,0 +1,82 @@
+{% extends "layout.html.jinja2" %}
+{% set page_title = 'Contact - ' + app_title %}
+
+{% block head_extra %}
+  <link rel="canonical" href="{{ url_for("get_contact") }}" />
+{% endblock head_extra %}
+
+{% block content %}
+  <section class="flex flex-col place-items-center pt-8 xl:pt-16 pb-12 bg-gray-100 w-full border-b-2">
+    <div class="mx-4 md:mx-12 xl:mx-32 xl:w-1/2 pb-6">
+      <h1 class="text-lg tracking-wider text-blue-500 uppercase">Reach Out</h1>
+      <h2 class="text-4xl font-bold">Contact ReturnSuite</h2>
+      <p class="py-4 leading-6 text-lg text-gray-900">
+        Having issues, general questions or just want to talk real-estate? We love hearing stories and insights into the industry and would be happy to find out how we could help.
+      </p>
+      {% if success != None %}
+        <div class="w-full pt-4">
+          <div class="flex flex-col place-items-center justify-center gap-6 text-gray-900 text-lg text-center bg-white rounded-lg border border-gray-400 p-12">
+            <svg class="inline-block h-40 text-green-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"></path>
+            </svg>
+            <h2 class="text-2xl font-medium">Message Sent!</h2>
+            <p class="max-w-prose lg:w-1/2">
+              Thank you for contacting us at ReturnSuite. Our team will get back to your request as soon as possible.
+            </p>
+            <a href="{{ url_for('get_index') }}" class="bg-blue-500 text-base tracking-wide text-white hover:bg-blue-600 rounded-md py-2 px-6 my-1 font-semibold">Back to Home</a>
+          </div>
+        </div>
+      {% else %}
+        <form class="w-full" method="post" action="{{ url_for('get_contact') }}">
+          <input type="hidden" id="timezone" name="timezone">
+          <script>
+            document.getElementById("timezone").value = Intl.DateTimeFormat().resolvedOptions().timeZone
+          </script>
+          <div class="flex flex-col gap-1.5 py-2">
+            <label for="subject" class="font-bold text-gray-700">Subject</label>
+            <div class="rounded-md bg-white overflow-hidden flex border border-gray-300">
+              <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                <input type="text" id="subject" name="subject" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="Looking for" value="{{ subject|default('', true) }}" required>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1.5 py-2">
+            <label for="name" class="font-bold text-gray-700">Name</label>
+            <div class="rounded-md bg-white overflow-hidden flex border border-gray-300">
+              <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                <input type="text" id="name" name="name" autocomplete="name" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="Full name" required>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1.5 py-2">
+            <label for="organization" class="font-bold text-gray-700">Organization (Optional)</label>
+            <div class="rounded-md bg-white overflow-hidden flex border border-gray-300">
+              <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                <input type="text" id="organization" name="organization" autocomplete="organization" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="Company name">
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1.5 py-2">
+            <label for="email" class="font-bold text-gray-700">Email</label>
+            <div class="rounded-md bg-white overflow-hidden flex border border-gray-300">
+              <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                <input type="email" id="email" name="email" autocomplete="email" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="email@company.com" required>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1.5 py-2">
+            <label for="message" class="font-bold text-gray-700">Message</label>
+            <div class="rounded-md bg-white overflow-hidden border border-gray-300">
+              <textarea id="message" name="message" class="w-full bg-transparent p-4 border-l-2 border-blue-500 font-normal text-gray-800 placeholder-gray-500 text-gray-500 font-medium" rows="5" placeholder="We are ..." autofocus required></textarea>
+            </div>
+          </div>
+          <div class="pt-2">
+            <button type="submit" class="bg-blue-500 text-base tracking-wide text-white hover:bg-blue-600 rounded-md py-2 px-6 my-1 font-semibold">
+              Submit
+            </button>
+          </div>
+        </form>
+      {% endif %}
+    </div>
+  </section>
+{% endblock content %}

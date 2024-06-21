@@ -1,0 +1,90 @@
+{% extends "blog/layout.html.jinja2" %}
+
+{% block blog_post %}
+  <div>
+    <p><i>Can the insurance industry offer commercial real estate a path to wide-spread adoption of flexible leasing?</i></p>
+
+    <h2>Dude, Where’s My Car?</h2>
+    <p>Last summer while visiting friends in Montreal, our brand-new car disappeared. At first, I thought I had misread the notoriously complicated Montreal parking signs and it had been towed, but it turned out our car had been stolen.</p>
+    <p>I have a weird fascination with insurance, especially around how it’s priced, so the experience was interesting. Since insurance companies would go out of business if they make a habit of paying out more in claims than they collect, insurance costs are a good proxy for risk. Insurance companies price a lot of surprising things: celebrity body parts, chef taste buds, hole-in-one golf prizes. So how does flexible leasing look through the lens of insurance?</p>
+    <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
+      <img src="{{ url_for('img', path='/blog/2023-11-14/no-parking-alien-abduction.png') }}" alt="No parking, alien abduction" class="rounded-md shadow-sm w-2/3 lg:w-1/2">
+      <figcaption class="text-gray-700">No parking, alien abduction</figcaption>
+    </figure>
+    <p>It turns out car theft is surprisingly common in central Canada. For insurance companies, that’s a useful thing–if something is common, it becomes predictable and is therefore easy to price.</p>
+    <p>Pricing against car theft is just a matter of knowing the odds of it happening, then spreading the risk over thousands of policyholders. The number of cars being stolen each day might vary, but the law of large numbers is on your side and the annual number of thefts will fall within a very narrow distribution.</p>
+    <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
+      <img src="{{ url_for('img', path='/blog/2023-11-14/car-theft-distribution.jpg') }}" alt="Sample car theft distribution" class="rounded-md w-2/3 lg:w-1/2">
+      <figcaption class="text-gray-700">Sample car theft distribution</figcaption>
+    </figure>
+    <p>On the other end of the risk spectrum are catastrophic events–rare disasters like earthquakes or storms so bad, they're given a name, which have the potential for giant losses. A single natural disaster, however unlikely, might destroy tens of thousands of cars in a single day instead of the daily drip-drip-drip of car theft.</p>
+    <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
+      <img src="{{ url_for('img', path='/blog/2023-11-14/dual-peak-distribution-car-losses.png') }}" alt="Sample car theft dual peak distribution" class="rounded-md w-2/3 lg:w-1/2">
+      <figcaption class="text-gray-700">Sample car theft dual peak distribution</figcaption>
+    </figure>
+    <p>These risk profiles are often referred to as “fat-tail” events because of the potential for disastrous results in the tail ends of the distribution.</p>
+
+    <h2>Catastrophe Bonds</h2>
+    <p>One way insurance companies protect themselves against catastrophic losses is transfering a piece of the risk to investors by selling Catastrophe Bonds (Cat Bonds).</p>
+    <p>Cat Bonds are sold like any other financial instrument to institutional investors, and the basic mechanics are a lot like regular insurance, just on a larger scale. An insurance company that wants to offload some risk will sell a Cat Bond that promises regular payments to the investor over the term of the bond. In return, the investor must set aside money to help cover damages in the event there is a big claim during that time.</p>
+
+    <h2>Cat Bonds in Action</h2>
+    <p>In June 2023, the <a target="_blank" href="https://www.linkedin.com/company/vermont-mutual-insurance-group/">Vermont Mutual Insurance Group</a> issued a four year, $100 million dollar Catastrophe Bond to offset a portion of their risk, which is concentrated in the US Northeast. Here are the pertinent details:</p>
+    <p>The bond insures 20% of the losses exceeding $450m from storms, earthquakes, severe weather and fires. The $450m is essentially the deductible. Only once losses from a qualified event exceed $450m will the bond-holder begin to lose their principal amount. If Vermont Mutual suffers more than $950m, the bond will be exhausted and the investor will have lost their entire $100m investment.</p>
+    <p>Vermont Mutual’s Cat Bond was sold at a 4.5% premium over the risk-free rate, likely the one-year treasury bond, which was trading at approximately 5.25%. So the first coupon (essentially the insurance premium) paid to the investor was 9.75% ($9.75m).</p>
+    <p>An interesting feature of Cat Bonds is that the bond issuer shares with potential investors the underlying model used to determine its risk. For the Vermont Mutual Cat Bond, the risk modeling was done using <a target="_blank" href="https://www.linkedin.com/company/verisk-extreme-event-solutions/">AIR Worldwide–financial</a> modeling software which combines the latest geological/weather data with the specifics of the insured assets in the Vermont Mutual portfolio.</p>
+    <p>The software used by Vermont Mutual determined the annual average loss to be 1.203% per year. This indicates the Cat Bond will pay an expected net return of 8.047% (9.25% coupon payment minus the annual expected loss of 1.203%).</p>
+    <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
+      <img src="{{ url_for('img', path='/blog/2023-11-14/cat-bond-losses-distribution.jpg') }}" alt="Catastrophy bond losses distribution" class="rounded-md w-2/3 lg:w-1/2">
+      <figcaption class="text-gray-700">Catastrophy bond losses distribution</figcaption>
+    </figure>
+    <p>However, the returns are quite variable. Vermont Mutual’s model also indicates that the odds of a claim against the bond to be 1.783%. Put another way, the model calculates the odds of the bond-holder getting their entire $100m back at the end of the four years is almost 93%, BUT for the 7% of the time there is a claim, the bond-holder can expect to lose about two-thirds of their investment!</p>
+
+    <h2>Adopting the Cat Bond Concept</h2>
+    <p>Cat Bonds allow insurance companies to service their market and offset the concentrated risks from meeting local demand. If Vermont Mutual couldn't offset some of the fat tail risk, they’d need to limit their sales. Imagine an insurance company not being able to sell car insurance to you because they had already insured too many of your neighbours.</p>
+    <p>This sounds similar to the position Landlords find themselves in–limiting flexible leasing options, despite their popularity, because the Landlord can only absorb a limited amount of flexible leasing risk themselves. Could the office industry borrow the concept of Catastrophe Bonds from the insurance industry to help solve this mismatch between what customers are demanding and landlords are able to supply?</p>
+    <p>Landlords who begin to offer flexible forms of real estate create more volatile cash flows. Even if those fat tails aren’t as extreme as the outcomes that inspired Cat Bonds, typical real estate investors and lenders are looking for traditional leases with smoother cash flows.</p>
+    <p>Is it possible for a third party to step into the equation and relieve some of that risk for a fee? How might that work?</p>
+    <p>One option would be for somebody to  take the upside from one tail in exchange for the risk in the other tail. But there might be a way to create a bond-like product in real estate that mirrors the benefits of a Cat Bond more closely.</p>
+    <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
+      <img src="{{ url_for('img', path='/blog/2023-11-14/trading-tails.gif') }}" alt="Trading tails" class="rounded-md w-2/3 lg:w-1/2">
+      <figcaption class="text-gray-700">Trading tails</figcaption>
+    </figure>
+
+    <h2>The VIP Bond</h2>
+    <p>I am not aware of any insurance that covers the risk of drops in the overall flexible lease market, but let’s call this potential product a Variable Income Protection (VIP) Bond. I could imagine VIP Bonds working something like this:</p>
+    <p>In our scenario, we have a Landlord who wants to buy a 200,000 sf Class B office property in Chicago’s Fulton Market area. The property requires repositioning. Seeing the growing trend towards coworking, they want 50% of the building to be cowork space and decide the best way to do this is through a management agreement with an established cowork operator.</p>
+    <p>But here’s the rub: Their usual lenders will never agree to finance a project so heavily reliant on non-traditional leasing. While the Landlord may expect the cowork portion of the building to earn $650,000 per month, <a target="_blank" href="https://www.linkedin.com/posts/sam-gamble-rs_it-was-interesting-to-see-the-discussions-activity-7008408607901818880-uxKy">the lenders just see additional risk</a>. They would rather see a traditional, long-term lease at the current market rate of $42 psf, providing them with a predictable $350,000 per month to lend against.</p>
+    <p>But our landlord is determined that the market wants cowork space. To satisfy their lender’s risk requirements, they decide to sell a VIP Bond.</p>
+    <p>Just as Vermont Mutual found a Cat Bond buyer to offset risk, our Landlord finds an investor to buy a five-year VIP Bond, thereby smoothing out the Landlord’s income.</p>
+    <p>The investor is willing to cover up to 50% of any operating revenues short of the lender’s $350,000 per month expectations, so they set aside $10,500,000 to cover the maximum potential claim. In exchange for this insurance, the Landlord agrees to pay the Investor 1% ($105,000) of that emergency fund per month.</p>
+    <p>Like Vermont Mutual’s Cat Bond, the VIP Bond needs a trigger, but rather than it being an earthquake or named storm, the claim is triggered when a defined Chicago cowork market index falls below a set threshold.</p>
+    <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
+      <img src="{{ url_for('img', path='/blog/2023-11-14/after-insurance-landlord-revenue-distribution.gif') }}" alt="Landlord risk profile, before and after a VIP Bond" class="rounded-md w-2/3 lg:w-1/2">
+      <figcaption class="text-gray-700">Landlord risk profile, before and after a VIP Bond</figcaption>
+    </figure>
+    <p>The Landlord now has a much tighter distribution of potential outcomes, having traded a portion of the upside for protection against the downside tail. If a market-wide downturn in cowork space occurs AND the operator cannot maintain revenue levels above that of a traditional lease, 50% of the losses are covered by our Investor.</p>
+
+    <h2>What the Real Estate Market Needs</h2>
+    <p>The VIP Bond would allow landlords and operators a way to meet the emerging market demand in the office sector while still providing investors and lenders with the risk-return profiles they expect.</p>
+    <p>For the VIP market to develop, we’ll need three things:</p>
+    <ol class="flex flex-col gap-2 ml-6 list-decimal text-gray-800 leading-7 text-lg font-medium">
+      <li>In order to price the market risk, we’ll need robust indices to be developed. The indices will need to be transparent, well maintained and built from reliable data. This role will likely be played by companies like <a target="_blank" href="https://www.linkedin.com/company/costar-group/">Costar</a> or the <a target="_blank" href="https://www.linkedin.com/company/instant/">Instant Group</a>.</li>
+      <li>To price the individual risk, we’ll need rich historical sources of data from individual operators. This will require relatively granular data. The most likely source for this data will be the operating platforms like <a target="_blank" href="https://www.linkedin.com/company/officernd/">OfficeRnD</a>, <a target="_blank" href="https://www.linkedin.com/company/nexudus/">Nexudus</a> and <a target="_blank" href="https://www.linkedin.com/company/equiem/">Equiem</a>.</li>
+      <li>And finally, the market needs financial modeling software that can determine both the risk and the returns of non-traditional real estate. This is what we are developing at ReturnSuite–tools that help landlords, operators, investors and lenders understand the shape of their risk (which explains our logo).</li>
+    </ol>
+    <figure class="flex flex-col place-items-center justify-center gap-2 py-8">
+      <img src="{{ url_for('img', path='/returnsuite-logo.svg') }}" alt="ReturnSuite logo" class="rounded-md w-2/3 lg:w-1/2">
+      <figcaption class="hidden">ReturnSuite logo</figcaption>
+    </figure>
+
+    <h2>Ignorance is Bliss?</h2>
+    <p>I often think about how <a target="_blank" href="https://www.linkedin.com/in/drorpoleg/">Dror Poleg</a> framed the risk facing the office sector way back in 2020 on Season 1 of the <b>#WorkBold</b> podcast with <a target="_blank" href="https://www.linkedin.com/in/calebparker/">Caleb Parker</a>:</p>
+    <blockquote class="px-6 sm:px-16">
+      <p>"WeWork became some sort of boogie-man. People blame WeWork for the new risk, blame WeWork for the new flexibility, blame WeWork for the experiments they’ve been running. While some of them have been misguided, I think ultimately WeWork is basically taking on risk that belonged to the landlords, it didn't create risk."</p>
+    </blockquote>
+    <p>So while a thriving VIP Bond market is likely never to arrive, Dror’s point is important–the <b>new risk profile is already here</b>.</p>
+    <p>It turns out a car is stolen every six minutes in Canada–what I assumed was an extremely rare event is actually pretty common. Luckily theft is just one of the coverages in a general auto insurance policy. But having coverage of a fat tail event was just luck on my part.</p>
+    <p>Not knowing about a risk doesn't mean it doesn't exist–someone is always holding the fat tail risk–whether it's car theft, a drop in demand for traditional leases or income volatility from coworking, the risk exists. Even if you can’t yet buy insurance against the risk, shouldn’t we be striving to know how much of it we’re taking on?</p>
+  </div>
+{% endblock %}

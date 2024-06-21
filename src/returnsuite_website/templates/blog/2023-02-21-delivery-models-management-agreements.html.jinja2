@@ -1,0 +1,61 @@
+{% extends "blog/layout.html.jinja2" %}
+
+{% block blog_post %}
+  <div>
+    <img itemprop="image" src="{{ url_for('img', path=post.teaser_image.url) }}" alt="{{ post.teaser_image.alt }}" class="w-full border rounded-md md:shadow-md">
+    <p>While most landlords acknowledge the growing demand for flexible leasing and Space-as-a-Service (SPaaS), providing enough supply is tough within the current ecosystem. One of the main holdups in growing the supply of flexible leasing and SPaaS is finding a business model that can satisfy the flexibility that the market demands while providing the stable income that real estate investors and lenders desire.</p>
+    <p>Landlords and operators have developed a variety of business models to try to thread this needle, which I place into three general categories:</p>
+    <ul class="flex flex-col gap-2 pl-6 list-disc text-gray-700 leading-7 text-lg">
+      <li><b class="text-gray-800"><a href="{{ url_for('get_blog_post', slug='delivery-models-lease-arbitrage') }}">Lease Arbitrage</a></b>: A specialized operator enters into a long-term lease agreement with a Landlord and then subleases portions of the space, usually under more flexible terms.</li>
+      <li><b class="text-gray-800">Management Agreement</b>: A specialized operator partners with the Landlord to deliver SPaaS to customers.</li>
+      <li><b class="text-gray-800"><a href="{{ url_for('get_blog_post', slug='delivery-models-owner-operator') }}">Owner-Operator</a></b>: A Landlord develops and operates an in-house team to deliver SPaaS.</li>
+    </ul>
+    <p>Until late last year, I was a partner in a real estate company that repositioned commercial properties using flexible leasing. During my decade as a partner, we ended up experimenting with all three business models to grow our portfolio and I thought I’d share some of my thoughts and experiences with the management agreement model.</p>
+
+    <h2>Captured Investors</h2>
+    <p>It took us about a year, but we had nailed down a flexible leasing product that could outperform a traditional, fully leased property by approximately 40%. Our market was oversupplied with new office buildings coming online, resulting in a lot of underperforming Class C properties. We saw an opportunity for a double upside—buying struggling properties and exceeding the perceived maximum NOI through our flexible leasing model.</p>
+    <p>Our plan was fairly simple: buy discounted properties, reposition with flex, increase the NOI, and refinance so we could replay the plan on the next property. Rinse & repeat.</p>
+    <p>Unfortunately, even though we succeeded with the repositioning, we couldn't move valuations or get favourable financing terms, which left us looking for outside equity.</p>
+    <p>In very general terms, to raise equity, we needed to:</p>
+    <ol class="flex flex-col gap-2 ml-6 list-decimal text-gray-800 leading-7 text-lg font-medium">
+      <li>Find someone with money</li>
+      <li>Convince them to invest in an underperforming property in a weak market</li>
+      <li>Convince them that our repositioning strategy will work</li>
+    </ol>
+    <p>Unsurprisingly, finding investors was difficult. We were in a tertiary market and most local investors/business owners were looking to move money into the capital markets, not double down on illiquid assets in the local market. Enter the Management Agreement model. It eliminated the first two hurdles in raising equity—we had investors that were already invested in underperforming real estate. We were showing up with a solution to their problems rather than trying to convince investors to jump into a problem with us.</p>
+    <p>The management agreement model worked quite well for us. We signed our first agreement during Covid and we were able to stabilize the property within six months. We also sold one of our fully flexible properties to a group that wanted to partially owner-occupy a property while a long-term management agreement governed the non-owner-occupied portion of the building.</p>
+    <p>The downside was that we didn't have exposure to asset appreciation (which wasn't happening anyway), but we could grow our portfolio and earn revenues without diluting our equity or taking on additional debt.</p>
+
+    <h2>Management Agreements - Imagineering Time</h2>
+    <p>Management Agreements can reflect whatever terms the operator and landlord can imagine, so the range of possibilities is huge. On the spectrum of options, they could resemble something close to the Lease Arbitrage model with terms that mirror a retail lease with low base rent and high percentage rent. On the other side of the spectrum, a management agreement might look like a minority investment in the building itself with shared revenues and returns on capital expenditures.</p>
+    <p>Because the Management Agreement can essentially reflect anything, my suggestion is that Landlords begin by deciding how they want their property to operate. It can be tempting to see it as a solution for only a portion of a property, but make sure the entire operation of the property is considered.</p>
+    <p>For example, with one of our management agreements, we had inadvertently set up a situation where we were unknowingly competing against our own landlord for the same tenant. We ended up losing to our landlord, but if we had won the bid, both we and the landlord would have earned more money.</p>
+    <p>With a clear idea of how the landlord wants the property to operate and the split between traditional and flexible leasing components, the management agreement can be developed. It should outline the responsibilities, align incentives, and determine the split and priority of cash flows.</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md" src="{{ url_for('img', path='/blog/2023-02-21/revenue-split-between-landlord-and-operator.gif') }}" alt="Potential split of revenue between a Landlord and Operator">
+      <figcaption class="text-gray-700">Potential split of revenue between a Landlord and Operator</figcaption>
+    </figure>
+
+    <h2>Risk-Reward</h2>
+    <p>Ultimately, regardless of the terms of the management agreement, the underlying cash flows produced by the property should be the same–the main question is how the landlord and operator are going to split the cash flows (and in what order of priority). This is especially important to the landlord who also has to consider how the agreement will be perceived by lenders, valuers and, potentially, future buyers of the property.</p>
+    <p>A large property might have coworking, meeting rooms and flexible office spaces and services ranging from a cafe, catering, a concierge, a gym and dry cleaning. For each of these components, the management agreement could split revenues, expenses, and capital investments differently, creating a complicated financial arrangement that is difficult to financially model (and value).</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md sm:w-4/5" src="{{ url_for('img', path='/blog/2023-02-21/sample-split-of-revenues-in-a-management-agreement.png') }}" alt="Sample split of revenues and expenses on a more complex management agreement">
+      <figcaption class="text-gray-700">Sample split of revenues and expenses on a more complex management agreement</figcaption>
+    </figure>
+
+    <p>A key factor in success for both landlords and operators is to understand the financial model and to identify the risks each is accepting. Ideally they stress-test the financial model against a wide range of scenarios, not just the single outcome produced by Discounted Cash Flow models.</p>
+    <p>Using modern, probabilistic financial modeling tools like <a target="_blank" href="{{ url_for('get_about') }}">risk-adjusted NPV</a> landlords and operators can more fully understand the risk-return trade-offs of their management agreement, complementing the traditional Discounted Cash Flow methods that are currently used.</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md sm:w-2/3" src="{{ url_for('img', path='/landing/modern-tools.webp') }}" alt="Modern, probabilistic financial modeling tools">
+      <figcaption class="text-gray-700">Modern, probabilistic financial modeling tools</figcaption>
+    </figure>
+
+    <h2>Management Agreements - Keys to Success</h2>
+    <p>Management agreements are an incredibly flexible tool for landlords and operators to deliver flexible leasing and SPaaS in a comprehensive manner, but the financial relationship does become much harder to model and value.</p>
+    <p>For operators, management agreements can be a way to build a portfolio without needing to raise (as much) equity, especially if you partner with landlords who want or need a partner to revitalize an underperforming property.</p>
+    <p>For landlords who are considering management agreements, it is important to start with an end point in mind. Operationally, the landlord should have a clear vision on how the property will operate with multiple stakeholders managing components of the property. Financially, the landlord needs to understand how the management agreement could affect financing and a potential sale in the future.</p>
+    <p>Both landlords and operators need to put a lot of thought into crafting the management agreement, ensuring incentives are lined up with the intended direction.</p>
+    <p>And finally, both operators and landlords need to have a clear understanding of the financial model, including stress-testing the model against a wide range of scenarios.</p>
+  </div>
+{% endblock %}

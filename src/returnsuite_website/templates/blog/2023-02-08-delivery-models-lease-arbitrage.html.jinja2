@@ -1,0 +1,48 @@
+{% extends "blog/layout.html.jinja2" %}
+
+{% block blog_post %}
+  <div>
+    <img itemprop="image" src="{{ url_for('img', path=post.teaser_image.url) }}" alt="{{ post.teaser_image.alt }}" class="w-full border rounded-md md:shadow-md">
+    <p>The biggest bottleneck in the rapid growth of flexible leasing and Space-as-a-Service (SPaaS) is new supply. We know tenants are demanding flexible leases and additional services, but many landlords, investors and lenders are unsure how to account for the more volatile income that comes with shorter lease commitments. To get around this road block, a variety of business models have cropped up, and most of them fall into one of three broad categories:</p>
+    <ul class="flex flex-col gap-2 pl-6 list-disc text-gray-700 leading-7 text-lg">
+      <li><b class="text-gray-800">Lease Arbitrage</b>: A specialized operator enters into a long-term lease agreement with a landlord and then subleases portions of the space, usually under more flexible terms. WeWork and IWG plc both utilize this model.</li>
+      <li><b class="text-gray-800"><a href="{{ url_for('get_blog_post', slug='delivery-models-management-agreements') }}">Management Agreements</a></b>: A specialized operator partners with the landlord to deliver SPaaS to customers. Examples of this model include NewFlex and Industrious.</li>
+      <li><b class="text-gray-800"><a href="{{ url_for('get_blog_post', slug='delivery-models-owner-operator') }}">Owner-Operator</a></b>: A landlord develops and operates an in-house team to deliver SPaaS. Examples of the owner-operator model include <a target="_blank" href="https://www.linkedin.com/company/the-sq/">THE SQ</a> (Hines owned and operated) and Hines Squared (management agreement-style brand).</li>
+    </ul>
+    <p>In my previous life as a flexible real estate owner, my partners and I experimented with all three SPaaS delivery models. Each model had its benefits and limitations, so I thought I’d share with you our experiences and highlight some of the incentives and dynamics that we discovered. In this week’s newsletter, I’ll focus on the Lease Arbitrage model.</p>
+
+    <h2>Experience as an Operator</h2>
+    <p>Around 2018, we realized that some of our non-local office tenants also needed seasonal staff housing. To capitalize on the opportunity, we began leasing residential units to quickly build out a short-term residential business that complemented our flexible office business.</p>
+
+    <h3>Operations & Cost Control</h3>
+    <p>What quickly became apparent to us is that under the Lease Arbitrage model, there’s only one way for us to make money: operating profits.</p>
+    <p>Being a good operator is key to this model and it felt like a high wire act. We could earn premium revenues…most of the time. But the high fixed costs made vacancy periods punishing. Often customers would want to change their length of stay and we had to scramble behind the scenes. For a company used to month-to-month style flexible office leasing in properties we owned, this was a shift.</p>
+    <p>From the operator point of view, the economics of the Lease Arbitrage model behave like industries that have high fixed costs and use a lot of leverage. Take the airline business: running near (or even over capacity) is key since the cost of an empty seat is almost the same as an occupied seat.</p>
+    <p>I could see how a lot of WeWork’s early success could be attributed to their early site selection of affordable Class C buildings. Earning premium rents by adding community, density, flexibility and services is much easier when the underlying cost structure is lower and it became much tougher when they moved into Class A sites. It was hard to earn a premium over what were already high-end rents.</p>
+    <p>I can also see how experienced operators like IWG/Regus can utilize this model effectively.</p>
+
+    <h3>Capital Expenditures</h3>
+    <p>Ideally an operator will keep their capital expenditures low as well. In our case we were operating short-term residential, so there were virtually no improvements needed.</p>
+    <p>Each residential unit was inexpensive to equip, allowing us to spin up new units easily as demand increased. Also, because we didn't need to buy the units, our capital requirements for adding new supply were extremely low. In fact, the fitouts were so low that we treated them as expenses and paid for them out of working capital.</p>
+    <p>Office space is much harder to launch than short-term residential, so reducing the capital costs of office fit outs will require one of two things:</p>
+    <ol class="flex flex-col gap-2 ml-6 list-decimal text-gray-900 leading-7 text-lg">
+      <li>Large tenant improvement contributions from landlords, which will likely need to be recaptured through higher rents, or</li>
+      <li>Taking over spaces that require little investment, which requires careful due diligence</li>
+    </ol>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 py-6">
+      <img class="rounded-md sm:w-2/3" src="{{ url_for('img', path='/blog/2023-02-08/lease-arbitrage-model-operator-perspective.png') }}" alt="Lease arbitrage model - Operator perspective">
+      <figcaption class="text-gray-700">Lease arbitrage model - Operator perspective</figcaption>
+    </figure>
+
+    <h2>Landlord Perspective</h2>
+    <p>When a landlord signs a lease with a business, they are essentially investing in that business. If a landlord leases to a business that is taking on a lot of business risk, the landlord is ultimately exposed to that risk as well. So while the Lease Arbitrage model might provide some surface level comfort for a landlord, ultimately the risk is just being pushed below the surface.</p>
+    <p>However, the Lease Arbitrage model does provide an important benefit for landlords: the 3rd party relationship acts as a form of credit laundering. It is an easy way to add flexible leasing and SPaaS to a property without upsetting the lending and valuation ecosystem.</p>
+    <p>Landlords usually want to minimize their contributions to tenant improvements and free rent periods. The worry is that an operator uses the landlord contributions to subsidize their operations with no realistic pathway to becoming profitable–in essence just converting landlord capex into operator profits</p>
+    <p>A landlord should also consider the value of the improvements in the event of a default. The improvements should be attractive to other potential tenants so the space can be quickly turned over with minimal further investment.</p>
+    <p>Landlords should also make sure they understand the operator’s financial model and understand the potential risks. Ideally the landlord requires regular reporting to monitor the operator’s financial health. Without this understanding, the business is a black box and if there is a default, it’ll be sudden and catch the landlord off guard.</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 py-6">
+      <img class="rounded-md sm:w-2/3" src="{{ url_for('img', path='/blog/2023-02-08/lease-arbitrage-model-landlord-perspective.png') }}" alt="Lease arbitrage model - Landlord perspective">
+      <figcaption class="text-gray-700">Lease arbitrage model - Landlord perspective</figcaption>
+    </figure>
+  </div>
+{% endblock %}

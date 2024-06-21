@@ -1,0 +1,22 @@
+<div class="bg-gray-100 border-b-2 pt-16 pb-12 flex flex-col place-items-center">
+  <div class="px-4 flex flex-col place-items-center text-center md:text-left gap-4 md:mx-8 xl:mx-32 xl:w-1/2">
+    {% if signup_enabled %}
+      <p class="leading-6 text-lg text-gray-900">
+        Try it out today! Make an account, step through a free sample property and view reports. Get started with your own data anytime to see if it is the right solution for your business.
+      </p>
+      <div class="flex place-items-center justify-center md:justify-start gap-3 py-2 text-lg w-full">
+        <a href="{{ app_website }}/signup" class="text-center bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 hover:border-blue-600 rounded-md py-3 md:py-2 px-6 font-semibold whitespace-nowrap sm:w-auto shadow-sm">Sign Up</a>
+        <a href="{{ url_for('get_view_demo') }}" class="text-center  border-2 rounded-md border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600 font-semibold px-6 py-3 md:py-2 whitespace-nowrap sm:w-auto shadow-smo">View Demo</a>
+      </div>
+    {% else %}
+      <p class="leading-6 text-lg text-gray-900">
+        ReturnSuite isn't quite ready yet. Join the waitlist to help us build the modern CRE asset management solution for your business.
+      </p>
+      <p class="leading-6 text-lg text-gray-900">— We cannot wait for you to try it out!</p>
+      <div class="flex flex-col sm:flex-row place-items-center justify-center gap-3 py-2 text-lg w-full">
+        <a href="{{ url_for('get_index') }}#Request-Early-Access" class="text-center bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 hover:border-blue-600 rounded-md py-3 md:py-2 px-6 font-semibold whitespace-nowrap w-full sm:w-auto shadow-sm">Join the Waitlist</a>
+        <a href="{{ url_for('get_contact') }}" class="text-center  border-2 rounded-md border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600 font-semibold px-6 py-3 md:py-2 whitespace-nowrap w-full sm:w-auto shadow-sm">Contact Us</a>
+      </div>
+    {% endif %}
+  </div>
+</div>

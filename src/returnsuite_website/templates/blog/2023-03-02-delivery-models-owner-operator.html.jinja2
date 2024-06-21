@@ -1,0 +1,59 @@
+{% extends "blog/layout.html.jinja2" %}
+
+{% block blog_post %}
+  <div>
+    <img itemprop="image" src="{{ url_for('img', path=post.teaser_image.url) }}" alt="{{ post.teaser_image.alt }}" class="w-full border rounded-md md:shadow-md">
+    <p>Until late last year, I was a partner in a real estate company. We had accumulated some commercial units from a couple of mixed-use condominium conversions and our original plan was to sell those units. When we found ourselves in a weak market, out of necessity we basically fell into an alternative plan of flexible leasing. Luckily we had some early operational success, so our strategy shifted from redevelop-sell to redevelop-hold and we began to focus on repositioning commercial properties using flexible leasing.</p>
+    <p>However, we ran into financing and valuation issues. When a building’s net operating income (NOI) improves, its value goes up, and that should be recognized by the banks. But despite growing NOI by 40%, we couldn't move valuations or finance against the improved income. At first, I attributed it to the peculiarities of our local market, but slowly it dawned on us—this is a global issue.</p>
+    <p>The twin issues of financing and valuations have created a mismatch between what the market is demanding (more flexibility & more services) and what the market can supply. A variety of business models have been developed to solve the demand-supply mismatch, which I place into three general categories:</p>
+    <ul class="flex flex-col gap-2 pl-6 list-disc text-gray-700 leading-7 text-lg">
+      <li><b class="text-gray-800"><a href="{{ url_for('get_blog_post', slug='delivery-models-lease-arbitrage') }}">Lease Arbitrage</a></b>: A specialized operator enters into a long-term lease agreement with a Landlord and then subleases portions of the space, usually under more flexible terms.</li>
+      <li><b class="text-gray-800"><a href="{{ url_for('get_blog_post', slug='delivery-models-management-agreements') }}">Management Agreement</a></b>: A specialized operator partners with the Landlord to deliver SPaaS to customers.</li>
+      <li><b class="text-gray-800">Owner-Operator</b>: A Landlord develops and operates an in-house team to deliver SPaaS.</li>
+    </ul>
+    <p>We knew we could successfully deliver flexible leasing, so to increase our supply we tried variations of all three business models. Deep down we wanted to be an Owner-Operator because the idea of improving values and owning the asset appealed to us. But real estate is a capital hog and it takes a lot of capital to build out a portfolio with network effects.</p>
+    <p>We eventually found some success with financing. Here are some of my thoughts, along with some strategies that might help others facing the same issues.</p>
+
+    <h2>Chicken or a Pig?</h2>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center justify-center gap-2 pt-2 sm:w-2/5 sm:float-right">
+      <img class="rounded-md w-2/3 sm:w-full" src="{{ url_for('img', path='/blog/2023-03-02/chicken-and-pig-sitting-down-at-a-cafe.png') }}" alt="Chicken and pig sitting down at a cafe.">
+      <figcaption class="text-gray-700 text-center">Chicken and pig discussing involvement at a cafe.</figcaption>
+    </figure>
+    <p>In <a target="_blank" href="https://www.linkedin.com/in/antonyslumbers/">Antony Slumbers’</a> seminal <a target="_blank" href="https://www.propmodo.com/space-as-a-service-the-trillion-dollar-hashtag/">Trillion Dollar Hashtag</a>, he asks landlords if they want to be the chicken or the pig in a ham and egg sandwich as a way to illustrate the difference between involvement and commitment in the future of real estate. Antony stresses that there is no wrong answer, but switching from a traditional landlord to a space-as-a-service provider requires the switch from being involved like the chicken to being fully committed to the sandwich like the pig.</p>
+    <p>Building a brand, engaging constantly with customers, reducing customer frictions—the change in mindset and operations is often compared to becoming more like a hotel brand than a traditional landlord. But by switching from traditional leasing to the Owner-Operator model, a landlord also needs to become a pig on the financial side.</p>
+
+    <p>The commercial real estate industry has been optimized for investors and lenders looking for a specific risk-versus-return profile. By moving away from traditional leasing, the underlying risk-versus-return relationship will change, appealing to different investors and lenders.</p>
+
+    <h2>Landlord As Communicator</h2>
+    <p>The industry is at an inflection point where investors and lenders don’t yet have a handle on the new risk-return trade off, so one of the landlord’s new roles is understanding and communicating financial performance.</p>
+    <p>For us, this went as deep as reimagining our chart of accounts and recategorizing our revenues and expenses in a way that allowed us to not only demonstrate our financial performance, but provide investors and lenders a way to think of our operations, all within a familiar frame of reference. For example, in our financial statements, we had our accountants include a schedule that showed the Effective Base Rents from our operations:</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md sm:w-4/5" src="{{ url_for('img', path='/blog/2023-03-02/effective-base-rents-comparison.png') }}" alt="Effective base rents of traditional and SPaaS usage.">
+      <figcaption class="text-gray-700">Effective base rents of traditional and SPaaS usage.</figcaption>
+    </figure>
+
+    <h2>Creating an Investable Product</h2>
+    <p>My friend <a target="_blank" href="https://www.linkedin.com/in/peter-kallai-mba-pmp-53b48/">Peter Kallai, MBA, PMP</a> once said to me: remember, what you’re doing is creating an investable product. The idea was simple, but the shift in mindset was powerful. When presenting information to investors and lenders it’s tempting to focus on operational aspects, but demonstrating financial information in a format that is comparable to other investment (or lending) options is the goal—creating an investable product.</p>
+    <p>Publicly-traded REITs emphasize their investability, highlighting their core goals of increasing per unit Net Asset Value and growing distributions. However, the emphasis on valuations is compounding the issues created by the drop in demand for traditional leasing, creating a <a target="_blank" href="{{ url_for('get_blog_post', slug='office-tenure-squeeze') }}">squeeze on landlords</a>.</p>
+    <p>I think landlords need to accept that external valuation methods aren’t going to properly address flexible leasing and income from services anytime soon. For landlords facing a significant drop in demand for traditional leasing, the focus needs to switch to growing Net Operating Income (NOI) through flexible leasing and services.</p>
+    <p>Ultimately, a valuation should equal the capitalized value of all the future NOI, so eventually this will lead to higher valuations. Like managing your health with a temporarily broken bathroom scale, focus on exercise and calories; when the scale is eventually fixed, the number shouldn’t surprise you.</p>
+
+    <h2>From Stable Rent Roll to Stable Revenue</h2>
+    <p>With our flexible leasing portfolio, lenders always asked to see our rent roll. But with mostly month-to-month commitments, our rent roll was more of a snapshot and didn't provide predictive value with long contract lengths. The lenders’ real question was: how stable is your future revenue?</p>
+    <p>While we might not know what our tenant make-up would be at any point in the future, we could provide data that demonstrated that our income would fall in a fairly tight range. To do this, we provided our lender with multiple years of monthly operating revenue:</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md sm:w-4/5" src="{{ url_for('img', path='/blog/2023-03-02/revenue-by-month-example.png') }}" alt="Revenue by month example.">
+      <figcaption class="text-gray-700">Revenue by month example.</figcaption>
+    </figure>
+    <p>Although it was probably less effective, we also shared more detailed statistical information like the standard deviation on monthly revenue:</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md sm:w-4/5" src="{{ url_for('img', path='/blog/2023-03-02/revenue-summary-example.png') }}" alt="Revenue summary example.">
+      <figcaption class="text-gray-700">Revenue summary example.</figcaption>
+    </figure>
+    <p>We always ended up getting financing, but the debt-to-equity ratios and amortization terms weren't nearly as friendly as they would have been under traditional leasing.</p>
+
+    <h2>Summary</h2>
+    <p>By default, we tended to pursue the Owner-Operator model. We continually iterated on the operational side, but our biggest hurdle was always on the financing side. Our success revolved around providing financial information in a way that was easy to understand and in a language that was already being used by the real estate industry.</p>
+    <p>For landlords looking to pursue the Owner-Operator model, keep in mind that you’re the pig in the ham and egg sandwich. For the short-to-medium term this will mean accepting that valuations are unlikely to move. Focus on increasing NOI and present financial results that demonstrate the true risk-versus-return trade off when you need to access financing.</p>
+  </div>
+{% endblock %}

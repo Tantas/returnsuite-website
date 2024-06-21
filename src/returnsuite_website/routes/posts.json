@@ -1,0 +1,283 @@
+{
+  "articles": [
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Podcast",
+      "published": "2024-06-17",
+      "slug": "caleb-parker-show-podcast",
+      "title": "Podcast: The Caleb Parker Show",
+      "teaser": "In early June I had the opportunity to join Caleb Parker for a special episode of his podcast the Caleb Parker Show. We covered a wide range of topics, including the future of financing, valuations and the potential shift towards permanent capital in office real estate. We also chatted about my experience as a landlord, shifting from traditional office to Space-as-a-Service and the challenges with valuing and financing flex properties.",
+      "teaser_image": {
+        "alt": "Podcast: The Caleb Parker Show",
+        "url": "/blog/2024-06-17/caleb-parker-show-podcast.webp"
+      },
+      "content": "2024-06-17-caleb-parker-show-podcast.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Insights",
+      "published": "2024-03-28",
+      "slug": "investors-will-pay-for-two-things-safety-and-growth",
+      "title": "Investors Will Pay for Two Things: Safety and Growth",
+      "teaser": "Very few industries offer investors 20x multiples on earnings. Software is able to achieve high multiples through high levels of earnings growth, while real estate has offered investors bond-like safety. Office investors are currently facing a double headwind–not only has the Risk Free Rate increased, but market sentiment has also moved against offices. In order to stay in the 20x club, we need to re-look at what levers are available to us.",
+      "teaser_image": {
+        "alt": "A rocket ship taking off beside a secure safe.",
+        "url": "/blog/2024-03-28/balance-between-a-secure-investment-and-high-growth-opportunity.webp"
+      },
+      "content": "2024-03-28-investors-will-pay-for-two-things.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Insights",
+      "published": "2023-01-03",
+      "original_publish_url": "https://www.linkedin.com/pulse/preventable-accident-great-real-estate-opportunity-sam-gamble",
+      "slug": "preventable-accident-or-great-real-estate-opportunity",
+      "title": "Preventable Accident or Great Real Estate Opportunity?",
+      "teaser": "Under international accounting standards, how an asset is used can affect its valuations—as long as that use isn't unique. With Space-as-a-Service growing in popularity, we're risking disaster the longer we take to include it within the definition of 'Highest & Best Use'.",
+      "teaser_image": {
+        "alt": "Truck crashing into low clearance bridge spilling money.",
+        "url": "/blog/2023-01-03/truck-crashing-into-low-clearance-bridge-spilling-money.png"
+      },
+      "content": "2023-01-03-preventable-accident-or-great-real-estate-opportunity.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Insights",
+      "published": "2022-12-21",
+      "original_publish_url": "https://www.linkedin.com/pulse/what-offices-can-learn-from-hotels-sam-gamble",
+      "slug": "valuation-lessons-from-hotels",
+      "title": "Valuation Lessons from Hotels",
+      "teaser": "If higher service levels don't increase office building values, then why are full service hotels worth more than their limited service competitors?",
+      "teaser_image": {
+        "alt": "Grand hotel in a mountain setting.",
+        "url": "/blog/2022-12-21/grand-hotel-in-a-mountain-setting.png"
+      },
+      "content": "2022-12-21-what-offices-can-learn-from-hotels.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Insights",
+      "published": "2023-01-18",
+      "original_publish_url": "https://www.linkedin.com/pulse/office-tenure-squeeze-sam-gamble/",
+      "slug": "office-tenure-squeeze",
+      "title": "Office Tenure Squeeze",
+      "teaser": "Stuck between a market that is demanding flexible leases and an ecosystem that is optimized for traditional, long-term leasing, landlords are facing a potential market squeeze that will cause a large loss in value.",
+      "teaser_image": {
+        "alt": "Dejected traders after a market crash.",
+        "url": "/blog/2023-01-18/dejected-traders-after-market-crash.png"
+      },
+      "content": "2023-01-18-office-tenure-squeeze.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Insights",
+      "published": "2023-02-01",
+      "original_publish_url": "https://www.linkedin.com/pulse/two-paradigms-arbitrage-sam-gamble-1e/",
+      "slug": "profiting-from-the-tenure-squeeze",
+      "title": "Profiting From the Tenure Squeeze",
+      "teaser": "Flexible leasing entails a different method of calculating property values—and the investors who figure this out stand to profit while everyone else tries to catch up.",
+      "teaser_image": {
+        "alt": "A profitable trader during a market squeeze.",
+        "url": "/blog/2023-02-01/profitable-trader-during-a-market-squeeze.png"
+      },
+      "content": "2023-02-01-profiting-from-the-tenure-squeeze.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Insights",
+      "published": "2023-03-08",
+      "original_publish_url": "https://www.linkedin.com/pulse/prioritize-income-regardless-how-its-classified-sam-gamble",
+      "slug": "prioritize-income-regardless-of-how-it-is-classified",
+      "title": "Prioritize Income, Regardless of How it’s Classified",
+      "teaser": "With the paradigm shift in office demand and valuation methodologies lagging behind this new reality, investors are facing a tough balancing act–how much should they focus on valuation versus maintaining Net Operating Income levels?  While landlords understandably don’t want to hurt values and financeability in the short-run, Net Operating Income is what pays the bills and it has to be prioritized.",
+      "teaser_image": {
+        "alt": "An individual choosing between income streams.",
+        "url": "/blog/2023-03-08/individual-abstractly-choosing-income.webp"
+      },
+      "content": "2023-03-08-prioritize-income-regardless-of-how-its-classified.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Management",
+      "published": "2023-02-08",
+      "original_publish_url": "https://www.linkedin.com/pulse/delivery-models-lease-arbitrage-sam-gamble/",
+      "slug": "delivery-models-lease-arbitrage",
+      "title": "Delivery Models: Lease Arbitrage",
+      "teaser": "When you don't own the real estate and a large amount of your costs are fixed, it's a high wire act. Operating efficiency is the name of the game...for both the Operator and the Landlord. A deep dive into the first of three Space-as-a-Service delivery models: Lease Arbitrage.",
+      "teaser_image": {
+        "alt": "Delivery model selection: Lease Arbitrage",
+        "url": "/blog/2023-02-08/lease-arbitrage-model-selection.gif"
+      },
+      "content": "2023-02-08-delivery-models-lease-arbitrage.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Management",
+      "published": "2023-02-21",
+      "original_publish_url": "https://www.linkedin.com/pulse/delivery-models-management-agreements-sam-gamble",
+      "slug": "delivery-models-management-agreements",
+      "title": "Delivery Models: Management Agreements",
+      "teaser": "Management Agreements are growing in popularity, but does everyone truly understand the risks and rewards? By directly exposing Landlords to potentially volatile Space-as-a-Service income, having a strong financial model that accurately reflect the Management Agreement becomes key for both Landlords and Operators.",
+      "teaser_image": {
+        "alt": "Delivery model selection: Management Agreement",
+        "url": "/blog/2023-02-21/management-agreement-selection.gif"
+      },
+      "content": "2023-02-21-delivery-models-management-agreements.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Management",
+      "published": "2023-03-02",
+      "original_publish_url": "https://www.linkedin.com/pulse/delivery-models-owner-operator-sam-gamble/",
+      "slug": "delivery-models-owner-operator",
+      "title": "Delivery Models: Owner-Operator",
+      "teaser": "As the old joke goes, when it comes to a Ham & Egg sandwich, the Chicken is involved, but the Pig is committed. The Owner-Operator path is for Pigs only—delivering Space-as-a-Service yourself means fully committing to becoming an operating business. If done right, it'll mean higher profits, but expect valuations and financing to be an uphill battle.",
+      "teaser_image": {
+        "alt": "Delivery model selection: Owner Operator",
+        "url": "/blog/2023-03-02/owner-operator-model-selection.gif"
+      },
+      "content": "2023-03-02-delivery-models-owner-operator.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Video",
+      "published": "2023-05-04",
+      "slug": "landlords-are-facing-a-squeeze",
+      "title": "Landlords are Facing a Squeeze",
+      "teaser": "Stuck between tenants that are demanding short-term, flexible leases and a financing & regulatory system that demands long-term leases, landlords risk being forced to choose between two unprofitable decisions.",
+      "teaser_image": {
+        "alt": "Landlords are facing a squeeze.",
+        "url": "/blog/2023-05-04/video-thumbnail-landlords-are-facing-a-squeeze.webp"
+      },
+      "content": "2023-05-04-landlords-are-facing-a-squeeze.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Video",
+      "published": "2023-05-11",
+      "slug": "how-savvy-landlords-profit-squeeze",
+      "title": "How Savvy Landlord can Profit, While Others are Squeezed",
+      "teaser": "Office landlords are at risk of being squeezed. Tenants are demanding short-term, flexible leases but landlords are stuck in an ecosystem that demands long-term leases. It's a tough spot–but here is one way savvy landlords can still profit.",
+      "teaser_image": {
+        "alt": "How Savvy Landlord can Profit, While Others are Squeezed.",
+        "url": "/blog/2023-05-11/how-savy-landlords-can-profit-while-others-are-squeezed.webp"
+      },
+      "content": "2023-05-11-how-savvy-landlords-profit-squeeze.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Insights",
+      "published": "2023-01-25",
+      "original_publish_url": "https://www.linkedin.com/pulse/case-smaller-flexible-leases-sam-gamble/",
+      "slug": "case-for-smaller-flexible-leases",
+      "title": "The Case for Smaller, Flexible Leases",
+      "teaser": "Are small, flexible leases riskier? Diversification is a large advantage that is often overlooked.",
+      "teaser_image": {
+        "alt": "Diversification of a commercial real-estate building.",
+        "url": "/blog/2023-01-25/case-for-smaller-flexible-leases.webp"
+      },
+      "content": "2023-01-25-case-for-smaller-flexible-leases.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Video",
+      "published": "2023-04-28",
+      "slug": "valuers-are-dictating-value",
+      "title": "Valuers are Dictating Value",
+      "teaser": "In small commercial real estate markets, valuations can dictate sale prices rather than the other way around. Will this small market feature soon be coming to larger real estate markets?",
+      "teaser_image": {
+        "alt": "Valuers are dictating value.",
+        "url": "/blog/2023-04-28/valuers-are-dictating-value.webp"
+      },
+      "content": "2023-04-28-valuers-are-dictating-value.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Insights",
+      "published": "2023-11-14",
+      "original_publish_url": "https://www.linkedin.com/pulse/insurance-flex-sam-gamble-pyhkc/",
+      "slug": "what-flex-can-learn-from-insurance",
+      "title": "What Flex can Learn from Insurance",
+      "teaser": "Imagine not being able to get insurance for your car because too many of your neighbours had already gotten from the same local company. Why doesn't this happen? (new paragraph) This situation sounds similar to the position Landlords find themselves in—forced to limit flexible leasing options because they can only afford to absorb a limited amount of flexible leasing risk. Insurance companies this problem of concentrated risk by turning to the reinsurance market. Can Landlords do something similar?",
+      "content": "2023-11-14-what-flex-can-learn-from-insurance.html.jinja2"
+    },
+    {
+      "author": {
+        "name": "Sam Gamble",
+        "organization_title": "Founder / CEO",
+        "url": "https://www.linkedin.com/in/sam-gamble-rs"
+      },
+      "category": "Insights",
+      "published": "2023-11-10",
+      "original_publish_url": "https://www.linkedin.com/pulse/vacancy-speculative-suites-cost-tenant-turnover-sam-gamble-vceyc/",
+      "slug": "cost-of-tenant-turnover",
+      "title": "Vacancy, Speculative Suites & the Cost of Tenant Turnover",
+      "teaser": "Like plane flights, rental space is a perishable good–potential revenue lost forever and impossible to recapture. A deeper look at the cost of vacancy and speculative suites.",
+      "teaser_image": {
+        "alt": "Like plane flights, rental space is a perishable good–potential revenue is lost forever once it takes off.",
+        "url": "/blog/2023-11-10/vacancy-speculative-suites-and-cost-of-tenant-turnover.png"
+      },
+      "content": "2023-11-10-cost-of-tenant-turnover.html.jinja2"
+    }
+  ]
+}

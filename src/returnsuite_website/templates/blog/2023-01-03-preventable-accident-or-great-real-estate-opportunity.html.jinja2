@@ -1,0 +1,41 @@
+{% extends "blog/layout.html.jinja2" %}
+
+{% block blog_post %}
+  <div>
+    <img itemprop="image" src="{{ url_for('img', path=post.teaser_image.url) }}" alt="{{ post.teaser_image.alt }}" class="w-full border rounded-md md:shadow-md">
+    <h2>The Great Debate</h2>
+    <p>Space-as-a-Service (coworking, flexible leasing and other amenities) is a new delivery model in the office market, and we're still working on how far its implications reach. We cannot seem to agree, for instance, whether it should be included in the valuation of real estate. Would that be mixing up business with real estate value?</p>
+
+    <h2>Back to First Principles</h2>
+    <p>A key concept in determining the fair market value of an asset is <b>Highest and Best Use</b>. The basic idea is that all reasonably probable uses should be considered when valuing a property.</p>
+    <p>The underlying theory is that when potential users of a property bid up the price, the one who can use it most profitably—even if that use is different from its current use—will prevail.</p>
+    <p>In addition, <a target="_blank" href="https://www.ifrs.org/issued-standards/list-of-standards/ifrs-13-fair-value-measurement/#standard">the IFRS</a>, the international body setting accounting rules, allows for the complementary use of other assets in a valuation, just as long as they’re available to other <b>market participants</b>.</p>
+    <p>What does this mean on the ground? Let's say we want to determine the market value of an apartment building. We might find that the Highest and Best Use for the apartment would actually be as a long-term stay hotel. Even though the property is not a hotel, it can be valued as a hotel since that's within the list of probable uses.</p>
+    <p>To convert from an apartment to a hotel, we'd need some complementary assets like furniture, bedding and kitchen equipment, all of which are available to other market participants.</p>
+    <p>Should Space-as-a-Service in the office market be considered any differently? Office landlords already provide security, internet infrastructure and elevators, so why would adding finished office space and furniture under the terms of a flexible lease be any different from adding hotel stuff to an apartment building?</p>
+
+    <h2>Thought Experiment</h2>
+    <p>As a thought experiment, let’s push this idea to the extreme.</p>
+    <p>This summer I visited Durham, North Carolina. I wanted to see Brightleaf Square, a redevelopment beside the Can Opener Bridge, <a target="_blank" href="https://www.youtube.com/@11foot8plus8">made famous by Jorgen Henn</a>.</p>
+    <p>The bridge is a low train overpass, and despite giant signage and other mitigation efforts, oversized vehicles consistently crash into its protective barrier.</p>
+    <p>Mr. Henn happened to be renting an office at Brightleaf Square and began filming the crashes. He has now received tens of millions of YouTube views, even selling “crash art” online.</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md" src="{{ url_for('img', path='/blog/2023-01-03/brightleaf-square-with-low-bridge.webp') }}" alt="Brightleaf Square: exterior view vs the interior courtyard view">
+      <figcaption class="text-gray-700">Brightleaf Square: exterior view vs the interior courtyard view</figcaption>
+    </figure>
+    <p>Overlooking train tracks instead of a tree-lined courtyard, most people would argue that Mr. Henn occupies the least appealing location in the development; however, Mr. Henn has been able to use his office for additional economic profit. With a few complementary assets (cameras and a computer) he has been able to generate revenue that is undeniably linked to his specific location.</p>
+    <p>Ignoring my strange taste in tourist destinations, here’s the thought experiment:</p>
+    <p><b>Should Mr. Henn’s office be valued as an office or as a specialized filming business?</b></p>
+
+    <h2>Market Participants</h2>
+    <p>While an office with a view of the Can Opener Bridge is valuable, the answer is in the term <b>market participants</b>. Mr. Henn is clearly a one-in-a-million entrepreneur, and it's unlikely that other people would capture the unique profit from his office.</p>
+    <p>But somewhere between unique and commonplace <u>we need to draw a line</u> and start including uses beyond simple traditional commercial leases in our universe of options.</p>
+    <p>We live in a world where flexible office platforms like <a target="_blank" href="https://www.hubli.com/">Hubli</a> and <a target="_blank" href="https://hubblehq.com/">Hubble</a> each offer customers thousands of Space-as-a-Service options. Can anyone argue that we don’t have a significant number of Market Participants?</p>
+    <p>Just look at all the amenity spaces offered at <a target="_blank" href="https://22bishopsgate.com/amenity-spaces/">22 Bishopsgate</a> — clearly non-real estate assets are being combined in a complementary way that provides additional value.</p>
+    <p>So while it may be tempting to dismiss Space-as-a-Service as a business built within a property, it meets the requirements to be considered a possible Highest and Best Use. In fact, our accounting rules require it.</p>
+
+    <h2>What is at Stake?</h2>
+    <p>The debate might seem pedantic, but the sheer scale of the office market means that trillions of dollars depend on this decision. While we wait for Space-as-a-Service to be added to valuations, the office market continues to be distorted. Supply will be artificially restricted as long as Space-as-a-Service is undervalued, while demand for this delivery model continues to grow. Supply and demand eventually must fall into equilibrium - the longer it takes, the bigger (& uglier) the market correction.</p>
+    <p>In the meantime, Landlords are left with a choice similar to those over-height vehicle drivers approaching the Can Opener Bridge: Stay alert for upcoming hazards by continually optimizing for Highest and Best Use or ignore all the signs and risk disaster.</p>
+  </div>
+{% endblock %}

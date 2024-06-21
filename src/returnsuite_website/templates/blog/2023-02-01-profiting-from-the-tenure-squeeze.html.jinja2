@@ -1,0 +1,31 @@
+{% extends "blog/layout.html.jinja2" %}
+
+{% block blog_post %}
+  <div>
+    <img itemprop="image" src="{{ url_for('img', path=post.teaser_image.url) }}" alt="{{ post.teaser_image.alt }}" class="w-full border rounded-md md:shadow-md">
+    <p>The window between an old paradigm and a new one is filled with arbitrage opportunities. Today, the new model in office leasing is Space-as-a-Service (SPaaS), and until the capital markets understand it better, savvy landlords and investors will hold the advantage.</p>
+    <p>Investors who don’t understand how to assess risk in the new context will misprice their assets accordingly. Flexible leasing entails a different method of calculating these risks—and of deciding on a building’s value—and the investor who can use these methods stands to profit over the next five-to-seven years while valuers and the capital markets try and catch up.</p>
+
+    <h2>Real Estate Arbitrage</h2>
+    <p>The real estate market is illiquid, information is hard to find and the industry is full of rules and regulations. That makes it rife with different arbitrage opportunities. One opportunity type is structural arbitrage–exploiting market inefficiencies that are caused by rules or systems, rather than natural market dynamics.</p>
+    <p>In my previous business, my co-founders and I discovered a large structural arbitrage opportunity around condominium conversions.</p>
+    <p>Condominiums are a North American ownership structure in which individual units are separately owned and titled while the common elements are jointly owned. If you own an apartment-style ‘condo’, for example, you own 100% of a three-dimensional box in the sky and have partial ownership of the building’s hallways, roof, HVAC systems and so on.</p>
+    <p>While there is no physical difference between that and a landlord-owned apartment building, the fact that each condominium unit is separately titled is key. With separate titles, individual units are more liquid and also have different lending rules and valuation methods, creating the structural arbitrage opportunity.</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md sm:w-2/3" src="{{ url_for('img', path='/blog/2023-02-01/risk-vs-reward-condo-conversion.png') }}" alt="Structural arbitrage condominum conversion - Risk vs. Reward">
+      <figcaption class="text-gray-700">Structural arbitrage condominum conversion - Risk vs. Reward</figcaption>
+    </figure>
+    <p>Multifamily buildings in our market were being valued using a 10% capitalization rate while the market price of individual apartment units were the equivalent of about a 6% capitalization rate. That constituted an arbitrage opportunity. To profit on the opportunity, all we had to do was navigate the arcane condominium conversion process, thereby capturing the price difference made by the structural market inefficiency.</p>
+
+    <h2>I'm Tellin' y'all, it's Arbitrage</h2>
+    <p>As I outlined in a previous article, I believe we’re facing an Office Tenure Squeeze: the outdated  valuation methods push landlords to accept only traditional, long-term leases while tenants want flexible leases and additional services. As the legacy leases continue to expire, landlords are squeezed into a tough spot. They must choose between looking valuable on paper and actually making money. Either a landlord can cling to their traditional leasing criteria and suffer occupancy- and income losses, or they can offer flexible leasing—but at the cost of their paper valuation.</p>
+    <p>The conventional thinking is that increasing returns through flexible leasing must mean that the landlord has taken on more risk. But there is a sizable arbitrage opportunity for landlords who can prove their flexible leasing models are less risky than the market assumes. This is the way to avoid the Office Tenure Squeeze and instead take advantage of the upcoming paradigm shift.</p>
+    <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+      <img class="rounded-md sm:w-2/3" src="{{ url_for('img', path='/blog/2023-02-01/risk-vs-reward-spaas.png') }}" alt="Structural arbitrage with SPaaS - Risk vs. Reward">
+      <figcaption class="text-gray-700">Structural arbitrage with SPaaS - Risk vs. Reward</figcaption>
+    </figure>
+    <p>Proving properties are less risky will require financial models that capture the risks and correlations in a more dynamic property. While flexible lease terms increase turnover, they also allow landlords to diversify. On-demand meeting rooms and coworking are less predictable sources of revenue, but they’re also a complementary service for traditional leases, making them stickier and therefore more predictable.</p>
+    <p>The traditional, risk-blind discount cash flow valuation methods, which the entire office industry is based on, miss the risks and correlations in dynamic real estate. Hotel-style valuation methods accept the new sources of income, but also fall for the assumption that the additional income must be riskier–even when the opposite is true in hotel valuations.</p>
+    <p>With Risk-Adjusted valuation models and a rich source of historical operating data, forward-looking landlords will be able to demonstrate their intrinsic value. And eventually that intrinsic value will be recognized by the market, leading to huge returns. It’s a giant arbitrage opportunity that is just waiting to be taken.</p>
+  </div>
+{% endblock %}

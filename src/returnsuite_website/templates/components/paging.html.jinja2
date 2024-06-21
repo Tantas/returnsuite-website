@@ -1,0 +1,159 @@
+{% macro top_pager(page_response, base_url) -%}
+<div class="flex justify-between place-items-center">
+  <span class="py-4 pb-0 font-semibold text-gray-700 text-lg">
+    {% if page_response.total > page_response.size %}
+      {% if page_response.offset == 0 %}
+        Showing {{ page_response.size }} of {{ page_response.total }} results
+      {% else %}
+        Showing {{ page_response.offset + 1 }} - {{ (page_response.offset + page_response.size, page_response.total)|min }} of {{ page_response.total }} results
+      {% endif %}
+    {% else %}
+      Showing all {{ page_response.total }} results
+    {% endif %}
+  </span>
+  <div class="flex place-items-center text-gray-600">
+    {% if page_response.has_previous %}
+      <a href="{{ base_url.include_query_params(offset=(page_response.offset - page_response.size, 0)|max) }}"
+         title="Previous page"
+         class="rounded-md pr-0.5 flex place-items-center justify-center hover:bg-blue-500 hover:text-white">
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"></path>
+        </svg>
+      </a>
+    {% endif %}
+    {% if page_response.has_next %}
+      <a href="{{ base_url.include_query_params(offset=(page_response.offset + page_response.size, page_response.total)|min) }}"
+       title="Next page"
+       class="rounded-md pl-0.5 flex place-items-center justify-center hover:bg-blue-500 hover:text-white">
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    {% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro pager(page_response, base_url) -%}
+  <div class="py-6 flex place-items-center justify-center w-full">
+    {% if page_response.items|length == page_response.total %}
+      <div class="text-gray-500 font-medium text-lg flex gap-2 tracking-wide">
+        Showing all results
+      </div>
+    {% else %}
+      <div class="text-gray-500 font-medium text-lg flex gap-2">
+        {% if page_response.has_previous %}
+          <a href="{{ base_url.include_query_params(offset=(page_response.offset - page_response.size, 0)|max) }}"
+             title="Previous page"
+             class="rounded-md pr-0.5 flex place-items-center justify-center hover:bg-blue-500 hover:text-white">
+            <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"></path>
+            </svg>
+          </a>
+        {% endif %}
+
+        {% set current_page = (page_response.offset|float / page_response.size)|round(method='ceil')|int + 1 %}
+        {% set total_pages = (page_response.total|float / page_response.size)|round(method='ceil')|int %}
+
+        {% set page_entries = [] %}
+        {% for entry in range(1, total_pages + 1) %}
+          {% if entry == 1 or (current_page - 1) == entry or entry == (current_page + -2) or entry == current_page or entry == (current_page + 1) or entry == (current_page + 2) or entry == total_pages %}
+            {% do page_entries.append((entry, (entry - 1) * page_response.size)) %}
+          {% else %}
+            {% do page_entries.append(('...', (entry - 1) * page_response.size)) %}
+          {% endif %}
+        {% endfor %}
+        {% set page = namespace(entries=[], previous=[]) %}
+        {% for entry in page_entries %}
+          {% if entry[0] != page.previous %}
+            {% do page.entries.append(entry) %}
+          {% endif %}
+          {% set page.previous = entry[0] %}
+        {% endfor %}
+
+        {% for entry in page.entries %}
+          {% if current_page == entry[0] %}
+            <div title="Page {{ entry[0] }}"
+                 class="rounded-md bg-blue-500 text-white flex place-items-center justify-center px-3">
+              {{ entry[0] }}
+            </div>
+          {% elif entry[0] == '...' %}
+            <div class="rounded-md flex place-items-center justify-center px-3">
+              ...
+            </div>
+          {% else %}
+            <a href="{{ base_url.include_query_params(offset=entry[1]) }}" title="Page {{ entry[0] }}"
+               class="rounded-md flex place-items-center justify-center px-3 hover:bg-blue-500 hover:text-white">
+              {{ entry[0] }}
+            </a>
+          {% endif %}
+        {% endfor %}
+        {% if page_response.has_next %}
+          <a href="{{ base_url.include_query_params(offset=(page_response.offset + page_response.size, page_response.total)|min) }}"
+             title="Next page"
+             class="rounded-md pl-0.5 flex place-items-center justify-center hover:bg-blue-500 hover:text-white">
+            <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+            </svg>
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+{%- endmacro %}
+
+{% macro sort_section(page_response, enum_name) %}
+  <div class="border-t">
+    <fieldset class="pb-4">
+      <legend class="py-4 pb-0 font-semibold text-gray-700 text-lg">Sort Order</legend>
+      <ol class="my-2">
+        {% for option in page_response.sort_options.options %}
+          <li class="flex place-items-center">
+            <input type="radio" id="{{ option.id_ }}" name="sort" value="{{ option.id_ }}"
+              {% if option.selected %} checked{% endif %}>
+            <label for="{{ option.id_ }}" class="w-full flex place-items-center justify-between px-4 py-2 hover:text-blue-500">
+              {% if option.id_ == '' %}
+                {{ _(enum_name ~ '.role_alpha', locale=locale) }}
+              {% else %}
+                {{ _(enum_name ~ '.' ~ option.id_, locale=locale) }}
+              {% endif %}
+            </label>
+          </li>
+        {% endfor %}
+      </ol>
+      <div class="flex flex-row-reverse px-4">
+        <button type="submit" class="px-3 py-1.5 rounded-md bg-blue-500 hover:bg-blue-600 text-white text-xs tracking-wider font-semibold uppercase">
+          Apply
+        </button>
+      </div>
+    </fieldset>
+  </div>
+{% endmacro %}
+
+{% macro facet_section(page_response) -%}
+  {% for facet_group in page_response.facet_groups.groups %}
+    <fieldset class="border-b last:border-b-0 pb-4">
+      <legend class="py-4 pb-0 font-semibold text-gray-700 text-lg">{{ _('FacetGroup.' ~ facet_group.id_, locale) }}</legend>
+      <a href="#" title="Expand / Contract">
+        <!-- TODO -->
+      </a>
+      <ol class="my-2">
+        {% for facet in facet_group.facets %}
+          <li class="flex place-items-center">
+            <input type="checkbox" name="{{ facet_group.id_ }}" id="{{ facet.id_ }}" value="{{ facet.id_ }}"
+              {% if facet.selected %} checked{% endif %}>
+            <label for="{{ facet.id_ }}" class="w-full flex place-items-center justify-between px-4 py-2 hover:text-blue-500">
+              <span>{{ _('Facet.' ~ facet.id_, default=facet.id_, locale=locale) }}</span>
+              <span class="block bg-blue-50 rounded-sm px-2.5 py-0.5 text-center" style="min-width: 2rem">{{ facet.count }}</span>
+            </label>
+          </li>
+        {% endfor %}
+      </ol>
+      <div class="flex flex-row-reverse px-4">
+        <button type="submit" class="px-3 py-1.5 rounded-md bg-blue-500 hover:bg-blue-600 text-white text-xs tracking-wider font-semibold uppercase">
+          Apply
+        </button>
+      </div>
+    </fieldset>
+  {% endfor %}
+{%- endmacro %}

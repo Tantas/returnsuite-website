@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>{{ page_title + '' }}</title>
+    <meta name="description" content="Risk and asset management software." />
+    <link rel="icon" href="{{ url_for('img', path='/favicon-32.png') }}" sizes="32x32">
+    <link rel="icon" href="{{ url_for('img', path='/favicon-128.png') }}" sizes="128x128">
+    <link rel="icon" href="{{ url_for('img', path='/favicon-192.png') }}" sizes="192x192">
+    <link rel="apple-touch-icon" href="{{ url_for('img', path='/favicon-180.png') }}" sizes="180x180">
+    <link rel="stylesheet" href="{{ url_for('get_styles', version=css_version) }}">
+    {% if google_tag %}
+      <script defer src="https://www.googletagmanager.com/gtag/js?id={{ google_tag }}"></script>
+      <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+              dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '{{ google_tag }}');
+      </script>
+    {% endif %}
+    <script defer src="{{ url_for('js', path='/lib/alpinejs-3.14.1.min.js') }}"></script>
+    <style>
+        svg { display: inline-block; }
+        [x-cloak] { display: none; }
+    </style>
+    {% block head_extra %}{% endblock head_extra %}
+  </head>
+  <body class="bg-white h-screen w-screen text-sm">
+    <div>
+      <nav class="border-b-2 md:fixed top-0 w-full bg-white z-50">
+        <ul class="flex place-items-center justify-between gap-3 mx-4 md:mx-6 xl:mx-32 py-4 text-base font-medium text-gray-900">
+          <li>
+            <a href="{{ url_for('get_index') }}" title="ReturnSuite">
+              <img class="h-12 w-auto" src="{{ url_for('img', path='/returnsuite-logo.svg') }}" alt="ReturnSuite logo" width="360px" height="85px">
+            </a>
+          </li>
+          <li class="block md:hidden" x-data="{ mobileMenuOpen: false, toggleMenu() { if (this.mobileMenuOpen) { document.body.classList.remove('fixed') } else { document.body.classList.add('fixed') } this.mobileMenuOpen = !this.mobileMenuOpen } }">
+            <button class="js-button mt-1 p-2 hover:bg-gray-200 rounded-full text-gray-800" @click.stop.prevent="toggleMenu()" title="Toggle Menu">
+              <svg class="block h-8" viewBox="0 0 24 24" fill="currentColor" x-show="!mobileMenuOpen">
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+              </svg>
+              <svg class="block h-8" viewBox="0 0 24 24" fill="currentColor" x-show="mobileMenuOpen">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path>
+              </svg>
+            </button>
+            <div x-cloak x-show="mobileMenuOpen" class="absolute z-10 left-0" style="top: 5.375rem">
+              <div class="bg-white w-screen h-screen overflow-hidden text-gray-700 font-medium flex flex-col" style="height: calc(100vh - 5.375rem)">
+                <ul class="flex flex-col h-full py-3 pb-4 px-1 gap-1">
+                  <li class="px-4">
+                    <a href="{{ url_for('get_index') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">Home</a>
+                  </li>
+                  <li class="px-4">
+                    <a href="{{ url_for('get_index') }}#How-it-works" @click="toggleMenu()" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">How it works</a>
+                  </li>
+                  <li class="px-4">
+                    <a href="{{ url_for('get_index') }}#Benefits" @click="toggleMenu()" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">Benefits</a>
+                  </li>
+                  <li class="px-4">
+                    <a href="{{ url_for('get_view_demo') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">View Demo</a>
+                  </li>
+                  <li class="px-4">
+                    <a href="{{ url_for('get_blog') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">Blog</a>
+                  </li>
+                  <li class="px-4">
+                    <a href="{{ url_for('get_about') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">About</a>
+                  </li>
+                  <li class="px-4">
+                    <a href="{{ url_for('get_contact') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">Contact</a>
+                  </li>
+                  <li class="px-4">
+                    <a href="{{ url_for('get_terms_and_conditions') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900 mt-auto">Terms</a>
+                  </li>
+                  <li class="px-4">
+                    <a href="{{ url_for('get_privacy_policy') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">Privacy</a>
+                  </li>
+                </ul>
+                <div class="flex flex-col gap-4 place-items-center py-6 border-t-2">
+                  <div class="w-full px-6">
+                    {% if signup_enabled %}
+                      <a href="{{ app_website }}/signup" class="block text-center text-white border-2 rounded-md border-blue-500 bg-blue-500 hover:bg-blue-600 hover:border-blue-600 font-semibold w-full py-3 whitespace-nowrap font-semibold">Sign Up</a>
+                    {% else %}
+                      <a @click="toggleMenu()" href="{{ url_for('get_index') }}#Request-Early-Access" class="block text-center text-white border-2 rounded-md border-blue-500 bg-blue-500 hover:bg-blue-600 hover:border-blue-600 font-semibold w-full py-3 whitespace-nowrap font-semibold">Request Early Access</a>
+                    {% endif %}
+                  </div>
+                  <div class="w-full px-6">
+                    <a href="{{ app_website }}/login" class="block text-center text-blue-500 border-2 border-blue-500 hover:text-blue-600 hover:border-blue-600 rounded-md py-3 w-full font-semibold whitespace-nowrap">Login</a>
+                  </div>
+                  <div class="w-full px-6" id="mobile-locale-display">
+                   {# <!-- This will become the mobile language select. -->
+                     <button class="flex place-items-center gap-2 py-2 w-full justify-center">
+                        <svg class="inline-block h-4" viewBox="0 0 9600 4800">
+                          <path fill="#d52b1e" d="m0 0h2400l99 99h4602l99-99h2400v4800h-2400l-99-99h-4602l-99 99H0z"/>
+                          <path fill="#fff" d="m2400 0h4800v4800h-4800zm2490 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z"/>
+                        </svg>
+                        <span class="text-lg">English</span>
+                      </button>
+                   #}
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="hidden lg:block pl-4">
+      <a href="{{ url_for('get_index') }}#How-it-works" class="py-1.5 border-b-2 border-white hover:border-blue-500 whitespace-nowrap">How it works</a>
+    </li>
+    <li class="hidden md:block pl-4">
+      <a href="{{ url_for('get_index') }}#Benefits" class="py-1.5 border-b-2 border-white hover:border-blue-500">Benefits</a>
+    </li>
+    <li class="hidden md:block pl-4">
+      <a href="{{ url_for('get_view_demo') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Demo</a>
+    </li>
+    <li class="hidden md:block px-4">
+      <a href="{{ url_for('get_blog') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Blog</a>
+    </li>
+    <li class="hidden md:block">
+      <a href="{{ url_for('get_contact') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Contact</a>
+    </li>
+    <li class="hidden md:block ml-auto" id="locale-display">
+      <script>
+          let flag = ""
+          let title = ""
+          let country = navigator.language.split('-').pop()
+          switch (country) {
+              case "CA":
+                  title = "Canada English"
+                  flag = `
+                                <svg class="inline-block h-4" viewBox="0 0 9600 4800">
+	                                <path fill="#d52b1e" d="m0 0h2400l99 99h4602l99-99h2400v4800h-2400l-99-99h-4602l-99 99H0z" />
+	                                <path fill="#fff" d="m2400 0h4800v4800h-4800zm2490 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z" />
+                                </svg>`
+                  break
+              case "GB":
+                  title = "UK English"
+                  flag = `
+                                <svg class="inline-block h-4" viewBox="0 0 60 30">
+                                        <clipPath id="s">
+                                        	<path d="M0,0 v30 h60 v-30 z" />
+                                        </clipPath>
+                                        <clipPath id="t">
+                                        	<path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
+                                        </clipPath>
+                                        <g clip-path="url(#s)">
+                                        	<path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                                        	<path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+                                        	<path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4" />
+                                        	<path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+                                        	<path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
+                                        </g>
+                                </svg>
+                            `
+                  break
+              case "AU":
+                  title = "Australian English"
+                  flag = `
+                                <svg class="inline-block h-4" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10080 5040">
+                                    <defs>
+                                        <clipPath id="c1"><path d="M0,0H6V3H0z" /></clipPath>
+                                        <clipPath id="c2"><path d="M0,0V1.5H6V3H6zM6,0H3V3H0V3z" /></clipPath>
+                                        <path id="Star7" d="M0,-360 69.421398,-144.155019 281.459334,-224.456329 155.988466,-35.603349 350.974048,80.107536 125.093037,99.758368 156.198146,324.348792 0,160 -156.198146,324.348792 -125.093037,99.758368 -350.974048,80.107536 -155.988466,-35.603349 -281.459334,-224.456329 -69.421398,-144.155019z" />
+                                        <path id="Star5" d="M0,-210 54.859957,-75.508253 199.721868,-64.893569 88.765275,28.841586 123.434903,169.893569 0,93.333333 -123.434903,169.893569 -88.765275,28.841586 -199.721868,-64.893569 -54.859957,-75.508253z" />
+                                    </defs>
+                                    <g transform="scale(840)">
+                                        <rect width="12" height="6" fill="#00008b" />
+                                        <path d="M0,0 6,3M6,0 0,3" stroke="#fff" stroke-width="0.6" clip-path="url(#c1)" />
+                                        <path d="M0,0 6,3M6,0 0,3" stroke="#f00" stroke-width="0.4" clip-path="url(#c2)" />
+                                        <path d="M3,0V3M0,1.5H6" stroke="#fff" />
+                                        <path d="M3,0V3M0,1.5H6" stroke="#f00" stroke-width="0.6" />
+                                    </g>
+                                    <g fill="#fff">
+                                        <use id="Comwlth" xlink:href="#Star7" transform="translate(2520, 3780) scale(2.1)" />
+                                        <use id="αCrucis" xlink:href="#Star7" x="7560" y="4200" />
+                                        <use id="βCrucis" xlink:href="#Star7" x="6300" y="2205" />
+                                        <use id="γCrucis" xlink:href="#Star7" x="7560" y="840" />
+                                        <use id="δCrucis" xlink:href="#Star7" x="8680" y="1869" />
+                                        <use id="εCrucis" xlink:href="#Star5" x="8064" y="2730" />
+                                    </g>
+                                </svg>
+                            `
+                  break
+              case "NZ":
+                  title = "New Zealand English"
+                  flag = `
+                                <svg class="inline-block h-4" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 600">
+                                    <defs>
+                                    	<clipPath id="Canton">
+                                    		<path d="M 0,0 L 600,0 L 600,300 L 0,300 z" />
+                                    	</clipPath>
+                                    	<clipPath id="Diagonals">
+                                    		<path d="M 0,0 L 300,150 L 0,150 z M 300,0 L 600,0 L 300,150 z M 300,150 L 600,150 L 600,300 z M 300,150 L 300,300 L 0,300 z" />
+                                    	</clipPath>
+                                    	<g id="Pentagram">
+                                    		<g id="Arm" transform="translate(0,-0.324925)">
+                                    			<path d="M 0,0 L 0,0.5 L 1,0 z" />
+                                    			<path d="M 0,0 L 0,-0.5 L 1,0 z" transform="rotate(-36,1,0)" />
+                                    		</g>
+                                    		<use xlink:href="#Arm" transform="scale(-1,1)" />
+                                    		<use xlink:href="#Arm" transform="rotate(72,0,0)" />
+                                    		<use xlink:href="#Arm" transform="rotate(-72,0,0)" />
+                                    		<use xlink:href="#Arm" transform="rotate(-72,0,0) scale(-1,1)" />
+                                    	</g>
+                                    </defs>
+
+                                    <rect fill="#012169" x="0" y="0" width="1200" height="600" />
+
+                                    <g id="Flag_of_the_United_Kingdom">
+                                    	<path id="Saint_Andrews_Cross" stroke="#FFF" d="M 0,0 L 600,300 M 0,300 L 600,0" stroke-width="60" clip-path="url(#Canton)" />
+                                    	<path id="Saint_Patricks_Cross" stroke="#C8102E" d="M 0,0 L 600,300 M 0,300 L 600,0" stroke-width="40" clip-path="url(#Diagonals)" />
+                                    	<g id="Saint_Georges_Cross">
+                                    		<path stroke="#FFF" d="M 300,0 L 300,300 M 0,150 L 600,150" stroke-width="100" clip-path="url(#Canton)" />
+                                    		<path stroke="#C8102E" d="M 300,0 L 300,300 M 0,150 L 600,150" stroke-width="60" clip-path="url(#Canton)" />
+                                    	</g>
+                                    </g>
+
+                                    <g id="Southern_Cross">
+                                    	<g id="Gamma_Crucis">
+                                    		<use xlink:href="#Pentagram" fill="#FFF" transform="translate(900,120) scale(45.4)" />
+                                    		<use xlink:href="#Pentagram" fill="#C8102E" transform="translate(900,120) scale(30)" />
+                                    	</g>
+                                    	<g transform="rotate(82,900,240)">
+                                    		<g id="Delta_Crucis">
+                                    			<use xlink:href="#Pentagram" fill="#FFF" transform="translate(900,120) rotate(-82) scale(40.4)" />
+                                    			<use xlink:href="#Pentagram" fill="#C8102E" transform="translate(900,120) rotate(-82) scale(25)" />
+                                    		</g>
+                                    		<g id="Beta_Crucis">
+                                    			<use xlink:href="#Pentagram" fill="#FFF" transform="translate(900,380) rotate(-82) scale(45.4)" />
+                                    			<use xlink:href="#Pentagram" fill="#C8102E" transform="translate(900,380) rotate(-82) scale(30)" />
+                                    		</g>
+                                    	</g>
+                                    	<g id="Alpha_Crucis">
+                                    		<use xlink:href="#Pentagram" fill="#FFF" transform="translate(900,480) scale(50.4)" />
+                                    		<use xlink:href="#Pentagram" fill="#C8102E" transform="translate(900,480) scale(35)" />
+                                    	</g>
+                                    </g>
+                                </svg>
+                            `
+                  break
+              case "US":
+                  title = "US English"
+                  flag = `
+                                <svg class="inline-block h-4" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 7410 3900">
+                                    <rect width="7410" height="3900" fill="#b22234" />
+                                    <path d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0" stroke="#fff" stroke-width="300" />
+                                    <rect width="2964" height="2100" fill="#3c3b6e" />
+                                    <g fill="#fff">
+                                        <g id="s18">
+                                            <g id="s9">
+                                                <g id="s5">
+                                                    <g id="s4">
+                                                        <path id="s" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z" />
+                                                        <use xlink:href="#s" y="420" />
+                                                        <use xlink:href="#s" y="840" />
+                                                        <use xlink:href="#s" y="1260" />
+                                                    </g>
+                                                    <use xlink:href="#s" y="1680" />
+                                                </g>
+                                                <use xlink:href="#s4" x="247" y="210" />
+                                            </g>
+                                            <use xlink:href="#s9" x="494" />
+                                        </g>
+                                        <use xlink:href="#s18" x="988" />
+                                        <use xlink:href="#s9" x="1976" />
+                                        <use xlink:href="#s5" x="2470" />
+                                    </g>
+                                </svg>
+                            `
+          }
+          if (title !== "") {
+              document.getElementById("locale-display").innerHTML = `
+                            <div title="${title}" class="flex place-items-center gap-3">
+                                ${flag}
+                                <span class="hidden xl:block">English</span>
+                            </div>`
+
+              document.getElementById("mobile-locale-display").innerHTML = `
+                            <div title="${title}" class="flex place-items-center gap-2 py-2 w-full justify-center">
+                                ${flag}
+                                <span class="text-lg">English</span>
+                            </div>
+                        `
+          }
+      </script>
+    </li>
+    {# <!-- This will become the language select. For now, use js to mark the visiting country flag. Flags from wikipedia -->
+                                        <li class="hidden md:block ml-auto">
+                                            <a href="#" title="Canada English" class="flex place-items-center gap-2">
+                                                <svg class="inline-block h-3" viewBox="0 0 9600 4800">
+                            	                    <path fill="#d52b1e" d="m0 0h2400l99 99h4602l99-99h2400v4800h-2400l-99-99h-4602l-99 99H0z"/>
+                            	                    <path fill="#fff" d="m2400 0h4800v4800h-4800zm2490 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z"/>
+                                  </svg>
+                    <span class="hidden xl:block">English</span>
+                </a>
+            </li> #}
+{# <li><a href="{{ url_for('get_signup') }}" class="border-2 rounded-md border-blue-500 text-blue-500 font-semibold px-6 py-2">Sign Up</a></li> #}
+{% if signup_enabled %}
+  <li class="hidden md:block">
+    <a href="{{ app_website }}/signup" class="bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 hover:border-blue-600 rounded-md py-2 px-6 font-semibold whitespace-nowrap shadow-sm tracking-wide">Sign Up</a>
+  </li>
+  <li class="hidden md:block ">
+    <a href="{{ app_website }}/login" class="border-2 rounded-md border-blue-500 text-blue-500 font-semibold px-6 py-2 whitespace-nowrap hover:text-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
+  </li>
+{% else %}
+  <li class="hidden md:block ">
+    <a href="{{ url_for('get_login') }}" class="border-2 rounded-md border-blue-500 text-white bg-blue-500 font-semibold px-6 py-2 whitespace-nowrap hover:bg-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
+  </li>
+{% endif %}
+</ul>
+</nav>
+<div class="hidden md:block h-20"></div>
+{% block content %}{% endblock content %}
+<footer class="flex flex-wrap place-items-center justify-between flex-col-reverse md:flex-row gap-6 font-medium text-xs lg:gap-20 pt-8 pb-12 mx-4 md:mx-32 text-gray-700">
+  <div class="inline-flex place-items-center gap-2 whitespace-nowrap">© {{ now().year }} ReturnSuite Software Inc.</div>
+  <ul class="flex place-items-center gap-4 md:gap-12">
+    <li>
+      <a href="{{ url_for('get_terms_and_conditions') }}" class="hover:underline">Terms</a>
+    </li>
+    <li>
+      <a href="{{ url_for('get_privacy_policy') }}" class="hover:underline">Privacy</a>
+    </li>
+    <li class="hidden md:block">
+      <a href="{{ url_for('get_about') }}" class="hover:underline">About</a>
+    </li>
+    <li class="hidden md:block">
+      <a href="{{ url_for('get_contact') }}" class="hover:underline">Contact</a>
+    </li>
+  </ul>
+  <ul class="flex place-items-center gap-4 order-1">
+    <li>
+      <a target="_blank" href="https://www.youtube.com/@SamGambleRS" title="Youtube" class="hover:text-gray-900">
+        <svg class="block h-7" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"></path>
+        </svg>
+      </a>
+    </li>
+    <li class="ml-0.5">
+      <a target="_blank" href="https://www.linkedin.com/company/returnsuite/" title="LinkedIn" class="hover:text-gray-900">
+        <svg class="block h-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M9,17H6.5v-7H9V17z M7.7,8.7c-0.8,0-1.3-0.5-1.3-1.2s0.5-1.2,1.4-1.2c0.8,0,1.3,0.5,1.3,1.2S8.6,8.7,7.7,8.7z M18,17h-2.4v-3.8c0-1.1-0.7-1.3-0.9-1.3	s-1.1,0.2-1.1,1.3c0,0.2,0,3.8,0,3.8h-2.5v-7h2.5v1c0.3-0.6,1-1,2.2-1s2.2,1,2.2,3.2V17z"></path>
+        </svg>
+      </a>
+    </li>
+    <li class="ml-1">
+      <a target="_blank" href="https://twitter.com/SamGambleRS" title="Twitter" class="hover:text-gray-900">
+        <svg class="block h-4" viewBox="0 0 1200 1227" fill="currentColor">
+          <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"></path>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</footer>
+</div>
+{% include "components/livereload.html.jinja2" %}
+</body>
+</html>

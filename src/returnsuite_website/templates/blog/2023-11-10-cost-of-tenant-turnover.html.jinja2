@@ -1,0 +1,55 @@
+{% extends "blog/layout.html.jinja2" %}
+
+{% block blog_post %}
+  <div>
+    <img itemprop="image" src="{{ url_for('img', path=post.teaser_image.url) }}" alt="{{ post.teaser_image.alt }}" class="w-full border rounded-md md:shadow-md">
+    <p>Rental space is a perishable good: with each day that passes, potential revenue is lost forever. Like airline seats, once the plane takes off, there’s no going back.</p>
+    <p>In real estate, the lost potential revenue between leases is called Absorption & Turnover Vacancy. It drives Landlord behaviour through its effect on valuations.</p>
+    <p>In a world of long-term leases, Landlords need to balance two unknowns–the potential additional rent they might get from a good tenant and the revenue they lose while they’re waiting for that good tenant.</p>
+    <p>A landlord may decide that six months of Turnover Vacancy is a good tradeoff for a ten-year lease. But with ten-year leases becoming harder to sign, the Landlord needs to decide between holding out for the long term lease and risking a longer Turnover Vacancy, or shortening the average lease term to get someone in sooner.</p>
+    <p>A shorter lease term might seem like the easy decision, but if the Landlord goes with shorter leases, the turnover time between tenants also needs to shorten in order to maintain the same total Turnover Vacancy.</p>
+    <p>The turnover time needed to hold Absorption & Turnover Vacancy at 4.8% with progressively shorter leases</p>
+    <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
+      <img src="{{ url_for('img', path='/blog/2023-11-10/vacancy-loss-equivalent-by-lease-duration.gif') }}" alt="The turnover time needed to hold Absorption & Turnover Vacancy at 4.8% with progressively shorter leases" class="rounded-md shadow-sm">
+      <figcaption class="text-gray-700">The turnover time needed to hold Absorption & Turnover Vacancy at 4.8% with progressively shorter leases</figcaption>
+    </figure>
+    <p>So while our landlord used to take six months between ten-year leases, the equivalent turnover time with three-year leases should be measured in weeks, not months.</p>
+    <p>Shorter leases also cause a knock-on effect: tenants are much less willing to invest capital into their space. Just as someone renting an apartment is willing to buy their own furnishings, someone visiting the same property for a few days as an Airbnb guest might not even bring their own towels.</p>
+    <p>This has led to an increase in speculative suites—move-in ready offices that are built out by the landlord, perfect for a shorter-term tenant.</p>
+
+    <h2>Above & Below “The Line”</h2>
+    <p>In commercial real estate, revenues and expenses are often categorized as either Operating or Non-Operating–you’ll see this referred to as being above or below “the line”.</p>
+    <p>The “line” we are talking about is the Net Operating Income line on the property cash flow statement. Operating Revenue and Expenses are regularly occurring cash flows like rent, expense recoveries, utilities costs and minor repairs.</p>
+    <p>Below the line items are typically either capital expenditures—expenses that don’t occur each year—or financing costs, which are specific to the owner’s financing decisions.</p>
+    <p>How revenues & expenses are categorized is critical to a property’s valuation, since valuations are based on Net Operating Income. At a 5% capitalization rate, items “above the line” are 20x more impactful than items “below the line”.</p>
+    <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
+      <img src="{{ url_for('img', path='/blog/2023-11-10/net-operating-income-impact-on-value.gif') }}" alt="Net Operating Income having a 20X impact on Value (at a 5% cap rate)" class="rounded-md shadow-sm">
+      <figcaption class="text-gray-700">Net Operating Income having a 20X impact on Value (at a 5% cap rate)</figcaption>
+    </figure>
+    <p>So a $100,000 expense before the line works out to a $2,000,000 decrease in value, while the same expense placed below the line means only a $100,000 drop in value.</p>
+
+    <h2>Vacancy & Turnover</h2>
+    <p>Vacancy and Turnover Loss is considered an “above the line” expense. A valuer will look at the total potential income from a property and then subtract the expected vacancy. This is one of the reasons Speculative Suites are so attractive–being move-in ready likely means shorter vacancy periods, which has an outsized effect on its value.</p>
+    <p>However, Speculative Suite tenants typically turn over more frequently, so Landlords are left with a new challenge: leasing units much more quickly.</p>
+    <p>A Landlord operating on two-year leases needs to replace tenants within five weeks to maintain their original vacancy loss–a big ask if you consider how long it takes to market a space and negotiate a lease.</p>
+
+    <h2>Is a capital expense that is constantly required really a capital expense?</h2>
+    <p>Another reason Speculative Suites are deceptively attractive is a categorization issue. $200,000 spent to prepare a 2-year Speculative Suite falls into a gray area–the cost can be placed either “above” or “below” the line.</p>
+    <p>Placing the $200,000 cost “below the line” is an attractive option since it will only reduce your property valuation by $200,000–the argument being that it is a one-time investment into the Speculative Suite.</p>
+    <p>But if the landlord is required to invest another $200,000 in two years after the first tenant leaves, that one-time investment should have been categorized as an expense. The expense should be averaged and categorized as a $100,000 per year expense and placed “above the line”.</p>
+    <p>This re-categorization reduces the property’s value by $2,000,000–an unattractive choice, but much closer to reality, since in two years, the Landlord will AGAIN need to pony up real cash to keep the Speculative Suite operational.</p>
+
+    <h2>What To Do?</h2>
+    <p>Speculative Suites have definite upsides, but if considering them, Landlords should keep two operational issues in mind: reducing turnover time and minimizing the capital investments required between tenants.</p>
+    <p>Anything a landlord can do to reduce vacancy time between tenants affects the “above the line”, and therefore has an outsized effect on value. This can be done by eliminating leasing friction. The process of leasing a Speculative Suite needs to be much closer to booking a hotel room online than working up and executing a traditional commercial lease.</p>
+    <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
+      <img src="{{ url_for('img', path='/blog/2023-11-10/reduce-tenant-turnover-rekreate.gif') }}" alt="ReKreate walkthrough sample" class="rounded-md shadow-sm">
+      <figcaption class="text-gray-700">ReKreate walkthrough sample</figcaption>
+    </figure>
+    <p>Also like hotels, we need to minimize the need for physical work on a space needs. Having to completely refit a speculative suite between tenants is both expensive and wasteful. And while it may be tempting to classify the expenses as “below the line” costs, if they’re required between each lease, that’s recurring, so it’s really an “above the line” cost.</p>
+    <p>There are some solutions appearing in the market to meet this newly pressing need. <a target="_blank" href="https://www.rekreate.com">ReKreate</a> is a company that helps Landlords with Speculative Suites by designing a super flexible core that allows finishings and layouts to be easily and quickly swapped out. They also build a digital twin of the space which allows landlords to market multiple options prior to construction, so potential tenants can both lease and choose their finishes before the space even becomes vacant, reducing the vacancy time for the landlord.</p>
+
+    <h2>Understand the Tradeoffs</h2>
+    <p>Commercial real estate is changing quickly. For landlords who are tired of seeing missed potential revenue, Speculative Suites are an attractive option, but they require much more operational intensity. Understanding the downstream effects and potential tradeoffs will be key to long term success.</p>
+  </div>
+{% endblock %}
