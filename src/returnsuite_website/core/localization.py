@@ -16,19 +16,7 @@ from babel.numbers import get_territory_currencies
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.settings.base import AppEnvTypes
 
-# class RuamelYamlLoader(Loader):
-#     def __init__(self):
-#         super(RuamelYamlLoader, self).__init__()
-#         self.yaml = YAML(typ="safe", pure=True)
-#
-#     def parse_file(self, file_content):
-#         try:
-#             return self.yaml.load(file_content)
-#         except ScannerError as e:
-#             raise I18nFileLoadError(f"Invalid YAML: {str(e)}")
 
-
-# register_loader(RuamelYamlLoader, ["yml", "yaml"])
 i18n.set("file_format", "yml")
 i18n.set("fallback", "en_US")
 
@@ -104,13 +92,6 @@ def format_date_medium(value, locale: Locale) -> str:
 
 def format_date_long(value, locale: Locale) -> str:
     return babel_format_date(value, format="long", locale=locale)
-
-
-# def format_datetime_as_date_medium(value, locale, timezone: tzinfo = None) -> str:
-#     if timezone is None:
-#         timezone = pytz.UTC
-#     timezone_corrected = _ensure_datetime_tzinfo(_get_datetime(value), timezone)
-#     return babel_format_date(timezone_corrected, format="medium", locale=locale)
 
 
 def format_datetime_long(value, locale: Locale, timezone: tzinfo = None) -> str:

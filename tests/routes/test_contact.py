@@ -1,10 +1,14 @@
+import os
+import sys
+
 from fastapi.testclient import TestClient
 
 from returnsuite_website.main import app
 from returnsuite_website.services.database import ContactRequest, get_db
 
-from utils import check_image_urls
+sys.path.insert(1, "/".join(os.path.realpath(__file__).split("/")[0:-2]))
 
+from routes.utils import check_image_urls  # noqa: E402
 
 client = TestClient(app)
 

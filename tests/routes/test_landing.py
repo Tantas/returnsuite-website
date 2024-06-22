@@ -1,10 +1,14 @@
+import os
+import sys
+
 from fastapi.testclient import TestClient
 
 from returnsuite_website.main import app
 from returnsuite_website.services.database import Waitlist, WaitlistStatus, get_db
 
-# from routes.utils import check_image_urls
+sys.path.insert(1, "/".join(os.path.realpath(__file__).split("/")[0:-2]))
 
+from routes.utils import check_image_urls  # noqa: E402
 
 client = TestClient(app)
 
@@ -12,7 +16,7 @@ client = TestClient(app)
 def test_get_index():
     response = client.get("/")
     assert response.status_code == 200
-    # check_image_urls(response.text, client)
+    check_image_urls(response.text, client)
 
 
 def test_post_waitlist_success_min():
@@ -79,28 +83,28 @@ def test_post_waitlist_failure():
 def test_get_view_demo():
     response = client.get("/view-demo")
     assert response.status_code == 200
-    # check_image_urls(response.text, client)
+    check_image_urls(response.text, client)
 
 
 def test_get_about():
     response = client.get("/about")
     assert response.status_code == 200
-    # check_image_urls(response.text, client)
+    check_image_urls(response.text, client)
 
 
 def test_get_privacy():
     response = client.get("/privacy")
     assert response.status_code == 200
-    # check_image_urls(response.text, client)
+    check_image_urls(response.text, client)
 
 
 def test_get_terms():
     response = client.get("/terms")
     assert response.status_code == 200
-    # check_image_urls(response.text, client)
+    check_image_urls(response.text, client)
 
 
 def test_get_landing_images():
     response = client.get("/landing-images")
     assert response.status_code == 200
-    # check_image_urls(response.text, client)
+    check_image_urls(response.text, client)

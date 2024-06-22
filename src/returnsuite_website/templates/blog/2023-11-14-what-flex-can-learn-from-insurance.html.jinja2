@@ -8,24 +8,24 @@
     <p>Last summer while visiting friends in Montreal, our brand-new car disappeared. At first, I thought I had misread the notoriously complicated Montreal parking signs and it had been towed, but it turned out our car had been stolen.</p>
     <p>I have a weird fascination with insurance, especially around how it’s priced, so the experience was interesting. Since insurance companies would go out of business if they make a habit of paying out more in claims than they collect, insurance costs are a good proxy for risk. Insurance companies price a lot of surprising things: celebrity body parts, chef taste buds, hole-in-one golf prizes. So how does flexible leasing look through the lens of insurance?</p>
     <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
-      <img src="{{ url_for('img', path='/blog/2023-11-14/no-parking-alien-abduction.png') }}" alt="No parking, alien abduction" class="rounded-md shadow-sm w-2/3 lg:w-1/2">
+      <img src="{{ url_for('img', path='/blog/2023-11-14/no-parking-alien-abduction.webp') }}" alt="No parking, alien abduction" class="rounded-md shadow-sm w-2/3 lg:w-1/2">
       <figcaption class="text-gray-700">No parking, alien abduction</figcaption>
     </figure>
     <p>It turns out car theft is surprisingly common in central Canada. For insurance companies, that’s a useful thing–if something is common, it becomes predictable and is therefore easy to price.</p>
     <p>Pricing against car theft is just a matter of knowing the odds of it happening, then spreading the risk over thousands of policyholders. The number of cars being stolen each day might vary, but the law of large numbers is on your side and the annual number of thefts will fall within a very narrow distribution.</p>
     <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
-      <img src="{{ url_for('img', path='/blog/2023-11-14/car-theft-distribution.jpg') }}" alt="Sample car theft distribution" class="rounded-md w-2/3 lg:w-1/2">
+      <img src="{{ url_for('img', path='/blog/2023-11-14/car-theft-distribution.webp') }}" alt="Sample car theft distribution" class="rounded-md w-2/3 lg:w-1/2">
       <figcaption class="text-gray-700">Sample car theft distribution</figcaption>
     </figure>
     <p>On the other end of the risk spectrum are catastrophic events–rare disasters like earthquakes or storms so bad, they're given a name, which have the potential for giant losses. A single natural disaster, however unlikely, might destroy tens of thousands of cars in a single day instead of the daily drip-drip-drip of car theft.</p>
     <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
-      <img src="{{ url_for('img', path='/blog/2023-11-14/dual-peak-distribution-car-losses.png') }}" alt="Sample car theft dual peak distribution" class="rounded-md w-2/3 lg:w-1/2">
+      <img src="{{ url_for('img', path='/blog/2023-11-14/dual-peak-distribution-car-losses.webp') }}" alt="Sample car theft dual peak distribution" class="rounded-md w-2/3 lg:w-1/2">
       <figcaption class="text-gray-700">Sample car theft dual peak distribution</figcaption>
     </figure>
     <p>These risk profiles are often referred to as “fat-tail” events because of the potential for disastrous results in the tail ends of the distribution.</p>
 
     <h2>Catastrophe Bonds</h2>
-    <p>One way insurance companies protect themselves against catastrophic losses is transfering a piece of the risk to investors by selling Catastrophe Bonds (Cat Bonds).</p>
+    <p>One way insurance companies protect themselves against catastrophic losses is transferring a piece of the risk to investors by selling Catastrophe Bonds (Cat Bonds).</p>
     <p>Cat Bonds are sold like any other financial instrument to institutional investors, and the basic mechanics are a lot like regular insurance, just on a larger scale. An insurance company that wants to offload some risk will sell a Cat Bond that promises regular payments to the investor over the term of the bond. In return, the investor must set aside money to help cover damages in the event there is a big claim during that time.</p>
 
     <h2>Cat Bonds in Action</h2>
@@ -35,7 +35,7 @@
     <p>An interesting feature of Cat Bonds is that the bond issuer shares with potential investors the underlying model used to determine its risk. For the Vermont Mutual Cat Bond, the risk modeling was done using <a target="_blank" href="https://www.linkedin.com/company/verisk-extreme-event-solutions/">AIR Worldwide–financial</a> modeling software which combines the latest geological/weather data with the specifics of the insured assets in the Vermont Mutual portfolio.</p>
     <p>The software used by Vermont Mutual determined the annual average loss to be 1.203% per year. This indicates the Cat Bond will pay an expected net return of 8.047% (9.25% coupon payment minus the annual expected loss of 1.203%).</p>
     <figure class="flex flex-col place-items-center justify-center gap-2 pt-2">
-      <img src="{{ url_for('img', path='/blog/2023-11-14/cat-bond-losses-distribution.jpg') }}" alt="Catastrophy bond losses distribution" class="rounded-md w-2/3 lg:w-1/2">
+      <img src="{{ url_for('img', path='/blog/2023-11-14/cat-bond-losses-distribution.webp') }}" alt="Catastrophy bond losses distribution" class="rounded-md w-2/3 lg:w-1/2">
       <figcaption class="text-gray-700">Catastrophy bond losses distribution</figcaption>
     </figure>
     <p>However, the returns are quite variable. Vermont Mutual’s model also indicates that the odds of a claim against the bond to be 1.783%. Put another way, the model calculates the odds of the bond-holder getting their entire $100m back at the end of the four years is almost 93%, BUT for the 7% of the time there is a claim, the bond-holder can expect to lose about two-thirds of their investment!</p>

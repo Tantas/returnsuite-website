@@ -2739,7 +2739,7 @@
           htmlToImage.toPng(node)
           htmlToImage.toPng(node).then(function(dataUrl) {
                   let img = new Image();
-                  img.src = dataUrl;
+                  img.src = "" + dataUrl;
                   document.body.appendChild(img);
               })
               .catch(function(error) {

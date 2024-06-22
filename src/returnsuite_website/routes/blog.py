@@ -78,7 +78,7 @@ async def get_blog(form: Annotated[BlogListForm, Depends()], request: Request):
     if form.sort == BlogSort.chronological:
         posts.sort(key=BlogSort.sort_chronologically, reverse=True)
     page_response = PagingListResponse(
-        items=posts[form.offset : form.offset + form.size],
+        items=posts[form.offset : form.offset + form.size],  # noqa: E203
         offset=form.offset,
         size=form.size,
         total=total_posts,

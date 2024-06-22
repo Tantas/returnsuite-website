@@ -48,7 +48,7 @@
       "teaser": "Under international accounting standards, how an asset is used can affect its valuations—as long as that use isn't unique. With Space-as-a-Service growing in popularity, we're risking disaster the longer we take to include it within the definition of 'Highest & Best Use'.",
       "teaser_image": {
         "alt": "Truck crashing into low clearance bridge spilling money.",
-        "url": "/blog/2023-01-03/truck-crashing-into-low-clearance-bridge-spilling-money.png"
+        "url": "/blog/2023-01-03/truck-crashing-into-low-clearance-bridge-spilling-money.webp"
       },
       "content": "2023-01-03-preventable-accident-or-great-real-estate-opportunity.html.jinja2"
     },
@@ -66,7 +66,7 @@
       "teaser": "If higher service levels don't increase office building values, then why are full service hotels worth more than their limited service competitors?",
       "teaser_image": {
         "alt": "Grand hotel in a mountain setting.",
-        "url": "/blog/2022-12-21/grand-hotel-in-a-mountain-setting.png"
+        "url": "/blog/2022-12-21/grand-hotel-in-a-mountain-setting.webp"
       },
       "content": "2022-12-21-what-offices-can-learn-from-hotels.html.jinja2"
     },
@@ -84,7 +84,7 @@
       "teaser": "Stuck between a market that is demanding flexible leases and an ecosystem that is optimized for traditional, long-term leasing, landlords are facing a potential market squeeze that will cause a large loss in value.",
       "teaser_image": {
         "alt": "Dejected traders after a market crash.",
-        "url": "/blog/2023-01-18/dejected-traders-after-market-crash.png"
+        "url": "/blog/2023-01-18/dejected-traders-after-market-crash.webp"
       },
       "content": "2023-01-18-office-tenure-squeeze.html.jinja2"
     },
@@ -102,7 +102,7 @@
       "teaser": "Flexible leasing entails a different method of calculating property values—and the investors who figure this out stand to profit while everyone else tries to catch up.",
       "teaser_image": {
         "alt": "A profitable trader during a market squeeze.",
-        "url": "/blog/2023-02-01/profitable-trader-during-a-market-squeeze.png"
+        "url": "/blog/2023-02-01/profitable-trader-during-a-market-squeeze.webp"
       },
       "content": "2023-02-01-profiting-from-the-tenure-squeeze.html.jinja2"
     },
@@ -275,7 +275,7 @@
       "teaser": "Like plane flights, rental space is a perishable good–potential revenue lost forever and impossible to recapture. A deeper look at the cost of vacancy and speculative suites.",
       "teaser_image": {
         "alt": "Like plane flights, rental space is a perishable good–potential revenue is lost forever once it takes off.",
-        "url": "/blog/2023-11-10/vacancy-speculative-suites-and-cost-of-tenant-turnover.png"
+        "url": "/blog/2023-11-10/vacancy-speculative-suites-and-cost-of-tenant-turnover.webp"
       },
       "content": "2023-11-10-cost-of-tenant-turnover.html.jinja2"
     }
