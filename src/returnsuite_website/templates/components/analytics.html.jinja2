@@ -1,0 +1,91 @@
+{% if google_tag %}
+  <div id="cookie-consent-banner" class="hidden sticky bottom-0 w-fit ml-auto mr-auto">
+    <div class="p-4">
+      <div class="p-4 bg-gray-900 text-center md:text-left text-white text-base rounded-md md:flex gap-8 bg-opacity-90 shadow-lg">
+        <div>
+          <a href="{{ url_for('get_privacy_policy') }}" class="hover:underline font-medium">
+            <h3 class="text-lg tracking-wide">Tracking consent</h3>
+          </a>
+          <p>We use cookies to apply discounts, analyze website traffic and target ads; we do not collect personal data.</p>
+        </div>
+        <div class="flex gap-3 justify-center place-items-center">
+          <button type="button" id="btn-reject-all" class="whitespace-nowrap border-white border rounded-md px-4 py-2 mt-4 tracking-wide">Reject All</button>
+          <button type="button" id="btn-accept-all" class="whitespace-nowrap border-green-500 hover:border-green-600 border bg-green-500 hover:bg-green-600 rounded-md px-4 py-2 mt-4 font-medium tracking-wide">Accept All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+    if (localStorage.getItem('consentMode') === null) {
+      gtag('consent', 'default', {
+        'functionality_storage': 'denied',
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied'
+      });
+    } else {
+      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+    }
+  </script>
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', '{{ google_tag }}');
+  </script>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ google_tag }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>
+    function hideBanner() {
+      document.getElementById('cookie-consent-banner').style.display = 'none'
+    }
+
+    function setConsent(consent) {
+      const consentMode = {
+        'functionality_storage': consent.necessary ? 'granted' : 'denied',
+        'ad_storage': consent.marketing ? 'granted' : 'denied',
+        'analytics_storage': consent.analytics ? 'granted' : 'denied',
+      }
+      gtag('consent', 'update', consentMode)
+      localStorage.setItem('consentMode', JSON.stringify(consentMode))
+    }
+
+    if (localStorage.getItem('consentMode') === null) {
+      gtag('consent', 'default', {
+        'functionality_storage': 'denied',
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied'
+      })
+      document.getElementById('cookie-consent-banner').style.display = 'block'
+      document.getElementById('btn-accept-all').addEventListener('click', function() {
+        setConsent({
+          necessary: true,
+          analytics: true,
+          marketing: true
+        })
+        hideBanner()
+      })
+      document.getElementById('btn-reject-all').addEventListener('click', function() {
+        setConsent({
+          necessary: false,
+          analytics: false,
+          marketing: false
+        })
+        hideBanner()
+      })
+    } else {
+      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')))
+    }
+  </script>
+{% endif %}

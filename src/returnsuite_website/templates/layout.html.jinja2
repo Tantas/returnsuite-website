@@ -11,22 +11,8 @@
     <link rel="icon" href="{{ url_for('img', path='/favicon-192.png') }}" sizes="192x192">
     <link rel="apple-touch-icon" href="{{ url_for('img', path='/favicon-180.png') }}" sizes="180x180">
     <link rel="stylesheet" href="{{ url_for('get_styles', version=css_version) }}">
-    {% if google_tag %}
-      <script defer src="https://www.googletagmanager.com/gtag/js?id={{ google_tag }}"></script>
-      <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-              dataLayer.push(arguments);
-          }
-          gtag('js', new Date());
-          gtag('config', '{{ google_tag }}');
-      </script>
-    {% endif %}
     <script defer src="{{ url_for('js', path='/lib/alpinejs-3.14.1.min.js') }}"></script>
-    <style>
-        svg { display: inline-block; }
-        [x-cloak] { display: none; }
-    </style>
+    <style>svg { display: inline-block; } [x-cloak] { display: none; }</style>
     {% block head_extra %}{% endblock head_extra %}
   </head>
   <body class="bg-white h-screen w-screen text-sm">
@@ -352,6 +338,7 @@
   </ul>
 </footer>
 </div>
+{% include "components/analytics.html.jinja2" %}
 {% include "components/livereload.html.jinja2" %}
 </body>
 </html>
