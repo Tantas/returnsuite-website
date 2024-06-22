@@ -24,9 +24,11 @@ def get_application() -> FastAPI:
     application.include_router(web.router)
 
     if settings.compress_web_responses:
+        # noinspection PyTypeChecker
         application.add_middleware(GZipMiddleware, minimum_size=1000)
 
     if settings.proxy_header_trusted_hosts:
+        # noinspection PyTypeChecker
         application.add_middleware(
             ProxyHeadersMiddleware,
             trusted_hosts=settings.proxy_header_trusted_hosts,

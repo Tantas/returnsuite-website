@@ -16,9 +16,7 @@ class DevAppSettings(AppSettings):
     app_website: str = "http://localhost:8080"
     html_live_reload: bool = True
 
-    database_url: SecretStr = SecretStr(
-        "mysql+mysqlconnector://root:@127.0.0.1:3306/returnsuite-website-local"
-    )
+    database_url: SecretStr = SecretStr("sqlite://")
 
     smtp_use_ssl: bool = False
     smtp_host: str = "localhost:1025"

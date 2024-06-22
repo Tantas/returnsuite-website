@@ -18,11 +18,6 @@
 #
 
 # The following entries must exist in `~/.my.cnf`.
-# [client]
-# user=root
-# password=
-# host=127.0.0.1
-#
 # [client-returnsuite-stage-website]
 # user=<user>
 # password=<password>
@@ -77,7 +72,6 @@ usage:
   $0 clean
   $0 cloc
 
-  $0 local backup
   $0 local server
   $0 local tailwind
   $0 local livereload
@@ -127,18 +121,6 @@ case "$*" in
 
   "cloc")
     cloc "${DIR}/src" --exclude-ext=css,csv,svg,yml --exclude-dir=lib,migration
-    ;;
-
-  "local backup")
-    mkdir -p "${backup_dir}"
-    destination="${backup_dir}/${dump_date}_returnsuite_local.env"
-    if [[ ! $(cp "${DIR}/.env" "${destination}") ]]; then
-      echo "Backed up local env to '${destination}'."
-    fi
-    destination="${backup_dir}/${dump_date}_returnsuite_local.sql.gz"
-    if [[ ! $(mysqldump --databases returnsuite-local | gzip > "${destination}") ]]; then
-      echo "Backed up local database to '${destination}'."
-    fi
     ;;
 
   "local server")
