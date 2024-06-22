@@ -129,31 +129,3 @@
     </fieldset>
   </div>
 {% endmacro %}
-
-{% macro facet_section(page_response) -%}
-  {% for facet_group in page_response.facet_groups.groups %}
-    <fieldset class="border-b last:border-b-0 pb-4">
-      <legend class="py-4 pb-0 font-semibold text-gray-700 text-lg">{{ _('FacetGroup.' ~ facet_group.id_, locale) }}</legend>
-      <a href="#" title="Expand / Contract">
-        <!-- TODO -->
-      </a>
-      <ol class="my-2">
-        {% for facet in facet_group.facets %}
-          <li class="flex place-items-center">
-            <input type="checkbox" name="{{ facet_group.id_ }}" id="{{ facet.id_ }}" value="{{ facet.id_ }}"
-              {% if facet.selected %} checked{% endif %}>
-            <label for="{{ facet.id_ }}" class="w-full flex place-items-center justify-between px-4 py-2 hover:text-blue-500">
-              <span>{{ _('Facet.' ~ facet.id_, default=facet.id_, locale=locale) }}</span>
-              <span class="block bg-blue-50 rounded-sm px-2.5 py-0.5 text-center" style="min-width: 2rem">{{ facet.count }}</span>
-            </label>
-          </li>
-        {% endfor %}
-      </ol>
-      <div class="flex flex-row-reverse px-4">
-        <button type="submit" class="px-3 py-1.5 rounded-md bg-blue-500 hover:bg-blue-600 text-white text-xs tracking-wider font-semibold uppercase">
-          Apply
-        </button>
-      </div>
-    </fieldset>
-  {% endfor %}
-{%- endmacro %}
