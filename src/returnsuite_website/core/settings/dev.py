@@ -22,7 +22,4 @@ class DevAppSettings(AppSettings):
     smtp_host: str = "localhost:1025"
     smtp_from: str = "Local ReturnSuite <noreply@local.returnsuite.com>"
 
-    ensure_seed_data: bool = True
-    run_migrations: bool = True
-
     logging_level: int = logging.DEBUG

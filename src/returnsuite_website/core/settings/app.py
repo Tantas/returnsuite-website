@@ -34,8 +34,6 @@ class AppSettings(BaseAppSettings):
 
     create_database: bool = True
     database_url: SecretStr
-    ensure_seed_data: bool = False
-    run_migrations: bool = False
 
     landing_contact_email: list[str] = ("info@returnsuite.com",)
     landing_waitlist_email: list[str] = ("info@returnsuite.com",)
