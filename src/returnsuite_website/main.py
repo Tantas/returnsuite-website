@@ -7,7 +7,6 @@ from starlette.middleware.gzip import GZipMiddleware
 from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from returnsuite_website.core import config
-from returnsuite_website.core.settings import app
 from returnsuite_website.routes import web
 from returnsuite_website.routes.not_found import custom_404_handler
 from returnsuite_website.services import database

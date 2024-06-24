@@ -10,7 +10,7 @@ information, contact, terms, privacy, blog, course and documentation.
 
 1) Preparing the assets
    1) Create an image directory for the post at `resources/img/yyyy-MM-dd`.
-   2) Copy the images and related assets as lossless files to the directory. 
+   2) Copy the images and related assets as lossless files to the directory.
       Suffix them as `-original`.
    3) Run the images through a compression tool to webm unless they are a `.gif`
       or `.svg`. A great tool is [Squoosh.app](https://squoosh.app/editor). Set
@@ -29,6 +29,7 @@ information, contact, terms, privacy, blog, course and documentation.
 
 Note*: Be careful using third party widgets (iframes) as they may break GDPR
 compliance.
+
 
 ### Updating landing page images
 

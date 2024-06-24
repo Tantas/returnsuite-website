@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] { display: none !important; }
+
+/* Hide the Chrome input date icon. */
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2371717a' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  /*padding-right: 1.5rem;*/
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+
+.rs-modal {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.25);
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+}
+
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2371717a' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+}
+
+.blog-post p {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #4a5568;
+}
+.blog-post h2 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #000000;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+}
+.blog-post h3 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: #000000;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 300;
+}
+.blog-post a {
+  color: #4299e1;
+  font-weight: 500;
+}
+.blog-post a:hover {
+  text-decoration: underline;
+}
+
+/* Toggle */
+@layer components {
+  .toggle {
+    @apply inline-block cursor-pointer whitespace-nowrap
+  }
+  .toggle-switch {
+    @apply relative inline-block align-middle bg-gray-200 rounded-full w-14 h-8 transition duration-200
+  }
+  .toggle-checkbox {
+    @apply absolute invisible
+  }
+  .toggle-switch:before {
+    content: "";
+    transition: left 0.2s;
+    @apply absolute block left-1 top-1 w-6 h-6 rounded-full shadow-sm bg-white
+  }
+  .toggle-checkbox:checked + .toggle-switch {
+      @apply bg-blue-500
+  }
+  .toggle-checkbox:checked + .toggle-switch:before {
+      @apply left-7
+  }
+  .toggle-label {
+    @apply relative ml-2 top-0.5 text-gray-700 font-medium
+  }
+
+  .button {
+    @apply flex place-items-center justify-center gap-2 whitespace-nowrap border border-gray-300 text-gray-800 text-base tracking-wide rounded-md px-4 py-2 rounded-md hover:border-gray-600 hover:text-gray-900
+  }
+  .button-primary {
+    @apply text-white bg-blue-500
+  }
+  .button-close {
+    @apply flex place-items-center justify-center gap-2 whitespace-nowrap tracking-wide p-2 rounded-full text-gray-600 hover:bg-gray-200
+  }
+
+  .icon {
+    @apply inline-block h-6
+  }
+
+  .rs-documentation {
+    @apply flex flex-col gap-4 leading-6 text-gray-700 text-sm
+  }
+  .rs-documentation p:not(:first-of-type) {
+    @apply pt-2
+  }
+  .rs-documentation dt {
+    @apply font-medium pt-2
+  }
+  .rs-documentation h3 {
+    @apply py-1 font-medium text-base text-gray-900
+  }
+  .rs-documentation a {
+    @apply font-medium text-blue-500 hover:underline
+  }
+
+  .rs-input {
+    @apply flex flex-col gap-1.5 py-2 text-gray-700 w-full
+  }
+  .rs-input label {
+    @apply font-bold
+  }
+  .rs-input div:first-of-type {
+    @apply rounded-md bg-gray-100 border border-gray-300 overflow-hidden flex place-items-center
+  }
+  .rs-input input, .rs-input select {
+    @apply appearance-none bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500 border-l-2 border-blue-500 w-full disabled:bg-gray-100 disabled:bg-none disabled:border-l-gray-400 disabled:text-gray-600
+  }
+  .rs-input textarea {
+    @apply w-full bg-transparent p-4 border-l-2 border-blue-500 font-normal text-gray-800 disabled:bg-gray-100 disabled:bg-none disabled:border-l-gray-400 disabled:text-gray-600
+  }
+  .rs-input small, .rs-input p {
+    @apply text-sm
+  }
+  .rs-grid-input {
+    @apply flex flex-col
+  }
+  .rs-grid-input .label {
+    @apply text-sm text-gray-500 tracking-wide font-semibold px-4 whitespace-nowrap
+  }
+  .rs-grid-input input, .rs-grid-input select {
+    @apply appearance-none bg-transparent py-0.5 px-4 font-semibold text-base text-gray-800 placeholder-gray-400 bg-gray-100
+  }
+  .rs-grid-input div {
+    @apply py-0.5 px-4 text-gray-800
+  }
+
+  /*New property section uses these components. */
+  .row-input-group { /* apply to the ol */
+    @apply rounded-lg px-4 py-2 flex
+  }
+  .row-input-group__field { /* replace with immediate li */
+    @apply flex flex-col h-fit p-2 border border-transparent rounded-lg pb-1
+  }
+  .row-input-group__field select:not(:hover) {
+    background-image: none
+  }
+  .row-input-group__field select:hover {
+    background-position: right 0 center;
+  }
+  .row-input-group__field:hover {
+    @apply bg-white border-gray-300 bg-gray-50
+  }
+  .row-input-group__field label {
+    @apply text-sm text-gray-600 tracking-wide font-semibold px-2 whitespace-nowrap
+  }
+  .row-input-group__field div {
+    @apply flex place-items-center relative
+  }
+  .row-input-group__field input, .row-input-group__field select {
+    @apply appearance-none bg-transparent rounded-md px-2 py-1 w-full font-semibold text-base text-gray-900 placeholder-gray-400 overflow-ellipsis whitespace-nowrap
+  }
+  .row-input-group__field .input-unit {
+    @apply font-medium text-base text-gray-600 tracking-wide pl-3 pr-2 whitespace-nowrap
+  }
+}
