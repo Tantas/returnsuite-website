@@ -7,7 +7,9 @@ from starlette.middleware.gzip import GZipMiddleware
 from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from returnsuite_website.core import config
+from returnsuite_website.core.settings import app
 from returnsuite_website.routes import web
+from returnsuite_website.routes.not_found import custom_404_handler
 from returnsuite_website.services import database
 
 
@@ -22,6 +24,7 @@ def get_application() -> FastAPI:
     application.mount("/js", StaticFiles(directory=f"{resources}/js"), name="js")
     application.mount("/img", StaticFiles(directory=f"{resources}/img"), name="img")
     application.include_router(web.router)
+    application.add_exception_handler(404, custom_404_handler)
 
     if settings.compress_web_responses:
         # noinspection PyTypeChecker
