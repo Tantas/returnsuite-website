@@ -45,9 +45,11 @@
                   <li class="px-4">
                     <a href="{{ url_for('get_index') }}#Benefits" @click="toggleMenu()" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">Benefits</a>
                   </li>
-                  <li class="px-4">
-                    <a href="{{ url_for('get_view_demo') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">View Demo</a>
-                  </li>
+                  {% if signup_enabled %}
+                    <li class="px-4">
+                      <a href="{{ url_for('get_view_demo') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">View Demo</a>
+                    </li>
+                  {% endif %}
                   <li class="px-4">
                     <a href="{{ url_for('get_blog') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">Blog</a>
                   </li>
@@ -96,9 +98,11 @@
     <li class="hidden md:block pl-4">
       <a href="{{ url_for('get_index') }}#Benefits" class="py-1.5 border-b-2 border-white hover:border-blue-500">Benefits</a>
     </li>
-    <li class="hidden md:block pl-4">
-      <a href="{{ url_for('get_view_demo') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Demo</a>
-    </li>
+    {% if signup_enabled %}
+      <li class="hidden md:block pl-4">
+        <a href="{{ url_for('get_view_demo') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Demo</a>
+      </li>
+    {% endif %}
     <li class="hidden md:block px-4">
       <a href="{{ url_for('get_blog') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Blog</a>
     </li>
@@ -290,7 +294,7 @@
   </li>
 {% else %}
   <li class="hidden md:block ">
-    <a href="{{ url_for('get_login') }}" class="border-2 rounded-md border-blue-500 text-white bg-blue-500 font-semibold px-6 py-2 whitespace-nowrap hover:bg-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
+    <a href="{{ app_website }}/login" class="border-2 rounded-md border-blue-500 text-white bg-blue-500 font-semibold px-6 py-2 whitespace-nowrap hover:bg-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
   </li>
 {% endif %}
 </ul>

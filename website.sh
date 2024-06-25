@@ -18,12 +18,14 @@
 #
 
 # The following entries must exist in `~/.my.cnf`.
-# [client-returnsuite-stage-website]
+# [client-returnsuite-stage]
+# skip_ssl=true
 # user=<user>
 # password=<password>
 # host=<host>
 #
-# [client-returnsuite-prod-website]
+# [client-returnsuite-prod]
+# skip_ssl=true
 # user=<user>
 # password=<password>
 # host=<host>
@@ -132,9 +134,9 @@ case "$*" in
     cd "${DIR}" || exit 2
     # Install with `npm install -g tailwindcss`.
     npx tailwindcss \
-      -c ./docs/development/css/tailwind.config.js \
-      -i ./docs/development/css/input.css \
-      -o ./src/returnsuite/resources/css/styles.css \
+      -c "${DIR}/scripts/css/tailwind.config.js" \
+      -i "${DIR}/scripts/css/input.css" \
+      -o "${DIR}/src/returnsuite_website/resources/css/styles.css" \
       --watch
     ;;
 
@@ -155,14 +157,14 @@ case "$*" in
   "stage backup")
     test_reachability "returnsuite-stage-app"
     mkdir -p "${backup_dir}"
-    source="returnsuite-stage-app:/srv/project/stage.returnsuite.com/stage.env"
-    destination="${backup_dir}/${dump_date}_returnsuite_stage.env"
+    source="returnsuite-stage-app:/srv/stage.returnsuite.com/stage.env"
+    destination="${backup_dir}/${dump_date}_returnsuite_stage_website.env"
     if [[ ! $(scp "$source" "${destination}") ]]; then
-      echo "Backed up stage env to '${destination}'."
+      echo "Backed up stage website env to '${destination}'."
     fi
-    destination="${backup_dir}/${dump_date}_returnsuite_stage.sql.gz"
-    if [[ ! $(mysqldump --defaults-group-suffix=-returnsuite-stage --single-transaction -q -v returnsuite-stage | gzip > "${destination}") ]]; then
-      echo "Backed up stage database to '${destination}'."
+    destination="${backup_dir}/${dump_date}_returnsuite_stage_website.sql.gz"
+    if [[ ! $(mariadb-dump --defaults-group-suffix=-returnsuite-stage --single-transaction -q -v 'returnsuite-website' | gzip > "${destination}") ]]; then
+      echo "Backed up stage website database to '${destination}'."
     fi
     ;;
 
@@ -170,36 +172,36 @@ case "$*" in
     test_reachability "returnsuite-stage-app"
     poetry --directory="${DIR}" build -f wheel
     latest_version=$(poetry version -s)
-    latest_file="returnsuite-${latest_version}-py3-none-any.whl"
+    latest_file="returnsuite_website-${latest_version}-py3-none-any.whl"
     from="${DIR}/dist/${latest_file}"
-    rsync "$from" returnsuite-stage-app:/srv/project/stage.returnsuite.com/
+    rsync "$from" returnsuite-stage-app:/srv/stage.returnsuite.com/
     echo "The deployment ends in a tail command. Press 'control+c' to exit."
     # shellcheck disable=SC2029  # Expansion must occur on the client side.
     ssh returnsuite-stage-app \
-      "cd /srv/project/stage.returnsuite.com/ &&
-       source /srv/venv/stage.returnsuite.com/bin/activate &&
+      "cd /srv/stage.returnsuite.com/ &&
+       source /srv/stage.returnsuite.com/venv/bin/activate &&
        pip install ${latest_file} --force-reinstall &&
        deactivate &&
-       sudo systemctl reload gunicorn &&
-       journalctl -xefu gunicorn"
+       sudo systemctl reload gunicorn-website &&
+       journalctl -xefu gunicorn-website"
     ;;
 
   "stage tail")
     test_reachability "returnsuite-stage-app"
-    ssh returnsuite-stage-app "journalctl -xefu gunicorn"
+    ssh returnsuite-stage-app "journalctl -xefu gunicorn-website"
     ;;
 
   "prod backup")
     test_reachability "returnsuite-prod-app-1"
     mkdir -p "${backup_dir}"
-    source="returnsuite-prod-app-1:/srv/project/returnsuite.com/prod.env"
-    destination="${backup_dir}/${dump_date}_returnsuite_prod_1.env"
+    source="returnsuite-prod-app-1:/srv/returnsuite.com/prod.env"
+    destination="${backup_dir}/${dump_date}_returnsuite_prod_1_website.env"
     if [[ ! $(scp "${source}" "${destination}") ]]; then
-      echo "Backed up prod env to '${destination}'."
+      echo "Backed up prod website env to '${destination}'."
     fi
-    destination="${backup_dir}/${dump_date}_returnsuite_prod.sql.gz"
-    if [[ ! $(mysqldump --defaults-group-suffix=-returnsuite-prod --single-transaction -q -v returnsuite-prod | gzip > "${destination}") ]]; then
-      echo "Backed up prod database to '${destination}'."
+    destination="${backup_dir}/${dump_date}_returnsuite_prod_website.sql.gz"
+    if [[ ! $(mariadb-dump --defaults-group-suffix=-returnsuite-prod --single-transaction -q -v returnsuite-website | gzip > "${destination}") ]]; then
+      echo "Backed up prod website database to '${destination}'."
     fi
     ;;
 
@@ -212,23 +214,23 @@ case "$*" in
     test_reachability "returnsuite-prod-app-1"
     poetry --directory="${DIR}" build -f wheel
     latest_version=$(poetry version -s)
-    latest_file="returnsuite-${latest_version}-py3-none-any.whl"
+    latest_file="returnsuite_website-${latest_version}-py3-none-any.whl"
     from="${DIR}/dist/${latest_file}"
-    rsync "$from" returnsuite-prod-app-1:/srv/project/returnsuite.com/
+    rsync "$from" returnsuite-prod-app-1:/srv/returnsuite.com/
     echo "The deployment ends in a tail command. Press 'control+c' to exit."
     # shellcheck disable=SC2029  # Expansion must occur on the client side.
     ssh returnsuite-prod-app-1 \
-      "cd /srv/project/returnsuite.com/ &&
-       source /srv/venv/returnsuite.com/bin/activate &&
+      "cd /srv/returnsuite.com/ &&
+       source /srv/returnsuite.com/venv/bin/activate &&
        pip install ${latest_file} --force-reinstall &&
        deactivate &&
-       sudo systemctl reload gunicorn &&
-       journalctl -xefu gunicorn"
+       sudo systemctl reload gunicorn-website &&
+       journalctl -xefu gunicorn-website"
     ;;
 
   "prod tail")
     test_reachability "returnsuite-prod-app-1"
-    ssh returnsuite-prod-app-1 "journalctl -xefu gunicorn"
+    ssh returnsuite-prod-app-1 "journalctl -xefu gunicorn-website"
     ;;
 
   *)

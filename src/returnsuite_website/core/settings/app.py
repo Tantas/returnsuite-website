@@ -17,7 +17,7 @@ class AppSettings(BaseAppSettings):
     title: str = "ReturnSuite"
     version: str = "1.0.0"
 
-    app_website: str = "https://returnsuite.com"
+    app_website: str = "https://app.returnsuite.com"
     compress_web_responses: bool = True
     proxy_header_trusted_hosts: list[str] | str | None = "*"
     html_live_reload: bool = False
