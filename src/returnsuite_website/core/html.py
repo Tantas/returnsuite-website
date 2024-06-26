@@ -49,6 +49,6 @@ def analytics_consent(accept_language: str | None) -> bool:
 
 templates.env.globals["_"] = localize
 templates.env.globals["now"] = _now
+templates.env.filters["analytics_consent"] = analytics_consent
 templates.env.filters["format_date_medium"] = format_date_medium
 templates.env.filters["format_date_long"] = format_date_long
-templates.env.filters["analytics_consent"] = analytics_consent
