@@ -32,7 +32,23 @@ def _now():
     return datetime.now(UTC)
 
 
+def analytics_consent(accept_language: str | None) -> bool:
+    if accept_language is None or accept_language == "":
+        return True
+    if (
+        "US" in accept_language
+        or "CA" in accept_language
+        or "AU" in accept_language
+        or "NZ" in accept_language
+        or "MX" in accept_language
+        or "JP" in accept_language
+    ):
+        return False
+    return True
+
+
 templates.env.globals["_"] = localize
 templates.env.globals["now"] = _now
 templates.env.filters["format_date_medium"] = format_date_medium
 templates.env.filters["format_date_long"] = format_date_long
+templates.env.filters["analytics_consent"] = analytics_consent
