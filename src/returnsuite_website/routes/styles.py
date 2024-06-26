@@ -25,6 +25,6 @@ async def get_styles(request: Request, version: str):
         return Response(content=_css_path.read_bytes(), media_type="text/css")
     return Response(
         content=_cached_css,
-        headers={"Cache-Control": "public, max-age=7776000, immutable"},
+        headers={"Cache-Control": "public, max-age=31536000, immutable"},
         media_type="text/css",
     )
