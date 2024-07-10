@@ -103,11 +103,15 @@
         <a href="{{ url_for('get_view_demo') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Demo</a>
       </li>
     {% endif %}
+
+    <!--<li class="hidden md:block px-4">
+      <a href="{{ url_for('get_contact') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Contact</a>
+    </li>-->
+    <li class="hidden md:block pl-4">
+      <a href="{{ url_for('get_documentation') }}" class="py-1.5 border-b-2 border-blue-500">Resources</a>
+    </li>
     <li class="hidden md:block px-4">
       <a href="{{ url_for('get_blog') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Blog</a>
-    </li>
-    <li class="hidden md:block">
-      <a href="{{ url_for('get_contact') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Contact</a>
     </li>
     <li class="hidden md:block ml-auto" id="locale-display">
       <script>

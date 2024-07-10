@@ -1,0 +1,237 @@
+{% extends "docs/layout.html.jinja2" %}
+{% set page_title = 'Documentation - ' + app_title %}
+
+{% block content %}
+  <script>
+  function menu() {
+    return {
+      menu_open: true,
+      table_of_contents: [
+        {
+          "collapsed": {{ (context_page_name != 'get_concepts_introduction')|tojson }},
+          "title": "Introduction",
+          "items": [
+            {
+              "title": "About this course",
+              "href": "{{ url_for('get_concepts_introduction') }}",
+            }, {
+              "title": "Market value",
+              "href": "#",
+            }, {
+              "title": "Investment value",
+              "href": "#",
+            }, {
+              "title": "Market and investment valuations",
+              "href": "#",
+            }
+          ]
+        }, {
+          "collapsed": {{ (context_page_name != 'get_concepts_foundational_concepts')|tojson }},
+          "title": "Foundational Concepts",
+          "items": [
+            {
+              "title": "Overview",
+              "href": "{{ url_for('get_concepts_foundational_concepts') }}",
+            }, {
+              "title": "Time value of money",
+              "href": "#",
+            }, {
+              "title": "Discount and Risk-free rate",
+              "href": "#",
+            }, {
+              "title": "Perpetuities and exit valuations",
+              "href": "#",
+            }, {
+              "title": "Gordon growth model",
+              "href": "#",
+            }, {
+              "title": "How Perpetuities & the Gordon Growth Rate are Used in Real Estate",
+              "href": "#",
+            }, {
+              "title": "Net operating income",
+              "href": "#",
+            }, {
+              "title": "Capitalization rates",
+              "href": "#",
+            }, {
+              "title": "Expected value",
+              "href": "#",
+            }
+          ]
+        }, {
+          "collapsed": true,
+          "title": "Valuation approaches",
+          "items": [
+            {
+              "title": "Asset valuation",
+              "href": "#",
+            }, {
+              "title": "Valuation family tree",
+              "href": "#",
+            }, {
+              "title": "Market approach",
+              "href": "#",
+            }, {
+              "title": "Cost approach",
+              "href": "#",
+            }, {
+              "title": "Income approach",
+              "href": "#",
+            }, {
+              "title": "Valuation family tree revisited",
+              "href": "#",
+            }, {
+              "title": "Standard direct capitalization",
+              "href": "#",
+            }, {
+              "title": "Tiered direct capitalization",
+              "href": "#",
+            }, {
+              "title": "Top slice method",
+              "href": "#",
+            }, {
+              "title": "Discounted cash flow method",
+              "href": "#",
+            }, {
+              "title": "Summary of the methods",
+              "href": "#"
+            }
+          ]
+        }, {
+          "collapsed": true,
+          "title": "NOI and cash flow",
+          "items": [
+            {
+              "title": "Introduction",
+              "href": "#"
+            }, {
+              "title": "What’s Happening Under the Hood of a Financial Model",
+              "href": "#"
+            }, {
+              "title": "Details of the Net Operating Income Statement",
+              "href": "#"
+            }, {
+              "title": "Capital Expenditures",
+              "href": "#"
+            }, {
+              "title": "Financing Activities",
+              "href": "#"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  </script>
+  <div class="flex pt-7" x-data="menu()" style="height: calc(100vh - 5.35rem)">
+    <aside class="hidden lg:block absolute sticky border-r border-gray-300 relative" :class="menu_open ? 'w-96' : 'w-16'">
+      <div class="absolute z-10 absolute top-3 right-4 text-gray-500 hover:text-gray-800">
+        <button type="button" @click="menu_open = !menu_open" x-show="menu_open" title="Hide table of contents" style="transform: rotate(180deg);">
+        <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M80-240v-480h80v480H80Zm560 0-57-56 144-144H240v-80h487L584-664l56-56 240 240-240 240Z"></path>
+        </svg>
+      </button>
+        <button type="button" @click="menu_open = !menu_open" x-show="!menu_open" title="Show table of contents">
+        <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M80-240v-480h80v480H80Zm560 0-57-56 144-144H240v-80h487L584-664l56-56 240 240-240 240Z"></path>
+        </svg>
+      </button>
+      </div>
+      <div>
+        <div>
+        <ol class="text-base text-gray-700 px-4 flex flex-col gap-1 py-3 overflow-y-scroll" style="height: calc(100vh - 10.1rem)" x-show="menu_open">
+          <template x-for="entry in table_of_contents">
+            <li>
+              <div class="flex place-items-center">
+                <button type="button" title="Expand" x-show="entry.collapsed" @click="entry.collapsed = !entry.collapsed">
+                  <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
+                    <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
+                  </svg>
+                  <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
+                </button>
+                <button type="button" title="Collapse" x-show="!entry.collapsed" @click="entry.collapsed = !entry.collapsed">
+                  <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
+                    <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+                  </svg>
+                  <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
+                </button>
+              </div>
+              <ol class="pl-9 py-2 flex flex-col gap-2 text-sm font-normal" x-show="!entry.collapsed">
+                <template x-for="sub_entry in entry.items">
+                  <li><a x-bind:href="sub_entry.href" x-text="sub_entry.title" class="hover:text-gray-800"></a></li>
+                </template>
+              </ol>
+            </li>
+          </template>
+        </ol>
+        </div>
+      </div>
+      <div class="absolute bottom-0 border-t border-gray-300 bg-white w-full h-12 flex place-items-center">
+        <button type="button" title="Change langauge" class="px-4 ml-0.5 flex place-items-center gap-4">
+          <svg class="inline-block h-3" viewBox="0 0 9600 4800">
+	          <path fill="#d52b1e" d="m0 0h2400l99 99h4602l99-99h2400v4800h-2400l-99-99h-4602l-99 99H0z"></path>
+	          <path fill="#fff" d="m2400 0h4800v4800h-4800zm2490 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z"></path>
+          </svg>
+          <span class="font-medium tracking-wide" x-show="menu_open">Canada - English</span>
+        </button>
+      </div>
+    </aside>
+    <style>
+      .documentation-breadcrumbs li {
+        display: inline-block;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        color: rgb(74 85 104);
+        letter-spacing: 0.025em;
+        font-weight: 300;
+      }
+      .documentation-breadcrumbs li:not(:last-child):after {
+        content: "/";
+        display: inline-block;
+        padding: 0 0.625rem;
+      }
+      .documentation-breadcrumbs a:hover {
+        color: rgb(45 55 72);
+      }
+      .documentation-article p {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 1rem;
+        line-height: 1.75rem;
+        /*color: #4a5568;*/
+        color: rgb(45 55 72);
+      }
+      .documentation-article h2 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        color: #000000;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+      }
+      .documentation-article h3 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        color: #000000;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 300;
+      }
+      .documentation-article a {
+        color: #4299e1;
+        font-weight: 500;
+      }
+      .documentation-article a:hover {
+        text-decoration: underline;
+      }
+    </style>
+
+    <main class="flex flex-col place-items-center w-full overflow-y-scroll">
+      <div class="flex flex-col px-6 lg:max-w-5xl">
+        {% block article_content %}{% endblock article_content %}
+        {% include "docs/cta.html.jinja2" %}
+      </div>
+    </main>
+  </div>
+{% endblock content %}

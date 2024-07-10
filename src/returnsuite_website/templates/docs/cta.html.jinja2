@@ -1,0 +1,56 @@
+<footer>
+  <div class="py-6">
+    <form class="flex place-items-center gap-3">
+      <input type="hidden" name="page" value="{{ context_page_name }}">
+      <p class="text-2xl text-gray-800 font-medium pr-2 tracking-wide">Was this page helpful?</p>
+      <label class="border rounded-md py-1.5 px-4 border-gray-300 flex place-items-center gap-2 shadow-sm">
+        <svg class="inline-block h-5 text-gray-700" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"></path>
+        </svg>
+        <input type="radio" name="helpful" value="true" class="hidden">
+        <span class="tracking-wide font-medium text-gray-900 font-lg">Yes</span>
+      </label>
+      <label class="border rounded-md py-1.5 px-4 border-gray-300 flex place-items-center gap-2 shadow-sm">
+        <svg class="inline-block h-5 text-gray-700" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M240-840h440v520L400-40l-50-50q-7-7-11.5-19t-4.5-23v-14l44-174H120q-32 0-56-24t-24-56v-80q0-7 2-15t4-15l120-282q9-20 30-34t44-14Zm360 80H240L120-480v80h360l-54 220 174-174v-406Zm0 406v-406 406Zm80 34v-80h120v-360H680v-80h200v520H680Z"></path>
+        </svg>
+        <input type="radio" name="helpful" value="false" class="hidden">
+        <span class="tracking-wide font-medium text-gray-900 font-lg">No</span>
+      </label>
+    </form>
+  </div>
+  <div class="border-t border-gray-300 py-12 text-gray-700 text-base flex flex-col md:flex-row justify-between gap-8">
+    <ul class="flex flex-col gap-3">
+      <li class="flex place-items-center gap-3">
+        <svg class="inline-block h-5" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80ZM364-182l48-110q-42-15-72.5-46.5T292-412l-110 46q23 64 71 112t111 72Zm-72-366q17-42 47.5-73.5T412-668l-46-110q-64 24-112 72t-72 112l110 46Zm188 188q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm116 178q63-24 110.5-71.5T778-364l-110-48q-15 42-46 72.5T550-292l46 110Zm72-368 110-46q-24-63-71.5-110.5T596-778l-46 112q41 15 71 45.5t47 70.5Z"></path>
+        </svg>
+        <span>Need help? <a href="#" class="text-blue-500 hover:underline">Contact Support.</a></span>
+      </li>
+      <li class="flex place-items-center gap-3">
+        <svg class="inline-block h-5" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"></path>
+        </svg>
+        <span>View product changes in our <a href="#" class="text-blue-500 hover:underline">changelog</a>.</span>
+      </li>
+      <li class="flex place-items-center gap-3">
+        <svg class="inline-block h-5" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M476-280q21 0 35.5-14.5T526-330q0-21-14.5-35.5T476-380q-21 0-35.5 14.5T426-330q0 21 14.5 35.5T476-280Zm-36-154h74q0-17 1.5-29t6.5-23q5-11 12.5-20.5T556-530q35-35 49.5-58.5T620-642q0-53-36-85.5T487-760q-55 0-93.5 27T340-658l66 26q7-27 28-43.5t49-16.5q27 0 45 14.5t18 38.5q0 17-11 36t-37 42q-17 14-27.5 27.5T453-505q-7 15-10 31.5t-3 39.5Zm40 394L360-160H200q-33 0-56.5-23.5T120-240v-560q0-33 23.5-56.5T200-880h560q33 0 56.5 23.5T840-800v560q0 33-23.5 56.5T760-160H600L480-40ZM200-240h192l88 88 88-88h192v-560H200v560Zm280-280Z"></path>
+        </svg>
+        <span>Questions? <a href="#" class="text-blue-500 hover:underline">Contact Sales.</a></span>
+      </li>
+    </ul>
+    <form class="flex flex-col gap-2">
+      <div class="flex flex-col gap-1.5">
+        <label for="email" class="font-bold text-gray-700">Sign up for ReturnSuite updates:</label>
+        <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+          <div class="w-full flex place-items-center border-l-2 border-blue-500">
+            <input id="email" name="email" autocomplete="email" type="email" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="email@company.com" required>
+          </div>
+          <button type="submit" class="whitespace-nowrap font-semibold pr-4 text-gray-500 hover:text-gray-800">Sign up</button>
+        </div>
+        <small>You can unsubscribe at any time. Read our <a href="#" class="text-blue-500 hover:underline">privacy policy</a>.</small>
+      </div>
+    </form>
+  </div>
+</footer>

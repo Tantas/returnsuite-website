@@ -20,6 +20,7 @@ router = APIRouter(default_response_class=HTMLResponse)
 @router.get("/brave")
 @router.get("/")  # Must be last to be used with 'for_url'.
 async def get_index(request: Request, success: bool | None = None):
+    logger.warning(f"User agent is {request.headers.get('User-Agent')}")
     return templates.TemplateResponse(
         request=request,
         name="index.html.jinja2",
