@@ -4,7 +4,6 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, Form, Header, Request
 from loguru import logger
 from starlette.responses import HTMLResponse, RedirectResponse
-from starlette.status import HTTP_302_FOUND
 
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
@@ -121,5 +120,5 @@ async def post_contact(
 
     return RedirectResponse(
         f"{request.url_for('get_contact').include_query_params(success='true')}",
-        status_code=HTTP_302_FOUND,
+        status_code=302,
     )

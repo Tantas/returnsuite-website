@@ -5,7 +5,6 @@ from fastapi import APIRouter, Depends, Form, Header, Request
 from fastapi.responses import HTMLResponse
 from loguru import logger
 from starlette.responses import RedirectResponse
-from starlette.status import HTTP_302_FOUND
 
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
@@ -143,7 +142,7 @@ async def post_waitlist(
     return RedirectResponse(
         f"{request.url_for('get_index').include_query_params(success='true')}"
         f"#Request-Early-Access",
-        status_code=HTTP_302_FOUND,
+        status_code=302,
     )
 
 

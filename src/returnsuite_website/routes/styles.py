@@ -1,9 +1,7 @@
 from importlib.resources import files
 
-from fastapi import APIRouter
-from starlette.requests import Request
+from fastapi import APIRouter, Request
 from starlette.responses import RedirectResponse, Response
-from starlette.status import HTTP_302_FOUND
 
 from returnsuite_website.core.config import get_app_settings
 
@@ -19,7 +17,7 @@ async def get_styles(request: Request, version: str):
     css_version = settings.css_version
     if css_version != version:
         url = request.url_for(get_styles.__name__, version=css_version)
-        return RedirectResponse(url, status_code=HTTP_302_FOUND)
+        return RedirectResponse(url, status_code=302)
 
     if settings.debug:
         return Response(content=_css_path.read_bytes(), media_type="text/css")
