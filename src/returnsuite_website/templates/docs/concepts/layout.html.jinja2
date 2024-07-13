@@ -103,61 +103,80 @@
           "items": [
             {
               "title": "Overview",
-              "href": "{{ url_for('get_concepts_noi_overview') }}"
+              "href": "{{ url_for('get_concepts_noi_overview') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_overview")|tojson }}
             }, {
               "title": "Modelling real estate",
-              "href": "{{ url_for('get_concepts_noi_real_estate_model') }}"
+              "href": "{{ url_for('get_concepts_noi_real_estate_model') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_real_estate_model")|tojson }}
             }, {
               "title": "Potential base rent",
-              "href": "{{ url_for('get_concepts_noi_market_and_potential_base_rent') }}"
+              "href": "{{ url_for('get_concepts_noi_market_and_potential_base_rent') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_market_and_potential_base_rent")|tojson }}
             }, {
               "title": "Actual base rent",
-              "href": "{{ url_for('get_concepts_noi_projected_base_real_rent') }}"
+              "href": "{{ url_for('get_concepts_noi_projected_base_real_rent') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_projected_base_real_rent")|tojson }}
             }, {
               "title": "Additional rent",
               "href": "{{ url_for('get_concepts_noi_additional_rent') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_additional_rent")|tojson }}
             }, {
               "title": "Other tenant revenue",
-              "href": "{{ url_for('get_concepts_noi_other_tenant_revenue') }}"
+              "href": "{{ url_for('get_concepts_noi_other_tenant_revenue') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_other_tenant_revenue")|tojson }}
             }, {
               "title": "Other revenue",
-              "href": "{{ url_for('get_concepts_noi_other_revenue') }}"
+              "href": "{{ url_for('get_concepts_noi_other_revenue') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_other_revenue")|tojson }}
             }, {
               "title": "Potential gross income",
-              "href": "{{ url_for('get_concepts_noi_potential_gross_income') }}"
+              "href": "{{ url_for('get_concepts_noi_potential_gross_income') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_potential_gross_income")|tojson }}
             }, {
               "title": "Vacancy and credit loss",
-              "href": "{{ url_for('get_concepts_noi_vacancy_and_credit_loss') }}"
+              "href": "{{ url_for('get_concepts_noi_vacancy_and_credit_loss') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_vacancy_and_credit_loss")|tojson }}
             }, {
               "title": "Effective gross income",
-              "href": "{{ url_for('get_concepts_noi_effective_gross_income') }}"
+              "href": "{{ url_for('get_concepts_noi_effective_gross_income') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_effective_gross_income")|tojson }}
             }, {
               "title": "Operating expenses",
-              "href": "{{ url_for('get_concepts_noi_operating_expenses') }}"
+              "href": "{{ url_for('get_concepts_noi_operating_expenses') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_operating_expenses")|tojson }}
             }, {
               "title": "Net operating income",
-              "href": "{{ url_for('get_concepts_noi_net_operating_income') }}"
+              "href": "{{ url_for('get_concepts_noi_net_operating_income') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_net_operating_income")|tojson }}
             }, {
               "title": "NOI and cash flow statement",
-              "href": "{{ url_for('get_concepts_noi_noi_and_cash_flow_statement') }}"
+              "href": "{{ url_for('get_concepts_noi_noi_and_cash_flow_statement') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_noi_and_cash_flow_statement")|tojson }}
             }, {
               "title": "Valuation and capitalization",
-              "href": "{{ url_for('get_concepts_noi_valuation_and_capitalization') }}"
+              "href": "{{ url_for('get_concepts_noi_valuation_and_capitalization') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_valuation_and_capitalization")|tojson }}
             }, {
               "title": "Exercise - Net Operating Income",
-              "href": "{{ url_for('get_concepts_noi_exercise_1') }}"
+              "href": "{{ url_for('get_concepts_noi_exercise_1') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_exercise_1")|tojson }}
             }, {
               "title": "Tiered Direct Capitalization",
-              "href": "{{ url_for('get_concepts_noi_valuation_tiered_direct_capitalization') }}"
+              "href": "{{ url_for('get_concepts_noi_valuation_tiered_direct_capitalization') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_valuation_tiered_direct_capitalization")|tojson }}
             }, {
               "title": "Exercise - Tiered Direct Capitalization",
-              "href": "{{ url_for('get_concepts_noi_exercise_2') }}"
+              "href": "{{ url_for('get_concepts_noi_exercise_2') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_exercise_2")|tojson }}
             }, {
               "title": "Top Slice Valuation Method",
-              "href": "{{ url_for('get_concepts_noi_valuation_top_slice') }}"
+              "href": "{{ url_for('get_concepts_noi_valuation_top_slice') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_valuation_top_slice")|tojson }}
             }, {
               "title": "Exercise - Top Slice Valuation",
-              "href": "{{ url_for('get_concepts_noi_exercise_3') }}"
+              "href": "{{ url_for('get_concepts_noi_exercise_3') }}",
+              "selected": {{ (context_page_name == "get_concepts_noi_exercise_3")|tojson }}
             }
           ]
         }
@@ -198,9 +217,9 @@
                   <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
                 </button>
               </div>
-              <ol class="pl-9 py-2 flex flex-col gap-2 text-sm font-normal" x-show="!entry.collapsed">
+              <ol class="pl-5 py-1.5 flex flex-col text-sm font-normal" x-show="!entry.collapsed">
                 <template x-for="sub_entry in entry.items">
-                  <li><a x-bind:href="sub_entry.href" x-text="sub_entry.title" class="hover:text-gray-800"></a></li>
+                  <li><a x-bind:href="sub_entry.href" x-text="sub_entry.title" class="hover:text-gray-800 w-full block rounded-md px-4 py-1" :class="sub_entry.selected ? 'text-blue-600 bg-blue-100 font-medium tracking-wide' : ''"></a></li>
                 </template>
               </ol>
             </li>
