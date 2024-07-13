@@ -17,10 +17,11 @@ def get_application() -> FastAPI:
 
     application = FastAPI(**settings.fastapi_kwargs)
 
-    resources = f"{Path(__file__).parent.resolve()}/resources"
-    application.mount("/css", StaticFiles(directory=f"{resources}/css"), name="css")
-    application.mount("/js", StaticFiles(directory=f"{resources}/js"), name="js")
-    application.mount("/img", StaticFiles(directory=f"{resources}/img"), name="img")
+    res = f"{Path(__file__).parent.resolve()}/resources"
+    application.mount("/css", StaticFiles(directory=f"{res}/css"), name="css")
+    application.mount("/js", StaticFiles(directory=f"{res}/js"), name="js")
+    application.mount("/img", StaticFiles(directory=f"{res}/img"), name="img")
+    application.mount("/sheets", StaticFiles(directory=f"{res}/sheets"), name="sheets")
     application.include_router(web.router)
     application.add_exception_handler(404, handlers.custom_404_handler)
 
