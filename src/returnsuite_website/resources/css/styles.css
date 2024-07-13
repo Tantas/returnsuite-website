@@ -1836,6 +1836,10 @@ video {
   padding-left: 1.75rem;
 }
 
+.pl-8 {
+  padding-left: 2rem;
+}
+
 .pl-9 {
   padding-left: 2.25rem;
 }
@@ -1918,10 +1922,6 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pl-8 {
-  padding-left: 2rem;
 }
 
 .text-left {
@@ -2127,6 +2127,11 @@ video {
 
 .outline {
   outline-style: solid;
+}
+
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition {
