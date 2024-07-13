@@ -98,24 +98,66 @@
             }
           ]
         }, {
-          "collapsed": true,
+          "collapsed": false,
           "title": "NOI and cash flow",
           "items": [
             {
-              "title": "Introduction",
-              "href": "#"
+              "title": "Overview",
+              "href": "{{ url_for('get_concepts_noi_overview') }}"
             }, {
-              "title": "What’s Happening Under the Hood of a Financial Model",
-              "href": "#"
+              "title": "Modelling real estate",
+              "href": "{{ url_for('get_concepts_noi_real_estate_model') }}"
             }, {
-              "title": "Details of the Net Operating Income Statement",
-              "href": "#"
+              "title": "Potential base rent",
+              "href": "{{ url_for('get_concepts_noi_market_and_potential_base_rent') }}"
             }, {
-              "title": "Capital Expenditures",
-              "href": "#"
+              "title": "Actual base rent",
+              "href": "{{ url_for('get_concepts_noi_projected_base_real_rent') }}"
             }, {
-              "title": "Financing Activities",
-              "href": "#"
+              "title": "Additional rent",
+              "href": "{{ url_for('get_concepts_noi_additional_rent') }}",
+            }, {
+              "title": "Other tenant revenue",
+              "href": "{{ url_for('get_concepts_noi_other_tenant_revenue') }}"
+            }, {
+              "title": "Other revenue",
+              "href": "{{ url_for('get_concepts_noi_other_revenue') }}"
+            }, {
+              "title": "Potential gross income",
+              "href": "{{ url_for('get_concepts_noi_potential_gross_income') }}"
+            }, {
+              "title": "Vacancy and credit loss",
+              "href": "{{ url_for('get_concepts_noi_vacancy_and_credit_loss') }}"
+            }, {
+              "title": "Effective gross income",
+              "href": "{{ url_for('get_concepts_noi_effective_gross_income') }}"
+            }, {
+              "title": "Operating expenses",
+              "href": "{{ url_for('get_concepts_noi_operating_expenses') }}"
+            }, {
+              "title": "Net operating income",
+              "href": "{{ url_for('get_concepts_noi_net_operating_income') }}"
+            }, {
+              "title": "NOI and cash flow statement",
+              "href": "{{ url_for('get_concepts_noi_noi_and_cash_flow_statement') }}"
+            }, {
+              "title": "Valuation and capitalization",
+              "href": "{{ url_for('get_concepts_noi_valuation_and_capitalization') }}"
+            }, {
+              "title": "Exercise - Net Operating Income",
+              "href": "{{ url_for('get_concepts_noi_exercise_1') }}"
+            }, {
+              "title": "Tiered Direct Capitalization",
+              "href": "{{ url_for('get_concepts_noi_valuation_tiered_direct_capitalization') }}"
+            }, {
+              "title": "Exercise - Tiered Direct Capitalization",
+              "href": "{{ url_for('get_concepts_noi_exercise_2') }}"
+            }, {
+              "title": "Top Slice Valuation Method",
+              "href": "{{ url_for('get_concepts_noi_valuation_top_slice') }}"
+            }, {
+              "title": "Exercise - Top Slice Valuation",
+              "href": "{{ url_for('get_concepts_noi_exercise_3') }}"
             }
           ]
         }
@@ -176,48 +218,7 @@
         </button>
       </div>
     </aside>
-    <style>
-      .documentation-breadcrumbs li {
-        display: inline-block;
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-        color: rgb(74 85 104);
-        letter-spacing: 0.025em;
-        font-weight: 300;
-      }
-      .documentation-breadcrumbs li:not(:last-child):after {
-        content: "/";
-        display: inline-block;
-        padding: 0 0.625rem;
-      }
-      .documentation-breadcrumbs a:hover {
-        color: rgb(45 55 72);
-      }
-      .documentation-article p {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        font-size: 1rem;
-        line-height: 1.75rem;
-        /*color: #4a5568;*/
-        color: rgb(45 55 72);
-      }
-      .documentation-article h2 {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        color: #000000;
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-        font-weight: 500;
-        letter-spacing: 0.025em;
-      }
-      .documentation-article h3 {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        color: #000000;
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-        font-weight: 300;
-      }
+    <!--<style>
       .documentation-article a {
         color: #4299e1;
         font-weight: 500;
@@ -225,7 +226,7 @@
       .documentation-article a:hover {
         text-decoration: underline;
       }
-    </style>
+    </style>-->
 
     <main class="flex flex-col place-items-center w-full overflow-y-scroll">
       <div class="flex flex-col px-6 lg:max-w-5xl">

@@ -1,0 +1,203 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_noi_additional_rent" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Concepts</a></li>
+    <li><a href="#">NOI Statement</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1>Additional Rent</h1>
+    <h2>How to calculate a property’s Additional Rent</h2>
+    <p>
+      Additional Rent encompasses most of the remaining rental income and
+      recoveries specified in a lease agreement that are not part of the fixed
+      Base Rent. Additional Rent includes variable, contingent, or
+      reimbursable amounts that may fluctuate based on external factors,
+      tenant performance, or actual expenses incurred. While often predictable
+      to some degree, the exact amounts of Additional Rent is not certain
+      until they occur or are calculated.
+    </p>
+    <p>
+      The three main types of Additional Rents and their Free Rent counterpart
+      are: Expense Recoveries, CPI Increases and Miscellaneous Rent.
+    </p>
+    <dl>
+      <dt>Expense Recoveries & Free Expense Recoveries</dt>
+      <dd>
+        <p>
+          Expense Recoveries are additional charges to tenants designed to
+          reimburse the landlord for certain operating costs associated with
+          the property. These typically include items such as utilities,
+          property taxes, insurance, and common area maintenance (CAM)
+          expenses. The amount charged is often proportional to the tenant's
+          occupied space and is outlined in the lease agreement. For example,
+          a tenant occupying 25% of a building might be responsible for 25% of
+          the recoverable expenses.
+        </p>
+        <p>
+          Free Expense Recoveries are a specific concession where a tenant is
+          not required to pay some or all of the typical expense recoveries
+          for a specified period during their lease term. This concession is
+          often used as an incentive for new tenants or during lease renewals.
+          The value of Free Expense Recoveries is calculated as the amount of
+          expense recoveries that would have been collected during the free
+          period based on the lease terms and the actual expenses incurred.
+        </p>
+        <p>
+          Both Expense Recoveries and Free Expense Recoveries are considered
+          Additional Rent because they are separate from and in addition to
+          the Base Rent, and their exact amounts may vary based on actual
+          expenses incurred by the property.
+        </p>
+      </dd>
+      <dt>CPI Increases & Free CPI Increases</dt>
+      <dd>
+        <p>
+          CPI Increases are adjustments to rental rates tied to changes in the
+          Consumer Price Index, designed to maintain the real value of rent
+          over time in the face of inflation. For example, a lease may set the
+          Base Rent as $30 per square foot per year plus the CPI from the
+          previous year, beginning the second of the lease.
+        </p>
+        <p>
+          Free CPI Increases are a specific concession where a tenant is not
+          required to pay the CPI Increase(s) for a specified period during
+          their lease term. The value of Free CPI Increases is the amount of
+          CPI Increases that would have been collected during the Free CPI
+          Increases period identified in the lease terms.
+        </p>
+        <p>
+          While CPI Increases modify the amount of Base Rent paid and are
+          sometimes classified as a type of Base Rent, ReturnSuite considers
+          CPI Increases a form of Additional Rent. By classifying CPI
+          Increases as Additional Rent, there is a clear distinction between
+          fixed, predetermined rental income and variable, market-driven
+          adjustments. We believe that this classification provides more
+          transparent financial reporting, allows for more accurate
+          forecasting, and aligns with modern accounting standards and best
+          practices in real estate financial analysis.
+        </p>
+      </dd>
+      <dt>Miscellaneous Rent & Free Miscellaneous Rent</dt>
+      <dd>
+        <p>
+          Miscellaneous Rent refers to Additional Rent specified in a lease
+          agreement that doesn't fall under standard categories like Base
+          Rent, Expense Recoveries, or CPI Increases. It can be fixed or
+          variable and is typically charged in addition to Base Rent.
+        </p>
+        <p>
+          Miscellaneous Rent is often unique to specific tenant needs or
+          property features. If a Miscellaneous Rent is common among multiple
+          tenants or properties, it may make more sense to classify the rent
+          as Other Tenant Revenue.
+        </p>
+        <p>
+          Free Miscellaneous Rent is a concession where a tenant is not
+          required to pay some or all of the Miscellaneous Rent for a
+          specified period during their lease term. The value of Free
+          Miscellaneous Rent is calculated as the amount of Miscellaneous Rent
+          that would have been collected during the free period based on the
+          lease terms.
+        </p>
+        <p>
+          As with other forms of Additional Rent, they are separate from and
+          in addition to the Base Rent.
+        </p>
+      </dd>
+    </dl>
+    <hr class="mt-4 mb-4 border-gray-300">
+    <h2>Example</h2>
+    <p>
+      Following our previous example, let’s say that all three units were
+      required to pay $300 in Expense Recoveries, although Unit B was given
+      $100 in Free Expense Recoveries and Unit C remains vacant (so there are
+      no recoveries).
+    </p>
+    <p>
+      Unit A had an annual CPI Increase in their lease, however the year we
+      are analyzing they also had a Free CPI Increase period. The CPI Increase
+      for the year would have been 5%. Also, the tenant in Unit B also had a
+      clause in their lease to pay $50 for special access to the roof for
+      their wireless equipment.
+    </p>
+    <p>What would the Additional Rent look like?</p>
+    <figure id="example-potential-base-rent">
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap">Line Items</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Unit A</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Unit B</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Unit C</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Total Property</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Expense Recoveries</th>
+              <td class="border-b py-3 text-right px-8">$300</td>
+              <td class="border-b py-3 text-right px-8">$300</td>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8 text-red-500">$600</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Free Expense Recoveries</th>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$100</td>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$100</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">CPI Increases</th>
+              <td class="border-b py-3 text-right px-8">$50</td>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8">$50</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Free CPI Increases</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$50</td>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$50</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Miscellaneous Rent</th>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8">$50</td>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8">$50</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Free Miscellaneous Rent</th>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8">-</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">Additional Rent</th>
+              <td class="py-3 text-right px-8 font-semibold">$300</td>
+              <td class="py-3 text-right px-8 font-semibold">$250</td>
+              <td class="py-3 text-right px-8 font-semibold">-</td>
+              <td class="py-3 text-right px-8 font-semibold">$550</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Example additional rent</figcaption>
+    </figure>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_noi_other_tenant_revenue') }}" class="text-blue-500 hover:underline flex place-items-center">
+        <span>Next: Other Tenant Revenue</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

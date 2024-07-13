@@ -1,0 +1,266 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_noi_valuation_top_slice" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Concepts</a></li>
+    <li><a href="#">NOI Statement</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1>Valuation: Top Slice & NOI</h1>
+    <h2>How the NOI Statement is used in the Top Slice method of valuation</h2>
+    <p>
+      Like the Tiered method, the Top Slice method is also the sum of the value
+      of multiple parts of a property, however rather dividing the property
+      along space, the property is divided along income streams. The main idea
+      behind the Top Slice method is that there is a traditional use for the
+      property that could earn a theoretical income (bottom slice), but the
+      landlord is earning a premium level of income from a non-traditional lease
+      (top slice).
+    </p>
+    <p>
+      To calculate the NOI for each ‘slice’ the theoretical components from a
+      traditional NOI statement is subtracted from the property’s NOI Statement,
+      giving us a theoretical Top Slice NOI Statement.
+    </p>
+    <figure>
+      <div>
+        <div class="flex flex-col gap-6 place-items-start">
+          <math style="font-weight: 500; font-family: ui-sans-serif, system-ui, sans-serif;font-size: 1.25rem;line-height: 1.75rem;">
+            <mrow>
+              <msub>
+                <mi>NOI Property</mi>
+                <mi>as operated</mi>
+              </msub>
+              <mo>-</mo>
+              <msub>
+                <mi>NOI</mi>
+                <mi>theoretical bottom slice</mi>
+              </msub>
+              <mo>=</mo>
+              <msub>
+                <mi>NOI</mi>
+                <mi>theoretical top slice</mi>
+              </msub>
+            </mrow>
+          </math>
+        </div>
+      </div>
+    </figure>
+    <p>
+      Each NOI is then divided by a different Capitalization Rate to determine
+      the value of each ‘slice’. The slices are added up to give us the total
+      value of the property.
+    </p>
+    <hr class="mt-4 mb-4 border-gray-300">
+    <h2>Example</h2>
+    <p>
+      The property we’re evaluating is an office that provides serviced offices
+      for small teams on flexible terms. If leased traditionally, the expected
+      Market Base Rent for the property is $3,000. However, as serviced offices,
+      the property has a Potential Base Rent of $5,000 (an Excess Base Rent of
+      $2,000).
+    </p>
+    <p>
+      The leasing model does not need to provide many concessions, nor does it
+      have long scheduled vacancies, so the total Absorption, Turnover Vacancy
+      & Other Concessions is only $500 compared to $1,450 if leased
+      traditionally. Therefore, the Projected Base Rent as serviced offices is
+      $4,500 while theoretically, if leased traditionally, the Projected Base
+      Rent would be $1,550.
+    </p>
+    <p>
+      However, the serviced office model does not earn much in terms of
+      Additional Rent, Other Tenant Revenue or Other Revenues, picking up only
+      $200 in parking revenue, while if leased traditionally, the property would
+      earn $550 in Expense Recoveries, $350 in Other Tenant Revenues plus the
+      same $200 in parking revenue. Therefore, the Potential Gross Income for
+      the property as serviced offices is $4,700 while the theoretical,
+      traditional office is $2,650.
+    </p>
+    <p>
+      As a serviced office, the property is expected to suffer from higher
+      Vacancy Losses, estimated at 8% of PGI ($376) and Credit Losses of 2% of
+      PGI ($94), while a traditional office would likely only suffer a Vacancy
+      Loss of 3% of PGI ($80) while also suffering Credit Losses of 2% of PGI
+      ($53). These reserves mean a EGI of $4,230 for the property as a serviced
+      office and $2,518 as a traditional office.
+    </p>
+    <p>
+      The Operating Expenses for the property utilizing serviced office is much
+      higher at $1,400 while as a traditional office the Operating Expenses are
+      $950. The Operating Expenses are subtracted from the EGI to arrive at a
+      Net Operating Income of $2,830 as a serviced office and $1,568 as a
+      traditional office.
+    </p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 py-3 font-semibold text-left px-8 whitespace-nowrap" colspan="2"></th>
+              <th class="border-b border-gray-300 py-3 font-semibold text-center px-8 whitespace-nowrap tracking-wide border-l" colspan="2">Theoretical Split</th>
+            </tr>
+            <tr>
+              <th class="border-b border-gray-300 py-3 font-semibold text-left px-8 whitespace-nowrap">Line Items</th>
+              <th class="border-b border-gray-300 py-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Property<br>Projections</th>
+              <th class="border-b border-gray-300 py-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide border-l">Bottom Slice<br>(Traditional)</th>
+              <th class="border-b border-gray-300 py-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Top Slice<br>(Flexible)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Market Base Rent</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">$3,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold border-l">$3,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Excess (Deficit) Base Rent</th>
+              <td class="border-b py-3 text-right px-8">$2000</td>
+              <td class="border-b py-3 text-right px-8 border-l">-</td>
+              <td class="border-b py-3 text-right px-8">$2000</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Potential Base Rent</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">$5,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold border-l">$3,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$2,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Absorption & Turnover Vacancy</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$500</td>
+              <td class="border-b py-3 text-right px-8 text-red-500 border-l">-1,450</td>
+              <td class="border-b py-3 text-right px-8">$950</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Projected Base Rent</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">$4,500</td>
+              <td class="border-b py-3 text-right px-8 font-semibold border-l">$1,550</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$2,950</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Additional Rent</th>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8 border-l">$550</td>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$550</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Other Tenant Revenue</th>
+              <td class="border-b py-3 text-right px-8">-</td>
+              <td class="border-b py-3 text-right px-8 border-l">$350</td>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$350</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Other Revenue</th>
+              <td class="border-b py-3 text-right px-8">$200</td>
+              <td class="border-b py-3 text-right px-8 border-l">$200</td>
+              <td class="border-b py-3 text-right px-8">-</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Potential Gross Income</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">$4,700</td>
+              <td class="border-b py-3 text-right px-8 font-semibold border-l">$2,650</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$2,050</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Vacancy Loss</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$376</td>
+              <td class="border-b py-3 text-right px-8 text-red-500 border-l">-$80</td>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$297</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Credit Loss</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$94</td>
+              <td class="border-b py-3 text-right px-8 text-red-500 border-l">-$53</td>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$41</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Effective Gross Income (EGI)</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">$4,230</td>
+              <td class="border-b py-3 text-right px-8 font-semibold border-l">$2,518</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$1,713</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Operating Expenses</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$1,400</td>
+              <td class="border-b py-3 text-right px-8 text-red-500 border-l">-$950</td>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$450</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">Net Operating Income</th>
+              <td class="py-3 text-right px-8 font-semibold">$2,830</td>
+              <td class="py-3 text-right px-8 font-semibold border-l">$1,568</td>
+              <td class="py-3 text-right px-8 font-semibold">$1,263</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Example actual (or projected) base rent</figcaption>
+    </figure>
+    <p>
+      It is at this point that the NOI Statement for the Top Slice can be
+      calculated, subtracting each of the Bottom Slice (traditional office)
+      lines from the Property Projections (serviced office). This will provide
+      us with an NOI of <b>$1,263</b> for the Top Slice.
+    </p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 py-3 font-semibold text-left px-8 whitespace-nowrap" colspan="2"></th>
+              <th class="border-b border-gray-300 py-3 font-semibold text-center px-8 whitespace-nowrap tracking-wide border-l" colspan="2">Theoretical Split</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Net Operating Income</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">$2,830</td>
+              <td class="border-b py-3 text-right px-8 font-semibold border-l">$1,568</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$1,263</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Capitalization Rate</th>
+              <td class="border-b py-3 text-right px-8">7.30%<sup>*</sup></td>
+              <td class="border-b py-3 text-right px-8 border-l">6.00%</td>
+              <td class="border-b py-3 text-right px-8">10.00%</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">Valuation</th>
+              <td class="py-3 text-right px-8 font-semibold">$38,750</td>
+              <td class="py-3 text-right px-8 font-semibold border-l">$26,125</td>
+              <td class="py-3 text-right px-8 font-semibold">$12,625</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <small class="text-base text-gray-700 py-1">
+        <sup>*</sup> Implied Capitalization Rate for the property is the weighted average
+        (by NOI) of the Capitalization Rates of the tiers.
+      </small>
+    </figure>
+    <p>
+      If traditional offices similar to our property (the Bottom Slice) had a
+      Capitalization Rate of 6.00% and the Top Slice was given a Capitalization
+      Rate of 10.00%, the component values could be calculated–the Bottom Slice
+      would contribute <b>$26,125</b> in value and the Top Slice would
+      contribute <b>$12,625</b> in value for a total property value of
+      <b>$38,750</b>.
+    </p>
+    <p>
+      This would imply a Capitalization Rate of <b>7.30%</b> for the property
+      utilizing serviced office leasing, which is calculated by dividing the NOI
+      for the property by the Valuation.
+    </p>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_noi_exercise_3') }}" class="text-blue-500 hover:underline flex place-items-center">
+        <span>Next: Exercise - Top Slice Method Valuation</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

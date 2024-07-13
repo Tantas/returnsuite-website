@@ -1,0 +1,164 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_noi_net_operating_income" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Concepts</a></li>
+    <li><a href="#">NOI Statement</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1>Net Operating Income</h1>
+    <h2>How to calculate a property’s Net Operating Income</h2>
+    <p>
+      Net Operating Income (NOI) is the final line in a NOI Statement. It is
+      the actual (or projected) net income that remains after all the
+      Operating Expenses are subtracted from Effective Gross Income. It is the
+      cash that a property is expected to (or did) generate from normal
+      operations–before Capital Expenditures, Depreciation, Income Taxes and
+      Debt Financing are deducted.
+    </p>
+    <hr class="mt-4 mb-4 border-gray-300">
+    <h2>Example</h2>
+    <p>
+      Continuing with our example property, what is the Net Operating Income
+      of the property if the total Operating Expenses, given the current
+      occupancy, is $950?
+    </p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap tracking-wide">Line Items</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Total Property</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Market Base Rent</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$3,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Excess (Deficit) Base Rent</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$100</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Potential Base Rent</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$2,900</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Absorption & Turnover Vacancy</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$1,450</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Actual (or Projected) Base Rent</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$1,450</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Additional Rent</th>
+              <td class="border-b py-3 text-right px-8">$550</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Other Tenant Revenue</th>
+              <td class="border-b py-3 text-right px-8">$350</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Other Revenues</th>
+              <td class="border-b py-3 text-right px-8">$625</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Potential Gross Income</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$2,975</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Vacancy Loss</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$119</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Credit Loss</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$630</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Effective Gross Income (EGI)</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$2,826</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Operating Expenses</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$950</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">Net Operating Income</th>
+              <td class="py-3 font-semibold text-right px-8">$1,876</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Example Net Operating Income</figcaption>
+    </figure>
+    <p>
+      Often you will see simplified versions of a NOI Statement that condense
+      or eliminate some of the steps.
+    </p>
+    <p>
+      Often simplifications include:
+    </p>
+    <ul>
+      <li>Starting at either Potential Base Rent or Actual (or Projected) Base Rent</li>
+      <li>Consolidation of the various types of additional sources of rent and revenue</li>
+      <li>Consolidation of Vacancy and Credit Loss into a single line</li>
+    </ul>
+    <p>Below is a simplified version of our example NOI Statement.</p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap tracking-wide">Line Items</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Total Property</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Actual (or Projected) Base Rent</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$1,450</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Additional Rent & Other Revenues</th>
+              <td class="border-b py-3 text-right px-8">$1,525</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Potential Gross Income</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$2,975</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Vacancy & Credit Loss</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$149</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Effective Gross Income (EGI)</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$2,826</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Operating Expenses</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$950</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">Net Operating Income</th>
+              <td class="py-3 font-semibold text-right px-8">$1,876</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Example Simplified NOI Statement</figcaption>
+    </figure>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_noi_noi_and_cash_flow_statement') }}" class="text-blue-500 hover:underline flex place-items-center">
+        <span>Next: NOI and Cash Flow Statement</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}
