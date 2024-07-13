@@ -1,0 +1,36 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_introduction" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Concepts</a></li>
+  </ol>
+  <div class="documentation-article">
+    <h1>Concepts</h1>
+    <h2></h2>
+    <ol>
+      <li>
+        <a href="#">Introduction</a>
+        <p>Lorem ipsum</p>
+      </li>
+      <li>
+        <a href="#">Foundational concepts</a>
+        <p>Lorem ipsum</p>
+      </li>
+      <li>
+        <a href="#">NOI Statement</a>
+        <p>Lorem ipsum</p>
+      </li>
+    </ol>
+  </div>
+
+  <div class="flex justify-end w-full text-base pb-6">
+    <a href="#" class="text-blue-500 hover:underline flex place-items-center">
+      <span>Next: Foundational concepts</span>
+      <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+      </svg>
+    </a>
+  </div>
+{% endblock article_content %}

@@ -37,7 +37,7 @@ async def get_concepts_foundational_concepts(request: Request):
 async def get_concepts_noi(request: Request):
     return templates.TemplateResponse(
         request=request,
-        name="docs/concepts/4-noi-statement.html.jinja2",
+        name="docs/concepts/overview.html.jinja2",
         context={},
     )
 

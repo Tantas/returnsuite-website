@@ -1,11 +1,11 @@
 {% extends "docs/concepts/layout.html.jinja2" %}
-{% set context_page_name = "get_concepts_noi_exercise_2" %}
+{% set context_page_name = "get_concepts_noi_exercise_3" %}
 
 {% block article_content %}
   <ol class="documentation-breadcrumbs pt-8 pb-4">
     <li><a href="#">Home</a></li>
-    <li><a href="#">Concepts</a></li>
-    <li><a href="#">NOI Statement</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_noi_overview') }}">NOI Statement</a></li>
   </ol>
   <article class="documentation-article">
     <h1>Exercise - Top Slice Method Valuation</h1>
