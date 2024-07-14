@@ -633,8 +633,8 @@ video {
 .documentation-article p {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   --tw-text-opacity: 1;
   color: rgb(74 85 104 / var(--tw-text-opacity));
 }
@@ -844,6 +844,10 @@ video {
   top: 2rem;
 }
 
+.top-4 {
+  top: 1rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -881,6 +885,11 @@ video {
 .mx-6 {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+}
+
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .my-1 {
@@ -1840,10 +1849,6 @@ video {
   padding-left: 2rem;
 }
 
-.pl-9 {
-  padding-left: 2.25rem;
-}
-
 .pr-0 {
   padding-right: 0px;
 }
@@ -1862,6 +1867,10 @@ video {
 
 .pr-20 {
   padding-right: 5rem;
+}
+
+.pr-3 {
+  padding-right: 0.75rem;
 }
 
 .pr-32 {

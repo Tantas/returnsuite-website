@@ -8,12 +8,18 @@
       menu_open: true,
       table_of_contents: [
         {
-          "collapsed": {{ (context_page_name != 'get_concepts_introduction')|tojson }},
+          "title": "Overview",
+          "href": "{{ url_for('get_concepts_noi') }}",
+          "selected": {{ (context_page_name == "get_concepts_noi")|tojson }}
+        },
+        {
+          "collapsed": true,
           "title": "Introduction",
           "items": [
             {
               "title": "About this course",
               "href": "{{ url_for('get_concepts_introduction') }}",
+              "selected": {{ (context_page_name == "get_concepts_introduction")|tojson }}
             }, {
               "title": "Market value",
               "href": "#",
@@ -26,12 +32,13 @@
             }
           ]
         }, {
-          "collapsed": {{ (context_page_name != 'get_concepts_foundational_concepts')|tojson }},
+          "collapsed": true,
           "title": "Foundational Concepts",
           "items": [
             {
               "title": "Overview",
               "href": "{{ url_for('get_concepts_foundational_concepts') }}",
+              "selected": {{ (context_page_name == "get_concepts_foundational_concepts")|tojson }}
             }, {
               "title": "Time value of money",
               "href": "#",
@@ -98,7 +105,7 @@
             }
           ]
         }, {
-          "collapsed": false,
+          "collapsed": true,
           "title": "NOI and cash flow",
           "items": [
             {
@@ -180,13 +187,23 @@
             }
           ]
         }
-      ]
+      ],
+      init() {
+        for (entry of this.table_of_contents) {
+          for (item of entry.items || []) {
+            if (item.selected) {
+              entry.collapsed = false
+              break;
+            }
+          }
+        }
+      }
     }
   }
   </script>
   <div class="flex pt-7" x-data="menu()" style="height: calc(100vh - 5.35rem)">
     <aside class="hidden lg:block absolute sticky border-r border-gray-300 relative" :class="menu_open ? 'w-96' : 'w-16'">
-      <div class="absolute z-10 absolute top-3 right-4 text-gray-500 hover:text-gray-800">
+      <div class="absolute z-10 absolute top-4 right-4 text-gray-500 hover:text-gray-800">
         <button type="button" @click="menu_open = !menu_open" x-show="menu_open" title="Hide table of contents" style="transform: rotate(180deg);">
         <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
           <path d="M80-240v-480h80v480H80Zm560 0-57-56 144-144H240v-80h487L584-664l56-56 240 240-240 240Z"></path>
@@ -203,25 +220,30 @@
         <ol class="text-base text-gray-700 px-4 flex flex-col gap-1 py-3 overflow-y-scroll" style="height: calc(100vh - 10.1rem)" x-show="menu_open">
           <template x-for="entry in table_of_contents">
             <li>
-              <div class="flex place-items-center">
-                <button type="button" title="Expand" x-show="entry.collapsed" @click="entry.collapsed = !entry.collapsed">
-                  <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
-                    <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
-                  </svg>
-                  <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
-                </button>
-                <button type="button" title="Collapse" x-show="!entry.collapsed" @click="entry.collapsed = !entry.collapsed">
-                  <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
-                    <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
-                  </svg>
-                  <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
-                </button>
+              <div x-show="entry.href" class="py-1">
+                <a :href="entry.href" x-text="entry.title" :class="entry.selected ? 'font-semibold text-blue-500' : ''" class="pl-6 text-gray-900 tracking-wide"></a>
               </div>
-              <ol class="pl-5 py-1.5 flex flex-col text-sm font-normal" x-show="!entry.collapsed">
-                <template x-for="sub_entry in entry.items">
-                  <li><a x-bind:href="sub_entry.href" x-text="sub_entry.title" class="hover:text-gray-800 w-full block rounded-md px-4 py-1" :class="sub_entry.selected ? 'text-blue-600 bg-blue-100 font-medium tracking-wide' : ''"></a></li>
-                </template>
-              </ol>
+              <div x-show="entry.items">
+                <div class="flex place-items-center" >
+                  <button type="button" title="Expand" x-show="entry.collapsed" @click="entry.collapsed = !entry.collapsed">
+                    <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
+                      <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
+                    </svg>
+                    <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
+                  </button>
+                  <button type="button" title="Collapse" x-show="!entry.collapsed" @click="entry.collapsed = !entry.collapsed">
+                    <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
+                      <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+                    </svg>
+                    <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
+                  </button>
+                </div>
+                <ol class="pl-5 py-1.5 flex flex-col text-sm font-normal" x-show="!entry.collapsed">
+                  <template x-for="sub_entry in entry.items">
+                    <li><a :href="sub_entry.href" x-text="sub_entry.title" class="hover:text-gray-800 w-full block rounded-md px-4 py-1" :class="sub_entry.selected ? 'text-blue-600 bg-blue-100 font-medium tracking-wide' : ''"></a></li>
+                  </template>
+                </ol>
+              </div>
             </li>
           </template>
         </ol>
@@ -237,16 +259,6 @@
         </button>
       </div>
     </aside>
-    <!--<style>
-      .documentation-article a {
-        color: #4299e1;
-        font-weight: 500;
-      }
-      .documentation-article a:hover {
-        text-decoration: underline;
-      }
-    </style>-->
-
     <main class="flex flex-col place-items-center w-full overflow-y-scroll">
       <div class="flex flex-col px-6 lg:max-w-5xl">
         {% block article_content %}{% endblock article_content %}

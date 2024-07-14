@@ -18,7 +18,7 @@
   <body class="bg-white h-screen w-screen text-sm">
     <div>
       <nav class="border-b border-gray-300 md:fixed top-0 w-full bg-white z-50">
-        <ul class="flex place-items-center justify-between gap-3 mx-6 pt-4 text-base font-medium text-gray-800">
+        <ul class="flex place-items-center justify-between gap-3 mx-6 pt-4 text-base text-gray-800">
           <li class="flex gap-0.5">
             <a href="{{ url_for('get_index') }}" title="ReturnSuite">
               <img class="h-12 w-auto" src="{{ url_for('img', path='/returnsuite-logo.svg') }}" alt="ReturnSuite logo" width="360px" height="85px">
@@ -93,33 +93,27 @@
         </div>
       </div>
     </li>
-    {# <li class="hidden lg:block pl-6">
-      <a href="{{ url_for('get_index') }}#How-it-works" class="py-1.5 border-b-2 border-white hover:border-blue-500 whitespace-nowrap">How it works</a>
-    </li>
-    <li class="hidden md:block pl-6">
-      <a href="{{ url_for('get_index') }}#Benefits" class="py-1.5 border-b-2 border-white hover:border-blue-500">Benefits</a>
-    </li>
-    {% if signup_enabled %}
-      <li class="hidden md:block pl-6">
-        <a href="{{ url_for('get_view_demo') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Demo</a>
-      </li>
-    {% endif %}
 
-    <!--<li class="hidden md:block px-4">
-      <a href="{{ url_for('get_contact') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Contact</a>
-    </li>-->
-    <li class="hidden md:block pl-6">
-      <a href="{{ url_for('get_documentation') }}" class="py-1.5 border-b-2 border-blue-500">Resources</a>
+    <li class="ml-auto">
+      <div class="h-12 flex place-items-center px-6">
+        <form class="my-0 flex place-items-center rounded-full border border-gray-300 overflow-hidden">
+          <button type="submit">
+            <svg class="inline-block h-6 px-2 pl-3 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+            </svg>
+          </button>
+          <input type="search" placeholder="Search the docs or ask a question" class="py-2 px-2 placeholder-gray-500 text-sm w-96">
+        </form>
+      </div>
     </li>
-    <li class="hidden md:block px-6">
-      <a href="{{ url_for('get_blog') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Blog</a>
-    </li> #}
+
 {% if signup_enabled %}
   <li class="hidden md:block ml-auto ">
-    <a href="{{ app_website }}/signup" class="bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 hover:border-blue-600 rounded-md py-2 px-6 font-semibold whitespace-nowrap shadow-sm tracking-wide">Sign Up</a>
+    <a href="{{ app_website }}/signup" class="text-blue-600 pr-3 tracking-wide hover:text-gray-900">Create account</a>
+    <!--<a href="{{ app_website }}/signup" class="bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 hover:border-blue-600 rounded-md py-2 px-6 font-semibold whitespace-nowrap shadow-sm tracking-wide">Sign Up</a>-->
   </li>
   <li class="hidden md:block ">
-    <a href="{{ app_website }}/login" class="border-2 rounded-md border-blue-500 text-blue-500 font-semibold px-6 py-2 whitespace-nowrap hover:text-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
+    <a href="{{ app_website }}/login" class="border rounded-md border-gray-300 font-medium px-4 py-1.5 whitespace-nowrap hover:text-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
   </li>
 {% else %}
   <li class="hidden md:block ml-auto ">
@@ -127,13 +121,13 @@
   </li>
 {% endif %}
 </ul>
-  <ol class="bg-white flex place-items-center gap-8 mx-6 text-base font-medium tracking-wide text-gray-800 ">
+  <ol class="bg-white flex place-items-center gap-8 mx-6 pt-2 font-medium tracking-wide text-gray-800 text-base">
     <li><a href="#" class="inline-block border-blue-500 py-2">Get started</a></li>
     <li><a href="{{ url_for('get_concepts_noi') }}" class="inline-block border-b-2 border-blue-500 py-2">Concepts</a></li>
     <li><a href="#" class="inline-block border-blue-500 py-2">Using ReturnSuite</a></li>
     <li><a href="#" class="inline-block border-blue-500 py-2">Scenarios</a></li>
     <li><a href="#" class="inline-block border-blue-500 py-2">Glossary</a></li>
-    <li class="ml-auto"><a href="#" class="inline-block border-blue-500 py-2">Contact Support</a></li>
+    <li class="ml-auto"><a href="{{ url_for('get_contact') }}" class="inline-block border-blue-500 py-2">Contact Support</a></li>
   </ol>
 </nav>
 <div class="hidden md:block h-20"></div>

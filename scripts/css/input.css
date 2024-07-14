@@ -150,7 +150,7 @@ select {
     @apply text-2xl text-gray-900 tracking-wide py-2
   }
   .documentation-article p {
-    @apply py-3 text-lg text-gray-700
+    @apply py-3 text-base text-gray-700
   }
   .documentation-article b {
     @apply font-semibold text-gray-800
