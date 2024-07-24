@@ -11,7 +11,6 @@ async def get_documentation(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="docs/concepts/1-introduction.html.jinja2",
-        context={},
     )
 
 
@@ -20,7 +19,6 @@ async def get_concepts_introduction(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="docs/concepts/1-introduction.html.jinja2",
-        context={},
     )
 
 
@@ -29,7 +27,70 @@ async def get_concepts_foundational_concepts(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="docs/concepts/2-foundational-concepts.html.jinja2",
-        context={},
+    )
+
+
+@router.get("/docs/concepts/math/overview")
+async def get_concepts_math_overview(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/math/01-overview.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/math/time-value-of-money")
+async def get_concepts_time_value_of_money(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/math/02-time-value-of-money.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/math/net-present-value")
+async def get_concepts_net_present_value(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/math/03-net-present-value.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/math/risk-rates")
+async def get_concepts_risk_rates(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/math/04-risk-rates.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/math/internal-rate-of-return")
+async def get_concepts_internal_rate_of_return(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/math/05-internal-rate-of-return.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/math/perpetuities")
+async def get_concepts_perpetuities(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/math/06-perpetuities.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/math/gordon-growth-model")
+async def get_concepts_gordon_growth_model(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/math/07-gordon-growth-model.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/math/expected-value")
+async def get_concepts_expected_value(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/math/08-expected-value.html.jinja2",
     )
 
 
@@ -38,7 +99,6 @@ async def get_concepts_noi(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="docs/concepts/overview.html.jinja2",
-        context={},
     )
 
 

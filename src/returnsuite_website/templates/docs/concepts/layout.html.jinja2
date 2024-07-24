@@ -33,36 +33,40 @@
           ]
         }, {
           "collapsed": true,
-          "title": "Foundational Concepts",
+          "title": "Key Math Principles in Finance",
           "items": [
             {
               "title": "Overview",
-              "href": "{{ url_for('get_concepts_foundational_concepts') }}",
-              "selected": {{ (context_page_name == "get_concepts_foundational_concepts")|tojson }}
+              "href": "{{ url_for('get_concepts_math_overview') }}",
+              "selected": {{ (context_page_name == "get_concepts_math_overview")|tojson }}
             }, {
               "title": "Time value of money",
-              "href": "#",
+              "href": "{{ url_for('get_concepts_time_value_of_money') }}",
+              "selected": {{ (context_page_name == "get_concepts_time_value_of_money")|tojson }}
             }, {
-              "title": "Discount and Risk-free rate",
-              "href": "#",
+              "title": "Net present value",
+              "href": "{{ url_for('get_concepts_net_present_value') }}",
+              "selected": {{ (context_page_name == "get_concepts_net_present_value")|tojson }}
             }, {
-              "title": "Perpetuities and exit valuations",
-              "href": "#",
+              "title": "Risk rates",
+              "href": "{{ url_for('get_concepts_risk_rates') }}",
+              "selected": {{ (context_page_name == "get_concepts_risk_rates")|tojson }}
+            }, {
+              "title": "Internal rate of return",
+              "href": "{{ url_for('get_concepts_internal_rate_of_return') }}",
+              "selected": {{ (context_page_name == "get_concepts_internal_rate_of_return")|tojson }}
+            }, {
+              "title": "Perpetuities",
+              "href": "{{ url_for('get_concepts_perpetuities') }}",
+              "selected": {{ (context_page_name == "get_concepts_perpetuities")|tojson }}
             }, {
               "title": "Gordon growth model",
-              "href": "#",
-            }, {
-              "title": "How Perpetuities & the Gordon Growth Rate are Used in Real Estate",
-              "href": "#",
-            }, {
-              "title": "Net operating income",
-              "href": "#",
-            }, {
-              "title": "Capitalization rates",
-              "href": "#",
+              "href": "{{ url_for('get_concepts_gordon_growth_model') }}",
+              "selected": {{ (context_page_name == "get_concepts_gordon_growth_model")|tojson }}
             }, {
               "title": "Expected value",
-              "href": "#",
+              "href": "{{ url_for('get_concepts_expected_value') }}",
+              "selected": {{ (context_page_name == "get_concepts_expected_value")|tojson }}
             }
           ]
         }, {
