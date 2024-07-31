@@ -15,7 +15,7 @@ from returnsuite_website.services.database import (
     DBSession,
 )
 from returnsuite_website.services.email import send_email
-from returnsuite_website.services.spam import detected_spam
+from returnsuite_website.services.spam import detected_injection, detected_spam
 
 router = APIRouter(default_response_class=HTMLResponse)
 
@@ -38,9 +38,13 @@ class ContactForm:
         self.message = message.strip()
 
     def _likely_spam(self) -> bool:
+        if "company.com" in self.email.lower():
+            return True
         if detected_spam(self.message):
             return True
         if self.timezone is None or self.timezone in ("1", "n/c"):
+            return True
+        elif detected_injection(self.timezone):
             return True
         return False
 

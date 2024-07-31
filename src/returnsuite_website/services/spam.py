@@ -64,4 +64,19 @@ def detected_spam(comment: str | None) -> bool:
     if "free shipping" in lower or "today only" in lower or "limited time" in lower:
         return True
 
+    return detected_injection(lower)
+
+
+def detected_injection(comment: str | None) -> bool:
+    if not comment or not comment.strip():
+        return False
+
+    lower = comment.lower()
+
+    # SQL Injection.
+    if "union" in lower or "char(" in lower or "chr(" in lower or "order by" in lower:
+        return True
+    elif "waitfor" in lower or "sleep(" in lower or "concat" in lower:
+        return True
+
     return False
