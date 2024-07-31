@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import UTC, datetime, timedelta
 from enum import Enum
 from typing import Annotated
 
@@ -37,6 +37,17 @@ class ContactRequest(Base):
     user_agent: Mapped[str | None] = mapped_column(Text)
 
 
+def is_ip_address_spam_contact(
+    db: Session, ip_address: str, now: datetime = datetime.now(UTC)
+) -> bool:
+    return (
+        db.query(ContactRequest)
+        .where(ContactRequest.ip_address == ip_address)
+        .where(ContactRequest.created >= (now - timedelta(hours=1)))
+        .count()
+    ) > 1
+
+
 class WaitlistStatus(str, Enum):
     waiting = "waiting"
     accepted = "accepted"
@@ -63,6 +74,17 @@ class Waitlist(Base):
     note: Mapped[str | None] = mapped_column(Text)
     ip_address: Mapped[str | None] = mapped_column(String(128))
     user_agent: Mapped[str | None] = mapped_column(Text)
+
+
+def is_ip_address_spam_waitlist(
+    db: Session, ip_address: str, now: datetime = datetime.now(UTC)
+) -> bool:
+    return (
+        db.query(Waitlist)
+        .where(Waitlist.ip_address == ip_address)
+        .where(Waitlist.created >= (now - timedelta(hours=1)))
+        .count()
+    ) > 1
 
 
 if get_app_settings().app_env == AppEnvTypes.test:

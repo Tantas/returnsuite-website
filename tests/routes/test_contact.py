@@ -4,7 +4,11 @@ import sys
 from fastapi.testclient import TestClient
 
 from returnsuite_website.main import app
-from returnsuite_website.services.database import ContactRequest, get_db
+from returnsuite_website.services.database import (
+    ContactRequest,
+    ContactRequestStatus,
+    get_db,
+)
 
 sys.path.insert(1, "/".join(os.path.realpath(__file__).split("/")[0:-2]))
 
@@ -63,6 +67,35 @@ def test_post_contact_success_all():
     contact_request = db.query(ContactRequest).one()
     assert contact_request.name == "Test Name"
     db.delete(contact_request)
+    db.commit()
+
+
+def test_post_contact_multiple():
+    def run_submission():
+        client.post(
+            "/contact",
+            data={
+                "timezone": "America/New_York",
+                "name": "Test Name",
+                "organization": "Test Organization",
+                "email": "sample@example.com",
+                "subject": "Testing Contact Submission",
+                "message": "Testing contact submission message.",
+            },
+            follow_redirects=False,
+        )
+
+    run_submission()
+    run_submission()
+    run_submission()
+    db = get_db().__next__()
+    contact_requests = db.query(ContactRequest).order_by(ContactRequest.id).all()
+    assert contact_requests[0].status == ContactRequestStatus.valid
+    assert contact_requests[1].status == ContactRequestStatus.valid
+    assert contact_requests[2].status == ContactRequestStatus.spam
+    db.delete(contact_requests[0])
+    db.delete(contact_requests[1])
+    db.delete(contact_requests[2])
     db.commit()
 
 

@@ -10,7 +10,12 @@ from starlette.status import HTTP_302_FOUND
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
 from returnsuite_website.routes.utils import generate_token, get_locale
-from returnsuite_website.services.database import DBSession, Waitlist, WaitlistStatus
+from returnsuite_website.services.database import (
+    DBSession,
+    Waitlist,
+    WaitlistStatus,
+    is_ip_address_spam_waitlist,
+)
 from returnsuite_website.services.email import send_email
 from returnsuite_website.services.spam import detected_injection, detected_spam
 
@@ -115,6 +120,8 @@ async def post_waitlist(
 ):
     ip_address = request.client.host
     join_request = form.to_request(datetime.now(UTC), locale, ip_address, user_agent)
+    if is_ip_address_spam_waitlist(db, ip_address):
+        join_request.status = WaitlistStatus.spam
     db.add(join_request)
     db.commit()
 
