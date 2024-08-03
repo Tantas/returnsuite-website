@@ -80,6 +80,34 @@ def test_post_waitlist_failure():
     assert response.status_code == 422
 
 
+def test_post_waitlist_multiple():
+    def run_submission():
+        client.post(
+            "/waitlist",
+            data={
+                "timezone": "America/New_York",
+                "name": "Test Name",
+                "email": "sample@example.com",
+                "organization": "Test Organization",
+                "usage": "Landlord",
+            },
+            follow_redirects=False,
+        )
+
+    run_submission()
+    run_submission()
+    run_submission()
+    db = get_db().__next__()
+    waiting = db.query(Waitlist).order_by(Waitlist.id).all()
+    assert waiting[0].status == WaitlistStatus.waiting
+    assert waiting[1].status == WaitlistStatus.waiting
+    assert waiting[2].status == WaitlistStatus.spam
+    db.delete(waiting[0])
+    db.delete(waiting[1])
+    db.delete(waiting[2])
+    db.commit()
+
+
 def test_get_view_demo():
     response = client.get("/view-demo")
     assert response.status_code == 200

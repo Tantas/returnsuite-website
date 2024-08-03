@@ -9,9 +9,14 @@ from starlette.responses import RedirectResponse
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
 from returnsuite_website.routes.utils import generate_token, get_locale
-from returnsuite_website.services.database import DBSession, Waitlist, WaitlistStatus
+from returnsuite_website.services.database import (
+    DBSession,
+    Waitlist,
+    WaitlistStatus,
+    is_ip_address_spam_waitlist,
+)
 from returnsuite_website.services.email import send_email
-from returnsuite_website.services.spam import detected_spam
+from returnsuite_website.services.spam import detected_injection, detected_spam
 
 router = APIRouter(default_response_class=HTMLResponse)
 
@@ -61,6 +66,10 @@ class JoinWaitlistForm:
         self.message = message.strip() if message else None
 
     def _likely_spam(self) -> bool:
+        if "company.com" in self.email.lower():
+            return True
+        if "company name" in self.organization.lower():
+            return True
         if detected_spam(self.message):
             return True
         if self.linkedin_url is not None and "no-site.com" in self.linkedin_url:
@@ -70,6 +79,8 @@ class JoinWaitlistForm:
         if self.other_url is not None and "no-site.com" in self.other_url:
             return True
         if self.timezone is None or self.timezone in ("1", "n/c"):
+            return True
+        elif detected_injection(self.timezone):
             return True
         return False
 
@@ -109,6 +120,8 @@ async def post_waitlist(
 ):
     ip_address = request.client.host
     join_request = form.to_request(datetime.now(UTC), locale, ip_address, user_agent)
+    if is_ip_address_spam_waitlist(db, ip_address):
+        join_request.status = WaitlistStatus.spam
     db.add(join_request)
     db.commit()
 

@@ -12,9 +12,10 @@ from returnsuite_website.services.database import (
     ContactRequest,
     ContactRequestStatus,
     DBSession,
+    is_ip_address_spam_contact,
 )
 from returnsuite_website.services.email import send_email
-from returnsuite_website.services.spam import detected_spam
+from returnsuite_website.services.spam import detected_injection, detected_spam
 
 router = APIRouter(default_response_class=HTMLResponse)
 
@@ -37,9 +38,13 @@ class ContactForm:
         self.message = message.strip()
 
     def _likely_spam(self) -> bool:
+        if "company.com" in self.email.lower():
+            return True
         if detected_spam(self.message):
             return True
         if self.timezone is None or self.timezone in ("1", "n/c"):
+            return True
+        elif detected_injection(self.timezone):
             return True
         return False
 
@@ -91,6 +96,8 @@ async def post_contact(
 ):
     ip_address = request.client.host
     contact_request = form.to_request(datetime.now(UTC), locale, ip_address, user_agent)
+    if is_ip_address_spam_contact(db, ip_address):
+        contact_request.status = ContactRequestStatus.spam
     db.add(contact_request)
     db.commit()
 
