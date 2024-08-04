@@ -1,0 +1,119 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_analysis_valuation_method" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_analysis_overview') }}">Analysis & Sale</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="overview">Choosing a valuation method</h1>
+    <h2>Deciding which Net Operating Income period to capitalize</h2>
+    <br>
+    <p>
+      The Net Realizable Reversionary Value is a function of the NOI and the
+      Reversionary Capitalization Rate, however which NOI period should be
+      capitalized?
+    </p>
+    <figure>
+      <div class="flex flex-col gap-6">
+        <math>
+          <mi>Reversionary Value</mi>
+          <mpadded lspace="0.3em" width="2em">
+            <mo>=</mo>
+          </mpadded>
+          <mfrac>
+            <mpadded height="1.2em" voffset="0.2em">
+              <mi>Net Operating Income</mi>
+            </mpadded>
+            <mpadded height="1.1em">
+              <mi>Reversionary Capitalization Rate</mi>
+            </mpadded>
+          </mfrac>
+        </math>
+      </div>
+    </figure>
+    <p>
+      ReturnSuite users have three choices of NOI periods to capitalize, all of
+      which are based on the End Date of the Analysis Period. The choices are:
+    </p>
+    <ol class="list-decimal pl-8 text-gray-800 text-base pb-2 leading-8">
+      <li><b>Forward 12-Months</b> - the total forecasted NOI in the year after the valuation date (most common method),</li>
+      <li><b>Trailing 12-Months</b> - the total NOI in the year leading up to the valuation date , or</li>
+      <li><b>Average 24-Months</b> - the one-year average NOI for 12 months before and after the valuation date.</li>
+    </ol>
+    <figure>
+      <figcaption>[Insert ReturnSuite GIF]</figcaption>
+    </figure>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Example</h3>
+    <p>
+      Let’s say we had a property with the following projected NOI:
+    </p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap tracking-wide">End Date</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Dec. 31, 2030</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Dec. 31, 2031</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Dec. 31, 2032</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-50">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">NOI</th>
+              <td class="py-3 font-semibold text-right px-8">$285,000</td>
+              <td class="py-3 font-semibold text-right px-8">$290,000</td>
+              <td class="py-3 font-semibold text-right px-8">$250,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </figure>
+    <p>
+      With an End Date of December 31, 2031, the NOI using each of the
+      different Valuation Methods would be the following:
+    </p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap tracking-wide">End Date</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Valuation Method</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">NOI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Dec 31, 2031</th>
+              <td class="border-b py-3 font-semibold text-right px-8">Forward 12-Months</td>
+              <td class="border-b py-3 font-semibold text-right px-8">$250,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Dec 31, 2031</th>
+              <td class="border-b py-3 font-semibold text-right px-8">Trailing 12-Months</td>
+              <td class="border-b py-3 font-semibold text-right px-8">$290,000</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">Dec 31, 2031</th>
+              <td class="py-3 font-semibold text-right px-8">Average 24-Months</td>
+              <td class="py-3 font-semibold text-right px-8">$270,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </figure>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_analysis_noi_line_adjustments') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">
+        <span>Next: Above the NOI line adjustments</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

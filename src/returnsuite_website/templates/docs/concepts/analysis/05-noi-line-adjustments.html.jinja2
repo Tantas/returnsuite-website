@@ -1,0 +1,253 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_analysis_noi_line_adjustments" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_analysis_overview') }}">Analysis & Sale</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="overview">Above the NOI line adjustments</h1>
+    <h2>How to calculate the Adjusted NOI</h2>
+    <br>
+    <p>
+      Often the NOI around the End Date isn’t a fair representation of NOI that
+      would be expected in most time periods. To calculate the adjusted NOI
+      (NOI<sub>Adj</sub>), there are two types of adjustments that may need to
+      be done–Gross Up Occupancy Adjustments and NOI Adjustments.
+    </p>
+    <p>
+      Both types of adjustments are subtracted from the NOI to determine the
+      NOI<sub>Adj</sub>
+    </p>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Gross Up Occupancy Adjustment</h3>
+    <p>
+      A common issue with using the NOI without any adjustments is that the
+      occupancy levels based on the End Date may be higher or lower than
+      historical norms. To account for this, valuers often use an adjustment
+      called a Gross Up Occupancy Adjustment.
+    </p>
+    <p>
+      The formula for calculating NOI<sub>Adj</sub> is:
+    </p>
+    <figure>
+      <div class="flex flex-col gap-6">
+        <math>
+          <msub>
+            <mi>NOI</mi>
+            <mi>Adj</mi>
+          </msub>
+          <mpadded lspace="0.3em" width="2em">
+            <mo>=</mo>
+          </mpadded>
+          <mi>NOI</mi>
+          <mpadded lspace="0.3em" width="2em">
+            <mo>×</mo>
+          </mpadded>
+          <mfrac>
+            <mpadded height="1.2em" voffset="0.2em">
+              <mi>Gross Up %</mi>
+            </mpadded>
+            <mpadded height="1.1em">
+              <mrow>
+                <msub>
+                  <mi>Avg. Occupancy</mi>
+                  <mi>End Period</mi>
+                </msub>
+                <mi>%</mi>
+              </mrow>
+            </mpadded>
+          </mfrac>
+        </math>
+      </div>
+    </figure>
+    <p>Where:</p>
+    <ul class="list-disc pl-8 text-gray-800 text-base pb-4 leading-8">
+      <li>NOI is the unadjusted NOI in the period that is being capitalized</li>
+      <li>Gross Up % is the typical occupancy for the property</li>
+      <li>Avg. Occupancy<sub>End Period</sub> % is the average occupancy rate for the period being capitalized</li>
+    </ul>
+    <p>
+      This formula can be rearranged to find the Gross Up Adjustment that
+      should be applied to the NOI:
+    </p>
+    <figure>
+      <div class="flex flex-col gap-6">
+        <math>
+          <mi>Gross Up Adjustment</mi>
+          <mpadded lspace="0.3em" width="2em">
+            <mo>=</mo>
+          </mpadded>
+          <mi>NOI</mi>
+          <mpadded lspace="0.3em" width="2em">
+            <mo>×</mo>
+          </mpadded>
+          <mfrac>
+            <mpadded height="1.2em" voffset="0.2em">
+              <mi>Gross Up %</mi>
+            </mpadded>
+            <mpadded height="1.1em">
+              <mrow>
+                <msub>
+                  <mi>Avg. Occupancy</mi>
+                  <mi>End Period</mi>
+                </msub>
+                <mi>%</mi>
+              </mrow>
+            </mpadded>
+          </mfrac>
+          <mpadded lspace="0.7em" width="2.4em">
+            <mo>-</mo>
+          </mpadded>
+          <mi>NOI</mi>
+        </math>
+      </div>
+    </figure>
+    <p>
+      Note: the Gross Up Adjustment to NOI can be either positive (the
+      occupancy level at the period around the End Date is lower than normal)
+      or negative (the occupancy level at the period around the End Date is
+      higher than normal).
+    </p>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Example</h3>
+    <p>
+      We are modeling the Reversionary Value of a property for a landlord and
+      have decided to use the Forward 12-Months method. What is the Gross Up
+      Adjustment if the property NOI is $250,000 but the average occupancy
+      during that period was 80% while the typical occupancy was 90%?
+    </p>
+    <p>
+      The normalized occupancy would be <b>$281,250</b> ($100,000 x 90% / 80%).
+      Therefore the <b>Gross Up Occupancy Adjustment would be $31,250</b>
+      ($281,250 - $250,000).
+    </p>
+    <figure>
+      <figcaption>[Insert ReturnSuite GIF]</figcaption>
+    </figure>
+    <div class="border border-gray-300 rounded-md shadow-sm p-6 pb-4 mx-6 my-4">
+      <div class="flex gap-0.5">
+        <a href="{{ url_for('get_index') }}" title="ReturnSuite">
+          <img class="h-12 w-auto" src="{{ url_for('img', path='/returnsuite-logo.svg') }}" alt="ReturnSuite logo" width="360px" height="85px">
+        </a>
+        <span class="font-medium text-gray-800">TIPS</span>
+      </div>
+      <p class="font-medium">
+        By entering in a Gross Up Occupancy percentage, ReturnSuite will
+        normalize the NOI. By leaving this field blank, the snapshot of the
+        NOI will be left as-is.
+      </p>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Operational Adjustments</h3>
+    <p>
+      Operational Adjustments are modifications made to the NOI to provide a
+      more accurate forecast of a property's typical financial performance.
+      These adjustments account for unusual or non-recurring operating items
+      which distort the NOI.
+    </p>
+    <p>
+      By normalizing the NOI, these adjustments ensure that the Reversionary
+      Value calculation is based on a realistic and sustainable income stream,
+      rather than temporary or anomalous conditions. This is important since
+      the NOI will be capitalized like a Perpetuity which is based on the
+      assumption that the property will produce a steady stream of income
+      far into the future.
+    </p>
+    <p>
+      Operational Adjustments can be either positive or negative, depending on
+      whether they increase or decrease the expected typical NOI.
+    </p>
+    <p>
+      ReturnSuite offers two options for Operational Adjustments:
+    </p>
+    <ol class="list-decimal pl-8 text-gray-800 text-base pb-2 leading-8">
+      <li><b>Amount</b> - a fixed dollar amount, or</li>
+      <li><b>Percentage of NOI</b> - a variable amount which is a percentage of the unadjusted NOI</li>
+    </ol>
+    <div class="border border-gray-300 rounded-md shadow-sm p-6 pb-4 mx-6 my-4">
+      <div class="flex gap-0.5">
+        <a href="{{ url_for('get_index') }}" title="ReturnSuite">
+          <img class="h-12 w-auto" src="{{ url_for('img', path='/returnsuite-logo.svg') }}" alt="ReturnSuite logo" width="360px" height="85px">
+        </a>
+        <span class="font-medium text-gray-800">TIPS</span>
+      </div>
+      <p class="font-medium">
+        When entering Operational Adjustments, keep in mind which NOI period
+        you decided to capitalize.
+      </p>
+      <p class="font-medium">
+        For example if you want to make an adjustment of positive $25,000
+        adjustment to NOI because of an extraordinary cost in the final year of
+        the Analysis Period but you will be capitalizing the NOI 12 months
+        after the End Date, the adjustment won’t be needed.
+      </p>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Example</h3>
+    <p>
+      Continuing with our previous example, the landlord had previously taken
+      advantage of a property tax abatement program offered in their
+      municipality. The program resulted in a $10,000 savings to property
+      taxes which will extend beyond the End Date of the Analysis Period, but
+      expires shortly afterwards. How would this adjustment affect the
+      NOI<sub>Adj</sub>?
+    </p>
+    <figure>
+      <figcaption>[Insert ReturnSuite GIF]</figcaption>
+    </figure>
+    <p>
+      The NOI will need to adjust downwards by $10,000 to account for the
+      expected change in NOI shortly after the End Date.
+    </p>
+    <p>
+      This would result in a <b>NOI<sub>Adj</sub> of $271,250</b>
+      ($250,000 + $31,250 - $10,000).
+    </p>
+    <p>
+      If we were to begin building a Reversionary Value Statement, the first
+      four lines of our example property would look like this:
+    </p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap tracking-wide">Line Items</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">NOI</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$250,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">NOI Gross Up Adjustment</th>
+              <td class="border-b py-3 text-right px-8">$31,250</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">NOI Adjustments</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$10,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">NOI<sub>Adj</sub></th>
+              <td class="py-3 font-semibold text-right px-8">$271,250</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Calculating NOI<sub>Adj</sub></figcaption>
+    </figure>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_analysis_reversionary_capitalization_rate') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">
+        <span>Next: Choosing a Reversionary Capitalization Rate</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

@@ -1,0 +1,110 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_analysis_reversionary_value" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_analysis_overview') }}">Analysis & Sale</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="overview">Overview - Net Realizable Reversionary Value</h1>
+    <h2>How to calculate the Net Realizable Reversion Value</h2>
+    <br>
+    <p>
+      Because NPV is valuing cash flows, we need to calculate the Net
+      Realizable Reversionary Value (cash that the investor expects to receive
+      upon sale, exclusive of any debt repayment).
+    </p>
+    <figure>
+      <div class="w-3/5 flex flex-col">
+        <img class="rounded-md" src="{{ url_for('img', path='/concepts/13-analysis/reversionary-value-component-of-reversionary-value.png') }}" alt="Reversionary value component">
+      </div>
+    </figure>
+    <p>
+      Determining the Net Realizable Reversionary Value can be broken down into
+      four broad steps:
+    </p>
+    <ol class="list-decimal pl-8 text-gray-800 text-base pb-2 leading-8">
+      <li>Choose a valuation method which determines which NOI will be capitalized</li>
+      <li>Normalize the NOI by making “above the line” adjustments</li>
+      <li>Capitalize the adjusted NOI to determine the Initial Reversionary Value</li>
+      <li>Make adjustments to the Initial Reversionary Value to arrive at the Net Realizable Reversionary Value</li>
+    </ol>
+    <p>
+      The ReturnSuite Reversionary Value Statement itemizes each step–below is
+      a summary of each statement line along with a brief definition.
+    </p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap border-r">Statement Line</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-center px-8 whitespace-nowrap tracking-wide">Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap border-r" style="width: 96px">NOI</th>
+              <td class="border-b py-3 text-left px-8" style="width: 480px">The projected NOI in a snapshot of time based on the End Date and the valuation method chosen.</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700 border-r">+/- NOI Gross Up Adjustment</th>
+              <td class="border-b py-3 text-left px-8">Adjustment to NOI to account for differences in the typical occupancy levels.</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700 border-r">+/- Operational Adjustments</th>
+              <td class="border-b py-3 text-left px-8">Other adjustments to NOI.</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap border-r">NOI<sub>Adj</sub></th>
+              <td class="border-b py-3 text-left px-8">The projected NOI which can normally be expected at the End Date which can be used to determine a valuation using the Direct Capitalization.</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700 border-r">Reversionary Capitalization Rate</th>
+              <td class="border-b py-3 text-left px-8">The projected Capitalization Rate at the End Date.</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-bold text-left px-8 whitespace-nowrap border-r">Initial Reversionary Value</th>
+              <td class="border-b py-3 text-left px-8">The expected price a buyer and seller would agree upon, assuming no adjustments are needed.</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700 border-r">+/- Sale Price Adjustments</th>
+              <td class="border-b py-3 text-left px-8">Adjustments in the sale price to account for market conditions or property specifics not captured in the NOI projections. Ex. Upcoming Capital Expenditures.</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-bold text-left px-8 whitespace-nowrap border-r">Adjusted Reversionary Value</th>
+              <td class="border-b py-3 text-left px-8">The theoretical gross price that a buyer and seller would agree upon in a frictionless market (ie. no transaction costs).</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700 border-r">- Transaction Costs</th>
+              <td class="border-b py-3 text-left px-8">All of the various costs of transacting property that would be applicable to all vendors and buyers. Ex. Broker commissions, transfer taxes, etc.</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-bold text-left px-8 whitespace-nowrap border-r">Net Reversionary Value</th>
+              <td class="border-b py-3 text-left px-8">The true economic value of a property after all standard market transaction costs are accounted for.</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700 border-r">- Vendor Costs</th>
+              <td class="border-b py-3 text-left px-8">Costs specific to the vendor’s situation–non-standard costs that are not necessarily applicable to other vendors. Ex. Property management cancellation fees, specific financing fees.</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="py-3 font-bold text-left px-8 whitespace-nowrap border-r">Net Realizable Reversionary Value</th>
+              <td class="py-3 text-left px-8">The amount of cash the vendor expects to receive from the sale after all costs, but before debt repayment.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Reversionary Value Statement</figcaption>
+    </figure>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_analysis_valuation_method') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">
+        <span>Next: Choosing a valuation method</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

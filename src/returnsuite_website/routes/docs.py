@@ -252,3 +252,67 @@ async def get_concepts_noi_exercise_3(request: Request):
         request=request,
         name="docs/concepts/noi/19-exercise-3.html.jinja2",
     )
+
+
+@router.get("/docs/concepts/analysis/overview")
+async def get_concepts_analysis_overview(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/analysis/01-overview.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/analysis/analysis-period")
+async def get_concepts_analysis_analysis_period(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/analysis/02-analysis-period.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/analysis/reversionary-value")
+async def get_concepts_analysis_reversionary_value(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/analysis/03-reversionary-value.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/analysis/valuation-method")
+async def get_concepts_analysis_valuation_method(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/analysis/04-valuation-method.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/analysis/noi-line-adjustments")
+async def get_concepts_analysis_noi_line_adjustments(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/analysis/05-noi-line-adjustments.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/analysis/reversionary-capitalization-rate")
+async def get_concepts_analysis_reversionary_capitalization_rate(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/analysis/06-reversionary-capitalization-rate.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/analysis/value-adjustments")
+async def get_concepts_analysis_value_adjustments(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/analysis/07-value-adjustments.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/analysis/investment-analysis")
+async def get_concepts_analysis_investment_analysis(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/analysis/08-investment-analysis.html.jinja2",
+    )

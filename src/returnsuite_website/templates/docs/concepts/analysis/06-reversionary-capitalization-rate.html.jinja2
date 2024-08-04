@@ -1,0 +1,125 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_analysis_reversionary_capitalization_rate" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_analysis_overview') }}">Analysis & Sale</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="overview">Choosing a Reversionary Capitalization Rate</h1>
+    <h2>How to calculate the Initial Reversion Value</h2>
+    <br>
+    <p>
+      Now that we have calculated NOI<sub>Adj</sub>, the next step is to
+      calculate the Initial Reversionary Value–the price that a landlord
+      would expect to receive if they were to sell their property if no
+      further adjustments were made.
+    </p>
+    <p>
+      To calculate the Initial Reversionary Value the NOI<sub>Adj</sub> is
+      divided by the Reversionary Capitalization Rate.
+    </p>
+    <figure>
+      <div class="flex flex-col gap-6">
+        <math>
+          <mi>Initial Reversionary Value</mi>
+          <mpadded lspace="0.3em" width="2em">
+            <mo>=</mo>
+          </mpadded>
+          <mfrac>
+            <mpadded height="1.2em" voffset="0.2em">
+              <msub>
+                <mi>NOI</mi>
+                <mi>Adj</mi>
+              </msub>
+            </mpadded>
+            <mpadded height="1.1em">
+              <mi>Reversionary Capitalization Rate</mi>
+            </mpadded>
+          </mfrac>
+        </math>
+      </div>
+    </figure>
+    <p>
+      For the Reversionary Capitalization Rate, remember it is the
+      <a href="#">projected Capitalization Rate</a> at the End Date, not the
+      current Capitalization Rate.
+    </p>
+    <p>
+      A Reversionary Capitalization Rate that is below the effective
+      Capitalization Rate that was paid when purchasing the property implies
+      capital appreciation while a higher Reversionary Capitalization Rate
+      implies capital depreciation.
+    </p>
+    <p>
+      In ReturnSuite the Reversionary Capitalization Rate is entered in the
+      Reversionary Value section.
+    </p>
+    <figure>
+      <figcaption>[Insert ReturnSuite GIF]</figcaption>
+    </figure>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Example</h3>
+    <p>
+      To continue with our example, let’s say it is the standard practice in
+      our market to use the Forward 12-Months valuation method and we expect
+      that the Capitalization Rate at the End Date of our Analysis Period to
+      be 5.0%. What would the next lines in our Reversionary Value Statement
+      look like?
+    </p>
+    <p>
+      The NOI<sub>Adj</sub> is divided by the Reversionary Capitalization Rate
+      providing us with an Initial Reversionary Value of $5,425,000
+      ($271,250 / 5.0%).
+    </p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap tracking-wide">Line Items</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">NOI</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$250,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">NOI Gross Up Adjustment</th>
+              <td class="border-b py-3 text-right px-8">$31,250</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">NOI Adjustments</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$10,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">NOI<sub>Adj</sub></th>
+              <td class="border-b py-3 font-semibold text-right px-8">$271,250</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Reversionary Capitalization Rate</th>
+              <td class="border-b py-3 text-right px-8">5%</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">Initial Reversionary Value</th>
+              <td class="py-3 font-semibold text-right px-8">$5,425,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Initial Reversionary Value</figcaption>
+    </figure>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_analysis_value_adjustments') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">
+        <span>Next: Choosing a Reversionary Capitalization Rate</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

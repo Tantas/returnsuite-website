@@ -190,6 +190,45 @@
               "selected": {{ (context_page_name == "get_concepts_noi_exercise_3")|tojson }}
             }
           ]
+        },
+        {
+          "collapsed": true,
+          "title": "Analysis & Sale",
+          "items": [
+            {
+              "title": "Overview",
+              "href": "{{ url_for('get_concepts_analysis_overview') }}",
+              "selected": {{ (context_page_name == "get_concepts_analysis_overview")|tojson }}
+            }, {
+              "title": "Analysis Period",
+              "href": "{{ url_for('get_concepts_analysis_analysis_period') }}",
+              "selected": {{ (context_page_name == "get_concepts_analysis_analysis_period")|tojson }}
+            }, {
+              "title": "Overview - Net Realizable Reversionary Value",
+              "href": "{{ url_for('get_concepts_analysis_reversionary_value') }}",
+              "selected": {{ (context_page_name == "get_concepts_analysis_reversionary_value")|tojson }}
+            }, {
+              "title": "Choosing a valuation method",
+              "href": "{{ url_for('get_concepts_analysis_valuation_method') }}",
+              "selected": {{ (context_page_name == "get_concepts_analysis_valuation_method")|tojson }}
+            }, {
+              "title": "Above the NOI line adjustments",
+              "href": "{{ url_for('get_concepts_analysis_noi_line_adjustments') }}",
+              "selected": {{ (context_page_name == "get_concepts_analysis_noi_line_adjustments")|tojson }}
+            }, {
+              "title": "Choosing a Reversionary Capitalization Rate",
+              "href": "{{ url_for('get_concepts_analysis_reversionary_capitalization_rate') }}",
+              "selected": {{ (context_page_name == "get_concepts_analysis_reversionary_capitalization_rate")|tojson }}
+            }, {
+              "title": "Below the NOI line adjustments",
+              "href": "{{ url_for('get_concepts_analysis_value_adjustments') }}",
+              "selected": {{ (context_page_name == "get_concepts_analysis_value_adjustments")|tojson }}
+            }, {
+              "title": "Investment Analysis",
+              "href": "{{ url_for('get_concepts_analysis_investment_analysis') }}",
+              "selected": {{ (context_page_name == "get_concepts_analysis_investment_analysis")|tojson }}
+            }
+          ]
         }
       ],
       init() {
@@ -221,36 +260,36 @@
       </div>
       <div>
         <div>
-        <ol class="text-base text-gray-700 px-4 flex flex-col gap-1 py-3 overflow-y-scroll" style="height: calc(100vh - 10.1rem)" x-show="menu_open">
-          <template x-for="entry in table_of_contents">
-            <li>
-              <div x-show="entry.href" class="py-1">
-                <a :href="entry.href" x-text="entry.title" :class="entry.selected ? 'font-semibold text-blue-500' : ''" class="pl-6 text-gray-900 tracking-wide"></a>
-              </div>
-              <div x-show="entry.items">
-                <div class="flex place-items-center" >
-                  <button type="button" title="Expand" x-show="entry.collapsed" @click="entry.collapsed = !entry.collapsed">
-                    <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
-                      <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
-                    </svg>
-                    <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
-                  </button>
-                  <button type="button" title="Collapse" x-show="!entry.collapsed" @click="entry.collapsed = !entry.collapsed">
-                    <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
-                      <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
-                    </svg>
-                    <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
-                  </button>
+          <ol class="text-base text-gray-700 px-4 flex flex-col gap-1 py-3 overflow-y-scroll" style="height: calc(100vh - 10.1rem)" x-show="menu_open">
+            <template x-for="entry in table_of_contents">
+              <li>
+                <div x-show="entry.href" class="py-1">
+                  <a :href="entry.href" x-text="entry.title" :class="entry.selected ? 'font-semibold text-blue-500' : ''" class="pl-6 text-gray-900 tracking-wide"></a>
                 </div>
-                <ol class="pl-5 py-1.5 flex flex-col text-sm font-normal" x-show="!entry.collapsed">
-                  <template x-for="sub_entry in entry.items">
-                    <li><a :href="sub_entry.href" x-text="sub_entry.title" class="hover:text-gray-800 w-full block rounded-md px-4 py-1" :class="sub_entry.selected ? 'text-blue-600 bg-blue-100 font-medium tracking-wide' : ''"></a></li>
-                  </template>
-                </ol>
-              </div>
-            </li>
-          </template>
-        </ol>
+                <div x-show="entry.items">
+                  <div class="flex place-items-center" >
+                    <button type="button" title="Expand" x-show="entry.collapsed" @click="entry.collapsed = !entry.collapsed">
+                      <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
+                      </svg>
+                      <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
+                    </button>
+                    <button type="button" title="Collapse" x-show="!entry.collapsed" @click="entry.collapsed = !entry.collapsed">
+                      <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+                      </svg>
+                      <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
+                    </button>
+                  </div>
+                  <ol class="pl-5 py-1.5 flex flex-col text-sm font-normal" x-show="!entry.collapsed">
+                    <template x-for="sub_entry in entry.items">
+                      <li><a :href="sub_entry.href" x-text="sub_entry.title" class="hover:text-gray-800 w-full block rounded-md px-4 py-1" :class="sub_entry.selected ? 'text-blue-600 bg-blue-100 font-medium tracking-wide' : ''"></a></li>
+                    </template>
+                  </ol>
+                </div>
+              </li>
+            </template>
+          </ol>
         </div>
       </div>
       <div class="absolute bottom-0 border-t border-gray-300 bg-white w-full h-12 flex place-items-center">
