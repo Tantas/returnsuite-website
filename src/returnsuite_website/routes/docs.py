@@ -102,6 +102,46 @@ async def get_concepts_noi(request: Request):
     )
 
 
+@router.get("/docs/concepts/valuation-approaches/overview")
+async def get_concepts_valuation_approaches_overview(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/valuation-approaches/01-overview.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/valuation-approaches/market-approach")
+async def get_concepts_valuation_approaches_market_approach(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/valuation-approaches/02-market-approach.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/valuation-approaches/cost-approach")
+async def get_concepts_valuation_approaches_cost_approach(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/valuation-approaches/03-cost-approach.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/valuation-approaches/income-approach")
+async def get_concepts_valuation_approaches_income_approach(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/valuation-approaches/04-income-approach.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/valuation-approaches/income-approach-methods")
+async def get_concepts_valuation_approaches_income_approach_methods(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/valuation-approaches/05-income-approach-methods.html.jinja2",
+    )
+
+
 @router.get("/docs/concepts/noi/overview")
 async def get_concepts_noi_overview(request: Request):
     return templates.TemplateResponse(

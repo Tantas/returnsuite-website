@@ -74,23 +74,26 @@
           "title": "Valuation approaches",
           "items": [
             {
-              "title": "Asset valuation",
-              "href": "#",
-            }, {
-              "title": "Valuation family tree",
-              "href": "#",
-            }, {
+              "title": "Overview",
+              "href": "{{ url_for('get_concepts_valuation_approaches_overview') }}",
+              "selected": {{ (context_page_name == "get_concepts_valuation_approaches_overview")|tojson }}
+            },
+            {
               "title": "Market approach",
-              "href": "#",
+              "href": "{{ url_for('get_concepts_valuation_approaches_market_approach') }}",
+              "selected": {{ (context_page_name == "get_concepts_valuation_approaches_market_approach")|tojson }}
             }, {
               "title": "Cost approach",
-              "href": "#",
+              "href": "{{ url_for('get_concepts_valuation_approaches_cost_approach') }}",
+              "selected": {{ (context_page_name == "get_concepts_valuation_approaches_cost_approach")|tojson }}
             }, {
               "title": "Income approach",
-              "href": "#",
+              "href": "{{ url_for('get_concepts_valuation_approaches_income_approach') }}",
+              "selected": {{ (context_page_name == "get_concepts_valuation_approaches_income_approach")|tojson }}
             }, {
-              "title": "Valuation family tree revisited",
-              "href": "#",
+              "title": "Income approach methods",
+              "href": "{{ url_for('get_concepts_valuation_approaches_income_approach_methods') }}",
+              "selected": {{ (context_page_name == "get_concepts_valuation_approaches_income_approach_methods")|tojson }}
             }, {
               "title": "Standard direct capitalization",
               "href": "#",

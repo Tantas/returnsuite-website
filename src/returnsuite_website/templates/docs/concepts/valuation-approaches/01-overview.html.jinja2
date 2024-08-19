@@ -1,0 +1,73 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_valuation_approaches_overview" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_valuation_approaches_overview') }}">Valuation approaches</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1>Overview</h1>
+    <h2>What is the best way to value a real estate asset?</h2>
+    <p>
+      It’s easy to become overly focused on “real estate” within “real estate
+      valuation”, but real estate is just one of many asset classes that needs
+      to be regularly valued. Even for businesses whose main activity is
+      developing or holding property, the value of real estate is just a
+      component of the business information required for financial reporting.
+    </p>
+    <figure>
+      <div class="w-3/5 flex flex-col">
+        <img src="{{ url_for('img', path='/concepts/3-valuation-approaches/consolidated-balance-sheet.png') }}" alt="Consolidated balance sheet">
+      </div>
+    </figure>
+    <p>
+      So if we were to take a wider view of the question, what is the best way
+      to value any asset (or liability)?
+    </p>
+    <p>
+      The International Accounting Standards Board (IASB) is an independent,
+      private-sector body that develops and publishes the International
+      Financial Reporting Standards (IFRS), which are designed to be a global
+      language for business affairs so that company accounts are understandable
+      and comparable across international boundaries.
+    </p>
+    <p>
+      A few major economies have their own accounting standards, notably the
+      United States, Japan, China and India, but their accounting standards are
+      all committed to converging with the IFRS in the future.
+    </p>
+    <p>
+      The IFRS identifies three valuation techniques which can be used to
+      determine the Fair Value of an asset: the Market Approach, the Cost
+      Approach and the Income Approach. Non-coincidentally, these three
+      techniques closely mirror the main evaluation approaches in real estate.
+    </p>
+    <figure>
+      <div class="w-3/5 flex flex-col">
+        <img src="{{ url_for('img', path='/concepts/3-valuation-approaches/valuation-approaches.png') }}" alt="Valuation approaches">
+      </div>
+      <figcaption>Basic Split of Fair Value Approaches</figcaption>
+    </figure>
+    <p>
+      Each of the approaches value an asset by answering a slightly different
+      question.
+    </p>
+    <ul class="list-disc pl-8 text-gray-800 text-base pb-2 leading-8">
+      <li>Income Approach–what would an investor pay for the cash flow produced by this asset?</li>
+      <li>Cost Approach–what would this cost to reproduce?</li>
+      <li>Market Approach–what do similar assets sell for?</li>
+    </ul>
+    <p>Let’s look at each approach in more detail.</p>
+
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_valuation_approaches_market_approach') }}" class="text-blue-500 hover:underline flex place-items-center">
+        <span>Next: Market approach</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}
