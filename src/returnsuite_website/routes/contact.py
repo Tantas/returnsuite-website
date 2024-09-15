@@ -40,6 +40,8 @@ class ContactForm:
     def _likely_spam(self) -> bool:
         if "company.com" in self.email.lower():
             return True
+        if "gmxxail.com" in self.email.lower():
+            return True
         if detected_spam(self.message):
             return True
         if self.timezone is None or self.timezone in ("1", "n/c"):

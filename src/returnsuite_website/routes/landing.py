@@ -70,6 +70,8 @@ class JoinWaitlistForm:
             return True
         if "company name" in self.organization.lower():
             return True
+        if "gmxxail.com" in self.email.lower():
+            return True
         if detected_spam(self.message):
             return True
         if self.linkedin_url is not None and "no-site.com" in self.linkedin_url:
