@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Request
-from starlette.responses import HTMLResponse
+from starlette.responses import HTMLResponse, RedirectResponse
 
+from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
 
 router = APIRouter(default_response_class=HTMLResponse)
@@ -8,6 +9,8 @@ router = APIRouter(default_response_class=HTMLResponse)
 
 @router.get("/docs")
 async def get_documentation(request: Request):
+    if get_app_settings().hide_docs:
+        return RedirectResponse("/")
     return templates.TemplateResponse(
         request=request,
         name="docs/concepts/1-introduction.html.jinja2",

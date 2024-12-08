@@ -22,7 +22,7 @@ router = APIRouter(default_response_class=HTMLResponse)
 
 
 @router.get("/brave")
-@router.get("/")  # Must be last to be used with 'for_url'.
+@router.get("/")  # Must be the last entry to be used with 'for_url'.
 async def get_index(request: Request, success: bool | None = None):
     logger.warning(f"User agent is {request.headers.get('User-Agent')}")
     return templates.TemplateResponse(
@@ -34,6 +34,8 @@ async def get_index(request: Request, success: bool | None = None):
 
 @router.get("/view-demo")
 async def get_view_demo(request: Request):
+    if get_app_settings().hide_demo:
+        return RedirectResponse("/")
     return templates.TemplateResponse(request=request, name="demo.html.jinja2")
 
 
