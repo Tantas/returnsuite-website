@@ -1,0 +1,82 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_analysis_analysis_period" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_analysis_overview') }}">Analysis & Sale</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="overview">Analysis Period</h1>
+    <h2>Choosing an Analysis Period</h2>
+    <br>
+    <p>
+      Financial models are an analysis of the future benefits of owning a
+      property within a set time horizon, which requires both a Start Date and
+      an End Date. The Start Date will often coincide with a purchase date, but
+      it doesn't necessarily have to. Similarly the End Date doesn't need to
+      coincide with the intended sale date.
+    </p>
+    <figure>
+      <div class="w-3/5 flex flex-col">
+        <img src="{{ url_for('img', path='/concepts/13-analysis/analysis-period-component-of-reversionary-value.png') }}" alt="Analysis and sale diagram">
+      </div>
+    </figure>
+    <p>
+      In ReturnSuite, the Start and End Dates define the specific dates in
+      which the analysis period is covering–the dates that correspond to  t = 0
+      (Start Date) and t = x (End Date).
+    </p>
+    <p>
+      For a Start Date, a specific date needs to be chosen in the calendar,
+      while there are two options for choosing an End Date–Duration and Date.
+    </p>
+    <p>
+      <b>Duration</b> defines the End Date as a set amount of time after the
+      Start Date defined in years and months. This means that any change in the
+      Start Date will also affect the End Date.
+    </p>
+    <p>
+      For example, if with a Start Date of Jan 1, 2020 and a Duration of 10
+      years, the End Date would be December 31, 2029. If later on you changed
+      the Start Date to April 1, 2020, the End Date would also automatically
+      adjust to become March 31, 2030–keeping the Analysis Period at 10 years.
+    </p>
+    <p>
+      Note: ReturnSuite does factor the varying lengths of the months and Leap
+      Years.
+    </p>
+    <p>
+      <b>Date</b> defines the End Date as a specific date, so any changes to the
+      Start Date won’t affect the End Date, instead the length of the Analysis
+      Period will change.
+    </p>
+    <figure>
+      <div class="w-3/5 flex flex-col">
+        <img class="rounded-md" src="{{ url_for('img', path='/concepts/13-analysis/returnsuite-select-analysis-period.gif') }}" alt="Selecting the analysis period in ReturnSuite">
+      </div>
+      <figcaption>Selecting the analysis period in ReturnSuite</figcaption>
+    </figure>
+    <p>
+      For example, if you chose a Start Date of January 1, 2020 and used the
+      Date function to choose an End Date of December 31, 2029, the Analysis
+      Period would be a total of 10 years. However, if you revisited the model
+      months later and changed the Start Date to April 1, 2020, the End Date
+      would remain December 31, 2029–instead your analysis period would be
+      shortened from 10 years to nine years and nine months.
+    </p>
+    <p>
+      With an End Date, we now have a time frame to place a Net Realizable
+      Reversion Value.
+    </p>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_analysis_reversionary_value') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">
+        <span>Next: Overview - Net Realizable Reversionary Value</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

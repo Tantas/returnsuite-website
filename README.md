@@ -4,6 +4,87 @@ The landing website for [ReturnSuite](https://returnsuite.com). Contains product
 information, contact, terms, privacy, blog, course and documentation.
 
 
+## Getting started
+
+The application supports development on all operating systems where Python,
+Poetry and the system's dependencies will run. The deployment and management
+scripts run on Linux and macOS.
+
+Install the equivalent prerequisites below. On macOS, installing with
+[Homebrew](https://brew.sh) is recommended.
+
+- mariadb (Optional)
+- poetry
+
+
+Install the system dependencies on macOS.
+
+```shell
+brew install mariadb poetry
+# (Optional) Run as a service.
+brew services start mariadb
+# (Optional) Run directly.
+/opt/homebrew/opt/mariadb/bin/mariadbd-safe --datadir\=/opt/homebrew/var/mysql
+```
+
+(Optional) Create a database where records are stored. (Defaults to sqlite if not present)
+
+```shell
+mysql -e 'CREATE DATABASE `returnsuite-website-local` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;'
+```
+
+Install the dependencies.
+
+```shell
+poetry update
+```
+
+Install the current project so poetry can find the module.
+
+```shell
+poetry install
+```
+
+Write the local config file. Add any secret key-values as necessary.
+
+```shell
+cat <<'EOF'>> ./.env
+app_env=dev
+signup_enabled=true
+
+# (Optional) Database connector if not using sqlite.
+database_url=mysql+mysqlconnector://root:<password>>@127.0.0.1:3306/returnsuite-website-local
+EOF
+```
+
+Run the local development server. In development mode, sample data will be
+loaded into the system for testing on the initial run.
+
+```shell
+poetry run server
+```
+
+(Optional) In a separate shell, enable the livereload server to reload the page
+as changes are made to the source.
+
+```shell
+poetry run livereload
+```
+
+(Optional) In a separate shell, enable the tailwind server to update the css as
+changes are made to the source.
+
+```shell
+./website.sh local tailwind
+```
+
+Open a browser to the landing page.
+
+```shell
+open localhost:8000
+```
+
+
 ## Development
 
 ### Adding a blog post

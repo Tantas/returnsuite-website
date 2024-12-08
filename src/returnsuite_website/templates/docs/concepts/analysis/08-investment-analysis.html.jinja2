@@ -1,0 +1,321 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_analysis_investment_analysis" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_analysis_overview') }}">Analysis & Sale</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="overview">Investment Analysis</h1>
+    <h2>Choosing Discount Rates</h2>
+    <br>
+    <p>
+      The final step of building a financial model is choosing a
+      <a href="#">Discount Rate</a>–the Cost of Capital or Hurdle Rate that an
+      investor requires to earn on similar types of investments when factoring
+      in all the forms of risk.
+    </p>
+    <p>
+      Discount Rates are applied to the <a href="#">entire set of cash flows</a>
+      over the life of the investment–and are not just applied to the
+      Reversionary Value.
+    </p>
+    <figure>
+      <figure>
+        <div class="w-3/5 flex flex-col">
+          <img class="rounded-md" src="{{ url_for('img', path='/concepts/13-analysis/discount-rate-component-of-reversionary-value.png') }}" alt="Discount rate component">
+        </div>
+      </figure>
+      <!--<figcaption>TODO</figcaption>
+      <p>Where:</p>
+      <math>
+        <msub>
+          <mi>CF</mi>
+          <mi>t=x</mi>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>NOI</mi>
+          <mi>t = x</mi>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>CapEx</mi>
+          <mi>t = x</mi>
+        </msub>
+        <mo>+</mo>
+        <mi>Reversionary Value</mi>
+      </math>-->
+    </figure>
+    <p>
+      Prior to choosing a Discount Rate, it is important to keep in mind the
+      purpose of the financial model. Is the model an Investment Valuation for
+      a specific investor or is it a Market Valuation for the general market?
+      The answer to this question will determine who’s Discount Rate your
+      analysis will be using.
+    </p>
+    <p>
+      Determining the Discount Rate requires two pieces of information–the
+      Nominal Annual Discount Rates and the Compounding Frequency.
+    </p>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Choosing Discount Rates</h3>
+    <p>
+      Adding debt to a real estate investment may increase equity returns,
+      but it also increases the risk of the investment. Therefore as leverage
+      is added to a real estate investment, the Risk-Adjusted Discount Rate
+      should also increase.
+    </p>
+    <p>
+      Many ReturnSuite reports will show both leveraged and unleveraged returns,
+      which provides a more comprehensive view of an investment's performance
+      and potential–allowing investors to make more informed decisions based
+      on their risk tolerance, return expectations, and available financing
+      options. This is particularly useful in real estate which often has the
+      ability to take on significant debt.
+    </p>
+    <p>
+      To account for the risk that leverage adds, many investors use two
+      different Discount Rates which are both used in ReturnSuite:
+    </p>
+    <ol class="list-decimal pl-8 text-gray-800 text-base pb-2 leading-8">
+      <li>
+        <b>Unlevered Discount Rate</b> - the Nominal Discount Rate the
+        investor(s) would expect without the use of debt financing, and
+      </li>
+      <li>
+        <b>Levered Discount Rate</b> - the Nominal Discount Rate the investor(s)
+        would expect when factoring in the additional risk from the use of
+        debt financing.
+      </li>
+    </ol>
+    <div class="border border-gray-300 rounded-md shadow-sm p-6 pb-4 mx-6 my-4">
+      <div class="flex gap-0.5">
+        <a href="{{ url_for('get_index') }}" title="ReturnSuite">
+          <img class="h-12 w-auto" src="{{ url_for('img', path='/returnsuite-logo.svg') }}" alt="ReturnSuite logo" width="360px" height="85px">
+        </a>
+        <span class="font-medium text-gray-800">TIPS</span>
+      </div>
+      <p class="font-medium">
+        The Levered Discount Rate should always be equal to or higher than the
+        Unlevered Discount Rate since adding leverage to a real estate
+        investment can begin to add meaningful amounts of risk to the investor.
+      </p>
+      <p class="font-medium">
+        The default setting in ReturnSuite is for the Levered and Unlevered
+        Discount Rates to be equal to each other.
+      </p>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Compounding Frequency</h3>
+    <p>
+      ReturnSuite users are entering in the Nominal Annual Discount Rates,
+      which do not account for compounding. To factor in the effect of
+      compounding a Compounding Frequency needs to be entered.
+    </p>
+    <p>
+      ReturnSuite offers five options for Compounding Frequency
+    </p>
+    <ol class="list-decimal pl-8 text-gray-800 text-base pb-2 leading-8">
+      <li>
+        <b>Annual</b> - the Discount Rate is only compounded once per year.
+        Nominal and Effective Annual Discount Rates are the same.
+      </li>
+      <li>
+        <b>Semiannual</b> - the Discount Rate is compounded twice per year at
+        the end of each half year
+      </li>
+      <li>
+        <b>Quarterly</b> - the Discount Rate is compounded four times per year
+        at the end of each quarter
+      </li>
+      <li>
+        <b>Monthly</b> - the Discount Rate is compounded at the end of each
+        month
+      </li>
+      <li>
+        <b>Monthly, in Advance</b> - the Discount Rate is compounded at the
+        beginning of each month (ie. the first of month rather than the last
+        day of the month)
+      </li>
+    </ol>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h4>Examples</h4>
+    <p>
+      Continuing with our example, we have now calculated the Net Realizable
+      Reversionary Value of the property to be $5,568,441. Let’s say the
+      property is a quick redevelopment project lasting three years with the
+      following cash flows:
+    </p>
+    <ul class="list-disc pl-8 text-gray-800 text-base pb-4 leading-8">
+      <li>
+        Initial Purchase (beginning of Year 1) - Purchase of property for
+        $3,000,000
+      </li>
+      <li>Year 1 - $285,000 in NOI</li>
+      <li>Year 2 - $290,000 in NOI</li>
+      <li>
+        Year 3 - $250,000 in NOI and a Net Realizable Reversionary Value of
+        $5,568,441
+      </li>
+    </ul>
+    <p>
+      What is the Net Present Value of the project if the Unlevered Discount
+      Rate is 9.0%, compounded annually?
+    </p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap">Cash Flows</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Beginning<br>Year 1</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">End of<br>Year 1</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">End of<br>Year 2</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">End of<br>Year 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Project Purchase</th>
+              <td class="border-b py-3 text-right px-8 font-semibold text-red-500">-$3,000,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Cash flow from NOI</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$285,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$290,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$250,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Net Realizable Reversionary Value</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$5,568,441</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-bold text-left px-8 whitespace-nowrap">Net Cash Flows</th>
+              <td class="border-b py-3 text-right px-8 font-bold text-red-500">-$3,000,000</td>
+              <td class="border-b py-3 text-right px-8 font-bold">$285,000</td>
+              <td class="border-b py-3 text-right px-8 font-bold">$290,000</td>
+              <td class="border-b py-3 text-right px-8 font-bold">$5,818,441</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Discount Factor</th>
+              <td class="border-b py-3 text-right px-8">1.0000</td>
+              <td class="border-b py-3 text-right px-8">1.0900</td>
+              <td class="border-b py-3 text-right px-8">1.1881</td>
+              <td class="border-b py-3 text-right px-8">1.2950</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">PV of Cash Flows</th>
+              <td class="border-b py-3 text-right px-8 font-semibold text-red-500">-$3,000,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$261,468</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$244,087</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$4,492,904</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-bold text-left px-8 whitespace-nowrap">NPV of Cash Flows</th>
+              <td class="py-3 text-right px-8 font-bold">$1,998,459</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Example NPV of project with Unleveraged Discount Rate of 9.0% compounded annually</figcaption>
+    </figure>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h4>Example - Adding Leverage</h4>
+    <p>
+      Let’s say the project accessed $1,500,000 in debt which had annual,
+      interest-only payments of 6%.
+    </p>
+    <p>
+      What is the Net Present Value of the project if the Levered Discount Rate
+      is 11.0%, compounded annually?
+    </p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap">Cash Flows</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Beginning<br>Year 1</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">End of<br>Year 1</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">End of<br>Year 2</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">End of<br>Year 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Project Purchase</th>
+              <td class="border-b py-3 text-right px-8 font-semibold text-red-500">-$3,000,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Cash flow from NOI</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$285,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$290,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$250,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Net Realizable Reversionary Value</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$5,568,441</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Debt Proceeds (Repayment)</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">$1,500,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold text-red-500">-$1,500,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-bold text-left px-8 whitespace-nowrap">Net Cash Flows</th>
+              <td class="border-b py-3 text-right px-8 font-bold text-red-500">-$1,500,000</td>
+              <td class="border-b py-3 text-right px-8 font-bold">$195,000</td>
+              <td class="border-b py-3 text-right px-8 font-bold">$200,000</td>
+              <td class="border-b py-3 text-right px-8 font-bold">$4,228,441</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Interest Payments</th>
+              <td class="border-b py-3 text-right px-8 font-semibold">-</td>
+              <td class="border-b py-3 text-right px-8 font-semibold text-red-500">-$90,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold text-red-500">-$90,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold text-red-500">-$90,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Discount Factor</th>
+              <td class="border-b py-3 text-right px-8">1.0000</td>
+              <td class="border-b py-3 text-right px-8">1.1100</td>
+              <td class="border-b py-3 text-right px-8">1.2321</td>
+              <td class="border-b py-3 text-right px-8">1.3676</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">PV of Cash Flows</th>
+              <td class="border-b py-3 text-right px-8 font-semibold text-red-500">-$1,500,000</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$175,676</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$162,324</td>
+              <td class="border-b py-3 text-right px-8 font-semibold">$3,091,800</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-bold text-left px-8 whitespace-nowrap">NPV of Cash Flows</th>
+              <td class="py-3 text-right px-8 font-bold">$1,929,800</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Example NPV of project with Leveraged Discount Rate of 11.0% compounded annually</figcaption>
+    </figure>
+  </article>
+{% endblock article_content %}

@@ -122,7 +122,10 @@ case "$*" in
     ;;
 
   "cloc")
-    cloc "${DIR}/src" --exclude-ext=css,csv,svg,yml --exclude-dir=lib,migration
+    printf "%s\n" "Source Cloc"
+    cloc "${DIR}/src" --exclude-ext=css,csv,svg,yml --exclude-dir=lib,migration | tail -n +4
+    printf "%s\n" "Test Cloc"
+    cloc "${DIR}/tests" | tail -n +4
     ;;
 
   "local server")

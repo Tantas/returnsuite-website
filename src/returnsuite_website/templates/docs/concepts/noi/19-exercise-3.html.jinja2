@@ -1,0 +1,178 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_noi_exercise_3" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_noi_overview') }}">NOI Statement</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1>Exercise - Top Slice Method Valuation</h1>
+    <h2>Build a NOI Statement to complete a Top Slice method valuation</h2>
+    <p>
+      It is year-end, you’ve been tasked with building a NOI Statement that
+      includes last year's actuals and the upcoming year. The property is a
+      40,000 square foot office which has been offering small serviced offices
+      which can rent at a premium. Because of the non-traditional leasing model,
+      your firm uses the Top Slice method for NOI Statements and valuations.
+    </p>
+    <h3 class="font-medium text-lg pt-2 tracking-wide">Serviced Office</h3>
+    <p>
+      However, as a serviced office the property earned $2,650,000 last year and
+      had expenses of $675,000. Last year there was $85,000 in Turnover Costs
+      and Free Rent Concessions given. Next year is expected to be the same.
+    </p>
+    <p>
+      Serviced office doesn’t collect any Additional Rent, but does earn $60,000
+      per year in parking and $30,000 in virtual mailbox revenue, both of which
+      are expected to grow at 2% next year. There are no Vacancy or Credit
+      Losses expected next year (operationally, you factor them into revenue
+      expectations).
+    </p>
+    <h3 class="font-medium text-lg pt-2 tracking-wide">Theoretical Traditionally Leased Office</h3>
+    <p>
+      If the property was leased traditionally, the current annual Market Base
+      Rent for the property would have earned $40 per square foot and the
+      Operating Expenses would have been $400,000 per year. Similar office
+      properties have Absorption, Turnover Vacancy & Other Concessions equal to
+      $0.75 per square foot per year which is expected to grow at 2% per year.
+    </p>
+    <p>
+      Traditional offices would typically recover 100% of the Operating Expenses
+      and would also earn $60,000 in parking revenue per year.
+    </p>
+    <p>
+      Similarly, office properties leased traditionally in this market suffer a
+      Vacancy Loss of 3% and a Credit Loss of 2% of Potential Gross Income.
+    </p>
+    <h3 class="font-medium text-lg pt-2 tracking-wide">Growth</h3>
+    <p>
+      In the traditional leasing market, revenues and expenses are expected to
+      be 2% higher next year. In the serviced office market, revenues and
+      expenses are expected to be 4% higher next year.
+    </p>
+    <div class="documentation-download">
+      <img src="{{ url_for('img', path='/integration/excel.svg') }}" alt="Microsoft Excel Logo" class="h-10">
+      <a download href="{{ url_for('sheets', path='ReturnSuite - NOI Statement - Exercise 3 - Worksheet.xlsx') }}">NOI Statement - Exercise 3 - Worksheet.xlsx</a>
+      <a download href="{{ url_for('sheets', path='ReturnSuite - NOI Statement - Exercise 3 - Worksheet.xlsx') }}" title="Download" class="ml-auto hover:bg-gray-100 hover:text-gray-800 rounded-full p-2">
+        <svg class="inline-block h-8" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+        </svg>
+      </a>
+    </div>
+    <hr class="mt-6 mb-6 border-gray-300">
+    <h2>Task 1</h2>
+    <p>
+      Construct two NOI Statements–one that covers last year's actual results
+      and a second that projects the upcoming year (which will provide us with
+      a 24-month period). Each period should show the breakdown of NOI for the
+      total property as well both the Top and Bottom Slices of the property.
+    </p>
+    <div x-data="{showHint: false}" class="pb-4">
+      <button type="button" @click="showHint = true" x-show="!showHint" class="button font-medium">
+        Show hint
+      </button>
+      <div x-show="showHint" class="border border-green-500 rounded-md p-6">
+        <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
+        <p>
+          To determine the split between the Bottom Slice and Top Slice of the
+          property, we’ll need to use the formula for each of the component lines.
+        </p>
+        <figure>
+          <div>
+            <div class="flex flex-col gap-6 place-items-start">
+              <math style="font-weight: 500; font-family: ui-sans-serif, system-ui, sans-serif;font-size: 1.25rem;line-height: 1.75rem;">
+                <mrow>
+                  <msub>
+                    <mi>NOI Property</mi>
+                    <mi>as operated</mi>
+                  </msub>
+                  <mo>-</mo>
+                  <msub>
+                    <mi>NOI</mi>
+                    <mi>theoretical bottom slice</mi>
+                  </msub>
+                  <mo>=</mo>
+                  <msub>
+                    <mi>NOI</mi>
+                    <mi>theoretical top slice</mi>
+                  </msub>
+                </mrow>
+              </math>
+            </div>
+          </div>
+        </figure>
+        <p>
+          For last year’s actuals, the total property NOI was <b>$1,980,000</b>
+          which can be broken down as <b>$1,528,500</b> Bottom Slice and
+          <b>$451,500</b> Top Slice.
+        </p>
+        <p>
+          For the projected NOI Statement for next year, the total property NOI
+          is expected to be <b>$2,060,800</b>, which can be broken down as
+          <b>$1,559,070</b> Bottom Slice and <b>$501,730</b> Top Slice.
+        </p>
+      </div>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h2>Task 2</h2>
+    <p>
+      Using the results from your NOI Statements and the Average 24-month NOI,
+      what is the expected valuation of the property if the Bottom Slice has a
+      Capitalization Rate of 7.0% and the Top Slice has a Capitalization Rate
+      of 10.5%?
+    </p>
+    <p>
+      What is the Effective Capitalization Rate for the property?
+    </p>
+    <div x-data="{showHint: false}" class="pb-4">
+      <button type="button" @click="showHint = true" x-show="!showHint" class="button font-medium">
+        Show hint
+      </button>
+      <div x-show="showHint" class="border border-green-500 rounded-md p-6">
+        <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
+        <p>
+          Using the results from each of our NOI Statements, we can then
+          determine the Average 24-Month NOI for the total property ($2,020,400)
+          as well as the Bottom Slice ($1,543,785) and Top Slice ($476,615).
+        </p>
+        <p>
+          To calculate the value of the total property, we need to sum the
+          values of each Slice.
+        </p>
+        <ul class="flex flex-col gap-1 list-disc pl-12">
+          <li class="text-gray-800 text-lg">
+            Bottom Slice: the NOI is divided by a 7.0% Capitalization Rate for
+            a value of <b>$26,593,262</b>
+          </li>
+          <li class="text-gray-800 text-lg">
+            Top Slice: the NOI is divided by a 10.5% Capitalization Rate for
+            a value of <b>$4,539,190</b>
+          </li>
+          <li class="text-gray-800 text-lg">
+            Total Property: <b>$26,593,262</b>, which is the sum of the value
+            of the two Slices
+          </li>
+        </ul>
+        <p>
+          The Effective Capitalization Rate for the property can be calculated
+          by dividing the total property NOI by the total property value, which
+          gives us a value of 7.60%.
+        </p>
+      </div>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h2>Solution</h2>
+    <p>Check your NOI Statement and valuation against the solution in this spreadsheet.</p>
+    <div class="documentation-download">
+      <img src="{{ url_for('img', path='/integration/excel.svg') }}" alt="Microsoft Excel Logo" class="h-10">
+      <a download href="{{ url_for('sheets', path='ReturnSuite - NOI Statement - Exercise 3 - Solution.xlsx') }}">NOI Statement - Exercise 3 - Solution.xlsx</a>
+      <a download href="{{ url_for('sheets', path='ReturnSuite - NOI Statement - Exercise 3 - Solution.xlsx') }}" title="Download" class="ml-auto hover:bg-gray-100 hover:text-gray-800 rounded-full p-2">
+        <svg class="inline-block h-8" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

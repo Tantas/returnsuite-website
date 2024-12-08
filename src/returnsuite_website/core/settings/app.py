@@ -38,6 +38,8 @@ class AppSettings(BaseAppSettings):
     landing_contact_email: list[str] = ("info@returnsuite.com",)
     landing_waitlist_email: list[str] = ("info@returnsuite.com",)
     signup_enabled: bool = True
+    hide_docs: bool = True
+    hide_demo: bool = True
 
     logging_level: int = logging.INFO
     loggers: tuple[str, str] = ("uvicorn.asgi", "uvicorn.access")

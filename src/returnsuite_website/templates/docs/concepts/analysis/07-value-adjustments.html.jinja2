@@ -1,0 +1,405 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_analysis_value_adjustments" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_analysis_overview') }}">Analysis & Sale</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="overview">Below the NOI line adjustments</h1>
+    <h2>How to calculate the Net Realizable Reversion Value</h2>
+    <br>
+    <p>
+      After calculating the Initial Reversionary Value, several additional
+      adjustments are necessary to arrive at the Net Realizable Reversionary
+      Value. These 'below the line' adjustments account for factors beyond the
+      property's operational performance, including market conditions,
+      transaction-related expenses, and seller-specific costs. These adjustments
+      are one-to-one adjustments in the valuation and refine the Initial
+      Reversionary Value to the actual amount a seller can expect to receive
+      from the property sale.
+    </p>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Sale Price Adjustments</h3>
+    <p>
+      Sale Price Adjustments are adjustments made to account for market
+      conditions, property specifics not captured in the NOI<sub>Adj</sub> or
+      adjustments expected in negotiations. Examples of items that may be
+      included in Sale Price Adjustments include: upcoming Capital Expenses,
+      deferred maintenance, expected functional obsolescence or excess land
+      value.
+    </p>
+    <p>
+      Sale Price Adjustments are added or subtracted from the Initial
+      Reversionary Value to arrive at the Adjusted Reversionary Value–the
+      theoretical gross price that a buyer and seller would agree upon in a
+      frictionless market (ie. no transaction costs).
+    </p>
+    <p>
+      ReturnSuite offers two options for Sale Price Adjustments:
+    </p>
+    <ol class="list-decimal pl-8 text-gray-800 text-base pb-2 leading-8">
+      <li><b>Amount</b> - a fixed dollar amount, or</li>
+      <li><b>Percentage of Initial Reversionary Value</b> - a variable amount which is a percentage of the Initial Reversionary Value</li>
+    </ol>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h4>Example</h4>
+    <p>
+      Continuing with our example, let’s say we expect the following two Sale Price Adjustments:
+    </p>
+    <ul class="list-disc pl-8 text-gray-800 text-base pb-4 leading-8">
+      <li>
+        A major HVAC system upgrade which will be needed shortly due to changing
+        energy efficiency regulations that are expected to come into effect
+        shortly after the expected closing date. Based on the current levels of
+        inflation and current construction costs, the upgrade is expected to
+        cost $130,000 at the End Date of the Analysis Period.
+      </li>
+      <li>
+        Undeveloped land adjacent to the property but not earning any income.
+        The landlord has no plans to develop the land, but it does allow for
+        the development of additional leasable space. Given current site
+        coverage ratios, the land is estimated to have a market value of 8.0%
+        of the Initial Reversionary Value.
+      </li>
+    </ul>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap tracking-wide">Line Items</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">NOI</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$250,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">NOI Gross Up Adjustment</th>
+              <td class="border-b py-3 text-right px-8">$31,250</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">NOI Adjustments</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$10,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">NOI<sub>Adj</sub></th>
+              <td class="border-b py-3 font-semibold text-right px-8">$271,250</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Reversionary Capitalization Rate</th>
+              <td class="border-b py-3 text-right px-8">5%</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Initial Reversionary Value</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$5,425,000</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Sale Price Adjustment (HVAC)</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$130,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Sale Price Adjustment (Land)</th>
+              <td class="border-b py-3 text-right px-8">$461,125</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">Adjusted Reversionary Value</th>
+              <td class="py-3 font-semibold text-right px-8">$5,76,125</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Adjusted Reversionary Value</figcaption>
+    </figure>
+    <p>
+      Since the HVAC system upgrade is a Capital Expense, it won’t show up in
+      the NOI, but the investment will be required to maintain the cash flow
+      generating ability of the property. It therefore makes sense for a
+      potential buyer to demand a downward Sale Price Adjustment of $130,000.
+    </p>
+    <p>
+      The undeveloped land adds value to the property, so the landlord can
+      reasonably expect to demand a higher purchase price for the property.
+      The land is expected to add $461,125 (8.5% x $5,425,000) to the Initial
+      Reversionary Value.
+    </p>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Transaction Costs</h3>
+    <p>
+      Transaction Costs include all the direct costs associated with completing
+      the sale, such as brokerage fees, legal expenses, and marketing costs.
+    </p>
+    <p>
+      Transaction Costs are subtracted from the Adjusted Reversionary Value to
+      arrive at the Net Reversionary Value–the net sale price of the property
+      or the true economic value of a property after all standard market
+      transaction costs are accounted for.
+    </p>
+    <p>
+      Note: Transaction Costs should include any buyer costs if they would be
+      incurred by all potential buyers of the property since they impact the
+      effective price a buyer is willing to pay to achieve their target return.
+      By factoring in <a href="#">both buyer and seller transaction costs</a>,
+      we arrive at a more accurate representation of the property's true
+      economic value in the market.
+    </p>
+    <p>
+      ReturnSuite offers three options for Transaction Costs:
+    </p>
+    <ol class="list-decimal pl-8 text-gray-800 text-base pb-2 leading-8">
+      <li><b>Amount</b> - a fixed dollar amount, or</li>
+      <li>
+        <b>Percentage of Initial Reversionary Value</b> - a variable amount
+        which is a percentage of the Initial Reversionary Value
+      </li>
+      <li>
+        <b>Percentage of Adjusted Reversionary Value</b> - a variable amount
+        which is a percentage of the Adjusted Reversionary Value
+      </li>
+    </ol>
+    <p>
+      Continuing with our example, let’s say we expect the following two
+      Transaction Costs:
+    </p>
+    <ul class="list-disc pl-8 text-gray-800 text-base pb-4 leading-8">
+      <li>
+        A broker commission paid by the seller equal to 2.0% of the Adjusted
+        Reversionary Value
+      </li>
+      <li>
+        A broker commission paid by the buyer equal to 1.0% of the Adjusted
+        Reversionary Value
+      </li>
+    </ul>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap tracking-wide">Line Items</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">NOI</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$250,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">NOI Gross Up Adjustment</th>
+              <td class="border-b py-3 text-right px-8">$31,250</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">NOI Adjustments</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$10,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">NOI<sub>Adj</sub></th>
+              <td class="border-b py-3 font-semibold text-right px-8">$271,250</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Reversionary Capitalization Rate</th>
+              <td class="border-b py-3 text-right px-8">5%</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Initial Reversionary Value</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$5,425,000</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Sale Price Adjustment (HVAC)</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$130,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Sale Price Adjustment (Land)</th>
+              <td class="border-b py-3 text-right px-8">$461,125</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Adjusted Reversionary Value</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$5,76,125</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Transaction Costs (Seller's Commission)</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$115,123</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Transaction Costs (Buyer's Commission)</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$57,561</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">Net Reversionary Value</th>
+              <td class="py-3 font-semibold text-right px-8">$5,583,441</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Net Reversionary Value</figcaption>
+    </figure>
+    <p>
+      Both the seller’s commission and the buyer’s commission should be
+      included as Transaction Costs when adjusting the Reversionary Value.
+      The seller’s commission is a negative adjustment of $115,123
+      (2% x $5,756,125, rounded) and the buyer’s commission is a negative
+      adjustment of $57,561 (1% x $5,756,125).
+    </p>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Vendor Costs</h3>
+    <p>
+      Vendor Costs are slightly different from Transaction Costs in that these
+      costs are specific to you and would not necessarily be incurred by other
+      buyers or sellers. For example, you may have a management contract with
+      an early termination fee–an expense that is unique to your situation and
+      not to the market as a whole.
+    </p>
+    <p>
+      Vendor Costs are subtracted from the Net Reversionary Value to arrive at
+      the Net Realizable Reversionary Value.
+    </p>
+    <p>
+      The Net Realizable Reversionary Value is the amount of cash the vendor
+      expects to receive from the sale after all costs (but before debt
+      repayment), which is a key number for determining investment returns.
+    </p>
+    <p>
+      ReturnSuite offers four options for Vendor Costs:
+    </p>
+    <ol class="list-decimal pl-8 text-gray-800 text-base pb-2 leading-8">
+      <li><b>Amount</b> - a fixed dollar amount, or</li>
+      <li>
+        <b>Percentage of Initial Reversionary Value</b> - a variable amount
+        which is a percentage of the Initial Reversionary Value
+      </li>
+      <li><b>Percentage of Adjusted Reversionary Value</b> - a variable amount
+        which is a percentage of the Adjusted Reversionary Value
+      </li>
+      <li>
+        <b>Percentage of Net Reversionary Value</b> - a variable amount which
+        is a percentage of the Net Reversionary Value
+      </li>
+    </ol>
+    <div class="border border-gray-300 rounded-md shadow-sm p-6 pb-4 mx-6 my-4">
+      <div class="flex gap-0.5">
+        <a href="{{ url_for('get_index') }}" title="ReturnSuite">
+          <img class="h-12 w-auto" src="{{ url_for('img', path='/returnsuite-logo.svg') }}" alt="ReturnSuite logo" width="360px" height="85px">
+        </a>
+        <span class="font-medium text-gray-800">TIPS</span>
+      </div>
+      <p class="font-medium">
+        Vendor Costs should only be considered if building an Investment
+        Valuation–a financial model determining the value of a property to a
+        specific investor.
+      </p>
+      <p class="font-medium">
+        A Market Valuation–a model that is used to estimate the value of a
+        property to the market as a whole would ignore Vendor Costs since they
+        are specific to an individual investor.
+      </p>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h4>Example</h4>
+    <p>
+      Continuing with our example, let’s say we expect the following
+      Vendor Cost:
+    </p>
+    <ul class="list-disc pl-8 text-gray-800 text-base pb-4 leading-8">
+      <li>
+        The buyer has their own property management firm which means terminating
+        the contract of the current property management firm. The property
+        management contract specifies an early termination fee of $15,000 in
+        the event of a property sale.
+      </li>
+    </ul>
+    <p>
+      What would the complete Reversionary Value Statement look like after
+      factoring in the Vendor Cost?
+    </p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap tracking-wide">Line Items</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">NOI</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$250,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">NOI Gross Up Adjustment</th>
+              <td class="border-b py-3 text-right px-8">$31,250</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">NOI Adjustments</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$10,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">NOI<sub>Adj</sub></th>
+              <td class="border-b py-3 font-semibold text-right px-8">$271,250</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Reversionary Capitalization Rate</th>
+              <td class="border-b py-3 text-right px-8">5%</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Initial Reversionary Value</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$5,425,000</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Sale Price Adjustment (HVAC)</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$130,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Sale Price Adjustment (Land)</th>
+              <td class="border-b py-3 text-right px-8">$461,125</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Adjusted Reversionary Value</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$5,76,125</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Transaction Costs (Seller's Commission)</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$115,123</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Transaction Costs (Buyer's Commission)</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$57,561</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Net Reversionary Value</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$5,583,441</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Vendor Costs (Management Termination)</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$15,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">Net Realizable Reversionary Value</th>
+              <td class="py-3 font-semibold text-right px-8">$5,568,441</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Net Realizable Reversionary Value</figcaption>
+    </figure>
+    <p>
+      A Vendor Cost of <b>$15,000</b> would be subtracted from the Net
+      Reversionary Value to arrive at a Net Realizable Reversionary Value of
+      <b>$5,568,441</b>.
+    </p>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_analysis_investment_analysis') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">
+        <span>Next: Investment Analysis</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

@@ -1,0 +1,122 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_valuation_approaches_income_approach" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_valuation_approaches_overview') }}">Valuation approaches</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1>The Income Approach</h1>
+    <h2>How to determine the value of real estate using the Income Approach</h2>
+    <p>
+      When thinking about the real estate market, the image that comes into
+      most people’s minds is the supply and demand for physical space–office
+      space, apartment units, farm land, warehouse space, etc. This is often
+      referred to as the Space Market.
+    </p>
+    <p>
+      While real estate owners provide supply in the Space Market, real estate
+      is also a major asset class which competes with all other investment
+      options. The supply and demand for investments is referred to as the
+      Capital Market and includes all of the investment options available such
+      as stocks, bonds, private equity, hedge funds, and real estate.
+      <sup><a href="#">1</a></sup>
+    </p>
+    <p>
+      Real estate investment is often segmented into four different categories
+      depending on their risk-return profiles. Each of these strategies compete
+      for capital against other investment opportunities with similar
+      risk-return profiles. The four common investment strategies are:
+    </p>
+    <ol class="list-decimal pl-8 text-gray-800 text-base pb-2 leading-8">
+      <li>
+        <p>
+          <b>Core</b> - a low risk, low return strategy focused on the safest
+          assets–typically well located, high-quality and fully leased with
+          stable and predictable revenues. The strategy uses very low levels of
+          leverage and the properties require little if any capital
+          improvements. Core investments may compete for capital against
+          high-quality corporate bonds and government securities.
+        </p>
+      </li>
+      <li>
+        <p>
+          <b>Core Plus</b> - similar to core but with slightly higher expected
+          returns and risk. Assets fitting this strategy have some elements of
+          additional risk, such as a less established location, requiring
+          capital improvements, some leasing risk or higher levels of leverage.
+          A Core-Plus investor may also consider dividend paying stocks or
+          investing in REIT units.
+        </p>
+      </li>
+      <li>
+        <p>
+          <b>Value-Add</b> - a medium to high risk and return strategy that
+          involves properties that require active management to address the
+          multiple issues facing the property. The goal is to significantly
+          increase cash flows and values through refurbishments, re-tenanting,
+          repositioning, or redevelopment. Value-add projects often use higher
+          levels of leverage and require additional capital injection. An
+          investor looking for the same risk-return profile provided by a
+          Value-Add strategy may consider high-yield or convertible bonds.
+        </p>
+      </li>
+      <li>
+        <p>
+          <b>Opportunistic</b> - a high risk, high return strategy that involves
+          either developing properties from the ground up or completely
+          redeveloping properties that are in distress. The strategy likely
+          involves high levels of leverage, is taking on development risk,
+          requires significant levels of capital and likely has a long time
+          horizon before any rental income can be generated. Opportunistic
+          real estate investments may compete for capital against other low
+          liquidity, high-risk/return investment options like private equity
+          and venture capital.
+        </p>
+      </li>
+    </ol>
+    <p>
+      But how can real estate be valued in a way that it can be compared to
+      competes with other forms of investment? The answer is the Income
+      Approach.
+    </p>
+    <p>
+      The Income Approach is a collection of several methods, but they are all
+      based on the idea of valuing the expected future cash flow of an
+      investment–that for any investment, there is a point at which investors
+      will be willing to forfeit money now for the expectation of more money
+      in the future.
+    </p>
+    <p>
+      Comparing cash flows in different time periods relies on one of the most
+      foundational concepts in finance: the Time Value of Money. The Time Value
+      of Money will be covered more fully in the next chapter, but the basic
+      idea is that we can convert a set of future cash flows (Future Values)
+      into a single value in today’s dollars (Present Value) by discounting the
+      future cash flows with an expected return (Discount Rate).
+    </p>
+    <p>
+      For example, let’s say an investor requires a 5% per year return on their
+      investment (this is the investor’s Discount Rate). This means the investor
+      would be willing to pay $100 now (Present Value) for an investment
+      returning $105 next year (Future Value).
+    </p>
+    <p>
+      The Income Approach uses the Time Value of Money to convert all the
+      expected future cash flows of a property–rent, operating expenses,
+      capital improvements, leasing costs and even the proceeds from the
+      eventual sale of the property into a single Present Value.
+    </p>
+
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_valuation_approaches_income_approach_methods') }}" class="text-blue-500 hover:underline flex place-items-center">
+        <span>Next: Income approach method</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

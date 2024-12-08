@@ -1,0 +1,42 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_noi_operating_expenses" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_noi_overview') }}">NOI Statement</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1>Operating Expenses</h1>
+    <h2>How real estate Operating Expenses affect the NOI Statement</h2>
+    <p>
+      Operating Expenses are the periodic expenditures required to operate and
+      maintain a property such as property maintenance, utilities and real
+      estate taxes. Because the NOI Statement is a display of the operating
+      profitability of a property, it is important that Capital Expenditures
+      (which are often large and sporadic) and Debt Financing (like interest
+      payments) are not classified as Operating Expenses.
+    </p>
+    <p>
+      Many operating expenses vary with the level of occupancy (variable
+      expenses) while others occur whether the property is occupied or vacant
+      (fixed expenses). Quite often operating expenses have both a variable
+      and fixed component.
+    </p>
+    <p>
+      For example, insurance is generally considered a fully fixed expense
+      (100%) while janitorial may be a fully variable expense (0%) while an
+      expense like electricity costs may be 25% fixed (and therefore 75%
+      variable).
+    </p>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_noi_net_operating_income') }}" class="text-blue-500 hover:underline flex place-items-center">
+        <span>Next: Net Operating Income</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

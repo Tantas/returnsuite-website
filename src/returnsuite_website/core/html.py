@@ -25,6 +25,8 @@ templates.env.globals["locale"] = Locale.parse("en", "US")
 templates.env.globals["app_title"] = get_app_settings().title
 templates.env.globals["app_website"] = get_app_settings().app_website
 templates.env.globals["signup_enabled"] = get_app_settings().signup_enabled
+templates.env.globals["hide_docs"] = get_app_settings().hide_docs
+templates.env.globals["hide_demo"] = get_app_settings().hide_demo
 templates.env.globals["google_tag"] = get_app_settings().google_tag
 
 

@@ -1,0 +1,160 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_spaces_and_uses_spaces" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_spaces_and_uses_overview') }}">Spaces and Uses</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="spaces">Spaces</h1>
+    <h2>How to input Spaces in your ReturnSuite model</h2>
+    <br>
+    <p>
+      Within ReturnSuite, the concept of Spaces is used to define the different
+      physical areas of a property. You can define Spaces in any way you
+      wish–by unit, floor, building, lot, etc. For example, you may want to
+      define an office property’s Spaces by floor, multi-tenant warehouse by
+      unit and a suburban office campus by building.
+    </p>
+    <p>
+      As a general guide, you’re probably initially best served by dividing
+      your property into Spaces that have some combination of different
+      physical characteristics which are unlikely to change over your
+      Analysis Period.
+    </p>
+    <p>
+      For example in a mixed use building that is a mall on the ground floor
+      and a mix of residential and office in a tower above, you may want to
+      divide your property into the following Spaces:
+    </p>
+    <ul>
+      <li>
+        <p>
+          For the mall area, the Spaces could be blocks of units divided by
+          the concourses, since you’re unlikely to change the mall layout. You
+          may also want to specifically separate out Spaces in the food court
+          or identify units that have a combination of exterior and interior
+          entrances.
+        </p>
+      </li>
+      <li>
+        <p>
+          For the residential portion of the tower, you may want to define the
+          entire residential portion as a single Space since the units are
+          relatively homogeneous in terms of physical attributes and revenue
+          and costs on a per-area basis.
+        </p>
+      </li>
+      <li>
+        <p>
+          For the office portion of the tower, you may want to define each
+          floor or even each suite as a Space.
+        </p>
+      </li>
+    </ul>
+    <p>
+      Alternatively, if you were modeling a small residential property with
+      four rental units, you may want to define each unit as its own Space.
+    </p>
+    <p>TODO TIPS</p>
+    <h3>Entering in Space details:</h3>
+    <h4>Space Name</h4>
+    <p>
+      Input a name for the Space, for example Suite 201, 3rd Floor or
+      Building C. ReturnSuite is designed to be ‘Multiplayer’, so use a name
+      that others on your team will understand and ideally corresponds to
+      either the leases or Space Use.
+    </p>
+    <h4>Gross Leasable Area</h4>
+    <p>
+      Input the size of the Space. Expenses and expense recoveries often
+      use this information, so even the lease is a flat amount that isn’t
+      linked to the size of the Space, it’s a good idea to input an accurate
+      Gross Leasable Area.
+    </p>
+    <h4>Availability Scope</h4>
+    <p>
+      Over time, it is not uncommon for the physical layout of properties to
+      adapt to meet the needs of new tenants and uses. Sometimes these
+      physical changes result in decreases or increases to the Gross
+      Leasable Area of a property. In other cases Spaces are either
+      combined or be further split into more Spaces.
+    </p>
+    <p>
+      To accommodate the changes to Spaces over time, ReturnSuite has the Scope
+      function. There are four Scope options available:
+    </p>
+    <dl>
+      <dt>
+        <span>Always present</span>
+        <span>(default)</span>
+      </dt>
+      <dd>
+        The Space exists and will exist for the duration of the Analysis Period.
+        This will be the case for the vast majority of use cases within
+        ReturnSuite.
+      </dd>
+      <dt>Until date</dt>
+      <dd>
+        The Space exists in the beginning of the Analysis Period, but it will
+        cease to exist at a specific point in time during the Analysis Period.
+        <br>
+        For example, if your property consisted of five 20,000 sf warehouses
+        and one of the warehouses was going to be demolished on May 1, 2028,
+        thereby decreasing the total Gross Leasable Area from 100,000 sf to
+        80,000 sf. You would use the Until Date option and select a date of
+        May 1, 2028.
+      </dd>
+      <dt>After date</dt>
+      <dd>
+        The Space does not exist at the beginning of the Analysis Period, but
+        it will come into existence at a specific point in time during the
+        Analysis Period.
+        <br>
+        For example, if you were going to add three additional floors to an
+        office property which were scheduled to become online as of November
+        15th, 2029. You would use the After Date option and select a date of
+        November 15th, 2029.
+      </dd>
+      <dt>Date range</dt>
+      <dd>
+        The Space does not exist at either the beginning or the end of the
+        Analysis Period, but it will come into existence during the Analysis
+        Period.
+        <br>
+        For example, if you were going to add a temporary structure to your
+        property for June through to August 2025, you would use the Date Range
+        option and select a starting date of June 1st, 2025 and an end date of
+        August 30, 2025.
+      </dd>
+    </dl>
+    <h4>Replacement Leasing Rules</h4>
+    <p>
+      For each Space, you can select from the Replacement Leasing Rules you
+      built in either the Market Parameters (Quick Start) or in the Replacement
+      Leasing Rules under the Model menu.
+    </p>
+    <p>
+      Another option available under Market Parameters is
+      <b>Unavailable Going Forward</b>. This option holds the Space vacant. You
+      may use this option in combination with Scope to account for major
+      redevelopments. For example, say you plan to completely redevelop a
+      property which has …
+    </p>
+    <p>
+      The Replacement Leasing Rules will slot in theoretical future leases for
+      any vacancies. If you do not add a Use, it will treat the Space as vacant
+      and slot the first lease in using the Replacement Leasing Rules.
+    </p>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_analysis_analysis_period') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">
+        <span>Next: Analysis Period</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

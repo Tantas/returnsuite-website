@@ -5,7 +5,6 @@ from fastapi import APIRouter, Depends, Form, Header, Request
 from fastapi.responses import HTMLResponse
 from loguru import logger
 from starlette.responses import RedirectResponse
-from starlette.status import HTTP_302_FOUND
 
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
@@ -23,8 +22,9 @@ router = APIRouter(default_response_class=HTMLResponse)
 
 
 @router.get("/brave")
-@router.get("/")  # Must be last to be used with 'for_url'.
+@router.get("/")  # Must be the last entry to be used with 'for_url'.
 async def get_index(request: Request, success: bool | None = None):
+    logger.warning(f"User agent is {request.headers.get('User-Agent')}")
     return templates.TemplateResponse(
         request=request,
         name="index.html.jinja2",
@@ -34,6 +34,8 @@ async def get_index(request: Request, success: bool | None = None):
 
 @router.get("/view-demo")
 async def get_view_demo(request: Request):
+    if get_app_settings().hide_demo:
+        return RedirectResponse("/")
     return templates.TemplateResponse(request=request, name="demo.html.jinja2")
 
 
@@ -69,6 +71,8 @@ class JoinWaitlistForm:
         if "company.com" in self.email.lower():
             return True
         if "company name" in self.organization.lower():
+            return True
+        if "gmxxail.com" in self.email.lower():
             return True
         if detected_spam(self.message):
             return True
@@ -155,7 +159,7 @@ async def post_waitlist(
     return RedirectResponse(
         f"{request.url_for('get_index').include_query_params(success='true')}"
         f"#Request-Early-Access",
-        status_code=HTTP_302_FOUND,
+        status_code=302,
     )
 
 

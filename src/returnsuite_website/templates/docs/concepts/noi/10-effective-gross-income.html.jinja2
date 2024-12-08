@@ -1,0 +1,103 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_noi_effective_gross_income" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_noi_overview') }}">NOI Statement</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1>Effective Gross Income</h1>
+    <h2>How to calculate a property’s Effective Gross Income</h2>
+    <p>
+      Effective Gross Income (EGI) is an important intermediate calculation in
+      the NOI Statement. Sometimes referred to as Gross Realized Revenue or
+      Gross Realized Income, EGI is the total income–both from rent and other
+      sources of income–that a property has or is expected to generate
+      adjusted for vacancies and credit losses.
+    </p>
+    <hr class="mt-4 mb-4 border-gray-300">
+    <h2>Example</h2>
+    <p>
+      Let’s continue to build upon our previous example by applying the
+      following adjustments:
+    </p>
+    <ul>
+      <li>Vacancy Loss of 4% of Potential Gross Income, and</li>
+      <li>a Credit Loss of 1% of Potential Gross Income.</li>
+    </ul>
+    <p>What is the EGI of our example property?</p>
+    <figure>
+      <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
+        <table class="table-auto border-collapse font-medium">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-left px-8 whitespace-nowrap tracking-wide">Line Items</th>
+              <th class="border-b border-gray-300 pb-3 font-semibold text-right px-8 whitespace-nowrap tracking-wide">Projected</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Market Base Rent</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$3,000</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Excess (Deficit) Base Rent</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$100</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Potential Base Rent</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$2,900</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Absorption & Turnover Vacancy</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$1,450</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Actual (or Projected) Base Rent</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$1,450</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Additional Rent</th>
+              <td class="border-b py-3 text-right px-8">$550</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Other Tenant Revenue</th>
+              <td class="border-b py-3 text-right px-8">$350</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Other Revenues</th>
+              <td class="border-b py-3 text-right px-8">$625</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-semibold text-left px-8 whitespace-nowrap">Potential Gross Income</th>
+              <td class="border-b py-3 font-semibold text-right px-8">$2,975</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Vacancy Loss</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$119</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <th class="border-b py-3 font-medium text-left px-8 pl-12 whitespace-nowrap text-gray-700">Credit Loss</th>
+              <td class="border-b py-3 text-right px-8 text-red-500">-$630</td>
+            </tr>
+            <tr class="bg-white">
+              <th class="py-3 font-semibold text-left px-8 whitespace-nowrap">Effective Gross Income (EGI)</th>
+              <td class="py-3 font-semibold text-right px-8">$2,826</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Example Effective Gross Income</figcaption>
+    </figure>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_noi_operating_expenses') }}" class="text-blue-500 hover:underline flex place-items-center">
+        <span>Next: Operating Expenses</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

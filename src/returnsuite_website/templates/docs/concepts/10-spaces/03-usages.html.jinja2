@@ -1,0 +1,52 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_analysis_overview" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_spaces_and_uses_overview') }}">Spaces and Uses</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="usages-overview">Usages - Overview</h1>
+    <h2>Choosing a Usage Type for a Space</h2>
+    <br>
+    <p>
+      Now that you’ve created a Space, you can then attach one or more Usages
+      for the Space.
+    </p>
+    <h3>Usage Type</h3>
+    <p>
+      Usage Types are the broad categories of Space usage types. They include:
+    </p>
+    <ul>
+      <li>
+        <b>Vacant period</b> - a known period when the space is unavailable for
+        use. This prevents replacement leasing rules from leasing the unit until
+        after the vacant period has ended.
+      </li>
+      <li>
+        <b>Traditional long-term leases</b> - 3+ year commercial leases typical
+        in the office and industrial sub-sector.
+      </li>
+      <li>
+        <b>Flexible leases</b> - Shorter-term leases (under 3 years), including
+        serviced office, speculative office suites and cowork. (Coming Soon)
+      </li>
+      <!-- Retail, Residential, Hotel -->
+    </ul>
+    <p>
+      Depending on the Usage Type chosen, different fields will appear, however
+      some initial fields are common to all Usage Types.
+    </p>
+    <p>TODO: TIPS</p>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_analysis_analysis_period') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">
+        <span>Next: Analysis Period</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

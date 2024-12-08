@@ -1,0 +1,370 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_foundational_concepts" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Concepts</a></li>
+    <li><a href="#">Foundational concepts</a></li>
+  </ol>
+  <article class="documentation-article">
+    <section id="foundational-concepts">
+      <h1 class="text-3xl tracking-wide font-semibold">Foundational Concepts</h1>
+      <h2>Methods of valuing assets</h2>
+      <p>
+        This chapter will guide you through a series of key mathematical and financial principles that form the bedrock of effective property investment analysis.
+      </p>
+      <p>
+        We begin with the <b>Time Value of Money</b>, a key concept that illustrates why financial benefits available today are more valuable than equivalent benefits in the future. In real estate, we are often evaluating cash inflows and outflows over a long time period and the Time Value of Money allows us to compare the cash flows in different periods.
+      </p>
+      <p>
+        However, in real estate, every property is unique and the closing periods
+        are long, so unlike their exchange traded counterparts, Market Value and
+        Market Price aren’t necessarily synonymous.
+      </p>
+    </section>
+    <section id="foundational-concepts">
+      <h2>Discount Rates and the Risk-Free Rate</h2>
+      <p>
+        We will also look at <b>Perpetuities</b>, which is the concept of valuing a continuous set of cash flows, which is crucial for assessing the enduring worth of property investments. The idea of perpetuities extends into the Gordon Growth Model, the framework for estimating the value of a continuous set of cash flows that is experiencing consistent growth. Since rent and operating expenses typically grow over time with inflation and market growth, the <b>Gordon Growth Model</b> provides a more dynamic valuation tool for growth cash flows.
+      </p>
+      <p>
+        We will look at two of the more common measures used in Real Estate–<b>Net Operating Income</b> and <b>Capitalization Rates</b>. These two measures are often used in tandem to determine the value of real estate.
+      </p>
+      <p>
+        Often there is uncertainty about exactly what will happen in the future–will a tenant renew their lease or will their unit be placed back on the market? One tool to address this issue is <b>Expected Value</b>, a statistical measure that forecasts the weighted average financial results from different investment scenarios.
+      </p>
+      <p>
+        For each of these fundamental concepts we’ll outline the theory as well as provide examples and simple spreadsheet exercises so you can get a deeper understanding of how ideas are used in the valuation of real estate.
+      </p>
+    </section>
+    <section>
+      <h2>Time Value of Money</h2>
+      <p>
+        The Time Value of Money is based on the idea that money can be invested today to earn a return in the future, and therefore a dollar today is worth more than a dollar tomorrow. The concept is used to compare the trade-off between forfeiting money today for money in the future.
+      </p>
+      <p>
+        Let’s say we had $100 and could invest it, earning $108 a year from now–implying the market is paying an 8% interest rate.
+      </p>
+      <figure class="flex flex-col place-items-center justify-center w-full">
+        <div class="w-2/3 flex flex-col place-items-center">
+          <img src="{{ url_for('img', path='/concepts/2-foundation-concepts/time-value-of-money.jpg') }}" alt="Time value of money">
+          <span class="text-xl text-gray-800"><var class="font-semibold text-gray-900">t</var> is the time period</span>
+        </div>
+      </figure>
+      <p>
+        In finance, we refer to the $100 today as the Present Value (Value at t=0), the $108 as the Future Value (Value at t=1) and the 8% earned between the two periods is called the Discount Rate or Opportunity Cost of Capital.
+      </p>
+      <p>
+        The formula for calculating Present Value is:
+      </p>
+      <figure class="flex flex-col place-items-center gap-3 py-4">
+        <math style="font-weight: 500; font-family: ui-sans-serif, system-ui, sans-serif;font-size: 1.25rem;line-height: 1.75rem;">
+          <mrow>
+            <mi>Present Value</mi>
+            <mo>=</mo>
+            <mfrac>
+              <mn>Future Value</mn>
+              <mrow>
+                <msup>
+                  <mrow>
+                    <mo>(</mo>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <mi>r</mi>
+                    <mo>)</mo>
+                  </mrow>
+                  <mi>n</mi>
+                </msup>
+              </mrow>
+            </mfrac>
+          </mrow>
+        </math>
+        <ul class="list-disc">
+          <li><var class="font-semibold">r</var> is the Discount Rate (Opportunity Cost of Capital)</li>
+          <li><var class="font-semibold">n</var> is the number of periods</li>
+        </ul>
+      </figure>
+      <p>
+        This concept is called the Time Value of Money and allows us to compare
+        cash flows in different time periods.
+      </p>
+      <p>
+        A closely related concept is Net Present Value (NPV). NPV is the
+        difference between the Present Value of cash inflows and the Present
+        Value of cash outflows over a period of time.
+      </p>
+      <figure class="flex flex-col place-items-center gap-3 py-4">
+        <math style="font-weight: 500; font-family: ui-sans-serif, system-ui, sans-serif;font-size: 1.25rem;line-height: 1.75rem;">
+          <mrow>
+            <mi>NPV</mi>
+            <mo>=</mo>
+            <msub>
+              <mi>PV</mi>
+              <mi>cash inflows</mi>
+            </msub>
+            <mo>-</mo>
+            <msub>
+              <mi>PV</mi>
+              <mi>cash outflows</mi>
+            </msub>
+          </mrow>
+        </math>
+      </figure>
+      <h4 class="underline">Example 1</h4>
+      <p>
+        Let’s say our same investor was offered $115 next year for $100, but
+        they still had an Opportunity Cost of Capital (Discount Rate) of 8%. The
+        Present Value of the cash inflow is $106.48 and the Present Value of the
+        cash outflow is $100. Therefore, the Net Present Value of the opportunity
+        to our investor is $6.48.
+      </p>
+      <figure class="flex flex-col place-items-center gap-3 py-4">
+        <div class="flex flex-col gap-6 place-items-start">
+          <math style="font-weight: 500; font-family: ui-sans-serif, system-ui, sans-serif;font-size: 1.25rem;line-height: 1.75rem;">
+            <mrow>
+              <mi>NPV</mi>
+              <mo>=</mo>
+              <msub>
+                <mi>PV</mi>
+                <mi>cash inflows</mi>
+              </msub>
+              <mo>-</mo>
+              <msub>
+                <mi>PV</mi>
+                <mi>cash outflows</mi>
+              </msub>
+            </mrow>
+          </math>
+          <math style="font-weight: 500; font-family: ui-sans-serif, system-ui, sans-serif;font-size: 1.25rem;line-height: 1.75rem;">
+            <mrow>
+              <mi>NPV</mi>
+              <mo>=</mo>
+              <mn>$106.48</mn>
+              <mo>-</mo>
+              <mn>$100.00</mn>
+            </mrow>
+          </math>
+          <math style="font-weight: 500; font-family: ui-sans-serif, system-ui, sans-serif;font-size: 1.25rem;line-height: 1.75rem;">
+            <mrow>
+              <mi>NPV</mi>
+              <mo>=</mo>
+              <mn>$6.48</mn>
+            </mrow>
+          </math>
+        </div>
+      </figure>
+      <p>
+        A positive NPV indicates the investment is worth pursuing as the future
+        returns outweigh the money we need to forgo today, even when factoring
+        in the Opportunity Cost of Capital (Discount Rate) of other investment
+        opportunities.
+      </p>
+      <p>
+        A negative NPV indicates the investment doesn’t earn future returns that
+        cover the Opportunity Cost of Capital (Discount Rate) and an NPV of zero
+        indicates that an investor is indifferent to investing.
+      </p>
+      <p>
+        In commercial real estate, the principle is used to evaluate investment
+        properties, focusing on the potential future income they can generate.
+        The Time Value of Money helps investors understand and compare
+        investment options by comparing the Present Value of the various cash
+        inflows and outflows associated with a property.
+      </p>
+      <h4 class="underline">Example 2</h4>
+      <p>
+        A landlord is offered two choices by a potential tenant on a five-year
+        lease:
+      </p>
+      <ul class="list-decimal font-medium">
+        <li>Tenant pays an annual rent of $120,000 per year with no landlord contribution to tenant improvements, or</li>
+        <li>Tenant pays an annual rent of $140,000 per year, but the landlord makes a $90,000 upfront tenant improvement contribution.</li>
+      </ul>
+      <p>Which option should the landlord choose?</p>
+      <p>Ignoring the Time Value of Money, the second option earns more cash, even with the landlord's contribution towards tenant improvements.</p>
+      <figure>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Option 1</th>
+              <th>Option 2</th>
+            </tr>
+            <tr>
+              <th>Total Rent Received</th>
+              <td>$600,000</td>
+              <td>$700,000</td>
+            </tr>
+            <tr>
+              <th>Less: Tenant Improvement Contribution</th>
+              <td>$0</td>
+              <td>$90,000</td>
+            </tr>
+            <tr>
+              <th>Net Cash Received</th>
+              <td>$600,000</td>
+              <td>$610,000</td>
+            </tr>
+          </thead>
+        </table>
+      </figure>
+      <p>
+        But in order to properly answer the question, one additional piece of
+        information is needed–what is the Opportunity Cost of the $90,000 the
+        tenant is asking the landlord to contribute to tenant improvements.
+      </p>
+      <p>
+        In our example, let’s say the landlord could invest the $90,000
+        somewhere else and earn a 8% return. At an 8% Discount Rate, the Net
+        Present Value (NPV) of the cash flows generated from Option #1 is
+        $517,455 and the NPV of Option #2 is $513,638.
+      </p>
+      <p>
+        Let’s take a closer look at Option #2. Open and create a copy this
+        spreadsheet and see what is happening ‘underneath the hood’:
+      </p>
+      <ol class="list-disc">
+        <li>
+          <p>
+            Row 14 shows the projected cash flows from the rent ($140,000 per
+            year). These cash flows are the actual dollars the landlord is
+            expected to receive on the anniversary date of the lease.
+          </p>
+        </li>
+        <li>
+          <p>
+            Row 15 (and specifically cell C5) shows the landlord’s cash outflows
+            of the Tenant Improvement contribution (-$90,000).
+          </p>
+        </li>
+        <li>
+          <p>
+            Row 19 is an intermediate step that exposes the discounting–the
+            discount factor is the number in which the projected cash flows are
+            divided by to determine the Present Value (value in today’s dollars)
+            of each of the cash flows.
+          </p>
+          <ul class="list-disc">
+            <li>
+              <p>
+                The discount factor is 1 in Year 1 (cell C19) since Year 1
+                dollars is today’s dollars, but in each subsequent year, the
+                Discount Factor increases by 8.0%. The Discount Factor
+                compounds, so while the Discount Factor is 1.08 in Year 2, it is
+                1.1664 in Year 3 (rather than simply 1.16).
+              </p>
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <p>
+        Try making a few adjustments to the variables in the spreadsheet and see
+        if the landlord’s preferred option changes:
+      </p>
+      <ol class="list-disc">
+        <li>
+          <p>Decreasing the Discount Rate (cell C29) to 5%</p>
+        </li>
+        <li>
+          <p>Reducing the annual rent for Option #2 (cell D24) to $135,000 per year</p>
+        </li>
+        <li>
+          <p>Adjusting the end value of the tenant improvements (cell D26) to $30,000</p>
+        </li>
+      </ol>
+      <p>
+        Each change in the variables should flip the landlord's decision back and forth
+        between the two options (cell C29 vs. D29).
+      </p>
+    </section>
+    <section>
+      <h2>Discount Rates and the Risk-Free Rate</h2>
+      <p>
+        The Risk-Free Rate is the rate of return an investor can get on a
+        riskless investment. Typically, government securities like US Treasury
+        bills, UK Gilts, German Bunds or Canadian Treasury bills are used as
+        proxies for the Risk-Free Rate since they are as close to riskless as
+        possible.
+      </p>
+      <p>
+        However, most investments carry some degree of risk greater than
+        government securities, so when investors speak about Discount Rates,
+        they are often referring to the Risk Adjusted Discount Rate (RADR) or
+        an All Risks Rate–the Discount Rate required by an investor to be
+        compensated for all of the risks above and beyond the Risk-Free Rate.
+      </p>
+      <h4 class="underline">RADR in Practice</h4>
+      <p>
+        A common method for determining an investment’s RADR is to begin with
+        the Risk-Free Rate and add on a premium for each different component of
+        risk that an investor is taking on with an investment. In real estate
+        these could include risks such as specific property risk, location risk,
+        tenant/credit risk, lease structure risk and an illiquidity premium.
+      </p>
+      <p>
+        Let’s say we were considering an investment in an office property. The
+        office is slightly older and considered a Class B property with a
+        location slightly off mass transit. The tenants are a mix of relatively
+        strong credit quality corporations, however a few of the leases are up
+        for renewal shortly. How should we go about determining their Discount
+        Rate?
+      </p>
+      <p>
+        We would begin with the Risk-Free Rate because of the long-term nature
+        of real estate investment, the yield on 10-year government bonds is
+        often used as a proxy for the Risk-Free Rate. We then may decide to add
+        on various risk premiums:
+      </p>
+      <ul class="list-disc">
+        <li><p>1.0% risk premium to account for the property being older and risks being less attractive to potential tenants in the future</p></li>
+        <li><p>0.5% risk premium to account for location risk</p></li>
+        <li><p>1.25% risk premium to account for the tenants having lower creditworthiness than the government</p></li>
+        <li><p>0.75% risk premium to adjust for the risk of tenant turnover with the upcoming lease expiries</p></li>
+      </ul>
+      <figure class="pl-2 pb-2 flex flex-col place-items-center gap-2 pt-2">
+        <div class="text-base font-medium text-gray-800 p-6 border border-gray-300 rounded-md">
+          <table>
+            <thead>
+              <tr>
+                <th>Risk Free  Rate</th>
+                <th>4.25%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>+ Property Specific Risk</th>
+                <td>1.0%</td>
+              </tr>
+              <tr>
+                <th>+ Location Risk</th>
+                <td>0.5%</td>
+              </tr>
+              <tr>
+                <th>+ Credit Risk</th>
+                <td>1.25%</td>
+              </tr>
+              <tr>
+                <th>+ Leasing Risk</th>
+                <td>0.75%</td>
+              </tr>
+              <tr>
+                <th>Risk Adjusted Discount Rate (RADR)</th>
+                <td>7.75%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption>Example RADR in practice</figcaption>
+      </figure>
+    </section>
+  </article>
+  <div class="flex justify-end w-full text-base pb-6">
+    <a href="#" class="text-blue-500 hover:underline flex place-items-center">
+      <span>Next: Foundational concepts</span>
+      <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+      </svg>
+    </a>
+  </div>
+{% endblock article_content %}

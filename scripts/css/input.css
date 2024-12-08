@@ -134,6 +134,64 @@ select {
     @apply inline-block h-6
   }
 
+  .documentation-breadcrumbs li {
+    @apply inline-block text-sm text-gray-600 tracking-wide font-light
+  }
+  .documentation-breadcrumbs li:not(:last-child):after {
+    @apply inline-block px-2; content: "/";
+  }
+  .documentation-breadcrumbs a:hover {
+    @apply text-gray-800
+  }
+  .documentation-article h1 {
+    @apply text-3xl tracking-wide font-semibold text-gray-900 py-1
+  }
+  .documentation-article h2 {
+    @apply text-2xl text-gray-900 tracking-wide py-2
+  }
+  .documentation-article h3 {
+    @apply text-xl text-gray-900 tracking-wide py-2 font-medium
+  }
+  .documentation-article h4 {
+    @apply text-lg text-gray-900 tracking-wide py-2
+  }
+  .documentation-article p {
+    @apply py-3 text-base text-gray-700
+  }
+  .documentation-article b {
+    @apply font-semibold text-gray-800
+  }
+  .documentation-article a {
+    @apply text-blue-500
+  }
+  .documentation-article a:hover {
+    @apply underline
+  }
+  .documentation-article dt {
+    @apply text-xl text-gray-900 tracking-wide font-medium pt-4
+  }
+  .documentation-article figure {
+    @apply flex flex-col gap-2 place-items-center py-6
+  }
+  .documentation-article figcaption {
+    @apply text-base tracking-wide
+  }
+  .documentation-article math {
+    @apply text-lg tracking-wide font-semibold;
+    line-height: 1.5;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .documentation-article .documentation-download {
+    @apply flex place-items-center gap-6 border border-gray-300 pl-8 p-6 rounded-md text-gray-700 my-4
+  }
+  .documentation-article .documentation-download a {
+    @apply text-gray-700 text-lg font-medium tracking-wide
+  }
+
+
   .rs-documentation {
     @apply flex flex-col gap-4 leading-6 text-gray-700 text-sm
   }

@@ -1,0 +1,144 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_noi_exercise_2" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_noi_overview') }}">NOI Statement</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1>Exercise - Tiered Direct Capitalization Valuation</h1>
+    <h2>Build a NOI Statement to complete a Tiered Direct Capitalization valuation</h2>
+    <p>
+      You’ve been tasked with building a projected NOI Statement for the
+      upcoming year for a 75,000 square foot office property.
+    </p>
+    <p>
+      The current Market Base Rent for the property is $32 per square foot (psf)
+      per year and the Operating Expenses are $9 psf per year, 100% of which are
+      fixed.
+    </p>
+    <span class="inline-block text-lg font-medium py-2 text-gray-900">Space A - 30,000 sf</span>
+    <ul class="flex flex-col gap-1 list-disc pl-12">
+      <li class="text-gray-700 text-lg">
+        Currently occupied by a multinational tenant with six years remaining
+        on their long-term lease. The tenant is paying $28 psf per year in Base
+        Rent and the lease allows for the landlord to recover their
+        proportionate share of Operating Expenses.
+      </li>
+      <li class="text-gray-700 text-lg">
+        The tenant also pays an additional $1,500 per month for parking and
+        $500 per month for building signage.
+      </li>
+    </ul>
+    <span class="inline-block text-lg font-medium py-2 text-gray-900">Space B - 45,000 sf</span>
+    <ul class="flex flex-col gap-1 list-disc pl-12">
+      <li class="text-gray-700 text-lg">
+        Currently occupied by a higher risk tenant who has indicated they will
+        not be renewing their lease which expires at the end of Month 6. The
+        current tenant is paying $31 psf per year and the lease also allows for
+        the landlord to recover a fixed $8.50 psf per year towards Operating
+        Expenses.
+      </li>
+      <li class="text-gray-700 text-lg">
+        It is expected that the Space will be released for a 5-year term at the
+        beginning of Month 9 at a Base Rent of $32 psf per year and the
+        replacement tenant will sign a lease that allows for the Landlord to
+        recover $9.50 psf per year in Operating Expenses.
+      </li>
+      <li class="text-gray-700 text-lg">
+        The landlord expects that they will need to provide the replacement
+        tenant with 2 months of Free Base Rent as an inducement to sign the
+        lease and the landlord also expects to have to pay a leasing commission
+        of $30,000 to a broker.
+      </li>
+    </ul>
+    <p>
+      The general vacancy reserve is 2% of Potential Gross Income and the
+      general credit loss reserve is 1% of Potential Gross Income.
+    </p>
+    <div class="documentation-download">
+      <img src="{{ url_for('img', path='/integration/excel.svg') }}" alt="Microsoft Excel Logo" class="h-10">
+      <a download href="{{ url_for('sheets', path='ReturnSuite - NOI Statement - Exercise 2 - Worksheet.xlsx') }}">NOI Statement - Exercise 2 - Worksheet.xlsx</a>
+      <a download href="{{ url_for('sheets', path='ReturnSuite - NOI Statement - Exercise 2 - Worksheet.xlsx') }}" title="Download" class="ml-auto hover:bg-gray-100 hover:text-gray-800 rounded-full p-2">
+        <svg class="inline-block h-8" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+        </svg>
+      </a>
+    </div>
+    <hr class="mt-6 mb-6 border-gray-300">
+    <h2>Task 1</h2>
+    <p>
+      Use the spreadsheet to build projected monthly NOI Statements for each of
+      the spaces along with one for the total property. What is the NOI for each
+      of the two spaces?
+    </p>
+    <div x-data="{showHint: false}" class="pb-4">
+      <button type="button" @click="showHint = true" x-show="!showHint" class="button font-medium">
+        Show hint
+      </button>
+      <div x-show="showHint" class="border border-green-500 rounded-md p-6">
+        <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
+        <p>
+          While the exercise uses rates per quarter, NOI is most often quoted as
+          an annual basis, especially when being used to calculate property
+          values. The total NOI across the four quarters is <b>$9,357</b>.
+        </p>
+      </div>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h2>Task 2</h2>
+    <p>
+      Using the NOI Statements you just built, determine the value of the
+      property using the Tiered Capitalization Method (Forward 12-Months NOI)
+      with a <b>6.0%</b> Capitalization Rate for Space A and a <b>7.5%</b>
+      Capitalization Rate for Space B.
+    </p>
+    <p>
+      What is the value of the property? What is the blended effective
+      Capitalization Rate for the property?
+    </p>
+    <div x-data="{showHint: false}" class="pb-4">
+      <button type="button" @click="showHint = true" x-show="!showHint" class="button font-medium">
+        Show hint
+      </button>
+      <div x-show="showHint" class="border border-green-500 rounded-md p-6">
+        <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
+        <p>
+          Using the NOI Statement value using the Standard Direct Capitalization
+          Method (Forward 12-Months NOI) can be calculated by dividing the NOI
+          ($9,375) by the Capitalization Rate (7.0%) for a total value of
+          <b>$133,664</b>.
+        </p>
+      </div>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h2>Task 3</h2>
+    <p>
+      If the landlord was aiming to sell the property sometime in the next few
+      years, when would you recommend the landlord look at selling? Why at that
+      time?
+    </p>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h2>Solution</h2>
+    <p>Check your NOI Statement and valuation against the solution in this spreadsheet.</p>
+    <div class="documentation-download">
+      <img src="{{ url_for('img', path='/integration/excel.svg') }}" alt="Microsoft Excel Logo" class="h-10">
+      <a download href="{{ url_for('sheets', path='ReturnSuite - NOI Statement - Exercise 2 - Solution.xlsx') }}">NOI Statement - Exercise 2 - Solution.xlsx</a>
+      <a download href="{{ url_for('sheets', path='ReturnSuite - NOI Statement - Exercise 2 - Solution.xlsx') }}" title="Download" class="ml-auto hover:bg-gray-100 hover:text-gray-800 rounded-full p-2">
+        <svg class="inline-block h-8" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+        </svg>
+      </a>
+    </div>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_noi_valuation_top_slice') }}" class="text-blue-500 hover:underline flex place-items-center">
+        <span>Next: Valuation - Tiered Direct Capitalization & NOI</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

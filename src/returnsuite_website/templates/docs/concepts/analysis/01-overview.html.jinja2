@@ -1,0 +1,72 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_analysis_overview" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_analysis_overview') }}">Analysis & Sale</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="overview">Overview</h1>
+    <h2>Analysis Period, Reversionary Value & Cost of Capital</h2>
+    <br>
+    <p>
+      Up until this point, we have been entering in all the information required
+      to calculate each of the Cash Flows (ex. <var>CF <sub>t = 1</sub></var>),
+      but we are still missing a few pieces of information to complete our
+      analysis.
+    </p>
+    <p>
+      The final steps needed to evaluate and investment are:
+    </p>
+    <ol class="list-decimal pl-8 text-gray-800 text-base pb-2 leading-8">
+      <li>The <b>Analysis Period</b>, which is both the Start Date and End Date of the analysis</li>
+      <li>The <b>Reversionary Value</b></li>
+      <li>The <b>Discount Rate</b></li>
+    </ol>
+    <figure>
+      <div class="w-3/5 flex flex-col">
+        <img class="rounded-md" src="{{ url_for('img', path='/concepts/13-analysis/analysis-and-sale-diagram.gif') }}" alt="Analysis and sale diagram">
+      </div>
+    </figure>
+    <p>
+      The Analysis Period is the timeframe in which we wish to evaluate a real
+      estate investment. With a clear analysis window, it allows investors to
+      evaluate performance and compare returns against other investment options.
+      The Analysis Period is defined by a Start Date (when <var>t</var> = 0) and
+      an EndDate (when <var>t</var> = x)
+    </p>
+    <p>
+      Investors often use an Analysis Period of ten years or the expected hold
+      period, whichever is shorter. But real estate is a capital intensive
+      investment and the economic lifespan can often be measured in decades.
+      When the future benefits (and costs) of owning a property extend beyond
+      the Analysis Period, investors apply the <b>Net Realizable Reversionary
+      Value</b> to the final cash flow (<var>CF<sub>t = x</sub></var>).
+    </p>
+    <p>
+      Typically shortened to Reversionary Value –the Net Realizable Reversionary
+      Value is a single number (a Perpetuity) that captures the value of the
+      property for all of the time beyond the End Date.
+    </p>
+    <p>
+      And the final piece of information needed to complete the financial
+      analysis of a property is the <b>Risk-Adjusted Discount Rate</b>–the
+      Discount Rate required by a specific investor in order to be compensated
+      for the risks involved in the property investment being modeled.
+    </p>
+    <p>
+      With these final pieces of the puzzle, we will have a complete financial
+      model.
+    </p>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_analysis_analysis_period') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">
+        <span>Next: Analysis Period</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

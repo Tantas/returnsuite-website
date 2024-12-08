@@ -3,9 +3,8 @@ from enum import Enum
 from pathlib import Path
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, Request
 from pydantic import BaseModel, TypeAdapter
-from starlette.requests import Request
 from starlette.responses import HTMLResponse, RedirectResponse
 
 from returnsuite_website.core.html import templates

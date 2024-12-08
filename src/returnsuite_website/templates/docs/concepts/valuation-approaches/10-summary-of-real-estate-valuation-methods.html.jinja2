@@ -1,0 +1,88 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_valuation_approaches_income_approach_methods" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_valuation_approaches_overview') }}">Valuation approaches</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1>Summary of real estate valuation methods</h1>
+    <h2>The main categories of real estate valuation methods and how they are used</h2>
+    <p>
+      The three high level approaches for valuation of real estate assets are
+      the Market, Cost and Income Approaches.
+    </p>
+    <p>
+      The Market Approach is based on the assumption that recent transactions
+      in the market are the best indicator of value–if similar assets have sold
+      for X, the asset being valued must be worth X as well. The Market Approach
+      is especially useful in markets with many transactions of similar assets.
+    </p>
+    <p>
+      The Cost Approach is based on the principle of substitution–that an asset
+      is worth what it would cost to replace it today, minus any depreciation.
+      An investor would not pay more than X for an asset if they obtain an
+      asset of equal utility for X. The Cost Approach is most often used when
+      there is a lack of comparable market data or an asset is so new, unique,
+      or specialized that the main question around value is around the
+      replacement costs.
+    </p>
+    <p>
+      The Income Approach is the main focus for real estate investors and is
+      based on the idea that an asset is worth the expected future cash flows
+      that the asset will generate, accounting for the riskiness of those cash
+      flows compared to other investment options. An investor will pay X for
+      an asset if other investment options producing similar cash flows with
+      similar risk profiles are also trading at X.
+    </p>
+    <p>
+      There are four methods within the Income Approach we cover in this
+      course and with ReturnSuite:
+    </p>
+    <ol>
+      <li>
+        <p>
+          The <b>Standard method of Direct Capitalization</b> is essentially a
+          perpetuity–discounting the NOI of a property by comparable
+          Capitalization Rates.
+        </p>
+      </li>
+      <li>
+        <p>
+          The <b>Tiered method of Direct Capitalization</b> is the sum of
+          multiple perpetuities–discounting different NOI components by
+          different Capitalization Rates and then summing up the results.
+        </p>
+      </li>
+      <li>
+        <p>
+          The <b>Top Slice method</b> is also the sum of multiple perpetuities,
+          but rather than dividing the property into spaces and discounting the
+          independent NOIs, the NOIs are divided with each component of NOI
+          being discounted by an appropriate Capitalization Rate.
+        </p>
+      </li>
+      <li>
+        <p>
+          The <b>Discounted Cash Flow method</b> is the sum of two parts. First
+          an Analysis Period is chosen and the cash flows during that period are
+          discounted at a desired Discount Rate to the Present Value. Secondly
+          Reversionary Value is calculated using one of the Direct
+          Capitalization methods, which is then also discounted at a desired
+          Discount Rate to the Present Value. These two components are added
+          together to determine the value.
+        </p>
+      </li>
+    </ol>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="#" class="text-blue-500 hover:underline flex place-items-center">
+        <span>Next: Standard direct capitalization</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}
