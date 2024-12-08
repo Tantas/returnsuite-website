@@ -1,0 +1,110 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_valuation_approaches_income_approach_methods" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_valuation_approaches_overview') }}">Valuation approaches</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1>Standard Direct Capitalization</h1>
+    <h2>How calculate real estate values using the Standard Direct Capitalization method</h2>
+    <p>
+      The Standard method of Direct Capitalization is one of the most commonly
+      used methods of the Income Approach in real estate valuation. The
+      technique is essentially a real estate version of the value of a
+      Perpetuity and works well for properties that have a stable and
+      predictable cash flow.
+    </p>
+    <p>
+      Rather than using a formula for a perpetuity, the approach substitutes
+      the annual Net Operating Income (NOI) in for Cash Flow and the
+      Capitalization Rate in for the Discount Rate.
+    </p>
+    <figure>
+      <figcaption>TODO: Value of a Perpetuity</figcaption>
+    </figure>
+    <figure>
+      <figcaption>TODO: Value of a Property (Standard Direct Capitalization Method)</figcaption>
+    </figure>
+    <p>
+      In ReturnSuite, the date in which the valuation is being made is referred
+      to as the End Date, but it is also called a Valuation Date. End Dates are
+      specific dates (ie. January 1st, 2022), however NOIs are windows of time
+      which are generally assumed to be one year in length
+      (ie. January 1st,2022 to December 31st, 2022).
+    </p>
+    <p>
+      There are three methods within the Standard Direct Capitalization
+      approach with the difference being which period of NOI is being
+      capitalized. The most common method is to capitalize the NOI expected
+      12 months after the End Date, however there are three options:
+    </p>
+    <ol>
+      <li><b>Forward 12-Months</b> - the total forecasted NOI in the year after the End Date (most common method)</li>
+      <li><b>Trailing 12-Months</b> - the total NOI in the year leading up to the End Date</li>
+      <li><b>Average 24-Months</b> - the one-year average NOI for 12 months before and after the End Date.</li>
+    </ol>
+    <p>
+      TODO: TIPS
+    </p>
+    <h3>Exercise</h3>
+    <p>
+      Let’s say you have a property that 12 months ago had a quarterly NOI of
+      $200,000. Since that time, the NOI has been growing at a rate of 0.75%
+      per quarter, which is expected to continue into the future. The
+      Capitalization Rates for similar properties is 6.25%.
+    </p>
+    <p>
+      Use the attached Worksheet for the following tasks.
+    </p>
+    <p>TODO: Download Spreadsheet</p>
+    <h4>Task</h4>
+    <p>
+      Using the worksheet, calculate the value of the property using the
+      Standard Direct Capitalization approach using each of the three different
+      methods.
+    </p>
+    <h4>Hint</h4>
+    <p>To calculate the NOIs for each of the methods:</p>
+    <ul>
+      <li>The NOI for the Forward 12-months method is the sum of the NOI’s from Quarters 5 to 8</li>
+      <li>The NOI for the Trailing 12-months method is the sum of the NOI’s from Quarter’s 1 to 4</li>
+      <li>The NOI for the Average 24-months method is the average of the two NOI’s–the first being the NOI’s from Quarter’s 1 to 4 and the second being the NOI’s from Quarters 5 to 8. An alternative approach is to sum the NOI’s from Quarters 1 to 8 and divide the result by 2.</li>
+    </ul>
+    <h4>Solution</h4>
+    <p>
+      Your answers should produce the following Valuations: TODO: Add the variations.
+    </p>
+    <h4>Task #2</h4>
+    <p>
+      Using the same spreadsheet, calculate the valuations for the property for
+      the beginning of Quarter 9. Let’s also assume that the forecasted
+      Capitalization Rate in Quarter 9 will have decreased to 6.00%.
+    </p>
+    <h4>Hint</h4>
+    <p>To calculate the NOIs for each of the methods:</p>
+    <ul>
+      <li>The NOI for the Forward 12-months approach is the sum of the NOI’s from Quarters 9 to 12</li>
+      <li>The NOI for the Trailing 12-months approach is the sum of the NOI’s from Quarter’s 5 to 8</li>
+      <li>The NOI for the Average 24-months approach is the average of the two NOI’s–the first being the NOI’s from Quarter’s 5 to 8 and the second being the NOI’s from Quarters 9 to 12. An alternative approach is to sum the NOI’s from Quarters 5 to 12 and divide the result by 2.</li>
+    </ul>
+    <h4>Solution</h4>
+    <p>Your answers should produce the following Valuations:</p>
+    <figure>
+      <figcaption>TODO</figcaption>
+    </figure>
+
+
+
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="#" class="text-blue-500 hover:underline flex place-items-center">
+        <span>Next: Standard direct capitalization</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}

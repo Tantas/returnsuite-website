@@ -1,5 +1,6 @@
 {% extends "docs/layout.html.jinja2" %}
-{% set page_title = 'Documentation - ' + app_title %}
+{% set page_title = "Documentation - " + app_title %}
+{% set documentation_section = "concepts" %}
 
 {% block content %}
   <script>
@@ -248,7 +249,7 @@
   }
   </script>
   <div class="flex pt-7" x-data="menu()" style="height: calc(100vh - 5.35rem)">
-    <aside class="hidden lg:block absolute sticky border-r border-gray-300 relative" :class="menu_open ? 'w-96' : 'w-16'">
+    <aside class="hidden lg:block absolute sticky border-r border-gray-300 relative" :class="menu_open ? 'w-[32rem]' : 'w-16'">
       <div class="absolute z-10 absolute top-4 right-4 text-gray-500 hover:text-gray-800">
         <button type="button" @click="menu_open = !menu_open" x-show="menu_open" title="Hide table of contents" style="transform: rotate(180deg);">
         <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
@@ -263,21 +264,21 @@
       </div>
       <div>
         <div>
-          <ol class="text-base text-gray-700 px-4 flex flex-col gap-1 py-3 overflow-y-scroll" style="height: calc(100vh - 10.1rem)" x-show="menu_open">
+          <ol class="text-base text-gray-700 px-4 flex flex-col gap-1 py-4 overflow-y-scroll" style="height: calc(100vh - 10.1rem)" x-show="menu_open">
             <template x-for="entry in table_of_contents">
               <li>
-                <div x-show="entry.href" class="py-1">
+                <div x-show="entry.href" class="py-0.5 px-0.5">
                   <a :href="entry.href" x-text="entry.title" :class="entry.selected ? 'font-semibold text-blue-500' : ''" class="pl-6 text-gray-900 tracking-wide"></a>
                 </div>
                 <div x-show="entry.items">
-                  <div class="flex place-items-center" >
-                    <button type="button" title="Expand" x-show="entry.collapsed" @click="entry.collapsed = !entry.collapsed">
+                  <div class="flex place-items-center">
+                    <button type="button" title="Expand" x-show="entry.collapsed" @click="entry.collapsed = !entry.collapsed" class="py-0.5">
                       <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
                         <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
                       </svg>
                       <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
                     </button>
-                    <button type="button" title="Collapse" x-show="!entry.collapsed" @click="entry.collapsed = !entry.collapsed">
+                    <button type="button" title="Collapse" x-show="!entry.collapsed" @click="entry.collapsed = !entry.collapsed" class="py-0.5">
                       <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
                         <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
                       </svg>

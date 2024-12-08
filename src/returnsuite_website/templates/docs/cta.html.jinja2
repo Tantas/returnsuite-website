@@ -96,7 +96,7 @@
           <label for="email" class="font-bold text-gray-700">Sign up for ReturnSuite updates:</label>
           <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
             <div class="w-full flex place-items-center border-l-2 border-blue-500">
-              <input x-model="newsletterEmail.value" @input.blur="newsletterEmail.blur()" id="email" name="email" autocomplete="email" type="email" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="email@company.com" required>
+              <input x-model="newsletterEmail.value" @input.blur="newsletterEmail.blur()" id="email" name="email" autocomplete="email" type="email" class="w-full bg-transparent p-4 py-2 font-semibold text-gray-800 placeholder-gray-500" placeholder="email@company.com" required>
             </div>
             <button @click.prevent="newsletterEmail.submit()" type="submit" class="whitespace-nowrap font-semibold pr-4 text-gray-500 hover:text-gray-800">Sign up</button>
           </div>

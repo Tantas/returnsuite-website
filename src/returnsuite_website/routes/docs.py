@@ -14,6 +14,15 @@ async def get_documentation(request: Request):
     )
 
 
+@router.get("/docs/getting-started")
+async def get_getting_started_overview(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/getting-started/overview.html.jinja2",
+    )
+
+
+
 @router.get("/docs/concepts/introduction")
 async def get_concepts_introduction(request: Request):
     return templates.TemplateResponse(
@@ -291,6 +300,22 @@ async def get_concepts_noi_exercise_3(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="docs/concepts/noi/19-exercise-3.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/spaces-and-uses/overview")
+async def get_concepts_spaces_and_uses_overview(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/10-spaces/01-overview.html.jinja2",
+    )
+
+
+@router.get("/docs/concepts/spaces-and-uses/spaces")
+async def get_concepts_spaces_and_uses_spaces(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="docs/concepts/10-spaces/02-spaces.html.jinja2",
     )
 
 

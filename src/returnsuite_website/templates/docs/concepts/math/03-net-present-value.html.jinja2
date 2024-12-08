@@ -12,8 +12,9 @@
     <h2>How Net Present Value is calculated and used in real estate</h2>
     <p class="text-gray-700 text-lg py-2">
       A closely related concept to Present and Future Value is Net Present Value
-      (NPV). The NPV is the difference between the Present Values of different
-      sets of cash inflows and cash outflows.
+      (NPV). NPV is a measure of profitability that discounts all future cash
+      inflows to their present value and subtracts the present value of the
+      outflows that were required to earn them.
     </p>
     <figure>
       <math>
@@ -31,32 +32,31 @@
       </math>
     </figure>
     <p>
-      NPV allows investors to evaluate the attractiveness of different
-      investment options.
+      Comparing the NPV of different investment options allows investors to
+      evaluate their relative  attractiveness.
     </p>
     <p>
       A positive NPV indicates the investment is worth pursuing as the future
       returns outweigh the money we need to forgo today, even when factoring in
-      the Opportunity Cost of Capital (Discount Rate) of other investment
-      opportunities.
+      the time value of money.
     </p>
     <p>
       A negative NPV indicates the investment doesn’t earn future returns that
-      cover the Opportunity Cost of Capital (Discount Rate) and an NPV of zero
-      indicates that an investor is indifferent to investing.
+      cover the Cost of Capital, and an NPV of zero indicates that an investor
+      should be indifferent to investing.
     </p>
     <p>
-      In commercial real estate, the principle is used to evaluate investment
-      properties by determining the Present Value of all the potential future
-      cash inflows and outflows expected during the entire ownership cycle of
-      the property–boiling those cash flows down to a single number.
+      In commercial real estate, the technique is used to evaluate investment
+      properties by determining the Present Value of all the future cash inflows
+      and outflows expected during the entire ownership cycle of the
+      property–boiling those cash flows down to a single number.
     </p>
     <hr class="mt-2 mb-6 border-gray-300">
     <h2>Example</h2>
     <p>
       Let’s say we had a real estate investment that offered us $115 next year
-      for an investment of $100 now. If our Opportunity Cost of Capital
-      (Discount Rate) was 8%, what would be the NPV of the investment?
+      for an investment of $100 now. If our Discount Rate was 8%, what would be
+      the NPV of the investment?
     </p>
     <p>
       To determine the NPV of the investment, we’d need to calculate the Present
@@ -104,13 +104,14 @@
     <h2>Discount Factor</h2>
     <p>
       An alternative way to calculate a large series of Present Values is to
-      determine the Discount Factor in each period and divide the net Future
-      Value cash flows by the Discount Factor.
+      determine the Discount Factor (not to be confused with the related
+      Discount Rate) in each period and divide the net Future Value cash flows
+      of that period  by the Discount Factor.
     </p>
     <p>
-      The Discount Factor is the denominator in the Present Value formula and
-      is an index representing the hurdle to cover the Cost of Capital in any
-      given period.
+      The Discount Factor is the denominator of the Present Value formula and is
+      an index representing the hurdle to cover the Cost of Capital in any given
+      period.
     </p>
     <figure>
       <div class="flex flex-col place-items-start gap-6">
@@ -246,8 +247,8 @@
       <li><b>Option #2</b> - Tenant pays an annual rent of $140,000 per year, but the landlord makes a $90,000 upfront tenant improvement contribution.</li>
     </ul>
     <p>
-      Use the attached Worksheet to determine which option should the landlord
-      choose?
+      If the Landlord’s Cost of Capital is 8%, what is the NPV of each of the
+      options? Which option is preferable?
     </p>
     <div class="documentation-download">
       <img src="{{ url_for('img', path='/integration/excel.svg') }}" alt="Microsoft Excel Logo" class="h-10">
@@ -274,8 +275,8 @@
       <div x-show="showHint" class="border border-green-500 rounded-md p-6">
         <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
         <p>
-          Ignoring the Time Value of Money, <b>Option #2</b> earns more cash, even
-          with the landlord's contribution towards tenant improvements.
+          Ignoring the Time Value of Money, <b>Option #2</b> earns more cash,
+        even with the landlord's contribution towards tenant improvements.
         </p>
         <figure>
           <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
@@ -309,14 +310,13 @@
         </figure>
         <p>
           But in order to properly answer the question, one additional piece of
-          information is needed–what is the Opportunity Cost of the $90,000 the
-          tenant is asking the landlord to contribute to tenant improvements.
+          information is needed–what is the landlord’s Opportunity Cost of
+          Capital?.
         </p>
         <p>
-          If the Landlord’s Cost of Capital on the $90,000 Tenant Improvement
-          for option #2 is 8%, then the Net Present Value (NPV) of the cash
-          flows generated from Option #1 is <b>$517,455</b> and the NPV of
-          Option #2 is <b>$513,638</b>.
+          If the Landlord’s Cost of Capital is 8%, then the Net Present Value
+          (NPV) of the cash flows generated from Option #1 is <b>$517,455</b>
+          and the NPV of Option #2 is <b>$513,638</b>.
         </p>
       </div>
     </div>
@@ -344,28 +344,26 @@
         </p>
         <ul class="list-disc pl-8 text-gray-800 text-base pb-4 leading-8">
           <li>
-            <i>Row 14</i> shows the projected cash flows from the rent
+            The Rental Income line shows the projected cash flows from rent
             (<b>$140,000</b> per year). These cash flows are the actual dollars
             the landlord is expected to receive on the anniversary date of the
             lease.
           </li>
           <li>
-            <i>Row 15</i> (and specifically <i>cell C5</i>) shows the landlord’s
-            cash outflows of the Tenant Improvement contribution
-            (<b class="text-red-500">-$90,000</b>).
+            The Tenant Improvement Contribution line (more specifically in the
+            first year) shows the landlord’s initial cash outflows up front
+            (<b>-$90,000</b>).
           </li>
           <li>
-            <i>Row 19</i> is an intermediate step that exposes the
-            discounting–the Discount Factor is the number in which the projected
-            cash flows are divided by to determine the Present Value (value in
-            today’s dollars) of each of the cash flows.
+            The Discount Factor is an intermediate step, the number by which the
+            projected cash flows are divided to determine their Present Value.
             <ul class="list-[circle] pl-8 text-gray-800 text-base pb-4 leading-8">
               <li>
-                The discount factor is 1 in Year 1 (<i>cell C19</i>) since Year
-                1 dollars is today’s dollars, but in each subsequent year, the
-                Discount Factor increases by <b>8.0%</b>. The Discount Factor
-                compounds, so while the Discount Factor is 1.08 in Year 2,
-                it is <b>1.1664</b> in Year 3 (rather than simply 1.16).
+                The discount factor is 1 in Year 1 since we don't have to
+                discount today’s dollars to get to their Present Value, but in
+                each subsequent year, the Discount Factor increases by 8.0%. It
+                compounds, so while the Discount Factor is 1.08 in Year 2, it is
+                1.1664 in Year 3 (1.08x1.08), rather than simply 1.16.
               </li>
             </ul>
           </li>
@@ -373,15 +371,15 @@
       </div>
     </div>
     <hr class="mt-2 mb-6 border-gray-300">
-    <h3>Task 2</h3>
+    <h3>Task 2: A feel for the dynamics</h3>
     <p>
       Using your completed spreadsheet, watch how each of the following changes
       flips the landlord’s preferred choice:
     </p>
     <ol class="list-decimal pl-8 font-medium text-gray-800 text-base pb-4 leading-8">
-      <li>Decrease the Discount Rate (<i>cell C29</i>) to <b>5%</b></li>
-      <li>Reduce the annual rent for Option #2 (<i>cell D24</i>) to <b>$135,000</b> per year</li>
-      <li>Adjust the end value of the tenant improvements (<i>cell D26</i>) to <b>$30,000</b></li>
+      <li>Decrease the Discount Rate to <b>5%</b></li>
+      <li>Then, reduce the annual rent for Option #2 to <b>$135,000</b> per year</li>
+      <li>Then, adjust the end value of the tenant improvements (<i>cell D26</i>) to <b>$30,000</b></li>
     </ol>
     <div x-data="{showHint: false}" class="pb-4">
       <button type="button" @click="showHint = true" x-show="!showHint" class="button font-medium">
@@ -390,10 +388,10 @@
       <div x-show="showHint" class="border border-green-500 rounded-md p-6">
         <span class="text-lg font-medium text-green-500 tracking-wide">Solution</span>
         <p>
-          Each change in the variables flips the landlord's decision back and
-          forth between the two options (<i>cell C29</i> vs. <i>D29</i>).
-          Results of each change:
+          Each change in the variables flips the landlord's correct decision
+          back and forth between the two options based on their NPV.
         </p>
+        <p>Results of each change:</p>
         <figure>
           <div class="rounded-md shadow-sm border border-gray-300 overflow-auto max-w-fit pt-3">
             <table class="table-auto border-collapse font-medium">

@@ -10,53 +10,61 @@
   <article class="documentation-article">
     <h1 id="overview">Overview</h1>
     <h2>Summary of the key math concepts used in finance</h2>
+    <p class="-my-2 text-gray-600">Last updated November 15, 2024</p>
     <br>
     <p>
-      The fundamental question financial analysts are trying to answer is ‘how
-      much a future set of cash flows is worth today?’ In this section we are
-      going to go over a handful of economic concepts and mathematical tools
-      that are the fundamental building blocks for answering this question.
+      Financial analysts look at an asset as a series of cash flows that will
+      happen in the future, including the cash that is expected to flow from the
+      eventual sale of the asset. The fundamental question these analysts are
+      trying to answer is, ‘How much is the future set of cash flows worth
+      today?’ In this section we are going to go over a handful of economic
+      concepts and mathematical tools that help to answer this question.
     </p>
     <p>
-      To begin with, the overarching concept most financial analysis is based on
-      is the <b>Time Value of Money</b>–that financial benefits available today
-      are more valuable than equivalent benefits in the future. This is because
-      money we forgo today can be invested and returned to us with interest at
-      a later date, therefore a dollar today is worth more than a dollar a year
-      from now.
+      Underlying everything is the <b>Time Value of Money</b>–the idea that
+      financial benefits available today are more valuable than equivalent
+      benefits in the future. This is because money we forgo today can be
+      invested and returned to us with interest at a later date, so a dollar
+      in the hand today is worth more than a dollar someone is going to hand
+      you a year from now.
     </p>
     <p>
-      The Time Value of Money leads us to the concept of cash flows not only
-      needing an amount (ex. $1,000) but a timestamp (ex. $1,000 a year into
-      the future).
+      The Time Value of Money means that for each cash flow, we need to know not
+      only an amount (ex. $1,000) but also a time (ex. $1,000 a year into the
+      future).
     </p>
     <p>
-      To distinguish between money or value today and at some point in the
-      future we use the terms <b>Present Value</b> (the value today) and
-      <b>Future Value</b> (the value at some point in the future). Much of
-      finance and financial analysis involves moving cash flows either forwards
-      or backwards in time so they can be consolidated into a single number.
-      Most often this means converting Future Value cash flows to Present
-      Values so they can be totalled and give us a <b>Net Present Value</b>.
+     To distinguish between money or value today and at some point in the future
+      we use the terms <b>Present Value</b> (the value to someone today if they
+      expect to receive future cash flows) and <b>Future Value</b> (the value at
+      some point in the future of those same cash flows). Much of finance and
+      financial analysis involves sliding our perspective either forwards or
+      backwards in time so a series of cash flows can be consolidated into a
+      single number. Most often it means converting Future Value cash flows
+      (either positive or negative) to Present Values so they can be totalled
+      and give us a <b>Net Present Value</b>.
     </p>
     <p>
-      <b>Discount Rates</b> or the <b>Cost of Capital</b> is the cost of
-      converting a cash flow one point in time to another–whether it’s being
-      converted from a Future Value to a Present Value, a Present Value to a
-      Future Value or even from one Future Value to another Future Value.
+      A <b>Discount Rate</b> (or the Cost of Capital) is the change in value
+      that happens when you  convert a cash flow from one point in time to
+      another–whether it’s being converted from a Future Value to a Present
+      Value, a Present Value to a Future Value or even from one Future Value to
+      another Future Value.
     </p>
     <p>
-      We will look at <b>Perpetuities</b> and the <b>Gordon Growth Model</b>
-      which is the math valuing a continuous, never-ending set of cash
-      flows–crucial for assessing the worth of long-term assets like property.
+      In this course, we will look at <b>Perpetuities</b> and the
+      <b>Gordon Growth Model</b>, which is the math we need to value a
+      continuous, never-ending set of cash flows. Mastering these techniques is
+      crucial if you want to assess the worth of long-term assets like property.
     </p>
     <p>
       We will also cover the concept of <b>Expected Value</b>, a statistical
       measure that forecasts the weighted average financial results from
-      different investment scenarios. This is a valuable tool as there is often
-      uncertainty about exactly what will happen in the future–will a tenant
-      renew their lease or will their unit be placed back on the market–Expected
-      Values allows us to factor this uncertainty into our modeling.
+      different investment scenarios, taking into account how likely each
+      scenario is. This is a valuable tool as there is often uncertainty about
+      exactly what will happen in the future. Will a tenant renew their lease,
+      or will their unit be placed back on the market? Expected Values allows
+      us to factor this uncertainty into our modeling.
     </p>
     <div class="flex justify-end w-full text-base py-6">
       <a href="{{ url_for('get_concepts_time_value_of_money') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">

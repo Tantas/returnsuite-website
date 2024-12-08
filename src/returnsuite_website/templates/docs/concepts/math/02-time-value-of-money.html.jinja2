@@ -11,23 +11,25 @@
     <h1 id="time-value-of-money">Time Value of Money</h1>
     <h2>Present Value, Future Value and the Time Value of Money</h2>
     <p class="text-gray-700 text-lg py-2">
-      The Time Value of Money is a fundamental concept in finance which states
-      that money can be invested today to earn a return in the future, and
-      therefore a dollar today is worth more than a dollar tomorrow. This
-      economic theory is the underlying principle used to compare the trade-off
-      between forfeiting money today for money in the future.
+      The Time Value of Money is a fundamental concept in finance. It says that
+      money can be invested today to earn a return in the future, and so it
+      follows that a dollar today is worth more than a dollar tomorrow. This
+      economic theory is used to examine the trade-offs we face in our decision
+      to keep (or spend) our money today, or to forfeit it for more money in
+      the future.
     </p>
     <p>
-      Real estate is a capital intensive business, typically requiring large
-      upfront investments to earn a long-term stream of smaller cash flows,
-      which makes the Time Value of Money an especially important tool in real
+      Real estate is a capital-intensive business, usually requiring large
+      upfront investments to earn a long-term stream of smaller cash flows.
+      This makes the Time Value of Money an especially important tool in real
       estate valuation.
     </p>
     <h3>How it works</h3>
     <p>
-      Let’s say we had $100 and could use it to buy a government bond, earning
-      $108 a year from now. We refer to the $100 today as the Present Value
-      (Value at t=0) and the $108 as the Future Value (Value at t=1).
+      Let’s say we had $100 and could use it to buy a government bond, getting
+      $108 returned to you a year from now. We refer to the $100 today as the
+      Present Value (Value at t=0) and the $108 as the Future Value (Value at
+      t=1).
     </p>
     <figure>
       <div class="w-3/5 flex flex-col">
@@ -53,10 +55,9 @@
     </figure>-->
     <p>
       The difference between the Future Value and the Present Value is the
-      interest or price that is paid to borrow money and in finance is often
-      referred to as the Discount Rate or Opportunity Cost of Capital. In our
-      example the government is paying us $8 to borrow our $100 for the year,
-      which is an 8% interest rate.
+      interest or price that is paid to borrow money, and in finance it is often
+      referred to as the Discount Rate. In our example, the government is paying
+      us $8 to borrow our $100 for the year, which is an 8% interest rate.
     </p>
     <p>
       The concept of the Time Value of Money allows us to convert Present Values
@@ -97,7 +98,8 @@
       </div>
     </figure>
     <p>
-      As long as we have any three of the pieces of information, we can calculate the fourth.
+      As long as we have any three of these pieces of information, we can
+      calculate the fourth.
     </p>
     <hr class="mt-2 mb-6 border-gray-300">
     <h2>Exercises</h2>
@@ -112,10 +114,10 @@
     </div>
     <h3>Task 1</h3>
     <p>
-      You have been presented with an investment opportunity that will accrue
-      interest over time and provide you with a one-time payout in three years.
-      Your opportunity cost (what you can currently earn investing in other
-      similar opportunities) is 12% per year.
+      You have been presented with an opportunity to invest in a Certificate of
+      Deposit that will accrue interest that compounds over time and provide you
+      with a one-time payout in three years. Your Discount Rate (what you can
+      currently earn investing in other similar opportunities) is 12% per year.
     </p>
     <p>
       What is the most that you would pay now if you wanted to receive $5,000
@@ -129,8 +131,13 @@
         <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
         <p>
           Using the formula, you can calculate the PV by dividing the Future
-          Value ($5,000 you’d like in the future) by one plus your Cost of
-          Capital (12%) to the power of the length of the investment (3 years).
+          Value ($5,000 you’d like in the future) by one plus your Discount Rate
+          (12%, or 0.12) to the power of the length of the investment (3 years).
+        </p>
+        <p>
+          In spreadsheets, exponents are entered using the “^” symbol. For
+          example, to calculate the value of 103 you would type “=10^3” into
+          the spreadsheet cell
         </p>
         <figure>
           <math>
@@ -160,14 +167,14 @@
     <hr class="mt-2 mb-6 border-gray-300">
     <h3>Task 2</h3>
     <p>
-      You have been offered a three-year loan from a private lender for a real
+      You have been offered a three year loan from a private lender for a real
       estate redevelopment. The lender will lend you $1,000,000 for three years.
-      The loan will accrue interest at a rate of 13% per year and be added onto
-      the principal loan amount. At the end of the three years you will need to
-      pay back the private lender with a single balloon payment.
+      The loan will accrue interest that compounds at a rate of 13% per year and
+      be added onto the principal loan amount. At the end of the three years you
+      will need to pay back the private lender with a single balloon payment.
     </p>
     <p>
-      How much will the balloon payment be?
+      How much will the balloon payment be, rounded to the nearest dollar?
     </p>
     <div x-data="{showHint: false}" class="pb-4">
       <button type="button" @click="showHint = true" x-show="!showHint" class="button font-medium">
@@ -222,8 +229,9 @@
       <div x-show="showHint" class="border border-green-500 rounded-md p-6">
         <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
         <p>
-          Again, we can rearrange the Present Value formula to solve for the
-          interest rate.
+          Again, we can rearrange the Present Value formula to isolate ‘r’ on
+          one side of the equals sign, solving for the interest rate. Give it a
+          try, you should end up with this:
         </p>
         <figure>
           <math>
@@ -252,13 +260,13 @@
           </math>
         </figure>
         <p>
-          Our rearranged formula can then be used to calculate the interest
-          rate by:
+          Our rearranged formula can then be used to calculate the interest rate
+          by:
         </p>
         <ol class="list-decimal pl-8 font-medium text-gray-800 text-base pb-2 leading-8">
           <li>Dividing the Future Value ($275,000) by the Present Value ($150,000), which is then</li>
-          <li>Raised to the power of one divided by the number of periods (7 years), which is then</li>
-          <li>Subtracted by 1</li>
+          <li>Raised to the power of one divided by the number of periods (7 years).</li>
+          <li>Finally, subtract 1.</li>
         </ol>
       </div>
     </div>
@@ -279,7 +287,8 @@
       <div x-show="showHint" class="border border-green-500 rounded-md p-6">
         <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
         <p>
-          This requires a more complicated rearrangement of the Present Value formula using the natural logarithm
+          This requires a more complicated rearrangement of the Present Value
+          formula using the natural logarithm
         </p>
         <figure>
           <math>
@@ -320,7 +329,7 @@
     </div>
     <hr class="mt-2 mb-6 border-gray-300">
     <h3>Solutions</h3>
-    <p>Check each of your answers against the solutions in this spreadsheet.</p>
+    <p>For each task, the cell should be highlighted green if you have the correct answer. If you are having issues, check the answers against the solutions spreadsheet.</p>
     <div class="documentation-download">
       <img src="{{ url_for('img', path='/integration/excel.svg') }}" alt="Microsoft Excel Logo" class="h-10">
       <a download href="{{ url_for('sheets', path='ReturnSuite - Time Value of Money - Solutions.xlsx') }}">Time Value of Money - Solutions.xlsx</a>

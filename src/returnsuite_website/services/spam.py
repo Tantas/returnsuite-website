@@ -44,6 +44,10 @@ def detected_spam(comment: str | None) -> bool:
     if "bored" in lower or "adult" in lower or "private video" in lower:
         return True
 
+    # Additional adult content advertisements.
+    if "hamster" in lower or "skin" in lower:
+        return True
+
     # Remove generic shortened/redirect urls.
     if "bit.ly" in lower or "tinyurl.com" in lower or "rb.gy" in lower:
         return True
@@ -62,6 +66,43 @@ def detected_spam(comment: str | None) -> bool:
 
     # Product sales lines.
     if "free shipping" in lower or "today only" in lower or "limited time" in lower:
+        return True
+
+    return detected_injection(lower)
+
+
+def detected_spam_site(site: str | None) -> bool:
+    if not site or not site.strip():
+        return False
+
+    lower = site.lower()
+
+    # General spam.
+    if "returnsuite.com" in lower or "no-site.com" in lower:
+        return True
+
+    # New sites.
+    if "bbc.com" in lower or "nytimes" in lower or "newstoday" in lower or "cnn" in lower:
+        return True
+
+    # Search engines.
+    if "yandex" in lower:
+        return True
+
+    # Pharmacy.
+    if "pharmacy" in lower:
+        return True
+
+    # Gambling.
+    if "casino" in lower or "poker" in lower or "wallet" in lower:
+        return True
+
+    # Adult content.
+    if "hamster" in lower or "skin" in lower or "xxx" in lower:
+        return True
+
+    # Bad domains.
+    if lower.endswith(".ru"):
         return True
 
     return detected_injection(lower)

@@ -1,0 +1,66 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_spaces_and_uses_overview" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
+    <li><a href="{{ url_for('get_concepts_spaces_and_uses_overview') }}">Spaces and Uses</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="overview">Overview</h1>
+    <h2>Spaces and Uses</h2>
+    <br>
+    <p>
+      At a high level, ReturnSuite helps you model the amounts and timings of
+      all the cash inflows and outflows for a property within a set time frame.
+    </p>
+    <p>
+      In most cases, the majority of a property’s cash inflows are based on
+      lease revenue. While it’s possible to calculate potential cash flows from
+      the leases, it’s important to remember that leases are connected to the
+      physical world–tenants paying rent in exchange for the right to access
+      and occupy physical space.
+    </p>
+    <p>
+      In ReturnSuite, we use the term Spaces when referring to the actual
+      physical space and the term Uses when referring to how the physical space
+      is occupied. This is an important distinction and separating Spaces from
+      Uses gives ReturnSuite users the ability to create much more robust
+      models.
+    </p>
+    <p>
+      Often in commercial real estate, Operating Expenses are recovered from
+      tenants prorated based on the share of the Gross Leasable Area. By
+      defining Spaces separately from leases, we can determine the total
+      Gross Leasable Area of a property as well as groupings of Spaces.
+    </p>
+    <p>
+      For example, let’s say we had a mixed use property that included a busy
+      mall on the ground floor with an office tower above it. The office tower
+      is served by elevators while the mall has much higher janitorial costs.
+      Recovering elevator maintenance costs from the mall tenants or janitorial
+      costs from the office tenants isn’t representative of the actual costs.
+    </p>
+    <p>
+      By defining the Spaces differently, it allows expenses to be allocated
+      properly–the elevator costs can be specifically allocated to the Spaces
+      that use the elevator and the janitorial costs can be allocated to the
+      retail Spaces.
+    </p>
+    <p>
+      Spaces can have multiple Uses–for example if you were modeling an office
+      building, you may want to define each floor as a separate Space. Some
+      floors (Spaces) may have only a single tenant occupying the space (Uses)
+      while others may have multiple office suites (Uses).
+    </p>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_spaces_and_uses_spaces') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">
+        <span>Next: Spaces</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}
