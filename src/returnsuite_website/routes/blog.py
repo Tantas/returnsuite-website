@@ -59,8 +59,8 @@ class BlogSort(str, Enum):
 class BlogListForm:
     def __init__(
         self,
-        offset: str | None = Query(0),
-        size: str | None = Query(5),
+        offset: str | int | None = Query(0),
+        size: str | int | None = Query(5),
         sort: BlogSort | None = Query(BlogSort.spotlight),
     ):
         self.offset = int(offset) if offset else 0
