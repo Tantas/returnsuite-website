@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>{{ page_title + '' }}</title>
     <meta name="description" content="Risk and asset management software." />
     <link rel="icon" href="{{ url_for('img', path='/favicon-32.png') }}" sizes="32x32">
@@ -295,14 +294,14 @@
 {# <li><a href="{{ url_for('get_signup') }}" class="border-2 rounded-md border-blue-500 text-blue-500 font-semibold px-6 py-2">Sign Up</a></li> #}
 {% if signup_enabled %}
   <li class="hidden md:block">
-    <a href="{{ app_website }}/signup" class="bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 hover:border-blue-600 rounded-md py-2 px-6 font-semibold whitespace-nowrap shadow-sm tracking-wide">Sign Up</a>
+    <a href="{{ app_website }}/signup" class="bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 hover:border-blue-600 rounded-md py-2 px-6 font-medium whitespace-nowrap shadow-sm tracking-wide">Sign Up</a>
   </li>
   <li class="hidden md:block ">
     <a href="{{ app_website }}/login" class="border-2 rounded-md border-blue-500 text-blue-500 font-semibold px-6 py-2 whitespace-nowrap hover:text-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
   </li>
 {% else %}
   <li class="hidden md:block ">
-    <a href="{{ app_website }}/login" class="border-2 rounded-md border-blue-500 text-white bg-blue-500 font-semibold px-6 py-2 whitespace-nowrap hover:bg-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
+    <a href="{{ app_website }}/login" class="border-2 rounded-md border-blue-500 text-white bg-blue-500 font-medium px-6 py-2 whitespace-nowrap hover:bg-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
   </li>
 {% endif %}
 </ul>

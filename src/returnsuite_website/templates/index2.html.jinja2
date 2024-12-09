@@ -1,0 +1,806 @@
+{% extends "layout.html.jinja2" %}
+{% set page_title = app_title %}
+
+{% block content %}
+  <header class="bg-gray-100">
+    <div class="flex flex-col-reverse md:flex-row place-items-center">
+      <div class="relative xl:w-1/2 my-20 pl-12">
+        <!--<svg class="absolute -top-8 -left-32 h-[36rem] text-gray-200 z-0" viewBox="0 -960 960 960" fill="currentColor" >
+          <path d="M80-120v-720h400v160h400v560H80Zm80-80h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm0-160h240v-80H160v80Zm320 480h320v-400H480v400Zm80-240v-80h160v80H560Zm0 160v-80h160v80H560Z"></path>
+        </svg>-->
+        <h1 class="text-center md:text-left md:text-3xl xl:text-6xl font-bold max-w-prose text-gray-900 leading-8" style="line-height: 4.5rem;">
+          Complex Real Estate Cash Flow Modeling, Simplified
+        </h1>
+        <h2 class="relative text-lg text-center md:text-left py-6 md:max-w-prose">
+          Save time, reduce effort, and streamline your workflow. Communicate insights, forecasts, and results with stakeholders effortlessly—no spreadsheets, no hassle.
+        </h2>
+        <div class="relative flex flex-wrap place-items-center justify-center md:justify-start gap-3">
+          {% if signup_enabled %}
+            <a href="{{ app_website }}/signup" class="text-lg bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 rounded-md py-2 px-6 font-medium hover:border-blue-600 shadow-sm tracking-wide">Sign Up</a>
+            {% if not hide_demo %}
+              <a href="{{ url_for('get_view_demo') }}" class="text-lg bg-white border-2 border-blue-500 text-blue-500 border-2 rounded-md border-blue-500 font-medium px-6 py-2 border-2 rounded-md border-blue-500 text-blue-500 whitespace-nowrap hover:border-blue-600 hover:text-blue-600 shadow-sm tracking-wide">View Demo</a>
+            {% endif %}
+          {% else %}
+            <a href="#Request-Early-Access" class="text-lg bg-blue-500 border-2 border-blue-500 text-white inline-block border-2 rounded-md border-blue-500 font-medium px-6 py-2 hover:bg-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Request Early Access</a>
+          {% endif %}
+        </div>
+        <!--<ul class="py-6">
+          <li class="flex place-items-center gap-2">
+            <svg class="inline-block h-6 text-blue-500" viewBox="0 -960 960 960" fill="currentColor">
+              <path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"></path>
+            </svg>
+            <span>Free to signup and explore samples</span>
+          </li>
+          <li>
+
+            <span>Learn how real-estate is valued from cash flow</span>
+          </li>
+        </ul>-->
+      </div>
+      <img src="{{ url_for('img', path='/landing/devices.webp') }}" alt="ReturnSuite on a laptop, tablet and phone." width="2247px" height="1449px" class="md:w-1/2 pr-6">
+    </div>
+  </header>
+
+   {#- <section class="px-4 md:px-12 xl:px-32 pb-6 bg-gray-100 w-full flex flex-col place-items-center justify-center">
+     <h2 class="text-2xl text-center md:text-left md:text-3xl font-semibold tracking-wide text-gray-400 pb-4">Trusted by</h2>
+     <ul class="flex flex-wrap place-items-center gap-16 font-bold text-lg text-gray-400 justify-center py-4">
+       <li class="whitespace-nowrap">Company 1</li>
+       <li class="whitespace-nowrap">Company 2</li>
+       <li class="whitespace-nowrap">Company 3</li>
+       <li class="whitespace-nowrap">Company 4</li>
+     </ul>
+  </section> -#}
+
+  <!--<section class="border-t-2">
+    <div class="mx-4 md:mx-6 xl:mx-32 py-16 flex place-items-center gap-16">
+      <img src="{{ url_for('img', path='/landing/related-tasks.webp') }}" alt="Tasks surrounding managing a building" width="1024px" height="1024px" class="hidden lg:flex md:w-1/3 justify-center shrink-0" style="width: 20rem; height: 20rem;">
+      <div class="w-full">
+        <h2 class="text-2xl text-left md:text-4xl font-bold">Understand both risks and returns</h2>
+        <p class="py-4 leading-6 text-lg text-gray-900">
+          The Commercial Real Estate industry is changing. Shorter leases, coworking, additional services - cash flows are more volatile and less predictable. New business models require new financial modeling tools.
+        </p>
+        <p class="py-4 leading-6 text-lg text-gray-900">
+          With ReturnSuite's intuitive modeling software, you can manage the changing market. Maximizing your returns while fully understanding your risks. Gain important insights and easily communicate your asset management strategy, forecasts, budgets and results with all your key stakeholders.
+        </p>
+        <p>
+          <a target="_blank" href="https://www.linkedin.com/in/sam-gamble-rs" class="text-blue-500 float-right italic text-xl tracking-wide hover:underline pr-4">&#8212; Sam Gamble</a>
+        </p>
+      </div>
+    </div>
+  </section>-->
+
+  <section>
+    <div>
+      <h2>Features</h2>
+      <ul>
+        <li>
+          <p>Build Models in Minutes, not weeks</p>
+          <p>Get started fast with ReturnSuite's intuitive interface. Adjust assumptions and see the impact instantly, enabling rapid decision-making and scenario analysis.</p>
+        </li>
+        <li>
+          <p>Collaborative Workspace with Full Transparency</p>
+          <p>Collaborate in real-time with teammates using our multiplayer feature. With full visibility into assumptions and calculations, ReturnSuite fosters trust, alignment, and better decision-making.</p>
+        </li>
+        <li>
+          <p>Powerful Modeling Without Spreadsheets</p>
+          <p>No need for advanced formulas or spreadsheet expertise. ReturnSuite handles the heavy lifting, so you can focus on strategy, analysis and results.</p>
+        </li>
+        <li>
+          <p>Seamless Sharing and Stakeholder Communication</p>
+          <p>Generate polished reports, interactive dashboards, and presentation-ready visuals in just a few clicks. Whether it's for colleagues, clients, or partners, communicating insights has never been easier.</p>
+        </li>
+      </ul>
+      <p>Experience the power of modern cash flow modeling-try it for free.</p>
+    </div>
+  </section>
+
+  <section class="bg-gray-100 mx-[15rem] px-6 py-16 border-r border-l">
+    <p class="text-blue-500 text-lg font-semibold tracking-wide">
+      How it works
+    </p>
+    <h2 class="font-bold text-4xl tracking-wide pt-6">
+      <!--Apply your real estate expertise to do what you already do, faster-->
+      <!--Take your opportunity farther, faster-->
+      Straightforward real estate finance, faster
+    </h2>
+    <p class="text-gray-700 text-lg tracking-wide pt-6 max-w-prose">
+      ReturnSuite is a tool for professionals to model and report projected real
+      estate cash flows quickly with the detail they need. Models are simple to
+      build for simple properties, and powerful enough to represent everything
+      when complex.
+    </p>
+    <ol class="grid grid-cols-2 gap-4 py-6">
+      <li class="bg-white rounded-md border border-gray-300">
+        <div class="p-1 w-full rounded-md overflow-hidden">
+          <img class="bg-gray-100 object-contain border-b"
+               src="{{ url_for('img', path='/landing2/how-it-works-create-an-account.png') }}"
+               alt="Select a sample">
+        </div>
+        <div class="p-6">
+          <p class="font-medium text-2xl tracking-wide">Create an account</p>
+          <p class="text-lg text-gray-700 tracking-wide pt-1">
+            Join ReturnSuite individually or create an organization to start
+            modeling.
+          </p>
+        </div>
+      </li>
+      <li class="bg-white rounded-md border border-gray-300">
+        <div class="p-1 rounded-md overflow-hidden">
+          <img class="bg-gray-100 object-contain border-b"
+               src="{{ url_for('img', path='/landing2/how-it-works-select-sample.png') }}"
+               alt="Select a sample">
+        </div>
+        <div class="p-6">
+          <p class="font-medium text-2xl tracking-wide">
+            Start with a sample property
+          </p>
+          <p class="text-lg text-gray-700 tracking-wide pt-1">
+            Select one of many prebuilt models similar to your property.
+          </p>
+        </div>
+      </li>
+      <li class="bg-white rounded-md border border-gray-300">
+        <div class="p-1 w-full rounded-md overflow-hidden">
+          <img class="bg-gray-100 object-contain border-b"
+               src="{{ url_for('img', path='/landing2/how-it-works-adjust-the-details.png') }}"
+               alt="Adjust the details">
+        </div>
+        <div class="p-6">
+          <p class="font-medium text-2xl tracking-wide">
+            Adjust the details
+          </p>
+          <p class="text-lg text-gray-700 tracking-wide pt-1">
+            Update the parameters to match how you would operate.
+          </p>
+        </div>
+      </li>
+      <li class="bg-white rounded-md border border-gray-300">
+        <div class="p-1 w-full rounded-md overflow-hidden">
+          <img class="bg-gray-100 object-contain border-b"
+               src="{{ url_for('img', path='/landing2/how-it-works-analyze-reports.png') }}"
+               alt="Adjust the details">
+        </div>
+        <div class="p-6">
+          <p class="font-medium text-2xl tracking-wide">
+            Analyze its reports
+          </p>
+          <p class="text-lg text-gray-700 tracking-wide pt-1">
+            Review how changes to the model impact its cashflows and valuation.
+          </p>
+        </div>
+      </li>
+      <li class="bg-white rounded-md border border-gray-300">
+        <div class="p-1 w-full rounded-md overflow-hidden">
+          <img class="bg-gray-100 object-contain border-b"
+               src="{{ url_for('img', path='/landing2/how-it-works-your-own-property.png') }}"
+               alt="Adjust the details">
+        </div>
+        <div class="p-6">
+          <p class="font-medium text-2xl tracking-wide">
+            Get started on your own property
+          </p>
+          <p class="text-lg text-gray-700 tracking-wide pt-1">
+            Fill in the details of your property in a new model and validate
+            its feasibility.
+          </p>
+        </div>
+      </li>
+      <li class="bg-white rounded-md border border-gray-300">
+        <div class="p-1 w-full rounded-md overflow-hidden">
+          <img class="bg-gray-100 object-contain border-b"
+               src="{{ url_for('img', path='/landing2/how-it-works-support-your-business-case.png') }}"
+               alt="Adjust the details">
+        </div>
+        <div class="p-6">
+          <p class="font-medium text-2xl tracking-wide">
+            Support your business case
+          </p>
+          <p class="text-lg text-gray-700 tracking-wide pt-1">
+            Export reports to a spreadsheet or communicate with stakeholders.
+          </p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!--<section>
+    <div>
+      <h2>Benefits</h2>
+      <p>Why Choose ReturnSuite?</p>
+      <ul>
+        <li class="flex place-items-center gap-6 px-6">
+          <div class="w-1/2 h-full">
+            <div class="bg-gray-300 w-full h-full"></div>
+          </div>
+          <div class="w-1/2 rounded-md border border-gray-300 p-6">
+            <p class="font-semibold text-2xl pb-2">Work Smarter</p>
+            <ul class="text-lg text-gray-900 flex flex-col gap-2">
+              <li class="flex place-items-center gap-4">
+                <div class="rounded-md bg-blue-100 text-blue-500 w-11 h-10 flex place-items-center justify-center">
+                  <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+                    <path d="M100-240v-480l360 240-360 240Zm400 0v-480l360 240-360 240ZM180-480Zm400 0Zm-400 90 136-90-136-90v180Zm400 0 136-90-136-90v180Z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-medium">Fast & Intuitive</p>
+                  <p class="text-base">Start immediately and create models from day one</p>
+                </div>
+              </li>
+              <li class="flex place-items-center gap-4">
+                <div class="rounded-md bg-blue-100 text-blue-500 w-11 h-10 flex place-items-center justify-center">
+                  <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+                    <path d="m320-160-56-57 103-103H80v-80h287L264-503l56-57 200 200-200 200Zm320-240L440-600l200-200 56 57-103 103h287v80H593l103 103-56 57Z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-medium">Effortless Scenarios</p>
+                  <p class="text-base">Quickly test new assumptions without breaking the model</p>
+                </div>
+              </li>
+              <li class="flex place-items-center gap-4">
+                <div class="rounded-md bg-blue-100 text-blue-500 w-11 h-10 flex place-items-center justify-center">
+                  <svg class="inline-block h-7" viewBox="0 -960 960 960" fill="currentColor">
+                    <path d="M170-228q-38-45-61-99T80-440h82q6 43 22 82.5t42 73.5l-56 56ZM80-520q8-59 30-113t60-99l56 56q-26 34-42 73.5T162-520H80ZM438-82q-59-6-112.5-28.5T226-170l56-58q35 26 74 43t82 23v80ZM284-732l-58-58q47-37 101-59.5T440-878v80q-43 6-82.5 23T284-732ZM518-82v-80q44-6 83.5-22.5T676-228l58 58q-47 38-101.5 60T518-82Zm160-650q-35-26-75-43t-83-23v-80q59 6 113.5 28.5T734-790l-56 58Zm112 504-56-56q26-34 42-73.5t22-82.5h82q-8 59-30 113t-60 99Zm8-292q-6-43-22-82.5T734-676l56-56q38 45 61 99t29 113h-82ZM441-280v-247L337-423l-56-57 200-200 200 200-57 56-103-103v247h-80Z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-medium">Always up to date</p>
+                  <p class="text-base text-gray-800">Cloud-based software with regular updates at no extra cost</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <p>Build Trust</p>
+          <ul>
+            <li>
+              <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+                <path d="M0-240v-63q0-43 44-70t116-27q13 0 25 .5t23 2.5q-14 21-21 44t-7 48v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780Zm-455-80h311q-10-20-55.5-35T480-370q-55 0-100.5 15T325-320ZM160-440q-33 0-56.5-23.5T80-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-440Zm640 0q-33 0-56.5-23.5T720-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-440Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm0-80q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Zm1 240Zm-1-280Z"></path>
+              </svg>
+              Seamless Collaboration: Share insights with stakeholders instantly</li>
+            <li>
+              <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+                <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v333q-19-11-39-20t-41-16v-137H520v137q-46 14-86 40t-74 63H200v160h82q11 22 22 42t24 38H200Zm0-320h240v-160H200v160Zm0-240h560v-80H200v80Zm280 200Zm0 0Zm0 0Zm0 0ZM640-40q-91 0-168-48T360-220q35-84 112-132t168-48q91 0 168 48t112 132q-35 84-112 132T640-40Zm0-80q57 0 107.5-26t82.5-74q-32-48-82.5-74T640-320q-57 0-107.5 26T450-220q32 48 82.5 74T640-120Zm0-40q-25 0-42.5-17.5T580-220q0-25 17.5-42.5T640-280q25 0 42.5 17.5T700-220q0 25-17.5 42.5T640-160Z"></path>
+              </svg>
+              Full Transparency: Clear visibility into all assumptions and calculations</li>
+            <li>
+              <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+                <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm240-240H200v160h240v-160Zm80 0v160h240v-160H520Zm-80-80v-160H200v160h240Zm80 0h240v-160H520v160ZM200-680h560v-80H200v80Z"></path>
+              </svg>
+              Professional Reports: Generate presentation-ready visuals in seconds</li>
+          </ul>
+        </li>
+        <li>
+          <p>Scale Efficiently</p>
+          <ul>
+            <li>
+              <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+                <path d="M640-80 480-240l160-160 56 56-63 64h247v80H633l63 64-56 56ZM80-440v-120h120v120H80Zm300 0q-58 0-99-41t-41-99v-160q0-58 41-99t99-41q58 0 99 41t41 99v160q0 58-41 99t-99 41Zm0-80q25 0 42.5-17.5T440-580v-160q0-25-17.5-42.5T380-800q-25 0-42.5 17.5T320-740v160q0 25 17.5 42.5T380-520Z"></path>
+              </svg>
+              Significant Cost Savings: Pay only for what you use</li>
+            <li>
+              <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+                <path d="m140-220-60-60 300-300 160 160 284-320 56 56-340 384-160-160-240 240Z"></path>
+              </svg>
+              Flexible Growth: Add properties as needed with no seat licenses</li>
+            <li>
+              <svg class="inline-block h-6" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+                <path d="m760-183-85 84-56-56 84-85-84-85 56-56 85 84 85-84 56 56-84 85 84 85-56 56-85-84ZM240-80q-50 0-85-35t-35-85v-120h120v-560h600v415q-19-7-39-10.5t-41-3.5v-321H320v480h214q-7 19-10.5 39t-3.5 41H200v40q0 17 11.5 28.5T240-160h294q8 23 20 43t28 37H240Zm120-520v-80h360v80H360Zm0 120v-80h360v80H360Zm174 320H200h334Z"></path>
+              </svg>
+              Risk-Free: No annual contracts or complex pricing tiers</li>
+          </ul>
+        </li>
+      </ul>
+      <div>
+        <p>Expand Your Network</p>
+        <p>ReturnSuite's collaborative features don’t just streamline workflows—they help you build your reputation. Easily share insights, showcase your expertise, and grow your professional network.</p>
+      </div>
+      <div>
+        <p>Grow Your Expertise</p>
+        <p>Explore our free comprehensive library of real estate finance resources. From beginner to advanced topics, gain new skills and apply them with cutting-edge tools.</p>
+      </div>
+    </div>
+  </section>-->
+
+  <!--<section class="bg-white border-t-2">
+    <div class="mx-4 md:mx-6 xl:mx-12 pb-16">
+      <h2 id="How-it-works" class="flex place-items-center justify-center text-2xl md:text-4xl text-gray-900 py-12 font-medium whitespace-nowrap">
+        How it works
+      </h2>
+      <ol class="grid md:grid-cols-2 xl:grid-cols-4 auto-rows-max place-items-center justify-center gap-4 md:gap-6 lg:gap-12">
+        <li class="bg-white rounded-md border border-gray-300 p-6 relative md:h-full">
+          <div class="w-full bg-gray-100 rounded-lg border border-gray-300 overflow-hidden">
+            <img src="{{ url_for('img', path='/landing/quick-start.webp') }}" alt="Get started quickly." width="1024px" height="768px">
+          </div>
+          <div class="pt-4 pb-2 text-blue-500 font-medium uppercase text-base tracking-wide">Step 1</div>
+          <p class="text-lg text-gray-900">
+            Quickly evaluate potential acquisitions by modeling a property’s leases, expenses and financing through an intuitive process.
+          </p>
+          <svg class="hidden xl:inline-block h-6 text-gray-400 absolute -right-9 top-1/2" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"></path>
+          </svg>
+        </li>
+        <li class="bg-white rounded-md border border-gray-300 p-6 relative md:h-full">
+          <div class="w-full bg-gray-100 rounded-lg border border-gray-300 overflow-hidden">
+            <img src="{{ url_for('img', path='/landing/compare-scenarios.webp') }}" alt="Build and compare risks and returns." width="1024px" height="768px">
+          </div>
+          <div class="pt-4 pb-2 text-blue-500 font-medium uppercase text-base tracking-wide">Step 2</div>
+          <p class="text-lg text-gray-900">
+            Build and compare both the risks and returns of different scenarios to help determine the best asset management strategy using both traditional cash flow and risk-adjusted models.
+          </p>
+          <svg class="hidden xl:inline-block h-6 text-gray-400 absolute -right-9 top-1/2" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"></path>
+          </svg>
+        </li>
+        <li class="bg-white rounded-md border border-gray-300 p-6 relative md:h-full">
+          <div class="w-full bg-gray-100 rounded-lg border border-gray-300 overflow-hidden">
+            <img src="{{ url_for('img', path='/landing/stay-up-to-date.webp') }}" alt="Stay up to date, track performance." width="1024px" height="768px">
+          </div>
+          <div class="pt-4 pb-2 text-blue-500 font-medium uppercase text-base tracking-wide">Step 3</div>
+          <p class="text-lg text-gray-900">
+            Always stay up to date and oversee the performance of your asset by importing actuals and updating market conditions. Track the differences over time.
+          </p>
+          <svg class="hidden xl:inline-block h-6 text-gray-400 absolute -right-9 top-1/2" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"></path>
+          </svg>
+        </li>
+        <li class="bg-white rounded-md border border-gray-300 p-6 md:h-full">
+          <div class="w-full bg-gray-100 rounded-lg border border-gray-300 overflow-hidden relative">
+            <img src="{{ url_for('img', path='/landing/publish-for-stakeholders.webp') }}" alt="publish for stakeholders" width="1024px" height="768px">
+          </div>
+          <div class="pt-4 pb-2 text-blue-500 font-medium uppercase text-base tracking-wide">Step 4</div>
+          <p class="text-lg text-gray-900">
+            Privately publish interactive reports to share with your stakeholders in the publishing center. Export your data at any time in commonly used formats.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>-->
+
+  <!--<section class="pb-16 border-t-2">
+    <h2 id="Benefits" class="flex place-items-center justify-center text-2xl md:text-4xl text-gray-900 py-12 font-medium whitespace-nowrap">
+      Benefits
+    </h2>
+    <ul class="mx-4 md:mx-12 xl:mx-32 flex flex-col gap-4 md:gap-24">
+      <li class="flex flex-col md:flex-row place-items-center justify-center ">
+        <div class="md:w-1/2 flex justify-center pb-4 lg:pb-0">
+          <img class="md:w-4/5" src="{{ url_for('img', path='/landing/easy-to-use.webp') }}" alt="ReturnSuite's Easy to Use Features" width="2048px" height="1536px" />
+        </div>
+        <div class="md:w-1/2 xl:w-1/3 flex flex-col gap-1">
+          <p class="text-blue-500 font-medium uppercase">Easy to Use</p>
+          <h2 class="font-semibold text-2xl py-1">Get Immediate Value</h2>
+          <p class="text-gray-800 py-2 text-base">
+            Flexible leasing or a long-term traditional lease? Cowork space or meeting rooms? Quickly build out models for complex properties. Easily compare alternative scenarios to determine the best strategies at a property, portfolio and organizational level.
+          </p>
+          <ul class="grid-cols-2 gap-6 py-4 hidden xl:grid">
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M15,9.86L18.03,12L15,14.14V9.86 M6,9.86L9.03,12L6,14.14V9.86 M13,6v12l8.5-6L13,6L13,6z M4,6v12l8.5-6L4,6L4,6z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Quick start common situations</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <rect height="2" width="6" x="6" y="15"></rect>
+                  <rect height="2" width="6" x="12" y="7"></rect>
+                  <rect height="2" width="6" x="9" y="11"></rect>
+                  <path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V5h14V19z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Generate rent rolls</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M14.59,15.59L16,17l4-4l-4-4l-1.41,1.41L16.17,12c-1.51-0.33-3.73,0.08-5.17,1.36l0-6.53l1.59,1.59L14,7l-4-4L6,7 l1.41,1.41L9,6.83V21l2,0v-4c0.73-2.58,3.07-3.47,5.17-3L14.59,15.59z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Split expenses</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Calculate recoveries</div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="flex flex-col-reverse md:flex-row place-items-center justify-center">
+        <div class="md:w-1/2 xl:w-1/3 flex flex-col gap-1">
+          <p class="text-blue-500 font-medium uppercase">Modern Tools</p>
+          <h2 class="font-semibold text-2xl py-1">More Than Stacking Leases</h2>
+          <p class="text-gray-800 py-2 text-base">
+            Commercial Real Estate is becoming more complex - leases are getting shorter and cash flows less stable. ReturnSuite uses modern financial modeling tools to provide a deeper understanding of both the returns and the risks.
+          </p>
+          <ul class="grid-cols-2 gap-6 py-4 hidden xl:grid">
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M15 21h2v-2h-2v2zm4-12h2V7h-2v2zM3 5v14c0 1.1.9 2 2 2h4v-2H5V5h4V3H5c-1.1 0-2 .9-2 2zm16-2v2h2c0-1.1-.9-2-2-2zm-8 20h2V1h-2v22zm8-6h2v-2h-2v2zM15 5h2V3h-2v2zm4 8h2v-2h-2v2zm0 8c1.1 0 2-.9 2-2h-2v2z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Compare scenarios</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"></path>
+                  <circle cx="7.5" cy="16.5" r="1.5"></circle>
+                  <circle cx="7.5" cy="7.5" r="1.5"></circle>
+                  <circle cx="12" cy="12" r="1.5"></circle>
+                  <circle cx="16.5" cy="16.5" r="1.5"></circle>
+                  <circle cx="16.5" cy="7.5" r="1.5"></circle>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Powerful Monte Carlo engine</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16.9,11L16.9,11c-0.46-2.28-2.48-4-4.9-4s-4.44,1.72-4.9,4h0H2v2h5.1h0c0.46,2.28,2.48,4,4.9,4s4.44-1.72,4.9-4h0H22v-2 H16.9z M12,15c-1.66,0-3-1.34-3-3s1.34-3,3-3s3,1.34,3,3S13.66,15,12,15z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Sensitivity analysis</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16.66 4.52l2.83 2.83-2.83 2.83-2.83-2.83 2.83-2.83M9 5v4H5V5h4m10 10v4h-4v-4h4M9 15v4H5v-4h4m7.66-13.31L11 7.34 16.66 13l5.66-5.66-5.66-5.65zM11 3H3v8h8V3zm10 10h-8v8h8v-8zm-10 0H3v8h8v-8z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Stress test edge cases</div>
+            </li>
+          </ul>
+        </div>
+        <div class="md:w-1/2 flex justify-center pb-4 lg:pb-0">
+          <img class="md:w-4/5" src="{{ url_for('img', path='/landing/modern-tools.webp') }}" alt="ReturnSuite's Modern Tools" width="2048px" height="1536px" />
+        </div>
+      </li>
+      <li class="flex flex-col md:flex-row place-items-center justify-center ">
+        <div class="md:w-1/2 flex justify-center pb-4 lg:pb-0">
+          <img class="md:w-4/5" src="{{ url_for('img', path='/landing/transparency-features.webp') }}" alt="ReturnSuite's Transparency" width="1024px" height="768px" />
+        </div>
+        <div class="md:w-1/2 xl:w-1/3 flex flex-col gap-1">
+          <p class="text-blue-500 font-medium uppercase">Transparent</p>
+          <h2 class="font-semibold text-2xl py-1">Know What's Happening Under the Hood</h2>
+          <p class="text-gray-800 py-2 text-base">
+            Understand exactly how your results are being calculated with transparent and easily audited financial models. An open approach allows you to extract data and results at any time for offline analysis.
+          </p>
+          <ul class="grid-cols-2 gap-6 py-4 hidden xl:grid">
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center shrink-0">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.88,18.47c0.44-0.7,0.7-1.51,0.7-2.39c0-2.49-2.01-4.5-4.5-4.5s-4.5,2.01-4.5,4.5s2.01,4.5,4.49,4.5 c0.88,0,1.7-0.26,2.39-0.7L21.58,23L23,21.58L19.88,18.47z M16.08,18.58c-1.38,0-2.5-1.12-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5 s2.5,1.12,2.5,2.5C18.58,17.46,17.46,18.58,16.08,18.58z M15.72,10.08c-0.74,0.02-1.45,0.18-2.1,0.45l-0.55-0.83l-3.8,6.18 l-3.01-3.52l-3.63,5.81L1,17l5-8l3,3.5L13,6C13,6,15.72,10.08,15.72,10.08z M18.31,10.58c-0.64-0.28-1.33-0.45-2.05-0.49 c0,0,5.12-8.09,5.12-8.09L23,3.18L18.31,10.58z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Hover tool to explore behind the data</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19,3H5C3.89,3,3,3.9,3,5v14c0,1.1,0.89,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.11,3,19,3z M19,19H5V7h14V19z M12,10.5 c1.84,0,3.48,0.96,4.34,2.5c-0.86,1.54-2.5,2.5-4.34,2.5S8.52,14.54,7.66,13C8.52,11.46,10.16,10.5,12,10.5 M12,9 c-2.73,0-5.06,1.66-6,4c0.94,2.34,3.27,4,6,4s5.06-1.66,6-4C17.06,10.66,14.73,9,12,9L12,9z M12,14.5c-0.83,0-1.5-0.67-1.5-1.5 s0.67-1.5,1.5-1.5s1.5,0.67,1.5,1.5S12.83,14.5,12,14.5z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Preview calculations to quickly check your inputs</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Available on desktop and mobile</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M17,11l-1.41-1.41L13,12.17V4h-2v8.17L8.41,9.59L7,11l5,5 L17,11z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Download to Excel</div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="flex flex-col-reverse md:flex-row place-items-center justify-center">
+        <div class="md:w-1/2 xl:w-1/3 flex flex-col gap-1">
+          <p class="text-blue-500 font-medium uppercase">Publishing Center</p>
+          <h2 class="font-semibold text-2xl py-1">Convey Key Information to Stakeholders</h2>
+          <p class="text-gray-800 py-2 text-base">
+            Share beautiful interactive charts and reports to communicate your asset strategies, past results and financial modeling. Help your investors, lenders and clients understand your asset strategy by telling a story with a curated list of instructive reports.
+          </p>
+          <ul class="grid-cols-2 gap-6 py-4 hidden xl:grid">
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6,2.5V1h5v5H9.5V3.56L3.56,9.5H6V11H1V6h1.5v2.44L8.44,2.5H6z M21.89,13.77l-3.8-1.67C17.96,12.04,17.81,12,17.65,12H17 V7.5C17,6.12,15.88,5,14.5,5S12,6.12,12,7.5v8.15l-1.87-0.4c-0.19-0.03-1.02-0.15-1.73,0.56L7,17.22l5.12,5.19 C12.49,22.79,13,23,13.53,23h6.55c0.98,0,1.81-0.7,1.97-1.67l0.92-5.44C23.12,15.03,22.68,14.17,21.89,13.77z M20.08,21h-6.55 l-3.7-3.78L14,18.11V7.5C14,7.22,14.22,7,14.5,7S15,7.22,15,7.5v6.18h1.76L21,15.56L20.08,21z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Explore the calculations and assumptions</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7,3H4v3H2V1h5V3z M22,6V1h-5v2h3v3H22z M7,21H4v-3H2v5h5V21z M20,18v3h-3v2h5v-5H20z M17,6H7v12h10V6z M19,18 c0,1.1-0.9,2-2,2H7c-1.1,0-2-0.9-2-2V6c0-1.1,0.9-2,2-2h10c1.1,0,2,0.9,2,2V18z M15,8H9v2h6V8z M15,11H9v2h6V11z M15,14H9v2h6V14z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Store and publish external documents</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3,11h8V3H3V11z M5,5h4v4H5V5z"></path>
+                  <path d="M3,21h8v-8H3V21z M5,15h4v4H5V15z"></path>
+                  <path d="M13,3v8h8V3H13z M19,9h-4V5h4V9z"></path>
+                  <rect height="2" width="2" x="19" y="19"></rect>
+                  <rect height="2" width="2" x="13" y="13"></rect>
+                  <rect height="2" width="2" x="15" y="15"></rect>
+                  <rect height="2" width="2" x="13" y="17"></rect>
+                  <rect height="2" width="2" x="15" y="19"></rect>
+                  <rect height="2" width="2" x="17" y="17"></rect>
+                  <rect height="2" width="2" x="17" y="13"></rect>
+                  <rect height="2" width="2" x="19" y="15"></rect>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Manage and track access</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Self-serve data exports</div>
+            </li>
+          </ul>
+        </div>
+        <div class="md:w-1/2 flex justify-center pb-4 lg:pb-0">
+          <img class="w-4/5" src="{{ url_for('img', path='/landing/publishing-center.webp') }}" alt="ReturnSuite's Publishing Center" width="1024px" height="768px" />
+        </div>
+      </li>
+      <li class="flex flex-col md:flex-row place-items-center justify-center ">
+        <div class="md:w-1/2 flex justify-center pb-4 lg:pb-0">
+          <img class="w-4/5" src="{{ url_for('img', path='/landing/enterprise-features.webp') }}" alt="ReturnSuite's Enterprise Features" width="1024px" height="768px" />
+        </div>
+        <div class="md:w-1/2 xl:w-1/3 flex flex-col gap-1">
+          <p class="text-blue-500 font-medium uppercase">Enterprise Ready</p>
+          <h2 class="font-semibold text-2xl py-1">User Management &amp; History Tracking</h2>
+          <p class="text-gray-800 py-2 text-base">
+            A secure, cloud based software solution that allows team members to collaborate in real-time. Easily tracked changes allow multiple users to work on financial models asynchronously without managing files.
+          </p>
+          <ul class="grid-cols-2 gap-6 py-4 hidden xl:grid">
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5 5.5 6.57 5.5 8.5 7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm.05 10H4.77c.99-.5 2.7-1 4.23-1 .11 0 .23.01.34.01.34-.73.93-1.33 1.64-1.81-.73-.13-1.42-.2-1.98-.2-2.34 0-7 1.17-7 3.5V19h7v-1.5c0-.17.02-.34.05-.5zm7.45-2.5c-1.84 0-5.5 1.01-5.5 3V19h11v-1.5c0-1.99-3.66-3-5.5-3zm1.21-1.82c.76-.43 1.29-1.24 1.29-2.18C19 9.12 17.88 8 16.5 8S14 9.12 14 10.5c0 .94.53 1.75 1.29 2.18.36.2.77.32 1.21.32s.85-.12 1.21-.32z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">User management</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M5 2c0-.55-.45-1-1-1s-1 .45-1 1v4H1v10c0 1.3.84 2.4 2 2.82V23h2v-4.18C6.16 18.4 7 17.3 7 16V6H5V2zM4 17c-.55 0-1-.45-1-1v-2h2v2c0 .55-.45 1-1 1zm-1-5V8h2v4H3zM13 2c0-.55-.45-1-1-1s-1 .45-1 1v4H9v10c0 1.3.84 2.4 2 2.82V23h2v-4.18c1.16-.42 2-1.52 2-2.82V6h-2V2zm-1 15c-.55 0-1-.45-1-1v-2h2v2c0 .55-.45 1-1 1zm-1-5V8h2v4h-2zm10-6V2c0-.55-.45-1-1-1s-1 .45-1 1v4h-2v10c0 1.3.84 2.4 2 2.82V23h2v-4.18c1.16-.42 2-1.52 2-2.82V6h-2zm-1 11c-.55 0-1-.45-1-1v-2h2v2c0 .55-.45 1-1 1zm-1-5V8h2v4h-2z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Access controls</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92zM18 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM6 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm12 7.02c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Recent activity</div>
+            </li>
+            <li class="flex place-items-center gap-4">
+              <div class="rounded-md bg-blue-100 flex place-items-center justify-center">
+                <svg class="inline-block h-11 w-11 p-2.5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8z"></path>
+                </svg>
+              </div>
+              <div class="font-medium text-gray-900">Version control</div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </section>-->
+
+  <section class="bg-gray-100 text-left py-16 flex flex-col place-items-center text-base border-t-2">
+    <h2 id="Solutions-for" class="flex place-items-center justify-center text-4xl text-gray-900 py-12 font-medium">
+      Solutions for
+    </h2>
+    <ul class="mx-4 md:mx-6 xl:mx-32 grid lg:grid-cols-3 grid-flow-dense gap-4 lg:gap-12 justify-center">
+      <li class="lg:w-80 lg:mt-28 order-last lg:order-none w-full max-w-prose">
+        <h3 class="flex place-items-center justify-center text-xl md:text-3xl text-gray-900 py-4 lg:py-24 font-medium text-center lg:text-left">
+          Analysis and tools for every role
+        </h3>
+      </li>
+      <li class="flex flex-col justify-end gap-4 lg:w-80 lg:h-96 lg:bg-green-500 lg:mt-16 rounded-lg py-8 px-8 lg:pt-24 lg:text-white border-gray-300 lg:border-transparent border bg-white shadow-sm">
+        <div class="bg-green-500 text-white rounded-md self-start">
+          <svg class="inline-block h-14 p-2 lg:p-0" viewBox="0 0 24 24" fill="currentColor">
+            <rect height="2" width="15" x="2" y="4"></rect>
+            <path d="M15,17h2v-3h1v-2l-1-5H2l-1,5v2h1v6h9v-6h4V17z M9,18H4v-4h5V18z M3.04,12l0.6-3h11.72l0.6,3H3.04z"></path>
+            <polygon points="23,18 20,18 20,15 18,15 18,18 15,18 15,20 18,20 18,23 20,23 20,20 23,20"></polygon>
+          </svg>
+        </div>
+        <div class="text-2xl tracking-wide font-medium text-green-500 lg:text-white">Landlords</div>
+        <p class="leading-6 text-gray-800 lg:text-gray-100">
+          Underwrite new deals and compare scenarios with tools that display the risk vs. reward trade-offs. Track asset valuations, leases, expenses and important dates. Import actuals to easily generate recovery statements.
+        </p>
+      </li>
+      <li class="flex flex-col justify-end gap-4 lg:w-80 lg:h-96 lg:bg-yellow-400 rounded-lg py-8 px-8 lg:pt-24 lg:text-white border-gray-300 lg:border-transparent border bg-white shadow-sm">
+        <div class="bg-yellow-500 lg:bg-yellow-400 text-white rounded-md self-start">
+          <svg class="inline-block h-14 p-2 lg:p-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.5 10h-2v7h2v-7zm6 0h-2v7h2v-7zm8.5 9H2v2h19v-2zm-2.5-9h-2v7h2v-7zm-7-6.74L16.71 6H6.29l5.21-2.74m0-2.26L2 6v2h19V6l-9.5-5z"></path>
+          </svg>
+        </div>
+        <div class="text-2xl tracking-wide font-medium text-yellow-500 lg:text-white">Lenders</div>
+        <p class="leading-6 text-gray-800 lg:text-gray-100">
+          Use ReturnSuite's risk-adjusted analysis to determine the value-at-risk and to ensure covenants will be met. Easily audit assumptions, giving you more confidence in your borrower’s cash flow models.
+        </p>
+      </li>
+      <li class="flex flex-col justify-end gap-4 lg:w-80 lg:h-96 lg:bg-blue-500 rounded-lg py-8 px-8 lg:pt-24 lg:text-white lg:-mt-32 border-gray-300 lg:border-transparent border bg-white shadow-sm">
+        <div class="bg-blue-500 text-white rounded-md self-start">
+          <svg class="inline-block h-14 p-2 lg:p-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.41,0-8-3.59-8-8c0-4.41,3.59-8,8-8 s8,3.59,8,8C20,16.41,16.41,20,12,20z M12.89,11.1c-1.78-0.59-2.64-0.96-2.64-1.9c0-1.02,1.11-1.39,1.81-1.39 c1.31,0,1.79,0.99,1.9,1.34l1.58-0.67c-0.15-0.44-0.82-1.91-2.66-2.23V5h-1.75v1.26c-2.6,0.56-2.62,2.85-2.62,2.96 c0,2.27,2.25,2.91,3.35,3.31c1.58,0.56,2.28,1.07,2.28,2.03c0,1.13-1.05,1.61-1.98,1.61c-1.82,0-2.34-1.87-2.4-2.09L8.1,14.75 c0.63,2.19,2.28,2.78,3.02,2.96V19h1.75v-1.24c0.52-0.09,3.02-0.59,3.02-3.22C15.9,13.15,15.29,11.93,12.89,11.1z"></path>
+          </svg>
+        </div>
+        <div class="text-2xl tracking-wide font-medium text-blue-500 lg:text-white">Investors</div>
+        <p class="leading-6 text-gray-800 lg:text-gray-100">
+          Verify the quality of your investment opportunities with back-of-envelope, traditional DCF and risk-adjusted analyses. Group your properties into any number of portfolios and compare scenarios.
+        </p>
+      </li>
+      <li class="flex flex-col justify-end gap-4 lg:w-80 lg:h-96 lg:bg-red-500 rounded-lg py-8 px-8 lg:pt-24 lg:text-white border-gray-300 lg:border-transparent border bg-white shadow-sm">
+        <div class="bg-red-500 text-white rounded-md self-start">
+          <svg class="inline-block h-14 p-2 lg:p-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 7h-4V5l-2-2h-4L8 5v2H4c-1.1 0-2 .9-2 2v5c0 .75.4 1.38 1 1.73V19c0 1.11.89 2 2 2h14c1.11 0 2-.89 2-2v-3.28c.59-.35 1-.99 1-1.72V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5zM4 9h16v5h-5v-3H9v3H4V9zm9 6h-2v-2h2v2zm6 4H5v-3h4v1h6v-1h4v3z"></path>
+          </svg>
+        </div>
+        <div class="text-2xl tracking-wide font-medium text-red-500 lg:text-white">Operators</div>
+        <p class="leading-6 text-gray-800 lg:text-gray-100">
+          Track your revenues and expenses by department and how they each impact your overall operations. Understand how differing leasing models and service levels affect income volatility. Compare your operations to your models and share your reports securely with stakeholders.
+        </p>
+      </li>
+      <li class="flex flex-col justify-end gap-4 lg:w-80 lg:h-96 lg:bg-gray-900 rounded-lg py-8 px-8 lg:pt-24 lg:text-white lg:-mt-16 border-gray-300 lg:border-transparent border bg-white shadow-sm">
+        <div class="bg-gray-900 text-white rounded-md self-start">
+          <svg class="inline-block h-14 p-2 lg:p-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21,6.5V14h-2V7.5L14,4L9,7.5V9H7V6.5l7-5L21,6.5z M15.5,7h-1v1h1V7z M13.5,7h-1v1h1V7z M15.5,9h-1v1h1V9z M13.5,9h-1v1h1V9 z M19,16h-2c0-1.2-0.75-2.28-1.87-2.7L8.97,11H1v11h6v-1.44l7,1.94l8-2.5v-1C22,17.34,20.66,16,19,16z M3,20v-7h2v7H3z M13.97,20.41 L7,18.48V13h1.61l5.82,2.17C14.77,15.3,15,15.63,15,16c0,0-1.99-0.05-2.3-0.15l-2.38-0.79l-0.63,1.9l2.38,0.79 c0.51,0.17,1.04,0.26,1.58,0.26H19c0.39,0,0.74,0.23,0.9,0.56L13.97,20.41z"></path>
+          </svg>
+        </div>
+        <div class="text-2xl tracking-wide font-medium text-gray-900 lg:text-white">Brokers</div>
+        <p class="leading-6 text-gray-800 lg:text-gray-100">
+          Model lease, financing and transaction terms to ensure your clients are getting the best deal. Provide access to financial models and upload third party reports securely to potential buyers and other stakeholders.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <!--<section class="flex flex-col place-items-center pb-16 border-t-2">
+    <h2 id="Request-Early-Access" class="flex mx-6 place-items-center justify-center text-4xl text-gray-900 pt-12 pb-6 font-medium">
+      Request Early Access
+    </h2>
+    <div class="mx-4 md:mx-32 flex flex-col place-items-center justify-center gap-2 xl:w-1/2">
+      <p class="max-w-prose text-lg font-base text-gray-800 text-center pb-2">
+        ReturnSuite isn't quite ready yet. Join the waitlist to help us build the modern CRE asset management solution for your business.
+        <br>
+        &#8212; We cannot wait to work with you!
+      </p>
+      {% if success %}
+        <div class="w-full pt-4">
+          <div class="flex flex-col place-items-center justify-center gap-6 text-gray-900 text-lg text-center bg-white rounded-lg border border-gray-400 p-12">
+            <svg class="inline-block h-40 text-green-500" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"></path>
+            </svg>
+            <h2 class="text-2xl font-medium">Request Sent</h2>
+            <p class="max-w-prose lg:w-1/2">
+              Thank you for requesting early access. While the platform isn't generally available yet. We will reach out as soon as we can. We can't wait to have you on board!
+            </p>
+          </div>
+        </div>
+      {% else %}
+        <form class="w-full" method="post" action="{{ url_for('post_waitlist') }}">
+          <input type="hidden" id="timezone" name="timezone">
+          <script>
+              document.getElementById("timezone").value = Intl.DateTimeFormat().resolvedOptions().timeZone
+          </script>
+          <div class="flex flex-col gap-1.5 py-2">
+            <label for="name" class="font-bold text-gray-700">Name</label>
+            <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+              <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                <input id="name" name="name" autocomplete="name" type="text" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="Full name" required>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1.5 py-2">
+            <label for="organization" class="font-bold text-gray-700">Organization</label>
+            <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+              <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                <input id="organization" name="organization" autocomplete="organization" type="text" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="Company name" required>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1.5 py-2">
+            <label for="email" class="font-bold text-gray-700">Email</label>
+            <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+              <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                <input id="email" name="email" autocomplete="email" type="email" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="email@company.com" required>
+              </div>
+            </div>
+          </div>
+          <fieldset class="flex flex-col gap-2 py-2">
+            <legend class="font-bold text-gray-700">Web Profiles (Optional)</legend>
+            <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+              <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                <label for="linkedin_url" class="w-24 text-gray-800 font-semibold px-4">LinkedIn</label>
+                <input id="linkedin_url" name="linkedin_url" type="url" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="https://linkedin.com/in/...">
+              </div>
+            </div>
+            <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+              <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                <label for="twitter_url" class="w-24 text-gray-800 font-semibold px-4">Twitter</label>
+                <input id="twitter_url" name="twitter_url" type="url" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="https://twitter.com/...">
+              </div>
+            </div>
+            <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+              <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                <label for="other-url" class="w-24 text-gray-800 font-semibold px-4">Other</label>
+                <input id="other-url" name="other_url" type="url" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="https://...">
+              </div>
+            </div>
+          </fieldset>
+          <div class="flex flex-col gap-1.5 py-2">
+            <label for="message" class="font-bold text-gray-700">Message (Optional)</label>
+            <div class="rounded-md bg-gray-100 overflow-hidden border border-gray-300">
+              <textarea id="message" name="message" class="w-full bg-transparent p-4 border-l-2 border-blue-500 font-normal text-gray-800" rows="5" placeholder="We are ..."></textarea>
+            </div>
+            <small class="text-gray-700 text-sm hidden md:block">An optional short description of your business and the software solutions you are using. We use this to make sure we can meet your business needs during the beta period and provide access to support.</small>
+          </div>
+          <fieldset class="flex flex-col gap-1.5 py-2">
+            <legend class="font-bold text-gray-700 pt-2">Which best describes you?</legend>
+            <ul>
+              <li class="flex place-items-center gap-2">
+                <input type="radio" id="usage-landlord" name="usage" value="Landlord" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required>
+                <label for="usage-landlord" class="font-bold text-gray-800 text-base tracking-wide">Landlord</label>
+              </li>
+              <li class="flex place-items-center gap-2">
+                <input type="radio" id="usage-lender" name="usage" value="Lender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="usage-lender" class="font-bold text-gray-800 text-base tracking-wide">Lender</label>
+              </li>
+              <li class="flex place-items-center gap-2">
+                <input type="radio" id="usage-investor" name="usage" value="Investor" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="usage-investor" class="font-bold text-gray-800 text-base tracking-wide">Investor</label>
+              </li>
+              <li class="flex place-items-center gap-2">
+                <input type="radio" id="usage-operator" name="usage" value="Operator" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="usage-operator" class="font-bold text-gray-800 text-base tracking-wide">Operator</label>
+              </li>
+              <li class="flex place-items-center gap-2">
+                <input type="radio" id="usage-commercial-agent" name="usage" value="Commercial Real Estate Agent" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="usage-commercial-agent" class="font-bold text-gray-800 text-base tracking-wide">Broker</label>
+              </li>
+              <li class="flex place-items-center gap-2">
+                <input type="radio" id="usage-other" name="usage" value="Other" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="usage-other" class="font-bold text-gray-800 text-base tracking-wide">Other</label>
+              </li>
+            </ul>
+          </fieldset>
+          <div class="pt-2">
+            <button type="submit" class="bg-blue-500 text-base tracking-wide text-white hover:bg-blue-600 rounded-md py-2 px-6 my-1 font-semibold shadow-sm">
+              Join the Waitlist
+            </button>
+          </div>
+        </form>
+      {% endif %}
+    </div>
+  </section>-->
+  <div class="mx-6 md:mx-32 border-b"></div>
+{% endblock %}

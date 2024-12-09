@@ -27,7 +27,17 @@ async def get_index(request: Request, success: bool | None = None):
     logger.warning(f"User agent is {request.headers.get('User-Agent')}")
     return templates.TemplateResponse(
         request=request,
-        name="index.html.jinja2",
+        name="index2.html.jinja2",
+        context={"success": success},
+    )
+
+
+@router.get("/landing-new")
+async def get_index_new(request: Request, success: bool | None = None):
+    logger.warning(f"User agent is {request.headers.get('User-Agent')}")
+    return templates.TemplateResponse(
+        request=request,
+        name="index3.html.jinja2",
         context={"success": success},
     )
 
@@ -180,5 +190,5 @@ async def get_landing_images(request: Request):
     existing styles. Raster images are taken from this page.
     """
     return templates.TemplateResponse(
-        request=request, name="landing-images.html.jinja2"
+        request=request, name="landing-images2.html.jinja2"
     )
