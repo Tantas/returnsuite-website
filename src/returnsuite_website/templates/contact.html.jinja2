@@ -44,7 +44,7 @@
             <label for="name" class="font-bold text-gray-700">Name</label>
             <div class="rounded-md bg-white overflow-hidden flex border border-gray-300">
               <div class="w-full flex place-items-center border-l-2 border-blue-500">
-                <input type="text" id="name" name="name" autocomplete="name" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="Full name" required>
+                <input type="text" id="name" name="name" autocomplete="name" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="Full name" value="{{ name|default('', true) }}" required>
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@
             <label for="organization" class="font-bold text-gray-700">Organization (Optional)</label>
             <div class="rounded-md bg-white overflow-hidden flex border border-gray-300">
               <div class="w-full flex place-items-center border-l-2 border-blue-500">
-                <input type="text" id="organization" name="organization" autocomplete="organization" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="Company name">
+                <input type="text" id="organization" name="organization" autocomplete="organization" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" value="{{ organization|default('', true) }}" placeholder="Company name">
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
             <label for="email" class="font-bold text-gray-700">Email</label>
             <div class="rounded-md bg-white overflow-hidden flex border border-gray-300">
               <div class="w-full flex place-items-center border-l-2 border-blue-500">
-                <input type="email" id="email" name="email" autocomplete="email" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="email@company.com" required>
+                <input type="email" id="email" name="email" autocomplete="email" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="email@company.com" value="{{ email|default('', true) }}" required>
               </div>
             </div>
           </div>

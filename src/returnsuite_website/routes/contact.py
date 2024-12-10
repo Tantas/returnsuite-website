@@ -79,12 +79,23 @@ class ContactForm:
 
 @router.get("/contact")
 async def get_contact(
-    request: Request, success: bool | None = None, subject: str | None = None
+    request: Request,
+    success: bool | None = None,
+    subject: str | None = None,
+    name: str | None = None,
+    organization: str | None = None,
+    email: str | None = None,
 ):
     return templates.TemplateResponse(
         request=request,
         name="contact.html.jinja2",
-        context={"success": success, "subject": subject},
+        context={
+            "success": success,
+            "subject": subject,
+            "name": name,
+            "organization": organization,
+            "email": email,
+        },
     )
 
 
