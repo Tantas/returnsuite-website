@@ -135,8 +135,12 @@ case "$*" in
 
   "local tailwind")
     cd "${DIR}" || exit 2
-    # Install with `npm install -g tailwindcss`.
-    npx tailwindcss \
+    if ! command -v tailwindcss; then
+      echo "Missing executable 'tailwindcss'." \
+      "Install with 'npm install -g tailwindcss@3'"
+      exit 127
+    fi
+    npx -g tailwindcss \
       -c "${DIR}/scripts/css/tailwind.config.js" \
       -i "${DIR}/scripts/css/input.css" \
       -o "${DIR}/src/returnsuite_website/resources/css/styles.css" \
