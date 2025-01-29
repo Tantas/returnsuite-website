@@ -44,7 +44,7 @@ class ContactForm:
             return True
         if detected_spam(self.message):
             return True
-        if self.timezone is None or self.timezone in ("1", "n/c"):
+        if self.timezone is None or self.timezone in ("", "1", "n/c"):
             return True
         elif detected_injection(self.timezone):
             return True

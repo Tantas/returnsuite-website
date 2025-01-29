@@ -92,7 +92,7 @@ class JoinWaitlistForm:
             return True
         if self.other_url is not None and "no-site.com" in self.other_url:
             return True
-        if self.timezone is None or self.timezone in ("1", "n/c"):
+        if self.timezone is None or self.timezone in ("", "1", "n/c"):
             return True
         elif detected_injection(self.timezone):
             return True

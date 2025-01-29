@@ -99,6 +99,26 @@ def test_post_contact_multiple():
     db.commit()
 
 
+def test_post_contract_no_js_spam():
+    client.post(
+        "/contact",
+        data={
+            "timezone": "",
+            "name": "Test Name",
+            "organization": "Test Organization",
+            "email": "sample@example.com",
+            "subject": "Testing Contact Submission",
+            "message": "Testing contact submission message.",
+        },
+        follow_redirects=False,
+    )
+    db = get_db().__next__()
+    contact_requests = db.query(ContactRequest).order_by(ContactRequest.id).all()
+    assert contact_requests[0].status == ContactRequestStatus.spam
+    db.delete(contact_requests[0])
+    db.commit()
+
+
 def test_post_contact_failure():
     response = client.post(
         "/contact",
