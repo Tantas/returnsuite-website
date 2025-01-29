@@ -38,17 +38,17 @@
                   <li class="px-4">
                     <a href="{{ url_for('get_index') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">Home</a>
                   </li>
-                  <li class="px-4">
+                  {# <li class="px-4">
                     <a href="{{ url_for('get_index') }}#How-it-works" @click="toggleMenu()" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">How it works</a>
                   </li>
                   <li class="px-4">
                     <a href="{{ url_for('get_index') }}#Benefits" @click="toggleMenu()" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">Benefits</a>
-                  </li>
-                  {% if signup_enabled %}
+                  </li> #}
+                  {#
                     <li class="px-4">
                       <a href="{{ url_for('get_view_demo') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">View Demo</a>
                     </li>
-                  {% endif %}
+                  #}
                   <li class="px-4">
                     <a href="{{ url_for('get_blog') }}" class="block px-2 py-2 rounded-md hover:bg-blue-50 hover:text-gray-900">Blog</a>
                   </li>
@@ -91,31 +91,16 @@
         </div>
       </div>
     </li>
-    <li class="hidden lg:block pl-4">
-      <a href="{{ url_for('get_index') }}#How-it-works" class="py-1.5 border-b-2 border-white hover:border-blue-500 whitespace-nowrap">How it works</a>
-    </li>
-    <li class="hidden md:block pl-4">
-      <a href="{{ url_for('get_index') }}#Benefits" class="py-1.5 border-b-2 border-white hover:border-blue-500">Benefits</a>
-    </li>
-
-    {% if hide_demo %}
-      <li class="hidden md:block pl-4">
-        <a href="{{ url_for('get_contact') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Contact</a>
-      </li>
-    {% else %}
-      <li class="hidden md:block pl-4">
-        <a href="{{ url_for('get_view_demo') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Demo</a>
-      </li>
-    {% endif %}
 
     {% if not hide_docs %}
       <li class="hidden md:block pl-4">
         <a href="{{ url_for('get_documentation') }}" class="py-1.5 border-b-2 border-blue-500">Resources</a>
       </li>
+
+      <li class="hidden md:block px-4">
+        <a href="{{ url_for('get_blog') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Blog</a>
+      </li>
     {% endif %}
-    <li class="hidden md:block px-4">
-      <a href="{{ url_for('get_blog') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Blog</a>
-    </li>
     <li class="hidden md:block ml-auto" id="locale-display">
       <script>
           let flag = ""
@@ -322,6 +307,9 @@
     </li>
     <li class="hidden md:block">
       <a href="{{ url_for('get_contact') }}" class="hover:underline">Contact</a>
+    </li>
+    <li class="hidden md:block">
+      <a href="{{ url_for('get_blog') }}" class="hover:underline">Blog</a>
     </li>
   </ul>
   <ul class="flex place-items-center gap-4 order-1">

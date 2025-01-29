@@ -3,49 +3,49 @@
 
 {% block content %}
   <header class="bg-gray-100">
-    <div class="flex place-items-center gap-4 px-32 py-24 pt-20">
-      <h1 class="w-3/5 text-gray-900 text-5xl font-bold tracking-wide px-4" style="line-height: 5rem; font-size: 4.5rem;">
-        <span class="">Complex</span><br>
+    <div class="flex flex-col md:flex-row place-items-center gap-4 px-6 xl:px-32 py-24 pt-20">
+      <h1 class="w-full lg:w-1/2 xl:w-3/5 text-gray-900 text-5xl font-bold tracking-wide px-4 xl:text-[4rem]" style="line-height:4rem">
+        <span>Complex</span><br>
         <span>Cash Flow Modeling</span><br>
         <span >Simplified.</span>
       </h1>
-      <div class="w-2/5">
-        <p class="text-2xl text-gray-900 leading-9">
-          Specifically designed for commercial real estate professionals,
+      <div class="w-full lg:w-1/2 xl:w-2/5 px-6 md:px-0">
+        <p class="text-xl text-gray-900 leading-9">
+          Designed for commercial real estate professionals,
           ReturnSuite empowers you to create highly detailed financial models
           with precision and ease—without relying on complex spreadsheets.
         </p>
         <div class="flex place-items-center gap-4 pt-4">
-          <a href="#" class="text-lg font-medium bg-blue-500 border border-blue-500 text-white rounded-md py-3 px-6 tracking-wider">
+          <a href="{{ app_website }}/signup" class="text-lg font-medium bg-blue-500 border border-blue-500 text-white rounded-md py-3 px-6 tracking-wider">
             Get started for free
           </a>
-          <a href="#" class="text-lg font-medium hover:underline tracking-wider px-6 hover:text-blue-500">
+          {# <a href="#" class="text-lg font-medium hover:underline tracking-wider px-6 hover:text-blue-500">
             View demo
-          </a>
+          </a> #}
         </div>
 
       </div>
     </div>
-    <div class="px-32">
-      <img class="rounded-lg shadow-md"
+    <div class="px-6 xl:px-32 pb-6">
+      <img class="rounded-lg shadow-lg"
         src="{{ url_for('img', path='/landing3/landing-overview-screenshot.png') }}"
         alt="TODO">
     </div>
   </header>
 
   <section class="bg-gray-100 pt-16">
-    <div class="px-32">
+    <div class="px-6 xl:px-32">
       <div class="grid grid-cols-4 gap-4">
-        <div class="px-4">
+        <div class="col-start-1 px-4 lg:px-8 xl:px-4">
           <span class="uppercase text-blue-500 tracking-wide font-medium text-lg">
             Model
           </span>
         </div>
-        <div class="col-start-1 col-span-2">
-          <h2 class="tracking-wide text-5xl font-semibold text-gray-900 px-4">
+        <div class="col-start-1 col-span-4 lg:col-span-3 lg:col-start-1 xl:col-start-1 xl:col-span-2">
+          <h2 class="px-4 lg:px-8 xl:px-4 tracking-wide text-5xl font-semibold text-gray-900">
             Build models in minutes, not weeks
           </h2>
-          <p class="text-lg text-gray-700 pt-6 px-4 pb-2">
+          <p class="px-4 lg:px-8 xl:px-4 text-lg text-gray-700 pt-6 pb-2">
             Whether you're new to financial modeling or an experienced
             professional, our platform eliminates the need for advanced formulas
             or spreadsheet expertise. ReturnSuite takes care of the heavy
@@ -53,76 +53,19 @@
             results.
           </p>
         </div>
-        <div class="col-start-4 flex place-items-end justify-end px-4 py-2">
+        {# <div class="col-start-4 flex place-items-end justify-end px-4 py-2">
           <a href="#" class="text-blue-500 text-lg font-medium tracking-wide hover:underline flex place-items-center gap-0.5">
             <span>Modelling in ReturnSuite</span>
             <svg class="inline-block h-7" viewBox="0 -960 960 960" fill="currentColor">
               <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
             </svg>
-          </a>
-        </div>
-        <div class="col-start-1 col-span-2 bg-white rounded-lg">
-          <div class="p-4">
-            <h3 class="text-2xl font-semibold tracking-wide text-gray-900">
-              Model with your skills, not your time
-            </h3>
-            <p class="text-lg text-gray-700 pt-1">
-              Represent your assets using simple, comprehensive forms.
-            </p>
-          </div>
-        </div>
-        <div class="bg-white rounded-lg">
-          <div class="p-4">
-            <h3 class="text-2xl font-semibold tracking-wide text-gray-900">
-              Hitting the details
-            </h3>
-            <p class="text-lg text-gray-700 pt-1">
-              Input irregular, odd flows manually with your rational. Nothing left behind.
-            </p>
-          </div>
-        </div>
-        <div class="bg-white rounded-lg">
-          <div class="p-4">
-            <h3 class="text-2xl font-semibold tracking-wide text-gray-900">
-              Where do I start?
-            </h3>
-            <p class="text-lg text-gray-700 pt-1">
-              Choose from many samples to see how it works. Find a similar
-              property and make changes from there.
-            </p>
-          </div>
-        </div>
-        <div class="bg-white rounded-lg">
-          <div class="p-4">
-            <h3 class="text-2xl font-semibold tracking-wide text-gray-900">
-              Exploring options
-            </h3>
-            <p class="text-lg text-gray-700 pt-1">
-              Without modifying reality, create scenarios to compare options and
-              determine the best decision.
-            </p>
-          </div>
-        </div>
-        <div class="bg-white rounded-lg">
-          <div class="p-4">
-            <h3 class="text-2xl font-semibold tracking-wide text-gray-900">
-              A complete opportunity
-            </h3>
-            <p class="text-lg text-gray-700 pt-1">
-              Upload listing information, photos and related documents for easy
-              access to everything you need for a deal.
-            </p>
-          </div>
-        </div>
-        <div class="col-span-2 bg-white rounded-lg">
-          <div class="p-4">
-            <h3 class="text-2xl font-semibold tracking-wide text-gray-900">
-              Tracking actuals
-            </h3>
-            <p class="text-lg text-gray-700 pt-1">
-              Manage your cash flow and balance sheet against your forecast by
-              uploading actuals and refining your models.
-            </p>
+          </a> #}
+
+        <div class="col-span-4 pt-6">
+          <div class="pb-6">
+            <img class="rounded-lg shadow-lg"
+              src="{{ url_for('img', path='/landing3/landing-modelling-screenshot.png') }}"
+              alt="TODO">
           </div>
         </div>
       </div>
@@ -130,77 +73,44 @@
   </section>
 
   <section class="bg-gray-100 pt-16">
-    <div class="px-32">
+    <div class="px-6 xl:px-32">
       <div class="grid grid-cols-4 gap-4">
-        <div class="px-4">
+        <div class="px-4 lg:px-8 xl:px-4">
           <span class="uppercase text-blue-500 tracking-wide font-medium text-lg">
             Report
           </span>
         </div>
-        <div class="col-start-1 col-span-2">
-          <h2 class="tracking-wide text-5xl font-semibold text-gray-900 px-4">
+        <div class="col-start-1 col-span-4 lg:col-span-3 lg:col-start-1 xl:col-start-1 xl:col-span-2">
+          <h2 class="px-4 lg:px-8 xl:px-4 tracking-wide text-5xl font-semibold text-gray-900">
             Present insights with clarity and confidence
           </h2>
-          <p class="text-lg text-gray-700 pt-6 px-4 pb-2">
+          <p class="px-4 lg:px-8 xl:px-4 text-lg text-gray-700 pt-6 pb-2 max-w-prose">
             Polished reports, interactive dashboards, and presentation-ready
             visuals in just a few clicks. ReturnSuite ensures full transparency
             by providing clear visibility into all assumptions and calculations.
             Communicate complex financial data with clarity and professionalism.
           </p>
         </div>
-        <div class="col-start-4 flex place-items-end justify-end pr-4 py-2">
+        {# <div class="col-start-4 flex place-items-end justify-end pr-4 py-2">
           <a href="#" class="text-blue-500 text-lg font-medium tracking-wide hover:underline flex place-items-center gap-0.5">
             <span>Reports in ReturnSuite</span>
             <svg class="inline-block h-7" viewBox="0 -960 960 960" fill="currentColor">
               <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
             </svg>
           </a>
+        </div> #}
         </div>
-        <div class="col-span-2 bg-white rounded-lg">
-          <div class="p-4">
-            <h3 class="text-2xl font-semibold tracking-wide text-gray-900">
-              Cash flow reports with every detail
-            </h3>
-            <p class="text-lg text-gray-700 pt-1">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-            </p>
+              <div class="col-span-4 pt-6">
+          <div class="pb-6">
+            <img class="rounded-lg shadow-lg"
+              src="{{ url_for('img', path='/landing3/landing-reporting-screenshot.png') }}"
+              alt="TODO">
           </div>
-        </div>
-        <div class="col-span-2 bg-white rounded-lg">
-          <div class="p-4">
-            <h3 class="text-2xl font-semibold tracking-wide text-gray-900">
-              Intrinsic valuations
-            </h3>
-            <p class="text-lg text-gray-700 pt-1">
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.
-            </p>
-          </div>
-        </div>
-        <div class="col-span-2 bg-white rounded-lg">
-          <div class="p-4">
-            <h3 class="text-2xl font-semibold tracking-wide text-gray-900">
-              How was that calculated?
-            </h3>
-            <p class="text-lg text-gray-700 pt-1">
-              Hover over table cells and get the calculation in plain language.
-            </p>
-          </div>
-        </div>
-        <div class="col-span-2 bg-white rounded-lg">
-          <div class="p-4">
-            <h3 class="text-2xl font-semibold tracking-wide text-gray-900">
-              Tracking performance
-            </h3>
-            <p class="text-lg text-gray-700 pt-1">
-              Compare actuals with your model over time to dial in projections.
-            </p>
-          </div>
-        </div>
-      </div>
+              </div>
     </div>
   </section>
 
-  <section class="bg-gray-100 pt-16">
+  {# <section class="bg-gray-100 pt-16">
     <div class="px-32">
       <div class="grid grid-cols-4 gap-4">
         <div>
@@ -253,7 +163,7 @@
               Visibility to collaborate faster
             </h3>
             <p class="text-lg text-gray-700 pt-1">
-              Recent activity to track what you and your colleages have been
+              Recent activity to track what you and your colleagues have been
               up to.
             </p>
           </div>
@@ -292,24 +202,24 @@
 
       </div>
     </div>
-  </section>
+  </section> #}
 
-  <section class="bg-gray-100 px-32">
+  <section class="bg-gray-100 px-8 xl:px-32 pb-32 border-b-2">
     <div class="flex flex-col place-items-center justify-center pt-32">
       <div>
         <img class="h-20 w-auto" src="{{ url_for('img', path='/returnsuite-logo.svg') }}" alt="ReturnSuite logo" width="360px" height="85px">
       </div>
       <h2 class="text-5xl text-gray-900 font-semibold text-center pt-6" style="line-height: 3.25rem;">Discover a better<br> way to model</h2>
       <p class="max-w-prose pt-6 text-lg tracking-wide text-center text-gray-800">
-        Try out a free sample today and join the growing users finding ReturnSuite the right fit for their CRE modelling needs.
+        Try out a free sample today and join the growing users finding ReturnSuite the right fit for their CRE modeling needs.
       </p>
       <div class="pt-12">
-        <a href="#" class="bg-blue-500 text-white border-blue-500 rounded-md px-8 py-3 tracking-wide font-medium text-xl">Get started for free</a>
+        <a href="{{ app_website }}/signup" class="bg-blue-500 text-white border-blue-500 rounded-md px-8 py-3 tracking-wide font-medium text-xl">Get started for free</a>
       </div>
     </div>
   </section>
 
-  <section class="px-32 bg-gray-100 flex place-items-center gap-6 py-24 pt-32 pb-16">
+  {# <section class="px-32 bg-gray-100 flex place-items-center gap-6 py-24 pt-32 pb-16">
     <div class="w-2/3 px-4">
       <h2 class="text-2xl font-semibold text-gray-900">
         Never miss an update
@@ -331,5 +241,5 @@
         <label class="text-gray-800 text-base">I agree to receive marketing emails from ReturnSuite.</label>
       </div>
     </form>
-  </section>
+  </section> #}
 {% endblock content %}
