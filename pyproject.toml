@@ -10,11 +10,11 @@ packages = [{include = "returnsuite_website", from = "src"}]
 python = "^3.12"
 fastapi = "^0.115.5"
 Jinja2 = "^3.0.3"
-uvicorn = {extras = ["standard"], version = "^0.32.1"}
+uvicorn = {extras = ["standard"], version = "^0.34.0"}
 pydantic = {extras = ["email", "dotenv"], version = "^2.10.2"}
 pydantic-settings = "^2.4.0"
 loguru = "^0.7.2"
-python-multipart = "^0.0.19"
+python-multipart = "^0.0.20"
 Babel = "^2.9.1"
 SQLAlchemy = "^2.0.12"
 mariadb = "^1.1.11"
