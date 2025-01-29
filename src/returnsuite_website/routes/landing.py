@@ -27,7 +27,7 @@ async def get_index(request: Request, success: bool | None = None):
     logger.warning(f"User agent is {request.headers.get('User-Agent')}")
     return templates.TemplateResponse(
         request=request,
-        name="index2.html.jinja2",
+        name="index3.html.jinja2",
         context={"success": success},
     )
 
