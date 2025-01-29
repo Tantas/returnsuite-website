@@ -124,6 +124,64 @@ class JoinWaitlistForm:
         )
 
 
+@router.get("/flex-leasing-beta-partner")
+async def get_flex_leasing_beta_partner(request: Request, success: bool | None = None):
+    logger.warning(f"Flex leasing User agent is {request.headers.get('User-Agent')}")
+    return templates.TemplateResponse(
+        request=request,
+        name="flex-leasing-beta-partner.html.jinja2",
+        context={"success": success},
+    )
+
+
+@router.post("/flex-leasing-beta-partner")
+async def post_flex_leasing_beta_partner(
+    request: Request,
+    db: DBSession,
+    locale: Annotated[str, Depends(get_locale)],
+    form: Annotated[JoinWaitlistForm, Depends()],
+    user_agent: str | None = Header(None),
+):
+    ip_address = request.client.host
+    join_request = form.to_request(datetime.now(UTC), locale, ip_address, user_agent)
+    if is_ip_address_spam_waitlist(db, ip_address):
+        join_request.status = WaitlistStatus.spam
+    db.add(join_request)
+    db.commit()
+
+    if join_request.status is not WaitlistStatus.spam:
+        send_email(
+            to_address=get_app_settings().landing_contact_email,
+            callback_token=generate_token(16),
+            subject="Request to join as a flex leasing beta partner",
+            text_body=(
+                f"Name: {join_request.name}\n"
+                f"Organization: {join_request.organization if not None else '-'}\n"
+                f"Usage: {join_request.usage}\n"
+                f"Email: {join_request.email}\n"
+                f"LinkedIn Profile: {join_request.linkedin_url}\n"
+                f"Other Profile: {join_request.other_url}\n"
+                f"Locale: {join_request.locale if not None else '-'}\n"
+                f"Timezone: {join_request.timezone if not None else '-'}\n"
+                f"Time and Date: {join_request.created}\n"
+                f"IP Address: {ip_address}\n"
+                f"User Agent: {user_agent}\n"
+                f"Message: {join_request.message}\n"
+            ),
+        )
+    else:
+        logger.info(
+            f"Received flex partner request likely spam: {form.name} {form.organization} "
+            f"{form.email} {form.message}"
+        )
+
+    return RedirectResponse(
+        f"{request.url_for('get_flex_leasing_beta_partner').include_query_params(success='true')}"
+        f"#submission-success",
+        status_code=302,
+    )
+
+
 @router.post("/waitlist")
 async def post_waitlist(
     request: Request,

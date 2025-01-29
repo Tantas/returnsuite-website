@@ -1,0 +1,154 @@
+{% extends "layout.html.jinja2" %}
+{% set page_title = 'Flexible leasing beta partner - ' + app_title %}
+
+{% block content %}
+  <article class="border-b-2">
+    <section class="flex flex-col place-items-center pt-8 xl:pt-16 pb-12 bg-gray-100 w-full">
+      <div class="mx-4 md:mx-12 xl:mx-32 xl:w-1/2 pb-6">
+        <h1 class="text-lg font-medium tracking-wider text-blue-500 uppercase">Flexible leasing beta partner</h1>
+        <h2 class="text-4xl font-bold pt-2">Help shape the future of flexible leasing analysis</h2>
+        <p class="py-4 leading-6 text-lg text-gray-900 leading-7">
+          ReturnSuite is seeking three innovative CRE organizations to become beta partners for our new flexible leasing module. As the real estate industry evolves, we're transforming complex cash flow modeling into a simple, intuitive process. Now, we're building the same streamlined experience for flexible space underwriting.
+        </p>
+        <h3 class="text-lg font-medium">Program benefits</h3>
+        <ul class="list-disc flex flex-col gap-2 pt-2 pl-4 text-base">
+          <li>Early access to ReturnSuite's flexible leasing module</li>
+          <li>Direct influence on feature development and reporting outputs</li>
+          <li>Priority support and implementation assistance</li>
+          <li>Complimentary access during the beta period</li>
+          <li>Recognition as an industry innovator in flexible space valuation</li>
+        </ul>
+        <h3 class="text-lg font-medium pt-4">What we're looking for</h3>
+        <p class="pt-2 text-base">
+          We're seeking forward-thinking owners, operators, landlords, lenders or brokers who:
+        </p>
+        <ul class="list-disc flex flex-col gap-2 pt-2 pl-4 text-base">
+          <li>Actively work with flexible leasing arrangements</li>
+          <li>Want to improve their underwriting process</li>
+          <li>Willing to share insights about their analysis method</li>
+          <li>Can provide feedback on features and reporting</li>
+          <li>Have an interest in helping standardize flex space valuation</li>
+        </ul>
+        <h3 class="text-lg font-medium pt-4">Your commitment</h3>
+        <ul class="list-disc flex flex-col gap-2 pt-2 pl-4 text-base">
+          <li>2-3 feedback sessions over 3 months</li>
+          <li>Openness about your current underwriting process</li>
+          <li>Willingness to test new features and provide honest feedback</li>
+          <li>No financial obligation</li>
+        </ul>
+        <h3 class="text-lg font-medium pt-4">Our commitment</h3>
+        <ul class="list-disc flex flex-col gap-2 pt-2 pl-4 text-base">
+          <li>Leading the conversation on flex space valuation</li>
+          <li>Incorporating your feedback into product development</li>
+          <li>Protecting your confidential information</li>
+          <li>Minimizing impact on your day-to-day operations</li>
+          <li>Providing dedicated support throughout the beta</li>
+        </ul>
+      </div>
+    </section>
+    <section class="flex flex-col place-items-center pb-12 bg-gray-100 w-full">
+      <div class="mx-4 md:mx-12 xl:mx-32 w-full md:w-1/2 pb-6 bg-white rounded-md p-4 shadow-lg">
+        {% if success %}
+          <div class="w-full pt-2 px-2" id="submission-success">
+            <div class="flex flex-col place-items-center justify-center gap-6 text-gray-900 text-lg text-center bg-white rounded-lg border border-gray-400 p-12">
+              <svg class="inline-block h-40 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"></path>
+              </svg>
+              <h2 class="text-2xl font-medium">Request Sent</h2>
+              <p class="max-w-prose">
+                Thank you for applying to the flexible leasing beta. We will reach out as soon as we can. We can't wait to have you on board!
+              </p>
+            </div>
+          </div>
+        {% else %}
+          <form class="w-full" method="post" action="{{ url_for('post_flex_leasing_beta_partner') }}">
+            <h2 class="text-xl font-semibold text-gray-900 pb-2 tracking-wide">Apply now</h2>
+            <input type="hidden" id="timezone" name="timezone">
+            <script>
+                document.getElementById("timezone").value = Intl.DateTimeFormat().resolvedOptions().timeZone
+            </script>
+            <div class="flex flex-col gap-1.5 py-2">
+              <label for="name" class="font-bold text-gray-700">Name</label>
+              <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+                <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                  <input id="name" name="name" autocomplete="name" type="text" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="Full name" required>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1.5 py-2">
+              <label for="organization" class="font-bold text-gray-700">Organization</label>
+              <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+                <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                  <input id="organization" name="organization" autocomplete="organization" type="text" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="Company name" required>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1.5 py-2">
+              <label for="email" class="font-bold text-gray-700">Email</label>
+              <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+                <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                  <input id="email" name="email" autocomplete="email" type="email" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="email@company.com" required>
+                </div>
+              </div>
+            </div>
+            <fieldset class="flex flex-col gap-2 py-2">
+              <legend class="font-bold text-gray-700">Links (Optional)</legend>
+              <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+                <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                  <label for="linkedin_url" class="w-24 text-gray-800 font-semibold px-4">LinkedIn</label>
+                  <input id="linkedin_url" name="linkedin_url" type="url" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="https://linkedin.com/in/...">
+                </div>
+              </div>
+              <div class="rounded-md bg-gray-100 overflow-hidden flex border border-gray-300">
+                <div class="w-full flex place-items-center border-l-2 border-blue-500">
+                  <label for="other-url" class="w-24 text-gray-800 font-semibold px-4">Other</label>
+                  <input id="other-url" name="other_url" type="url" class="w-full bg-transparent p-4 font-semibold text-gray-800 placeholder-gray-500" placeholder="https://...">
+                </div>
+              </div>
+            </fieldset>
+            <div class="flex flex-col gap-1.5 py-2">
+              <label for="message" class="font-bold text-gray-700">Message (Optional)</label>
+              <div class="rounded-md bg-gray-100 overflow-hidden border border-gray-300">
+                <textarea id="message" name="message" class="w-full bg-transparent p-4 border-l-2 border-blue-500 font-normal text-gray-800" rows="5" placeholder="We are ..."></textarea>
+              </div>
+            </div>
+            <fieldset class="flex flex-col gap-1.5 py-2">
+              <legend class="font-bold text-gray-700 pt-2">Which best describes you?</legend>
+              <ul>
+                <li class="flex place-items-center gap-2">
+                  <input type="radio" id="usage-landlord" name="usage" value="Landlord" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required>
+                  <label for="usage-landlord" class="font-bold text-gray-800 text-base tracking-wide">Landlord</label>
+                </li>
+                <li class="flex place-items-center gap-2">
+                  <input type="radio" id="usage-lender" name="usage" value="Lender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <label for="usage-lender" class="font-bold text-gray-800 text-base tracking-wide">Lender</label>
+                </li>
+                <li class="flex place-items-center gap-2">
+                  <input type="radio" id="usage-investor" name="usage" value="Investor" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <label for="usage-investor" class="font-bold text-gray-800 text-base tracking-wide">Investor</label>
+                </li>
+                <li class="flex place-items-center gap-2">
+                  <input type="radio" id="usage-operator" name="usage" value="Operator" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <label for="usage-operator" class="font-bold text-gray-800 text-base tracking-wide">Operator</label>
+                </li>
+                <li class="flex place-items-center gap-2">
+                  <input type="radio" id="usage-commercial-agent" name="usage" value="Commercial Real Estate Agent" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <label for="usage-commercial-agent" class="font-bold text-gray-800 text-base tracking-wide">Broker</label>
+                </li>
+                <li class="flex place-items-center gap-2">
+                  <input type="radio" id="usage-other" name="usage" value="Other" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <label for="usage-other" class="font-bold text-gray-800 text-base tracking-wide">Other</label>
+                </li>
+              </ul>
+            </fieldset>
+            <div class="pt-2">
+              <button type="submit" class="bg-blue-500 text-base tracking-wide text-white hover:bg-blue-600 rounded-md py-2 px-6 my-1 font-semibold shadow-sm">
+                Apply
+              </button>
+            </div>
+          </form>
+        {% endif %}
+      </div>
+    </section>
+  </article>
+{% endblock content %}
