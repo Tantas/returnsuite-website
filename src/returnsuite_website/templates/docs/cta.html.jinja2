@@ -1,4 +1,4 @@
-<footer>
+<div class="w-full">
   <script>
     function footerData() {
       return {
@@ -103,7 +103,7 @@
           <div x-cloak>
             <small class="text-red-500 font-medium" x-text="newsletterEmail.errorMessage"></small>
           </div>
-          <small>You can unsubscribe at any time. Read our <a href="#" class="text-blue-500 hover:underline">privacy policy</a>.</small>
+          <small>You can unsubscribe at any time. Read our <a href="{{ url_for('get_privacy_policy') }}" class="text-blue-500 hover:underline">privacy policy</a>.</small>
         </div>
         <div x-cloak x-show="newsletterEmail.success">
           <p class="text-green-500">You have joined the ReturnSuite updates newsletter.</p>
@@ -112,4 +112,4 @@
       </form>
     </div>
   </div>
-</footer>
+</div>
