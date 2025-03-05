@@ -9,8 +9,6 @@ nav-group: Key Math Concepts in Finance
 
 ## Summary of the key math concepts used in finance
 
-Last updated November 15, 2024
-
 Financial analysts look at an asset as a series of cash flows that will
 happen in the future, including the cash that is expected to flow from the
 eventual sale of the asset. The fundamental question these analysts are

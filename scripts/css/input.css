@@ -135,7 +135,7 @@ select {
   }
 
   .documentation-breadcrumbs li {
-    @apply inline-block text-sm text-gray-600 tracking-wide font-light
+    @apply inline-block text-sm text-gray-700 tracking-wide font-light
   }
   .documentation-breadcrumbs li:not(:last-child):after {
     @apply inline-block px-2; content: "/";
@@ -144,7 +144,7 @@ select {
     @apply text-gray-800
   }
   .documentation-article h1 {
-    @apply text-3xl tracking-wide font-semibold text-gray-900 py-1
+    @apply text-4xl tracking-wide font-semibold text-gray-900 py-1
   }
   .documentation-article h2 {
     @apply text-2xl text-gray-900 tracking-wide py-2

@@ -7,7 +7,7 @@ nav-group: Updating the model
 
 # Spaces and Uses
 
-## Spaces
+## Split your property into leasable area to fill
 
 Spaces define the different physical areas of a property depending on the
 structural use of the property. These could be by unit, floor, building,

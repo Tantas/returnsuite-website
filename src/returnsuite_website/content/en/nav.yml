@@ -1,4 +1,5 @@
 # Matches the 'mkdocs.yml' specification found in the python 'mkdocs' project.
+# Allows the documentation to be easily placed in an open-source framework.
 # Dictionary keys are the route slug and should be lowercase.
 nav:
   - docs:
@@ -10,6 +11,38 @@ nav:
       - math:
         - docs/concepts/math/index.md
         - time-value-of-money: docs/concepts/math/time-value-of-money.md
+        - net-present-value: docs/concepts/math/net-present-value.md
+        - risk-rates: docs/concepts/math/risk-rates.md
+        - internal-rate-of-return: docs/concepts/math/internal-rate-of-return.md
+        - perpetuities: docs/concepts/math/perpetuities.md
+        - gordon-growth-model: docs/concepts/math/gordon-growth-model.md
+        - expected-value: docs/concepts/math/expected-value.md
+      - valuation-approaches:
+         - docs/concepts/valuation-approaches/index.md
+         - market-approach: docs/concepts/valuation-approaches/market-approach.md
+         - cost-approach: docs/concepts/valuation-approaches/cost-approach.md
+         - income-approach:
+           - docs/concepts/valuation-approaches/index.md
+           - methods: docs/concepts/valuation-approaches/income-approach/income-approach-methods.md
+           - standard-direct-capitalization: docs/concepts/valuation-approaches/income-approach/standard-direct-capitalization.md
+           - tiered-direct-capitalization: docs/concepts/valuation-approaches/income-approach/tiered-direct-capitalization.md
+           - top-slice-method: docs/concepts/valuation-approaches/income-approach/top-slice-method.md
+           - discounted-cash-flow-method: docs/concepts/valuation-approaches/income-approach/discounted-cash-flow-method.md
+         - summary: docs/concepts/valuation-approaches/summary-of-methods.md
+      - noi-and-cash-flow:
+          - docs/concepts/noi-and-cash-flow/index.md
+          - modeling-real-estate: docs/concepts/noi-and-cash-flow/modeling-real-estate.md
+          - potential-base-rent: docs/concepts/noi-and-cash-flow/potential-base-rent.md
+          - actual-base-rent: docs/concepts/noi-and-cash-flow/actual-base-rent.md
+          - additional-rent: docs/concepts/noi-and-cash-flow/additional-rent.md
+          - other-tenant-revenue: docs/concepts/noi-and-cash-flow/other-tenant-revenue.md
+          - other-revenue: docs/concepts/noi-and-cash-flow/other-revenue.md
+          - potential-gross-income: docs/concepts/noi-and-cash-flow/potential-gross-income.md
+          - vacancy-and-credit-loss: docs/concepts/noi-and-cash-flow/vacancy-and-credit-loss.md
+          - effective-gross-income: docs/concepts/noi-and-cash-flow/effective-gross-income.md
+          - operating-expenses: docs/concepts/noi-and-cash-flow/operating-expenses.md
+          - net-operating-income: docs/concepts/noi-and-cash-flow/net-operating-income.md
+          - noi-and-cash-flow-statement: docs/concepts/noi-and-cash-flow/noi-and-cash-flow-statement.md
       - analysis-and-sale:
         - docs/concepts/analysis-and-sale/index.md
         - investment-analysis: docs/concepts/analysis-and-sale/investment-analysis.md
