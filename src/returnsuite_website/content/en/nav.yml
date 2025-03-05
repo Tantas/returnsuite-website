@@ -15,7 +15,12 @@ nav:
         - investment-analysis: docs/concepts/analysis-and-sale/investment-analysis.md
     - manual:
       - docs/manual/index.md
-      - recent-activity: docs/manual/recent-activity.md
+      - how-it-works: docs/manual/how-it-works.md
+      - integrating-with-returnsuite: docs/manual/integrating.md
+      - navigation:
+        - docs/manual/navigation/index.md
+        - recent-activity: docs/manual/navigation/recent-activity.md
+        - properties: docs/manual/navigation/properties.md
       - property:
         - docs/manual/property/index.md
         - details:
@@ -41,6 +46,7 @@ nav:
           - investment-returns: docs/manual/property/model/investment-returns.md
         - reports:
           - docs/manual/property/reports/index.md
+          - controls: docs/manual/property/reports/reporting-controls.md
           - statements: docs/manual/property/reports/statements.md
         - settings:
           - docs/manual/property/settings/index.md

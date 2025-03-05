@@ -11,76 +11,166 @@
     <script defer src="{{ url_for('js', path='/lib/alpinejs-3.14.1.min.js') }}"></script>
     <style>svg { display: inline-block; } [x-cloak] { display: none; }</style>
   </head>
-  <body>
-    <nav class="w-full">
-      {% set side_menu = menu.children %}
-      <ul class="flex flex-row gap-2 w-full">
-        {% for header_menu_item in menu %}
-          <li>
-            <a href="{{ header_menu_item.url }}">{{ header_menu_item.title }}</a>
+  <body class="bg-white h-screen w-screen text-sm">
+    <div>
+      <nav class="border-b border-gray-300 md:fixed top-0 w-full bg-white z-50">
+        <ul class="flex place-items-center justify-between gap-3 mx-4 pt-2 text-base text-gray-800">
+          <li class="flex gap-0.5">
+            <a href="{{ url_for('get_index') }}" title="ReturnSuite">
+              <img class="h-12 w-auto" src="{{ url_for('img', path='/returnsuite-logo.svg') }}" alt="ReturnSuite logo" width="360px" height="85px">
+            </a>
+            <span class="font-medium text-gray-800">DOCS</span>
           </li>
-        {% endfor %}
-      </ul>
-    </nav>
-    <div class="flex flex-row-reverse">
-      <main>
-        <article class="documentation-article">
-          {{ content_body|safe }}
-        </article>
-      </main>
 
-      <aside class="w-1/2">
-        <ol>
-          {% for side_menu_item in side_menu %}
-            {% if not side_menu_item.children %}
-              <li>
-                <a href="{{ side_menu_item.route }}">{{ side_menu_item.nav_title }}</a>
-              </li>
-            {% else %}
-              <li>
-                <div>{{ side_menu_item.nav_group }}</div>
-                <ol class="pl-2">
-                  <li>
-                    <a href="{{ side_menu_item.route }}">{{ side_menu_item.nav_title }}</a>
-                  </li>
-                  {% for nested_menu_item in side_menu_item.children %}
-                    {% if not nested_menu_item.children %}
-                      <li>
-                        <a href="{{ nested_menu_item.route }}">{{ nested_menu_item.nav_title }}</a>
-                      </li>
-                    {% else %}
-                      <div>{{ nested_menu_item.nav_group }}</div>
-                      <ol class="pl-2">
-                        <li>
-                          <a href="{{ nested_menu_item.route }}">{{ nested_menu_item.nav_title }}</a>
-                        </li>
-                        {% for tertiary_menu_item in nested_menu_item.children %}
-                           <li>
-                             {% if not tertiary_menu_item.children %}
-                               <a href="{{ tertiary_menu_item.route }}">{{ tertiary_menu_item.nav_title }}</a>
-                             {% else %}
-                               <div>{{ tertiary_menu_item.nav_group }}</div>
-                               <ol class="pl-2">
-                                 <li>
-                                   <a href="{{ tertiary_menu_item.route }}">{{ tertiary_menu_item.nav_title }}</a>
-                                 </li>
-                                 {% for quaternary_menu_item in tertiary_menu_item.children %}
-                                   <li><a href="{{ quaternary_menu_item.route }}">{{ quaternary_menu_item.nav_title }}</a></li>
-                                 {% endfor %}
-                               </ol>
-                             {% endif %}
-                           </li>
-                        {% endfor %}
-                      </ol>
-                    {% endif %}
-                  {% endfor %}
-                </ol>
-              </li>
+          <li class="ml-auto">
+            <div class="h-12 flex place-items-center px-6">
+              <form class="my-0 flex place-items-center rounded-full border border-gray-300 overflow-hidden">
+                <button type="submit">
+                  <svg class="inline-block h-6 px-2 pl-3 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                  </svg>
+                </button>
+                <input type="search" placeholder="Search the docs or ask a question" class="py-2 px-2 placeholder-gray-500 text-sm w-96">
+              </form>
+            </div>
+          </li>
+
+          <li class="hidden md:block ml-auto ">
+            <a href="{{ app_website }}/signup" class="text-blue-600 pr-3 tracking-wide hover:text-gray-900">Create account</a>
+            <!--<a href="{{ app_website }}/signup" class="bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 hover:border-blue-600 rounded-md py-2 px-6 font-semibold whitespace-nowrap shadow-sm tracking-wide">Sign Up</a>-->
+          </li>
+          <li class="hidden md:block ">
+            <a href="{{ app_website }}/login" class="border rounded-md border-gray-300 font-medium px-4 py-1.5 whitespace-nowrap hover:text-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
+          </li>
+
+        </ul>
+        <ol class="bg-white flex place-items-center gap-8 mx-4 tracking-wide text-gray-900 text-base">
+        {% set side_menu = {"value": menu.children[0] } %}
+          {% for header_menu_item in menu.children %}
+            {% if header_menu_item.route in request.url.path %}
+              {% do side_menu.update({"value": header_menu_item}) %}
             {% endif %}
+            <li>
+              <a href="{{ header_menu_item.route }}" class="inline-block border-blue-500 py-2{% if header_menu_item.route in request.url.path %} border-b-2{% endif %}">{{ header_menu_item.nav_title }}</a>
+            </li>
           {% endfor %}
+          <li class="ml-auto"><a href="{{ url_for('get_contact') }}" class="inline-block border-blue-500 py-2">Contact Support</a></li>
         </ol>
-      </aside>
+      </nav>
+      <div class="h-[6.2rem]"></div>
+      <div class="flex flex-row-reverse">
+        <main class="w-full">
+          <article class="documentation-article p-6 pt-12">
+            {{ content_body|safe }}
+          </article>
+        </main>
+
+        <aside class="absolute top-[6.2rem] sticky border-r border-gray-300 w-[20rem]" style="height: calc(100vh - 7.0rem)">
+          <div class="absolute z-10 absolute top-3 right-4 text-gray-500 hover:text-gray-800">
+            <button type="button" @click="menu_open = !menu_open" x-show="menu_open" title="Hide table of contents" style="transform: rotate(180deg);">
+              <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+                <path d="M80-240v-480h80v480H80Zm560 0-57-56 144-144H240v-80h487L584-664l56-56 240 240-240 240Z"></path>
+              </svg>
+            </button>
+          </div>
+          <ol class="p-4 text-gray-800 flex flex-col gap-3">
+            <li class="pl-4">
+              <a href="{{ side_menu["value"].route }}" {% if side_menu["value"].route == request.url.path %}class="font-medium text-blue-600"{% endif %}>Overview</a>
+            </li>
+            {% for side_menu_item in side_menu["value"].children %}
+              {% if not side_menu_item.children %}
+                <li class="pl-4">
+                  <a href="{{ side_menu_item.route }}" {% if side_menu_item.route == request.url.path %}class="font-medium text-blue-600"{% endif %}>{{ side_menu_item.nav_title }}</a>
+                </li>
+              {% else %}
+                <li>
+                  <hr class="mb-4 mt-1 border-gray-300">
+                  <div class="pb-3 font-medium uppercase tracking-wide">
+                    <span>{{ side_menu_item.nav_group }}</span>
+                  </div>
+                  <ol class="flex flex-col gap-3">
+                    <li class="pl-4">
+                      <a href="{{ side_menu_item.route }}" {% if side_menu_item.route == request.url.path %}class="font-medium text-blue-600"{% endif %}>{{ side_menu_item.nav_title }}</a>
+                    </li>
+                    {% for nested_menu_item in side_menu_item.children %}
+                      {% if not nested_menu_item.children %}
+                        <li class="pl-4">
+                          <a href="{{ nested_menu_item.route }}" {% if nested_menu_item.route == request.url.path %}class="font-medium text-blue-600"{% endif %}>{{ nested_menu_item.nav_title }}</a>
+                        </li>
+                      {% else %}
+                        <div x-data="{ collapsed: true }">
+                          <div class="flex place-items-center">
+                            <button type="button" title="Expand" x-show="collapsed" @click="collapsed = !collapsed" class="py-0.5 -ml-0.5">
+                              <svg class="inline-block h-4" viewBox="0 -960 960 960" fill="currentColor">
+                                <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
+                              </svg>
+                              <span>{{ nested_menu_item.nav_group }}</span>
+                            </button>
+                          </div>
+                          <button type="button" title="Collapse" x-show="!collapsed" @click="collapsed = !collapsed" class="py-0.5 -ml-0.5">
+                            <svg class="inline-block h-4" viewBox="0 -960 960 960" fill="currentColor">
+                              <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+                            </svg>
+                            <span class="text-gray-900 font-medium">{{ nested_menu_item.nav_group }}</span>
+                          </button>
+                          <ol class="flex flex-col gap-3 pt-3 text-gray-700" x-show="!collapsed">
+                            <li class="pl-6">
+                              <a href="{{ nested_menu_item.route }}" {% if nested_menu_item.route == request.url.path %}class="font-medium text-blue-600"{% endif %}>{{ nested_menu_item.nav_title }}</a>
+                            </li>
+                            {% for tertiary_menu_item in nested_menu_item.children %}
+                               <li class="pl-6">
+                                 {% if not tertiary_menu_item.children %}
+                                   <a href="{{ tertiary_menu_item.route }}" {% if tertiary_menu_item.route == request.url.path %}class="font-medium text-blue-600"{% endif %}>{{ tertiary_menu_item.nav_title }}</a>
+                                 {% else %}
+                                   <div>
+                                     <div class="flex place-items-center">
+                                       <button type="button" title="Expand" x-show="entry.collapsed" @click="entry.collapsed = !entry.collapsed" class="py-0.5">
+                                         <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
+                                           <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
+                                         </svg>
+                                         <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
+                                       </button>
+                                       <span>{{ tertiary_menu_item.nav_group }}</span>
+                                     </div>
+                                   </div>
+                                   <ol>
+                                     <li class="pl-4">
+                                       <a href="{{ tertiary_menu_item.route }}">{{ tertiary_menu_item.nav_title }}</a>
+                                     </li>
+                                     {% for quaternary_menu_item in tertiary_menu_item.children %}
+                                       <li class="pl-4">
+                                         <a href="{{ quaternary_menu_item.route }}">{{ quaternary_menu_item.nav_title }}</a>
+                                       </li>
+                                     {% endfor %}
+                                   </ol>
+                                 {% endif %}
+                               </li>
+                            {% endfor %}
+                          </ol>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </ol>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ol>
+
+          <div class="absolute bottom-0 border-t border-gray-300 bg-white w-full h-12 flex place-items-center">
+            <button type="button" title="Change langauge" class="px-4 ml-0.5 flex place-items-center gap-4">
+              <svg class="inline-block h-3" viewBox="0 0 9600 4800">
+	              <path fill="#d52b1e" d="m0 0h2400l99 99h4602l99-99h2400v4800h-2400l-99-99h-4602l-99 99H0z"></path>
+	              <path fill="#fff" d="m2400 0h4800v4800h-4800zm2490 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z"></path>
+              </svg>
+              <span class="font-medium tracking-wide" x-show="menu_open">Canada - English</span>
+            </button>
+          </div>
+        </aside>
+
+      </div>
 
     </div>
+    {% include "components/analytics.html.jinja2" %}
+    {% include "components/livereload.html.jinja2" %}
   </body>
 </html>

@@ -1,9 +1,9 @@
 ---
 title: TODO - ReturnSuite Docs
 description: TODO - Add a description
-nav-title: Using ReturnSuite
+nav-title: How ReturnSuite works
 nav-group: Using ReturnSuite
 ---
 
 
-# Using ReturnSuite
+# How it Works

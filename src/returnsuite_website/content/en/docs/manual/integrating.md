@@ -1,9 +1,8 @@
 ---
 title: TODO - ReturnSuite Docs
 description: TODO - Add a description
-nav-title: Using ReturnSuite
+nav-title: Integrating your workflow
 nav-group: Using ReturnSuite
 ---
 
-
-# Using ReturnSuite
+# Integrating with ReturnSuite
