@@ -1,13 +1,22 @@
+from importlib.resources.abc import Traversable
+
 from fastapi import APIRouter, Request
 from starlette.responses import HTMLResponse, RedirectResponse
 
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
 
+from importlib.resources import files
+from typing import Self
+
+import markdown
+import yaml
+from pydantic import BaseModel
+
 router = APIRouter(default_response_class=HTMLResponse)
 
 
-@router.get("/docs")
+@router.get("/docs2")
 async def get_documentation(request: Request):
     if get_app_settings().hide_docs:
         return RedirectResponse("/")
@@ -17,7 +26,7 @@ async def get_documentation(request: Request):
     )
 
 
-@router.get("/docs/getting-started")
+@router.get("/docs2/getting-started")
 async def get_getting_started_overview(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -25,8 +34,7 @@ async def get_getting_started_overview(request: Request):
     )
 
 
-
-@router.get("/docs/concepts/introduction")
+@router.get("/docs2/concepts/introduction")
 async def get_concepts_introduction(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -34,7 +42,7 @@ async def get_concepts_introduction(request: Request):
     )
 
 
-@router.get("/docs/concepts/foundational-concepts")
+@router.get("/docs2/concepts/foundational-concepts")
 async def get_concepts_foundational_concepts(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -42,7 +50,7 @@ async def get_concepts_foundational_concepts(request: Request):
     )
 
 
-@router.get("/docs/concepts/math/overview")
+@router.get("/docs2/concepts/math/overview")
 async def get_concepts_math_overview(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -50,7 +58,7 @@ async def get_concepts_math_overview(request: Request):
     )
 
 
-@router.get("/docs/concepts/math/time-value-of-money")
+@router.get("/docs2/concepts/math/time-value-of-money")
 async def get_concepts_time_value_of_money(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -58,7 +66,7 @@ async def get_concepts_time_value_of_money(request: Request):
     )
 
 
-@router.get("/docs/concepts/math/net-present-value")
+@router.get("/docs2/concepts/math/net-present-value")
 async def get_concepts_net_present_value(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -66,7 +74,7 @@ async def get_concepts_net_present_value(request: Request):
     )
 
 
-@router.get("/docs/concepts/math/risk-rates")
+@router.get("/docs2/concepts/math/risk-rates")
 async def get_concepts_risk_rates(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -74,7 +82,7 @@ async def get_concepts_risk_rates(request: Request):
     )
 
 
-@router.get("/docs/concepts/math/internal-rate-of-return")
+@router.get("/docs2/concepts/math/internal-rate-of-return")
 async def get_concepts_internal_rate_of_return(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -82,7 +90,7 @@ async def get_concepts_internal_rate_of_return(request: Request):
     )
 
 
-@router.get("/docs/concepts/math/perpetuities")
+@router.get("/docs2/concepts/math/perpetuities")
 async def get_concepts_perpetuities(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -90,7 +98,7 @@ async def get_concepts_perpetuities(request: Request):
     )
 
 
-@router.get("/docs/concepts/math/gordon-growth-model")
+@router.get("/docs2/concepts/math/gordon-growth-model")
 async def get_concepts_gordon_growth_model(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -98,7 +106,7 @@ async def get_concepts_gordon_growth_model(request: Request):
     )
 
 
-@router.get("/docs/concepts/math/expected-value")
+@router.get("/docs2/concepts/math/expected-value")
 async def get_concepts_expected_value(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -106,7 +114,7 @@ async def get_concepts_expected_value(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi")
+@router.get("/docs2/concepts/noi")
 async def get_concepts_noi(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -114,7 +122,7 @@ async def get_concepts_noi(request: Request):
     )
 
 
-@router.get("/docs/concepts/valuation-approaches/overview")
+@router.get("/docs2/concepts/valuation-approaches/overview")
 async def get_concepts_valuation_approaches_overview(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -122,7 +130,7 @@ async def get_concepts_valuation_approaches_overview(request: Request):
     )
 
 
-@router.get("/docs/concepts/valuation-approaches/market-approach")
+@router.get("/docs2/concepts/valuation-approaches/market-approach")
 async def get_concepts_valuation_approaches_market_approach(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -130,7 +138,7 @@ async def get_concepts_valuation_approaches_market_approach(request: Request):
     )
 
 
-@router.get("/docs/concepts/valuation-approaches/cost-approach")
+@router.get("/docs2/concepts/valuation-approaches/cost-approach")
 async def get_concepts_valuation_approaches_cost_approach(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -138,7 +146,7 @@ async def get_concepts_valuation_approaches_cost_approach(request: Request):
     )
 
 
-@router.get("/docs/concepts/valuation-approaches/income-approach")
+@router.get("/docs2/concepts/valuation-approaches/income-approach")
 async def get_concepts_valuation_approaches_income_approach(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -146,7 +154,7 @@ async def get_concepts_valuation_approaches_income_approach(request: Request):
     )
 
 
-@router.get("/docs/concepts/valuation-approaches/income-approach-methods")
+@router.get("/docs2/concepts/valuation-approaches/income-approach-methods")
 async def get_concepts_valuation_approaches_income_approach_methods(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -154,7 +162,7 @@ async def get_concepts_valuation_approaches_income_approach_methods(request: Req
     )
 
 
-@router.get("/docs/concepts/noi/overview")
+@router.get("/docs2/concepts/noi/overview")
 async def get_concepts_noi_overview(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -162,7 +170,7 @@ async def get_concepts_noi_overview(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/real-estate-model")
+@router.get("/docs2/concepts/noi/real-estate-model")
 async def get_concepts_noi_real_estate_model(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -170,7 +178,7 @@ async def get_concepts_noi_real_estate_model(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/market-and-potential-base-rent")
+@router.get("/docs2/concepts/noi/market-and-potential-base-rent")
 async def get_concepts_noi_market_and_potential_base_rent(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -178,7 +186,7 @@ async def get_concepts_noi_market_and_potential_base_rent(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/actual-or-projected-base-rent")
+@router.get("/docs2/concepts/noi/actual-or-projected-base-rent")
 async def get_concepts_noi_projected_base_real_rent(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -186,7 +194,7 @@ async def get_concepts_noi_projected_base_real_rent(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/additional-rent")
+@router.get("/docs2/concepts/noi/additional-rent")
 async def get_concepts_noi_additional_rent(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -194,7 +202,7 @@ async def get_concepts_noi_additional_rent(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/other-tenant-revenue")
+@router.get("/docs2/concepts/noi/other-tenant-revenue")
 async def get_concepts_noi_other_tenant_revenue(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -202,7 +210,7 @@ async def get_concepts_noi_other_tenant_revenue(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/other-revenue")
+@router.get("/docs2/concepts/noi/other-revenue")
 async def get_concepts_noi_other_revenue(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -210,7 +218,7 @@ async def get_concepts_noi_other_revenue(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/potential-gross-income")
+@router.get("/docs2/concepts/noi/potential-gross-income")
 async def get_concepts_noi_potential_gross_income(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -218,7 +226,7 @@ async def get_concepts_noi_potential_gross_income(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/vacancy-and-credit-loss")
+@router.get("/docs2/concepts/noi/vacancy-and-credit-loss")
 async def get_concepts_noi_vacancy_and_credit_loss(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -226,7 +234,7 @@ async def get_concepts_noi_vacancy_and_credit_loss(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/effective-gross-income")
+@router.get("/docs2/concepts/noi/effective-gross-income")
 async def get_concepts_noi_effective_gross_income(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -234,7 +242,7 @@ async def get_concepts_noi_effective_gross_income(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/operating-expenses")
+@router.get("/docs2/concepts/noi/operating-expenses")
 async def get_concepts_noi_operating_expenses(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -242,7 +250,7 @@ async def get_concepts_noi_operating_expenses(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/net-operating-income")
+@router.get("/docs2/concepts/noi/net-operating-income")
 async def get_concepts_noi_net_operating_income(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -250,7 +258,7 @@ async def get_concepts_noi_net_operating_income(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/noi-and-cash-flow-statement")
+@router.get("/docs2/concepts/noi/noi-and-cash-flow-statement")
 async def get_concepts_noi_noi_and_cash_flow_statement(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -258,7 +266,7 @@ async def get_concepts_noi_noi_and_cash_flow_statement(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/valuation-and-capitalization")
+@router.get("/docs2/concepts/noi/valuation-and-capitalization")
 async def get_concepts_noi_valuation_and_capitalization(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -266,7 +274,7 @@ async def get_concepts_noi_valuation_and_capitalization(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/exercise-1")
+@router.get("/docs2/concepts/noi/exercise-1")
 async def get_concepts_noi_exercise_1(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -274,7 +282,7 @@ async def get_concepts_noi_exercise_1(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/valuation-tiered-direct-capitalization")
+@router.get("/docs2/concepts/noi/valuation-tiered-direct-capitalization")
 async def get_concepts_noi_valuation_tiered_direct_capitalization(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -282,7 +290,7 @@ async def get_concepts_noi_valuation_tiered_direct_capitalization(request: Reque
     )
 
 
-@router.get("/docs/concepts/noi/exercise-2")
+@router.get("/docs2/concepts/noi/exercise-2")
 async def get_concepts_noi_exercise_2(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -290,7 +298,7 @@ async def get_concepts_noi_exercise_2(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/valuation-top-slice")
+@router.get("/docs2/concepts/noi/valuation-top-slice")
 async def get_concepts_noi_valuation_top_slice(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -298,7 +306,7 @@ async def get_concepts_noi_valuation_top_slice(request: Request):
     )
 
 
-@router.get("/docs/concepts/noi/exercise-3")
+@router.get("/docs2/concepts/noi/exercise-3")
 async def get_concepts_noi_exercise_3(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -306,7 +314,7 @@ async def get_concepts_noi_exercise_3(request: Request):
     )
 
 
-@router.get("/docs/concepts/spaces-and-uses/overview")
+@router.get("/docs2/concepts/spaces-and-uses/overview")
 async def get_concepts_spaces_and_uses_overview(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -314,7 +322,7 @@ async def get_concepts_spaces_and_uses_overview(request: Request):
     )
 
 
-@router.get("/docs/concepts/spaces-and-uses/spaces")
+@router.get("/docs2/concepts/spaces-and-uses/spaces")
 async def get_concepts_spaces_and_uses_spaces(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -322,7 +330,7 @@ async def get_concepts_spaces_and_uses_spaces(request: Request):
     )
 
 
-@router.get("/docs/concepts/analysis/overview")
+@router.get("/docs2/concepts/analysis/overview")
 async def get_concepts_analysis_overview(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -330,7 +338,7 @@ async def get_concepts_analysis_overview(request: Request):
     )
 
 
-@router.get("/docs/concepts/analysis/analysis-period")
+@router.get("/docs2/concepts/analysis/analysis-period")
 async def get_concepts_analysis_analysis_period(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -338,7 +346,7 @@ async def get_concepts_analysis_analysis_period(request: Request):
     )
 
 
-@router.get("/docs/concepts/analysis/reversionary-value")
+@router.get("/docs2/concepts/analysis/reversionary-value")
 async def get_concepts_analysis_reversionary_value(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -346,7 +354,7 @@ async def get_concepts_analysis_reversionary_value(request: Request):
     )
 
 
-@router.get("/docs/concepts/analysis/valuation-method")
+@router.get("/docs2/concepts/analysis/valuation-method")
 async def get_concepts_analysis_valuation_method(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -354,7 +362,7 @@ async def get_concepts_analysis_valuation_method(request: Request):
     )
 
 
-@router.get("/docs/concepts/analysis/noi-line-adjustments")
+@router.get("/docs2/concepts/analysis/noi-line-adjustments")
 async def get_concepts_analysis_noi_line_adjustments(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -362,7 +370,7 @@ async def get_concepts_analysis_noi_line_adjustments(request: Request):
     )
 
 
-@router.get("/docs/concepts/analysis/reversionary-capitalization-rate")
+@router.get("/docs2/concepts/analysis/reversionary-capitalization-rate")
 async def get_concepts_analysis_reversionary_capitalization_rate(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -370,7 +378,7 @@ async def get_concepts_analysis_reversionary_capitalization_rate(request: Reques
     )
 
 
-@router.get("/docs/concepts/analysis/value-adjustments")
+@router.get("/docs2/concepts/analysis/value-adjustments")
 async def get_concepts_analysis_value_adjustments(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -378,9 +386,156 @@ async def get_concepts_analysis_value_adjustments(request: Request):
     )
 
 
-@router.get("/docs/concepts/analysis/investment-analysis")
+@router.get("/docs2/concepts/analysis/investment-analysis")
 async def get_concepts_analysis_investment_analysis(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="docs/concepts/analysis/08-investment-analysis.html.jinja2",
     )
+
+
+class MenuRoot(BaseModel):
+    children: list[Self] = []
+
+
+class MenuItem2(MenuRoot):
+    title: str
+    description: str
+    nav_title: str
+    nav_group: str
+    file: str
+    route: str
+    # page: str
+    selected: bool = False
+    expanded: bool = False
+
+    @classmethod
+    def try_again(cls, nav: Traversable) -> MenuRoot:
+
+        def recurse(item: str | dict[str, str] | list, path: str = "") -> MenuRoot:
+            if isinstance(item, str):
+                file = files("returnsuite_website") / "content" / "en" / item
+                md = markdown.Markdown(extensions=['meta'])
+                md.convert(file.read_text())
+
+                # noinspection PyUnresolvedReferences
+                metadata = md.Meta
+                return MenuItem2(
+                        title=metadata["title"][0],
+                        description=metadata["description"][0],
+                        nav_title=metadata["nav-title"][0],
+                        nav_group=metadata["nav-group"][0],
+                        file=item,
+                        route=path,
+                        # page=markdown.markdown(
+                        #     file.read_text(),
+                        #     extensions=[
+                        #         "markdown.extensions.def_list",
+                        #         'meta',
+                        #     ]
+                        # )
+                    )
+            elif isinstance(item, dict):
+                for entry in item.items():
+                    return recurse(entry[1], f"{path}/{entry[0]}")
+            elif isinstance(item, list):
+                list_root = recurse(item[0], path)
+                for child in item[1:]:
+                    list_root.children.append(recurse(child, path))
+                return list_root
+
+        data = yaml.safe_load(nav.read_bytes())
+        return recurse(data["nav"])
+
+nav_file = files("returnsuite_website") / "content" / "en" / "nav.yml"
+pages = MenuItem2.try_again(nav_file)
+
+print(pages)
+
+
+
+class PageContent(BaseModel):
+    file: str
+    route: str
+
+    @classmethod
+    def load_pages(cls, nav: Traversable) -> list[Self]:
+        pages = []
+
+        def recurse_navigation(item: str | dict[str, str | list], path: str = ""):
+            if isinstance(item, str):
+                pages.append(PageContent(file=item, route=path))
+            elif isinstance(item, dict):
+                for entry in item.items():
+                    recurse_navigation(entry[1], f"{path}/{entry[0]}")
+            elif isinstance(item, list):
+                for child in item:
+                    recurse_navigation(child, path)
+
+        data = yaml.safe_load(nav.read_bytes())
+        recurse_navigation(data["nav"])
+
+        return pages
+
+
+@router.get("/docs/{path:path}")
+def get_docs2(request: Request, path: str):
+    return get_docs_locale(request, "en-us", path)
+
+
+@router.get("/en-au/docs/{path:path}")
+def get_docs_en_au(request: Request, path: str):
+    return get_docs_locale(request, "en-au", path)
+
+
+@router.get("/en-ca/docs/{path:path}")
+def get_docs_en_ca(request: Request, path: str):
+    return get_docs_locale(request, "en-ca", path)
+
+
+@router.get("/en-gb/docs/{path:path}")
+def get_docs_en_gb(request: Request, path: str):
+    return get_docs_locale(request, "en-gb", path)
+
+
+@router.get("/en-nz/docs/{path:path}")
+def get_docs_en_nz(request: Request, path: str):
+    return get_docs_locale(request, "en-nz", path)
+
+
+@router.get("/en-us/docs/{path:path}")
+def get_docs_en_us(request: Request, path: str):
+    return RedirectResponse(request.url_for("get_docs2", path=path))
+
+
+def get_docs_locale(request: Request, locale: str, path: str):
+    nav_file = files("returnsuite_website") / "content" / "en" / "nav.yml"
+    pages = PageContent.load_pages(nav_file)
+    for page in pages:
+
+        if page.route.replace("/docs/", "") == path:
+            file = files("returnsuite_website") / "content" / "en" / page.file
+            output_html = markdown.markdown(file.read_text(), extensions=["markdown.extensions.def_list", 'meta'])
+
+            md = markdown.Markdown(extensions=['meta'])
+            md.convert(file.read_text())
+
+            # noinspection PyUnresolvedReferences
+            metadata = md.Meta
+
+            title = metadata["title"][0]
+            description = metadata["description"][0]
+            print(title + description)
+
+            return templates.TemplateResponse(
+                request=request,
+                name="docs.html.jinja2",
+                context={
+                    "page_title": title,
+                    "description": description,
+                    "content_body": output_html,
+                    "menu": MenuItem2.try_again(nav_file),
+                }
+            )
+
+    raise FileNotFoundError()

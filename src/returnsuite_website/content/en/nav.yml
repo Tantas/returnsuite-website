@@ -1,0 +1,48 @@
+# Matches the 'mkdocs.yml' specification found in the python 'mkdocs' project.
+# Dictionary keys are the route slug and should be lowercase.
+nav:
+  - docs:
+    - docs/index.md
+    - getting-started:
+        - docs/start/index.md
+    - concepts:
+      - docs/concepts/index.md
+      - math:
+        - docs/concepts/math/index.md
+        - time-value-of-money: docs/concepts/math/time-value-of-money.md
+      - analysis-and-sale:
+        - docs/concepts/analysis-and-sale/index.md
+        - investment-analysis: docs/concepts/analysis-and-sale/investment-analysis.md
+    - manual:
+      - docs/manual/index.md
+      - recent-activity: docs/manual/recent-activity.md
+      - property:
+        - docs/manual/property/index.md
+        - details:
+          - docs/manual/property/details/index.md
+          - general-information: docs/manual/property/details/general-information.md
+          - property-location: docs/manual/property/details/property-location.md
+          - listing-details: docs/manual/property/details/listing-details.md
+          - external-links: docs/manual/property/details/external-links.md
+          - portfolio-groups: docs/manual/property/details/portfolio-groups.md
+        - model:
+          - docs/manual/property/model/index.md
+          - schedules: docs/manual/property/model/schedules.md
+          - leasing-rules: docs/manual/property/model/leasing-rules.md
+          - spaces-and-uses: docs/manual/property/model/spaces-and-uses.md
+          - other-revenues: docs/manual/property/model/other-revenues.md
+          - vacancy-and-credit-loss: docs/manual/property/model/vacancy-and-credit-loss.md
+          - operating-expenses: docs/manual/property/model/operating-expenses.md
+          - capital-expenditures: docs/manual/property/model/capital-expenditures.md
+          - purchase-information: docs/manual/property/model/purchase-information.md
+          - financing: docs/manual/property/model/financing.md
+          - analysis-period: docs/manual/property/model/analysis-period.md
+          - reversion-information: docs/manual/property/model/reversion-information.md
+          - investment-returns: docs/manual/property/model/investment-returns.md
+        - reports:
+          - docs/manual/property/reports/index.md
+          - statements: docs/manual/property/reports/statements.md
+        - settings:
+          - docs/manual/property/settings/index.md
+          - general-settings: docs/manual/property/settings/general-settings.md
+          - integrations: docs/manual/property/settings/integrations.md

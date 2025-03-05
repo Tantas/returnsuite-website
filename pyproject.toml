@@ -6,6 +6,13 @@ authors = ["Development <development@returnsuite.com>"]
 license = "Proprietary"
 packages = [{include = "returnsuite_website", from = "src"}]
 
+[project.urls]
+Homepage = "https://returnsuite.com"
+Application = "https://app.returnsuite.com"
+Documentation = "https://docs.returnsuite.com"
+Repository = "https://github.com/tantas/returnsuite"
+Issues = "https://github.com/tantas/returnsuite/issues"
+
 [tool.poetry.dependencies]
 python = "^3.12"
 fastapi = "^0.115.5"
@@ -29,6 +36,7 @@ flake8 = "^7.1.1"
 httpx = "^0.23.3"
 isort = "^6.0.0b2"
 livereload = "^2.6.3"
+mkdocs-material = "^9.6.7"
 pytest = "^8.3.3"
 pytest-env = "^1.1.5"
 

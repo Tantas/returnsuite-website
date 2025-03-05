@@ -1,0 +1,86 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta type="description" content="{{ description }}">
+    <title>{{ page_title }}</title>
+    <link rel="icon" href="{{ url_for('img', path='/favicon-32.png') }}" sizes="32x32">
+    <link rel="icon" href="{{ url_for('img', path='/favicon-128.png') }}" sizes="128x128">
+    <link rel="icon" href="{{ url_for('img', path='/favicon-192.png') }}" sizes="192x192">
+    <link rel="apple-touch-icon" href="{{ url_for('img', path='/favicon-180.png') }}" sizes="180x180">
+    <link rel="stylesheet" href="{{ url_for('get_styles', version=css_version) }}">
+    <script defer src="{{ url_for('js', path='/lib/alpinejs-3.14.1.min.js') }}"></script>
+    <style>svg { display: inline-block; } [x-cloak] { display: none; }</style>
+  </head>
+  <body>
+    <nav class="w-full">
+      {% set side_menu = menu.children %}
+      <ul class="flex flex-row gap-2 w-full">
+        {% for header_menu_item in menu %}
+          <li>
+            <a href="{{ header_menu_item.url }}">{{ header_menu_item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="flex flex-row-reverse">
+      <main>
+        <article class="documentation-article">
+          {{ content_body|safe }}
+        </article>
+      </main>
+
+      <aside class="w-1/2">
+        <ol>
+          {% for side_menu_item in side_menu %}
+            {% if not side_menu_item.children %}
+              <li>
+                <a href="{{ side_menu_item.route }}">{{ side_menu_item.nav_title }}</a>
+              </li>
+            {% else %}
+              <li>
+                <div>{{ side_menu_item.nav_group }}</div>
+                <ol class="pl-2">
+                  <li>
+                    <a href="{{ side_menu_item.route }}">{{ side_menu_item.nav_title }}</a>
+                  </li>
+                  {% for nested_menu_item in side_menu_item.children %}
+                    {% if not nested_menu_item.children %}
+                      <li>
+                        <a href="{{ nested_menu_item.route }}">{{ nested_menu_item.nav_title }}</a>
+                      </li>
+                    {% else %}
+                      <div>{{ nested_menu_item.nav_group }}</div>
+                      <ol class="pl-2">
+                        <li>
+                          <a href="{{ nested_menu_item.route }}">{{ nested_menu_item.nav_title }}</a>
+                        </li>
+                        {% for tertiary_menu_item in nested_menu_item.children %}
+                           <li>
+                             {% if not tertiary_menu_item.children %}
+                               <a href="{{ tertiary_menu_item.route }}">{{ tertiary_menu_item.nav_title }}</a>
+                             {% else %}
+                               <div>{{ tertiary_menu_item.nav_group }}</div>
+                               <ol class="pl-2">
+                                 <li>
+                                   <a href="{{ tertiary_menu_item.route }}">{{ tertiary_menu_item.nav_title }}</a>
+                                 </li>
+                                 {% for quaternary_menu_item in tertiary_menu_item.children %}
+                                   <li><a href="{{ quaternary_menu_item.route }}">{{ quaternary_menu_item.nav_title }}</a></li>
+                                 {% endfor %}
+                               </ol>
+                             {% endif %}
+                           </li>
+                        {% endfor %}
+                      </ol>
+                    {% endif %}
+                  {% endfor %}
+                </ol>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ol>
+      </aside>
+
+    </div>
+  </body>
+</html>

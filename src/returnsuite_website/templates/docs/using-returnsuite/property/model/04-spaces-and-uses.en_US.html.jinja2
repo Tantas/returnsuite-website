@@ -1,0 +1,353 @@
+{% extends "docs/concepts/layout.html.jinja2" %}
+{% set context_page_name = "get_concepts_time_value_of_money" %}
+
+{% block article_content %}
+  <ol class="documentation-breadcrumbs pt-8 pb-4">
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ url_for('get_concepts_noi') }}">Using ReturnSuite</a></li>
+    <li><a href="{{ url_for('get_concepts_math_overview') }}">Property</a></li>
+    <li><a href="{{ url_for('get_concepts_math_overview') }}">Model</a></li>
+    <li><a href="{{ url_for('get_concepts_math_overview') }}">Spaces and Uses</a></li>
+  </ol>
+  <article class="documentation-article">
+    <h1 id="time-value-of-money">Time Value of Money</h1>
+    <h2>Present Value, Future Value and the Time Value of Money</h2>
+    <p class="text-gray-700 text-lg py-2">
+      The Time Value of Money is a fundamental concept in finance. It says that
+      money can be invested today to earn a return in the future, and so it
+      follows that a dollar today is worth more than a dollar tomorrow. This
+      economic theory is used to examine the trade-offs we face in our decision
+      to keep (or spend) our money today, or to forfeit it for more money in
+      the future.
+    </p>
+    <p>
+      Real estate is a capital-intensive business, usually requiring large
+      upfront investments to earn a long-term stream of smaller cash flows.
+      This makes the Time Value of Money an especially important tool in real
+      estate valuation.
+    </p>
+    <h3>How it works</h3>
+    <p>
+      Let’s say we had $100 and could use it to buy a government bond, getting
+      $108 returned to you a year from now. We refer to the $100 today as the
+      Present Value (Value at t=0) and the $108 as the Future Value (Value at
+      t=1).
+    </p>
+    <figure>
+      <div class="w-3/5 flex flex-col">
+        <img src="{{ url_for('img', path='/concepts/2-foundation-concepts/time-value-of-money.jpg') }}" alt="Time value of money">
+        <ul class="list-disc pl-6 text-xl text-gray-800">
+          <li><var class="font-semibold text-gray-900">t</var> is the time period</li>
+        </ul>
+      </div>
+      <figcaption>Time value of money</figcaption>
+    </figure>
+    <!--<figure>
+      <div class="relative font-semibold text-2xl tracking-wide h-40" style="width: 512px">
+        <span class="absolute top-0 left-0">Value<sub class="pl-0.5">t=0</sub></span>
+        <span class="absolute top-0 right-0">Value<sub class="pl-0.5">t=1</sub></span>
+
+        <span class="absolute top-24 left-0">$100</span>
+        <span class="absolute top-24 right-0">$108</span>
+        <div class="absolute bottom-0 left-0 w-full flex place-items-center justify-between px-4 py-2 bg-gradient-to-r from-blue-200 from-40% to-60% to-red-500">
+          <span>Present Value</span>
+          <span>Future Value</span>
+        </div>
+      </div>
+    </figure>-->
+    <p>
+      The difference between the Future Value and the Present Value is the
+      interest or price that is paid to borrow money, and in finance it is often
+      referred to as the Discount Rate. In our example, the government is paying
+      us $8 to borrow our $100 for the year, which is an 8% interest rate.
+    </p>
+    <p>
+      The concept of the Time Value of Money allows us to convert Present Values
+      to Future Values and vice versa.
+    </p>
+    <p>
+      The formula for calculating Present Value is:
+    </p>
+    <figure>
+      <div class="flex flex-col gap-6">
+        <math>
+          <mi>PV</mi>
+          <mo>=</mo>
+          <mfrac>
+            <mpadded height="1.2em" voffset="0.2em">
+              <mn>FV</mn>
+            </mpadded>
+            <mpadded height="1.1em">
+              <msup>
+                <mrow>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>+</mo>
+                  <mi>r</mi>
+                  <mo>)</mo>
+                </mrow>
+                <mi>n</mi>
+              </msup>
+            </mpadded>
+          </mfrac>
+        </math>
+        <ul class="list-disc leading-7 text-gray-800 font-medium">
+          <li><var class="font-semibold">PV</var> is the Present Value</li>
+          <li><var class="font-semibold">FV</var> is the Future Value</li>
+          <li><var class="font-semibold">r</var> is the Discount Rate (Opportunity Cost of Capital)</li>
+          <li><var class="font-semibold">n</var> is the number of periods</li>
+        </ul>
+      </div>
+    </figure>
+    <p>
+      As long as we have any three of these pieces of information, we can
+      calculate the fourth.
+    </p>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h2>Exercises</h2>
+    <div class="documentation-download">
+      <img src="{{ url_for('img', path='/integration/excel.svg') }}" alt="Microsoft Excel Logo" class="h-10">
+      <a download href="{{ url_for('sheets', path='ReturnSuite - Time Value of Money - Worksheet.xlsx') }}">Time Value of Money - Worksheet.xlsx</a>
+      <a download href="{{ url_for('sheets', path='ReturnSuite - Time Value of Money - Worksheet.xlsx') }}" title="Download" class="ml-auto hover:bg-gray-100 hover:text-gray-800 rounded-full p-2">
+        <svg class="inline-block h-8" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+        </svg>
+      </a>
+    </div>
+    <h3>Task 1</h3>
+    <p>
+      You have been presented with an opportunity to invest in a Certificate of
+      Deposit that will accrue interest that compounds over time and provide you
+      with a one-time payout in three years. Your Discount Rate (what you can
+      currently earn investing in other similar opportunities) is 12% per year.
+    </p>
+    <p>
+      What is the most that you would pay now if you wanted to receive $5,000
+      at the end of the investment?
+    </p>
+    <div x-data="{showHint: false}" class="pb-4">
+      <button type="button" @click="showHint = true" x-show="!showHint" class="button font-medium">
+        Show hint
+      </button>
+      <div x-show="showHint" class="border border-green-500 rounded-md p-6">
+        <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
+        <p>
+          Using the formula, you can calculate the PV by dividing the Future
+          Value ($5,000 you’d like in the future) by one plus your Discount Rate
+          (12%, or 0.12) to the power of the length of the investment (3 years).
+        </p>
+        <p>
+          In spreadsheets, exponents are entered using the “^” symbol. For
+          example, to calculate the value of 103 you would type “=10^3” into
+          the spreadsheet cell
+        </p>
+        <figure>
+          <math>
+            <mi>PV</mi>
+            <mo>=</mo>
+            <mfrac>
+              <mpadded height="1.2em" voffset="0.2em">
+                <mi>FV</mi>
+              </mpadded>
+              <mpadded height="1.1em">
+                <msup>
+                  <mrow>
+                    <mo>(</mo>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <mi>r</mi>
+                    <mo>)</mo>
+                  </mrow>
+                  <mi>n</mi>
+                </msup>
+              </mpadded>
+            </mfrac>
+          </math>
+        </figure>
+      </div>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Task 2</h3>
+    <p>
+      You have been offered a three year loan from a private lender for a real
+      estate redevelopment. The lender will lend you $1,000,000 for three years.
+      The loan will accrue interest that compounds at a rate of 13% per year and
+      be added onto the principal loan amount. At the end of the three years you
+      will need to pay back the private lender with a single balloon payment.
+    </p>
+    <p>
+      How much will the balloon payment be, rounded to the nearest dollar?
+    </p>
+    <div x-data="{showHint: false}" class="pb-4">
+      <button type="button" @click="showHint = true" x-show="!showHint" class="button font-medium">
+        Show hint
+      </button>
+      <div x-show="showHint" class="border border-green-500 rounded-md p-6">
+        <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
+        <p>
+          Rearranging the Present Value formula allows you to solve for the
+          Future Value.
+        </p>
+        <figure>
+          <math>
+            <mi>FV</mi>
+            <mo>=</mo>
+            <mi>PV</mi>
+            <mo>×</mo>
+            <msup>
+              <mrow>
+                <mo>(</mo>
+                <mn>1</mn>
+                <mo>+</mo>
+                <mi>r</mi>
+                <mo>)</mo>
+              </mrow>
+              <mi>n</mi>
+            </msup>
+          </math>
+        </figure>
+        <p>
+          Our rearranged formula can then be used to calculate the Future Value
+          by multiplying the PV ($1,000,000) by one plus the interest rate (13%)
+          to the power of the number of periods (3 years).
+        </p>
+      </div>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Task 3</h3>
+    <p>
+      You have been offered an opportunity to participate in a lending
+      consortium to a light industrial landlord. The investment amount is
+      $150,000 and the expected payout is $275,000 in seven years.
+    </p>
+    <p>
+      What is the expected annual interest rate your $100,000 investment is
+      earning?
+    </p>
+    <div x-data="{showHint: false}" class="pb-4">
+      <button type="button" @click="showHint = true" x-show="!showHint" class="button font-medium">
+        Show hint
+      </button>
+      <div x-show="showHint" class="border border-green-500 rounded-md p-6">
+        <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
+        <p>
+          Again, we can rearrange the Present Value formula to isolate ‘r’ on
+          one side of the equals sign, solving for the interest rate. Give it a
+          try, you should end up with this:
+        </p>
+        <figure>
+          <math>
+            <mi>r</mi>
+            <mo>=</mo>
+            <mrow>
+              <mo>(</mo>
+              <msup>
+                <mrow>
+                  <mo>(</mo>
+                  <mi>FV</mi>
+                  <mo>/</mo>
+                  <mi>PV</mi>
+                  <mo>)</mo>
+                </mrow>
+                <mrow>
+                  <mn>1</mn>
+                  <mo>/</mo>
+                  <mi>n</mi>
+                </mrow>
+              </msup>
+              <mo>)</mo>
+              <mo>-</mo>
+              <mn>1</mn>
+            </mrow>
+          </math>
+        </figure>
+        <p>
+          Our rearranged formula can then be used to calculate the interest rate
+          by:
+        </p>
+        <ol class="list-decimal pl-8 font-medium text-gray-800 text-base pb-2 leading-8">
+          <li>Dividing the Future Value ($275,000) by the Present Value ($150,000), which is then</li>
+          <li>Raised to the power of one divided by the number of periods (7 years).</li>
+          <li>Finally, subtract 1.</li>
+        </ol>
+      </div>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Task 4</h3>
+    <p>
+      You are able to invest $500,000 today into a real estate investment which
+      will grow at a rate of 7.50% per year. Your goal is for the investment to
+      reach $1,250,000 in value.
+    </p>
+    <p>
+      How long will it take for your investment to reach your goal?
+    </p>
+    <div x-data="{showHint: false}" class="pb-4">
+      <button type="button" @click="showHint = true" x-show="!showHint" class="button font-medium">
+        Show hint
+      </button>
+      <div x-show="showHint" class="border border-green-500 rounded-md p-6">
+        <span class="text-lg font-medium text-green-500 tracking-wide">Hint</span>
+        <p>
+          This requires a more complicated rearrangement of the Present Value
+          formula using the natural logarithm
+        </p>
+        <figure>
+          <math>
+            <mi>n</mi>
+            <mo>=</mo>
+            <mfrac>
+              <mpadded voffset="0.2em" height="1.2em">
+                <mrow>
+                  <mo>ln</mo>
+                  <mo>(</mo>
+                  <mi>FV</mi>
+                  <mo>/</mo>
+                  <mi>PV</mi>
+                  <mo>)</mo>
+                </mrow>
+              </mpadded>
+              <mpadded height="1.1em">
+                <mrow>
+                  <mo>ln</mo>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mo>+</mo>
+                  <mi>r</mi>
+                  <mo>)</mo>
+                </mrow>
+              </mpadded>
+            </mfrac>
+          </math>
+        </figure>
+        <p>
+          Our rearranged formula can then be used to calculate the interest rate by:
+        </p>
+        <ol class="list-decimal pl-8 font-medium text-gray-800 text-base pb-2 leading-8">
+          <li>Taking the natural logarithm of the Future Value ($1,250,000) divided by the Present Value ($500,000), which is then</li>
+          <li>Divided by the natural logarithm of one plus the interest rate</li>
+        </ol>
+      </div>
+    </div>
+    <hr class="mt-2 mb-6 border-gray-300">
+    <h3>Solutions</h3>
+    <p>For each task, the cell should be highlighted green if you have the correct answer. If you are having issues, check the answers against the solutions spreadsheet.</p>
+    <div class="documentation-download">
+      <img src="{{ url_for('img', path='/integration/excel.svg') }}" alt="Microsoft Excel Logo" class="h-10">
+      <a download href="{{ url_for('sheets', path='ReturnSuite - Time Value of Money - Solutions.xlsx') }}">Time Value of Money - Solutions.xlsx</a>
+      <a download href="{{ url_for('sheets', path='ReturnSuite - Time Value of Money - Solutions.xlsx') }}" title="Download" class="ml-auto hover:bg-gray-100 hover:text-gray-800 rounded-full p-2">
+        <svg class="inline-block h-8" viewBox="0 -960 960 960" fill="currentColor">
+          <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path>
+        </svg>
+      </a>
+    </div>
+    <div class="flex justify-end w-full text-base py-6">
+      <a href="{{ url_for('get_concepts_net_present_value') }}" class="text-blue-500 hover:underline flex place-items-center tracking-wide">
+        <span>Next: Net present value</span>
+        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+        </svg>
+      </a>
+    </div>
+  </article>
+{% endblock article_content %}
