@@ -376,7 +376,7 @@ Use the spreadsheet to calculate the NPV of each option.
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-### Task 2: A feel for the dynamics
+### Task 2
 
 Using your completed spreadsheet, watch how each of the following changes
 flips the landlord’s preferred choice:

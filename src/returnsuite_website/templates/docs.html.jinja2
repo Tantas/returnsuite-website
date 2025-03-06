@@ -44,7 +44,7 @@
           </li>
 
         </ul>
-        <ol class="bg-white flex place-items-center gap-8 mx-4 tracking-wide text-gray-900 text-base">
+        <ol class="flex place-items-center gap-8 mx-4 tracking-wide text-gray-900 text-base">
           {% set side_menu = {"value": menu.children[0] } %}
           {% set breadcrumbs = [{
             "title": "Home",
@@ -196,6 +196,26 @@
             <article class="documentation-article">
               {{ content_body|safe }}
             </article>
+            {% if page.next or page.previous %}
+              <div class="flex justify-end w-full text-base pb-6 pt-6">
+                {# {% if page.previous %}
+                  <a href="{{ page.previous.route }}" class="text-blue-500 hover:underline flex place-items-center">
+                    <span>Previous: {{ page.previous.nav_title }}</span>
+                    <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                    </svg>
+                  </a>
+                {% endif %} #}
+                {% if page.next %}
+                  <a href="{{ page.next.route }}" class="text-blue-500 hover:underline flex place-items-center">
+                    <span>Next: {{ page.next.nav_title }}</span>
+                    <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                    </svg>
+                  </a>
+                {% endif %}
+              </div>
+            {% endif %}
             {% include "docs/cta.html.jinja2" %}
           </div>
         </main>
