@@ -45,10 +45,18 @@
 
         </ul>
         <ol class="bg-white flex place-items-center gap-8 mx-4 tracking-wide text-gray-900 text-base">
-        {% set side_menu = {"value": menu.children[0] } %}
+          {% set side_menu = {"value": menu.children[0] } %}
+          {% set breadcrumbs = [{
+            "title": "Home",
+            "route": "/docs",
+          }] %}
           {% for header_menu_item in menu.children %}
             {% if header_menu_item.route in request.url.path %}
               {% do side_menu.update({"value": header_menu_item}) %}
+              {% do breadcrumbs.append({
+                "title": header_menu_item.title,
+                "route": header_menu_item.route,
+              }) %}
             {% endif %}
             <li>
               <a href="{{ header_menu_item.route }}" class="inline-block border-blue-500 py-2{% if header_menu_item.route in request.url.path %} border-b-2{% endif %}">{{ header_menu_item.nav_title }}</a>
@@ -58,21 +66,7 @@
         </ol>
       </nav>
       <div class="h-[6.2rem]"></div>
-      <div class="flex flex-row-reverse">
-        <main class="w-full flex  flex-col place-items-center">
-          <div class="w-[900px]">
-            <ol class="documentation-breadcrumbs pt-16 pb-4">
-              <li><a href="#">Home</a></li>
-              <li><a href="{{ url_for('get_concepts_noi') }}">Concepts</a></li>
-              <li><a href="{{ url_for('get_concepts_math_overview') }}">Key Math Principles in Finance</a></li>
-            </ol>
-            <article class="documentation-article">
-              {{ content_body|safe }}
-            </article>
-            {% include "docs/cta.html.jinja2" %}
-          </div>
-        </main>
-
+      <div class="flex">
         <aside class="absolute top-[6.2rem] sticky border-r border-gray-300 w-[20rem]" style="height: calc(100vh - 7.0rem)">
           <div class="absolute z-10 absolute top-3 right-4 text-gray-500 hover:text-gray-800">
             <button type="button" @click="menu_open = !menu_open" x-show="menu_open" title="Hide table of contents" style="transform: rotate(180deg);">
@@ -99,11 +93,23 @@
                   <ol class="flex flex-col gap-3">
                     <li class="pl-4">
                       <a href="{{ side_menu_item.route }}" {% if side_menu_item.route == request.url.path %}class="font-medium text-blue-600"{% endif %}>{{ side_menu_item.nav_title }}</a>
+                      {% if side_menu_item.route == request.url.path %}
+                        {% do breadcrumbs.append({
+                          "title": side_menu_item.nav_group,
+                          "route": side_menu_item.route,
+                        }) %}
+                      {% endif %}
                     </li>
                     {% for nested_menu_item in side_menu_item.children %}
                       {% if not nested_menu_item.children %}
                         <li class="pl-4">
                           <a href="{{ nested_menu_item.route }}" {% if nested_menu_item.route == request.url.path %}class="font-medium text-blue-600"{% endif %}>{{ nested_menu_item.nav_title }}</a>
+                          {% if nested_menu_item.route == request.url.path %}
+                            {% do breadcrumbs.append({
+                              "title": side_menu_item.nav_group,
+                              "route": side_menu_item.route,
+                            }) %}
+                          {% endif %}
                         </li>
                       {% else %}
                         <div x-data="{ collapsed: true }">
@@ -124,35 +130,41 @@
                           <ol class="flex flex-col gap-3 pt-3 text-gray-700" x-show="!collapsed">
                             <li class="pl-6">
                               <a href="{{ nested_menu_item.route }}" {% if nested_menu_item.route == request.url.path %}class="font-medium text-blue-600"{% endif %}>{{ nested_menu_item.nav_title }}</a>
+                              {% if nested_menu_item.route in request.url.path %}
+                                {% do breadcrumbs.append({
+                                  "title": nested_menu_item.children[0].nav_group,
+                                  "route": nested_menu_item.route,
+                                }) %}
+                              {% endif %}
                             </li>
                             {% for tertiary_menu_item in nested_menu_item.children %}
-                               <li class="pl-6">
-                                 {% if not tertiary_menu_item.children %}
-                                   <a href="{{ tertiary_menu_item.route }}" {% if tertiary_menu_item.route == request.url.path %}class="font-medium text-blue-600"{% endif %}>{{ tertiary_menu_item.nav_title }}</a>
-                                 {% else %}
-                                   <div>
-                                     <div class="flex place-items-center">
-                                       <button type="button" title="Expand" x-show="entry.collapsed" @click="entry.collapsed = !entry.collapsed" class="py-0.5">
-                                         <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
-                                           <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
-                                         </svg>
-                                         <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
-                                       </button>
-                                       <span>{{ tertiary_menu_item.nav_group }}</span>
-                                     </div>
-                                   </div>
-                                   <ol>
-                                     <li class="pl-4">
-                                       <a href="{{ tertiary_menu_item.route }}">{{ tertiary_menu_item.nav_title }}</a>
-                                     </li>
-                                     {% for quaternary_menu_item in tertiary_menu_item.children %}
-                                       <li class="pl-4">
-                                         <a href="{{ quaternary_menu_item.route }}">{{ quaternary_menu_item.nav_title }}</a>
-                                       </li>
-                                     {% endfor %}
-                                   </ol>
-                                 {% endif %}
-                               </li>
+                              <li class="pl-6">
+                                {% if not tertiary_menu_item.children %}
+                                  <a href="{{ tertiary_menu_item.route }}" {% if tertiary_menu_item.route == request.url.path %}class="font-medium text-blue-600"{% endif %}>{{ tertiary_menu_item.nav_title }}</a>
+                                {% else %}
+                                  <div>
+                                    <div class="flex place-items-center">
+                                      <button type="button" title="Expand" x-show="entry.collapsed" @click="entry.collapsed = !entry.collapsed" class="py-0.5">
+                                        <svg class="inline-block h-5 pb-0.5" viewBox="0 -960 960 960" fill="currentColor">
+                                          <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
+                                        </svg>
+                                        <span class="text-gray-900 tracking-wide pl-1" x-text="entry.title"></span>
+                                      </button>
+                                      <span>{{ tertiary_menu_item.nav_group }}</span>
+                                    </div>
+                                  </div>
+                                  <ol>
+                                    <li class="pl-4">
+                                      <a href="{{ tertiary_menu_item.route }}">{{ tertiary_menu_item.nav_title }}</a>
+                                    </li>
+                                    {% for quaternary_menu_item in tertiary_menu_item.children %}
+                                      <li class="pl-4">
+                                        <a href="{{ quaternary_menu_item.route }}">{{ quaternary_menu_item.nav_title }}</a>
+                                      </li>
+                                    {% endfor %}
+                                  </ol>
+                                {% endif %}
+                              </li>
                             {% endfor %}
                           </ol>
                         </div>
@@ -174,7 +186,19 @@
             </button>
           </div>
         </aside>
-
+        <main class="w-full flex  flex-col place-items-center">
+          <div class="w-[900px]">
+            <ol class="documentation-breadcrumbs pt-16 pb-4">
+              {% for breadcrumb in breadcrumbs %}
+                <li><a href="{{ breadcrumb.route }}">{{ breadcrumb.title }}</a></li>
+              {% endfor %}
+            </ol>
+            <article class="documentation-article">
+              {{ content_body|safe }}
+            </article>
+            {% include "docs/cta.html.jinja2" %}
+          </div>
+        </main>
       </div>
 
     </div>

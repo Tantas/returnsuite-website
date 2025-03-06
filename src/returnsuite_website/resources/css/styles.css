@@ -606,7 +606,7 @@ video {
 
 .documentation-breadcrumbs a:hover {
   --tw-text-opacity: 1;
-  color: rgb(45 55 72 / var(--tw-text-opacity, 1));
+  color: rgb(26 32 44 / var(--tw-text-opacity, 1));
 }
 
 .documentation-article h1 {

@@ -8,6 +8,7 @@ nav:
         - docs/start/index.md
     - concepts:
       - docs/concepts/index.md
+      - how-assets-are-values: docs/concepts/how-assets-are-valued.md
       - math:
         - docs/concepts/math/index.md
         - time-value-of-money: docs/concepts/math/time-value-of-money.md

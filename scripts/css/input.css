@@ -141,7 +141,7 @@ select {
     @apply inline-block px-2; content: "/";
   }
   .documentation-breadcrumbs a:hover {
-    @apply text-gray-800
+    @apply text-gray-900
   }
   .documentation-article h1 {
     @apply text-4xl tracking-wide font-semibold text-gray-900 py-1
