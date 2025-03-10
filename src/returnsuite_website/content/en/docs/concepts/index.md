@@ -63,7 +63,7 @@ property is worth.
   <li><sup id="citation-4" class="pr-1 font-bold">4</sup><a href="#">British Land Annual Report and Accounts 2023</a>. Note 10. Page 194.</li>
 </ol>
 
-## Investment Value
+### Investment value
 
 If a Market Valuation is the initial odds set up by a casino
 oddsmaker, an Investment Valuation is the bet individual gamblers are
@@ -101,7 +101,7 @@ reality, we’re in a moment where Market and Investment Valuations
 conflict more than usual.
 
 
-## The Interaction Between Market and Investment Valuations
+### The interaction between market and investment valuations
 
 Market Prices are ultimately the weighted average of all market
 participants. If investors, enmasse, began to pay more for office
@@ -166,7 +166,7 @@ interim”.
   <li><sup id="citation-5" class="pr-1 font-bold">5</sup>Lewis, Michael. The Big Short: Inside the Doomsday Machine (p. 79). W. W. Norton & Company. Kindle Edition.</li>
 </ol>
 
-## ReturnSuite and this Course
+### ReturnSuite and this Course
 
 ReturnSuite was born out of this idea–that we’re in a period where
 the gap between Market and Investment Values is abnormally large. We

@@ -5,7 +5,7 @@ nav:
   - docs:
     - docs/index.md
     - getting-started:
-        - docs/start/index.md
+      - docs/start/index.md
     - concepts:
       - docs/concepts/index.md
       - math:
@@ -18,31 +18,32 @@ nav:
         - gordon-growth-model: docs/concepts/math/gordon-growth-model.md
         - expected-value: docs/concepts/math/expected-value.md
       - valuation-approaches:
-         - docs/concepts/valuation-approaches/index.md
-         - market-approach: docs/concepts/valuation-approaches/market-approach.md
-         - cost-approach: docs/concepts/valuation-approaches/cost-approach.md
-         - income-approach:
-           - docs/concepts/valuation-approaches/index.md
-           - methods: docs/concepts/valuation-approaches/income-approach/income-approach-methods.md
-           - standard-direct-capitalization: docs/concepts/valuation-approaches/income-approach/standard-direct-capitalization.md
-           - tiered-direct-capitalization: docs/concepts/valuation-approaches/income-approach/tiered-direct-capitalization.md
-           - top-slice-method: docs/concepts/valuation-approaches/income-approach/top-slice-method.md
-           - discounted-cash-flow-method: docs/concepts/valuation-approaches/income-approach/discounted-cash-flow-method.md
-         - summary: docs/concepts/valuation-approaches/summary-of-methods.md
+        - docs/concepts/valuation-approaches/index.md
+        - market-approach: docs/concepts/valuation-approaches/market-approach.md
+        - cost-approach: docs/concepts/valuation-approaches/cost-approach.md
+        - income-approach:
+          - docs/concepts/valuation-approaches/index.md
+          - methods: docs/concepts/valuation-approaches/income-approach/income-approach-methods.md
+          - standard-direct-capitalization: docs/concepts/valuation-approaches/income-approach/standard-direct-capitalization.md
+          - tiered-direct-capitalization: docs/concepts/valuation-approaches/income-approach/tiered-direct-capitalization.md
+          - top-slice-method: docs/concepts/valuation-approaches/income-approach/top-slice-method.md
+          - discounted-cash-flow-method: docs/concepts/valuation-approaches/income-approach/discounted-cash-flow-method.md
+        - summary: docs/concepts/valuation-approaches/summary-of-methods.md
       - noi-and-cash-flow:
-          - docs/concepts/noi-and-cash-flow/index.md
-          - modeling-real-estate: docs/concepts/noi-and-cash-flow/modeling-real-estate.md
-          - potential-base-rent: docs/concepts/noi-and-cash-flow/potential-base-rent.md
-          - actual-base-rent: docs/concepts/noi-and-cash-flow/actual-base-rent.md
-          - additional-rent: docs/concepts/noi-and-cash-flow/additional-rent.md
-          - other-tenant-revenue: docs/concepts/noi-and-cash-flow/other-tenant-revenue.md
-          - other-revenue: docs/concepts/noi-and-cash-flow/other-revenue.md
-          - potential-gross-income: docs/concepts/noi-and-cash-flow/potential-gross-income.md
-          - vacancy-and-credit-loss: docs/concepts/noi-and-cash-flow/vacancy-and-credit-loss.md
-          - effective-gross-income: docs/concepts/noi-and-cash-flow/effective-gross-income.md
-          - operating-expenses: docs/concepts/noi-and-cash-flow/operating-expenses.md
-          - net-operating-income: docs/concepts/noi-and-cash-flow/net-operating-income.md
-          - noi-and-cash-flow-statement: docs/concepts/noi-and-cash-flow/noi-and-cash-flow-statement.md
+        - docs/concepts/noi-and-cash-flow/index.md
+        - modeling-real-estate: docs/concepts/noi-and-cash-flow/modeling-real-estate.md
+        - potential-base-rent: docs/concepts/noi-and-cash-flow/potential-base-rent.md
+        - actual-base-rent: docs/concepts/noi-and-cash-flow/actual-base-rent.md
+        - additional-rent: docs/concepts/noi-and-cash-flow/additional-rent.md
+        - other-tenant-revenue: docs/concepts/noi-and-cash-flow/other-tenant-revenue.md
+        - other-revenue: docs/concepts/noi-and-cash-flow/other-revenue.md
+        - potential-gross-income: docs/concepts/noi-and-cash-flow/potential-gross-income.md
+        - vacancy-and-credit-loss: docs/concepts/noi-and-cash-flow/vacancy-and-credit-loss.md
+        - effective-gross-income: docs/concepts/noi-and-cash-flow/effective-gross-income.md
+        - operating-expenses: docs/concepts/noi-and-cash-flow/operating-expenses.md
+        - net-operating-income: docs/concepts/noi-and-cash-flow/net-operating-income.md
+        - noi-and-cash-flow-statement: docs/concepts/noi-and-cash-flow/noi-and-cash-flow-statement.md
+        - valuation-and-capitalization: docs/concepts/noi-and-cash-flow/valuation-and-capitalization.md
       - analysis-and-sale:
         - docs/concepts/analysis-and-sale/index.md
         - investment-analysis: docs/concepts/analysis-and-sale/investment-analysis.md
@@ -82,6 +83,6 @@ nav:
           - controls: docs/manual/property/reports/reporting-controls.md
           - statements: docs/manual/property/reports/statements.md
         - settings:
-          - docs/manual/property/settings/index.md
+          # - docs/manual/property/settings/index.md
           - general-settings: docs/manual/property/settings/general-settings.md
           - integrations: docs/manual/property/settings/integrations.md

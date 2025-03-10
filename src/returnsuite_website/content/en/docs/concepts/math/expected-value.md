@@ -32,7 +32,7 @@ are often shown with the abbreviation <b>E[XX]</b>:
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-## Example
+### Example
 
 Let’s say we have a tenant occupying a space at a rate of $120,000 per
 year under a two-year lease. At the end of the two years, we expect
@@ -61,7 +61,7 @@ understand the mechanics.
   </a>
 </div>
 
-### Scenario 1
+#### Scenario 1
 
 <ul class="list-disc pl-8 text-gray-800 text-base pb-4 leading-8">
   <li>
@@ -81,7 +81,7 @@ understand the mechanics.
   </li>
 </ul>
 
-### Scenario 2
+#### Scenario 2
 
 <ul class="list-disc pl-8 text-gray-800 text-base pb-4 leading-8">
   <li>
@@ -94,7 +94,7 @@ understand the mechanics.
   </li>
 </ul>
 
-### Combining the Scenarios
+#### Combining the Scenarios
 
 <ul class="list-disc pl-8 text-gray-800 text-base pb-4 leading-8">
   <li>
@@ -113,11 +113,11 @@ understand the mechanics.
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-## Exercise
+### Exercise
 
 Using the same spreadsheet, try making the following changes.
 
-### Task 1
+#### Task 1
 
 What happens to the **E[PV]** of the property if the expected amount of time to
 find a replacement tenant is extended to nine months?
@@ -140,7 +140,7 @@ find a replacement tenant is extended to nine months?
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-## Task 2
+#### Task 2
 
 What happens to the **E[PV]** of the property if the sale price in Year 5 under
 the renewal scenario is increased to **$2,550,000**?
@@ -162,7 +162,7 @@ the renewal scenario is increased to **$2,550,000**?
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-## Task 3
+#### Task 3
 
 What happens to the Property **E[PV]** if the current tenant informed us that
 they definitely wanted to renew their lease at the expected rate?

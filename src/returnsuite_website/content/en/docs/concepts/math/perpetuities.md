@@ -72,7 +72,7 @@ this sample spreadsheet which uses cash flows over 50 periods.
   </a>
 </div>
 
-### Task 1
+#### Task 1
 
 Try using the fill handle to copy the cash flows down another 100 rows
 (highlight <i>Cells A50:D51</i>, click & drag the bottom right corner down as far
@@ -92,7 +92,7 @@ as <i>Cells A101:D51</i>). What do you notice about the Present Value?
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-### Task 2
+#### Task 2
 
 Now try changing the Discount Rate (<i>Cell G4</i>) to <b>5%</b> and then
 <b>15%</b>. What do you notice about the Present Value of the Perpetuity?

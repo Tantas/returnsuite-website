@@ -1,18 +1,12 @@
-from email.utils import make_msgid
-from importlib.resources.abc import Traversable
+from importlib.resources import files
 
 from fastapi import APIRouter, Request
+from pydantic import BaseModel
 from starlette.responses import HTMLResponse, RedirectResponse
 
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
-
-from importlib.resources import files
-from typing import Self
-
-import markdown
-import yaml
-from pydantic import BaseModel
+from returnsuite_website.services.docs_service import load_pages, find_page
 
 router = APIRouter(default_response_class=HTMLResponse)
 
@@ -395,111 +389,10 @@ async def get_concepts_analysis_investment_analysis(request: Request):
     )
 
 
-class MenuRoot(BaseModel):
-    children: list[Self] = []
-
-
-class MenuItem2:
-    """Cannot be pydantic type because breaks while mutating in a loop."""
-    def __init__(self, title: str, description: str, nav_title: str, nav_group: str, file: str, route: str, page: str):
-        self.title = title
-        self.description = description
-        self.nav_title = nav_title
-        self.nav_group = nav_group
-        self.file = file
-        self.route: str = route
-        self.next: Self | None = None
-        self.previous: Self | None = None
-        self.page = page
-        self.selected: bool = False
-        self.expanded: bool = False
-        self.children = []
-
-    @classmethod
-    def try_again(cls, nav: Traversable) -> MenuRoot:
-
-        def recurse(item: str | dict[str, str] | list, path: str = "") -> MenuRoot:
-            if isinstance(item, str):
-                file = files("returnsuite_website") / "content" / "en" / item
-                md = markdown.Markdown(extensions=['meta'])
-                md.convert(file.read_text())
-
-                # noinspection PyUnresolvedReferences
-                metadata = md.Meta
-                return MenuItem2(
-                        title=metadata["title"][0],
-                        description=metadata["description"][0],
-                        nav_title=metadata["nav-title"][0],
-                        nav_group=metadata["nav-group"][0],
-                        file=item,
-                        route=path,
-                        page=markdown.markdown(
-                            file.read_text(),
-                            extensions=[
-                                "markdown.extensions.def_list",
-                                'meta',
-                            ]
-                        )
-                    )
-            elif isinstance(item, dict):
-                for entry in item.items():
-                    return recurse(entry[1], f"{path}/{entry[0]}")
-            elif isinstance(item, list):
-                list_root = recurse(item[0], path)
-                for child in item[1:]:
-                    list_root.children.append(recurse(child, path))
-                return list_root
-
-        data = yaml.safe_load(nav.read_bytes())
-        menu = recurse(data["nav"])
-
-        # Determine the next and previous from the tree.
-        list_representation = []
-
-        def build_list(node: MenuItem2):
-            list_representation.append(node)
-            if node.children:
-                for child in node.children:
-                    build_list(child)
-
-        build_list(menu)
-
-        for index, node in enumerate(list_representation[1:-1]):
-            node.previous = list_representation[index - 2]
-            node.next = list_representation[index + 2]
-        return menu
-
-
-
-nav_file = files("returnsuite_website") / "content" / "en" / "nav.yml"
-pages = MenuItem2.try_again(nav_file)
-
-print(pages)
-
-
-
-class PageContent(BaseModel):
-    file: str
-    route: str
-
-    @classmethod
-    def load_pages(cls, nav: Traversable) -> list[Self]:
-        pages = []
-
-        def recurse_navigation(item: str | dict[str, str | list], path: str = ""):
-            if isinstance(item, str):
-                pages.append(PageContent(file=item, route=path))
-            elif isinstance(item, dict):
-                for entry in item.items():
-                    recurse_navigation(entry[1], f"{path}/{entry[0]}")
-            elif isinstance(item, list):
-                for child in item:
-                    recurse_navigation(child, path)
-
-        data = yaml.safe_load(nav.read_bytes())
-        recurse_navigation(data["nav"])
-
-        return pages
+class SearchEntry(BaseModel):
+    location: str
+    text: str
+    title: str
 
 
 @router.get("/docs/{path:path}")
@@ -533,60 +426,20 @@ def get_docs_en_us(request: Request, path: str):
 
 
 def get_docs_locale(request: Request, locale: str, path: str):
-    #nav_file = files("returnsuite_website") / "content" / "en" / "nav.yml"
-    #pages = PageContent.load_pages(nav_file)
-    #for page in pages:
-#
-    #    if page.route.replace("/docs/", "") == path:
-    #        file = files("returnsuite_website") / "content" / "en" / page.file
-    #        output_html = markdown.markdown(file.read_text(), extensions=["markdown.extensions.def_list", 'meta'])
-#
-    #        md = markdown.Markdown(extensions=['meta'])
-    #        md.convert(file.read_text())
-#
-    #        # noinspection PyUnresolvedReferences
-    #        metadata = md.Meta
-#
-    #        title = metadata["title"][0]
-    #        description = metadata["description"][0]
-    #        print(title + description)
-#
-    #        return templates.TemplateResponse(
-    #            request=request,
-    #            name="docs.html.jinja2",
-    #            context={
-    #                "page_title": title,
-    #                "description": description,
-    #                "content_body": output_html,
-    #                "menu": MenuItem2.try_again(nav_file),
-    #            }
-    #        )
+    english_root = files("returnsuite_website") / "content" / "en"
+    root_page = load_pages(english_root)
+    page = find_page(root_page, path)
 
-    def find(node: MenuItem2):
-        print(f"compare {node.route} == {path}")
-        if path in node.route:
-            return node
-        if node.children:
-            for child in node.children:
-                result = find(child)
-                if result is not None:
-                    return result
-            return None
-        else:
-            return None
-
-    page = find(pages)
     if not page:
         raise FileNotFoundError()
+
+    print(page.toc)
 
     return templates.TemplateResponse(
         request=request,
         name="docs.html.jinja2",
         context={
             "page": page,
-            "page_title": page.title,
-            "description": page.description,
-            "content_body": page.page,
-            "menu": pages,
+            "menu": root_page,
         }
     )

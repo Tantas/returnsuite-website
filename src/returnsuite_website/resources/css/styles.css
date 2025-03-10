@@ -631,8 +631,7 @@ video {
 }
 
 .documentation-article h3 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 2rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 500;
@@ -642,13 +641,23 @@ video {
 }
 
 .documentation-article h4 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 1.5rem;
   font-size: 1.125rem;
   line-height: 1.75rem;
+  font-weight: 500;
   letter-spacing: 0.025em;
   --tw-text-opacity: 1;
   color: rgb(26 32 44 / var(--tw-text-opacity, 1));
+}
+
+.documentation-article h5 {
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  --tw-text-opacity: 1;
+  color: rgb(74 85 104 / var(--tw-text-opacity, 1));
 }
 
 .documentation-article p {
@@ -675,15 +684,52 @@ video {
   text-decoration-line: underline;
 }
 
-.documentation-article dt {
+.documentation-article dl {
+  margin-bottom: 1rem;
+  border-radius: 0.375rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(66 153 225 / var(--tw-border-opacity, 1));
   padding-top: 1rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 500;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.documentation-article dt {
+  font-weight: 600;
   letter-spacing: 0.025em;
   --tw-text-opacity: 1;
-  color: rgb(26 32 44 / var(--tw-text-opacity, 1));
+  color: rgb(45 55 72 / var(--tw-text-opacity, 1));
 }
+
+.documentation-article dd {
+  margin-bottom: 0.75rem;
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(66 153 225 / var(--tw-border-opacity, 1));
+  padding-bottom: 0.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(74 85 104 / var(--tw-text-opacity, 1));
+}
+
+.documentation-article dd:last-child {
+  margin-bottom: 0px;
+  border-bottom-width: 0px;
+  padding-bottom: 0px;
+}
+
+/*.documentation-article dl dd dl {
+    @apply border border-gray-300 rounded-md pb-4
+  }
+  .documentation-article dl dd dl dt {
+    @apply text-base text-gray-800
+  }
+  .documentation-article dl dd dl dd {
+    @apply text-sm text-gray-700 border-b pb-2 mb-2 last:border-b-0 last:pb-0 last:mb-0
+  }*/
 
 .documentation-article figure {
   display: flex;
@@ -1334,6 +1380,10 @@ video {
   width: 24rem;
 }
 
+.w-\[1200px\] {
+  width: 1200px;
+}
+
 .w-\[20rem\] {
   width: 20rem;
 }
@@ -1352,10 +1402,6 @@ video {
 
 .w-\[52rem\] {
   width: 52rem;
-}
-
-.w-\[900px\] {
-  width: 900px;
 }
 
 .w-auto {
@@ -1865,6 +1911,11 @@ video {
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+}
+
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .px-2 {

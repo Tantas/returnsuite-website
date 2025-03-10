@@ -135,7 +135,7 @@ of the Perpetuity.
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-## Exercise
+### Exercise
 
 To take a closer look at the mechanics of the Gordon Growth Model,
 download and open this worksheet which begins where the Perpetuity
@@ -154,7 +154,7 @@ worksheet left off.
 Notice that the starting Present Value of the Perpetuity (<i>Cell G8</i>)
 is **$10,000**.
 
-### Task 1
+#### Task 1
 
 Try changing the Discount Rate (<i>Cell G4</i>) to **12%**. What do
 you notice happens to the Present Value of the Perpetuity?
@@ -174,7 +174,7 @@ you notice happens to the Present Value of the Perpetuity?
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-### Task 2
+#### Task 2
 
 Now try changing the Growth Rate (<i>Cell G5</i>) from **0%** to **2%**. What do
 you notice happens to the Present Value of the Perpetuity?
@@ -194,7 +194,7 @@ you notice happens to the Present Value of the Perpetuity?
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-### Task 3
+#### Task 3
 
 Try changing the Discount Rate (<i>Cell G4</i>) back to **10%** and the growth
 rate (<i>Cell G5</i>) from **2%** to **5%**. What do you notice happens to the

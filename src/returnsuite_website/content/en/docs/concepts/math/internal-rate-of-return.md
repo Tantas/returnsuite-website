@@ -136,7 +136,7 @@ This formula can then be rearranged so we can solve for IRR.
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-## Example
+### Example
 
 For a single cash inflow and outflow, calculating the IRR is relatively
 straightforward. For example, say we made an investment of $1,000 three
@@ -144,7 +144,7 @@ years ago that just matured, providing us with a $1,405 payout.
 
 What was the IRR of our investment?
 
-### Solution
+#### Solution
 
 Calculating the IRR requires solving the equation below
 
@@ -246,7 +246,7 @@ Feel free to use the attached worksheet to complete the following tasks.
   </a>
 </div>
 
-### Task 1
+#### Task 1
 
 Which investment should you choose if your only goal is to maximize the
 total value of your portfolio by the end of year 5?
@@ -270,7 +270,7 @@ total value of your portfolio by the end of year 5?
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-### Task 2
+#### Task 2
 
 What is the expected IRR over the five years for each of the investment options?
 
@@ -297,7 +297,7 @@ What is the expected IRR over the five years for each of the investment options?
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-### Task 3
+#### Task 3
 
 What is the NPV of each investment option?
 
@@ -336,7 +336,7 @@ What is the NPV of each investment option?
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-### Solution
+#### Solution
 
 Compare your answer against the solutions in this spreadsheet.
 

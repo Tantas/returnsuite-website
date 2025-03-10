@@ -150,10 +150,13 @@ select {
     @apply text-2xl text-gray-900 tracking-wide py-2
   }
   .documentation-article h3 {
-    @apply text-xl text-gray-900 tracking-wide py-2 font-medium
+    @apply text-xl text-gray-900 tracking-wide pt-8 font-medium
   }
   .documentation-article h4 {
-    @apply text-lg text-gray-900 tracking-wide py-2
+    @apply text-lg text-gray-900 tracking-wide pt-6 font-medium
+  }
+  .documentation-article h5 {
+    @apply text-base text-gray-700 tracking-wide pb-2 font-semibold text-sm
   }
   .documentation-article p {
     @apply py-3 text-base text-gray-700
@@ -167,9 +170,24 @@ select {
   .documentation-article a:hover {
     @apply underline
   }
-  .documentation-article dt {
-    @apply text-xl text-gray-900 tracking-wide font-medium pt-4
+  .documentation-article dl  {
+    @apply border border-blue-500 rounded-md py-4 px-6 mb-4 text-base
   }
+  .documentation-article dt {
+    @apply text-gray-800 tracking-wide font-semibold
+  }
+  .documentation-article dd {
+    @apply text-gray-700 border-b border-blue-500 pb-3 mb-3 last:border-b-0 last:pb-0 last:mb-0
+  }
+  /*.documentation-article dl dd dl {
+    @apply border border-gray-300 rounded-md pb-4
+  }
+  .documentation-article dl dd dl dt {
+    @apply text-base text-gray-800
+  }
+  .documentation-article dl dd dl dd {
+    @apply text-sm text-gray-700 border-b pb-2 mb-2 last:border-b-0 last:pb-0 last:mb-0
+  }*/
   .documentation-article figure {
     @apply flex flex-col gap-2 place-items-center py-6
   }

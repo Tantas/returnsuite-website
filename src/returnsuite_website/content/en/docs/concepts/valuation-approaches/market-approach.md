@@ -36,4 +36,6 @@ adjustments for any slight differences in the comps between the house
 being valued to arrive at an estimated Market Value for the subject
 property.
 
-<!-- TODO: Figure -->
+<figure>
+  <figcaption>[Insert Market Approach chart - showing subject property compared to 3 comps]</figcaption>
+</figure>

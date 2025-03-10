@@ -48,7 +48,7 @@ property–boiling those cash flows down to a single number.
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-## Example
+### Example
 
 Let’s say we had a real estate investment that offered us $115 next year
 for an investment of $100 now. If our Discount Rate was 8%, what would be
@@ -98,7 +98,7 @@ opportunity to our investor is $6.48.
 With a positive NPV, the investment covers our Cost of Capital and would
 therefore be a good investment.
 
-## Discount factor
+### Discount factor
 
 An alternative way to calculate a large series of Present Values is to
 determine the Discount Factor (not to be confused with the related
@@ -238,7 +238,7 @@ Net Present Value being equal to the sum of all the Present Values.
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-## Exercise
+### Exercise
 
 A property owner has two choices to attract a potential tenant on a five-year
 lease:
@@ -263,7 +263,7 @@ options? Which option is preferable?
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-### Task 1
+#### Task 1
 
 If the Landlord’s Cost of Capital is 8%, what is the NPV of each of the
 options? Which option is preferable?
@@ -376,7 +376,7 @@ Use the spreadsheet to calculate the NPV of each option.
 
 <hr class="mt-2 mb-6 border-gray-300">
 
-### Task 2
+#### Task 2
 
 Using your completed spreadsheet, watch how each of the following changes
 flips the landlord’s preferred choice:
