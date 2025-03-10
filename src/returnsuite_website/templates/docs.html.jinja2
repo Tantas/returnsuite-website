@@ -12,9 +12,9 @@
     <script defer src="{{ url_for('js', path='/lib/alpinejs-3.14.1.min.js') }}"></script>
     <style>svg { display: inline-block; } [x-cloak] { display: none; }</style>
   </head>
-  <body class="bg-white h-screen w-screen text-sm">
+  <body class="bg-white h-full">
     <div>
-      <nav class="border-b border-gray-300 md:fixed top-0 w-full bg-white z-50">
+      <nav class="border-b border-gray-300 w-full bg-white h-[6.1rem]">
         <ul class="flex place-items-center justify-between gap-3 mx-4 pt-2 text-base text-gray-800">
           <li class="flex gap-0.5">
             <a href="{{ url_for('get_index') }}" title="ReturnSuite">
@@ -66,9 +66,8 @@
           <li class="ml-auto"><a href="{{ url_for('get_contact') }}" class="inline-block border-blue-500 py-2">Contact Support</a></li>
         </ol>
       </nav>
-      <div class="h-[6.2rem]"></div>
       <div class="flex">
-        <aside class="absolute top-[6.2rem] sticky border-r border-gray-300 w-[20rem]" style="height: calc(100vh - 6.2rem)">
+        <aside class="absolute top-[6.2rem] sticky border-r border-gray-300 w-[20rem]" style="height: calc(100vh - 6.1rem)">
           <div class="absolute z-10 absolute top-3 right-4 text-gray-500 hover:text-gray-800">
             <button type="button" @click="menu_open = !menu_open" x-show="menu_open" title="Hide table of contents" style="transform: rotate(180deg);">
               <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
@@ -76,7 +75,7 @@
               </svg>
             </button>
           </div>
-          <ol class="p-4 text-gray-800 flex flex-col gap-3 overflow-y-scroll" style="height: calc(100vh - 9.4rem)">
+          <ol class="p-4 text-gray-800 flex flex-col gap-3 overflow-y-scroll text-sm" style="height: calc(100vh - 9.4rem)">
             <li class="pl-4">
               <a href="{{ side_menu["value"].route }}" {% if side_menu["value"].route == request.url.path %}class="font-medium text-blue-600"{% endif %}>Overview</a>
             </li>
@@ -187,65 +186,71 @@
             </button>
           </div>
         </aside>
-        <main class="w-full flex justify-center">
-          <div class="w-[1200px] flex gap-6">
 
-
-            <div class="relative">
-              <ol class="documentation-breadcrumbs pt-12 pb-4 px-12">
-              {% for breadcrumb in breadcrumbs %}
-                <li><a href="{{ breadcrumb.route }}">{{ breadcrumb.title }}</a></li>
-              {% endfor %}
-              </ol>
-              <article class="documentation-article px-12">
-                {{ page.content|safe }}
-              </article>
-              {% if page.next or page.previous %}
-                <div class="flex justify-end w-full text-base pb-6 pt-6">
-                  {# {% if page.previous %}
-                    <a href="{{ page.previous.route }}" class="text-blue-500 hover:underline flex place-items-center">
-                      <span>Previous: {{ page.previous.nav_title }}</span>
-                      <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
-                      </svg>
-                    </a>
-                  {% endif %} #}
-                  {% if page.next %}
-                    <a href="{{ page.next.route }}" class="text-blue-500 hover:underline flex place-items-center">
-                      <span>Next: {{ page.next.nav_title }}</span>
-                      <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
-                      </svg>
-                    </a>
-                  {% endif %}
+        <div class="w-full flex justify-center overflow-y-scroll" style="height: calc(100vh - 6.1rem)">
+          <div class="w-[1200px] flex gap-6 relative align-items-stretch">
+            <main class="relative h-fit flex">
+              <div>
+                <ol class="documentation-breadcrumbs pt-12 pb-4 px-12">
+                  {% for breadcrumb in breadcrumbs %}
+                    <li><a href="{{ breadcrumb.route }}">{{ breadcrumb.title }}</a></li>
+                  {% endfor %}
+                </ol>
+                <article class="documentation-article px-12">
+                  {{ page.content|safe }}
+                </article>
+                {% if page.next or page.previous %}
+                  <div class="flex justify-end w-full text-base pb-6 pt-6">
+                    {# {% if page.previous %}
+                      <a href="{{ page.previous.route }}" class="text-blue-500 hover:underline flex place-items-center">
+                        <span>Previous: {{ page.previous.nav_title }}</span>
+                        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                        </svg>
+                      </a>
+                    {% endif %} #}
+                    {% if page.next %}
+                      <a href="{{ page.next.route }}" class="text-blue-500 hover:underline flex place-items-center">
+                        <span>Next: {{ page.next.nav_title }}</span>
+                        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                        </svg>
+                      </a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+                <div class="px-12">
+                  {% include "docs/cta.html.jinja2" %}
                 </div>
-              {% endif %}
-              <div class="px-12">
-                {% include "docs/cta.html.jinja2" %}
               </div>
-            </div>
 
-            <aside id="toc" class="hidden xl:block pt-16 px-12 font-medium w-72 shrink-0">
-              <h2 class="uppercase text-gray-900 py-5">On this page</h2>
-              <ol class="flex flex-col gap-3 text-gray-800">
-                {% for level_one in page.toc %}
-                  {% for level_two in level_one.children %}
-                    {% for level_three in level_two.children %}
-                      <li class="">
-                        <a href="#{{ level_three.id }}" {% if loop.first %}class="text-blue-500"{% endif %}>{{ level_three.name }}</a>
-                      </li>
-                      {% for level_four in level_three.children %}
-                        <li>
-                          <a href="#{{ level_four.id }}" class="pl-4 font-normal border-l border-gray-300">{{ level_four.name }}</a>
+            <aside id="toc" class="hidden xl:block pt-16 px-12 font-medium w-72 shrink-0 text-sm">
+              <div class="sticky top-0">
+                <h2 class="uppercase text-gray-900 py-5">On this page</h2>
+                <ol class="flex flex-col gap-3 text-gray-800">
+                  {% for level_one in page.toc %}
+                    {% for level_two in level_one.children %}
+                      {% for level_three in level_two.children %}
+                        <li class="">
+                          <a href="#{{ level_three.id }}" {% if loop.first %}class="text-blue-500"{% endif %}>{{ level_three.name }}</a>
                         </li>
+                        {% for level_four in level_three.children %}
+                          <li>
+                            <a href="#{{ level_four.id }}" class="pl-4 font-normal border-l border-gray-300">{{ level_four.name }}</a>
+                          </li>
+                        {% endfor %}
                       {% endfor %}
                     {% endfor %}
                   {% endfor %}
-                {% endfor %}
-              </ol>
+                </ol>
+              </div>
             </aside>
+
+            </main>
+
+
           </div>
-        </main>
+        </div>
       </div>
 
     </div>

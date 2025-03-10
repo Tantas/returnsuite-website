@@ -22,7 +22,7 @@ changes. These settings start with reasonable defaults but can be overridden to
 your preferences.
 
 <figure>
-  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md max-w-prose shadow-md">
+  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md max-w-prose border border-gray-200">
     <img src="/img/docs/property-settings-change-history.png" alt="Screenshot showing property change history settings">
   </div>
   <figcaption>Screenshot showing property change history settings</figcaption>
@@ -63,7 +63,7 @@ insights and change history. These can be disabled to reduce unused component
 clutter and increase privacy as needed.
 
 <figure>
-  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md max-w-prose shadow-md">
+  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md max-w-prose border border-gray-200">
     <div class="bg-white p-4 border border-gray-300 rounded-md">
       <img src="/img/docs/property-settings-enable-features.png" alt="Screenshot showing property enable features">
     </div>
@@ -89,7 +89,7 @@ any operation. The records are immediately deleted from the system and cannot be
 recovered by the ReturnSuite team.
 
 <figure>
-  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md max-w-prose shadow-md">
+  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md max-w-prose border border-gray-200">
     <div class="bg-white p-4 border border-gray-300 rounded-md">
       <img src="/img/docs/property-settings-actions.png" alt="Screenshot showing property actions">
     </div>

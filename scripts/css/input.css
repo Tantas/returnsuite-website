@@ -143,6 +143,9 @@ select {
   .documentation-breadcrumbs a:hover {
     @apply text-gray-900
   }
+  .documentation-article {
+    @apply text-sm
+  }
   .documentation-article h1 {
     @apply text-4xl tracking-wide font-semibold text-gray-900 py-1
   }

@@ -15,7 +15,7 @@ as property maintenance, utilities and real estate taxes. They are often the
 main sources of cash outflows for a property.
 
 <figure>
-  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md max-w-prose shadow-md">
+  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md border border-gray-200">
     <img src="/img/docs/property-model-operating-expenses.png" alt="Screenshot showing the property operating expenses input">
   </div>
   <figcaption>Screenshot showing the property operating expenses input</figcaption>

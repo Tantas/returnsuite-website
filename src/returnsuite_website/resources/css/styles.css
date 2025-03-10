@@ -609,6 +609,11 @@ video {
   color: rgb(26 32 44 / var(--tw-text-opacity, 1));
 }
 
+.documentation-article {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .documentation-article h1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -1268,6 +1273,26 @@ video {
   height: 100vh;
 }
 
+.h-\[20rem\] {
+  height: 20rem;
+}
+
+.h-\[10rem\] {
+  height: 10rem;
+}
+
+.h-\[8rem\] {
+  height: 8rem;
+}
+
+.h-\[6rem\] {
+  height: 6rem;
+}
+
+.h-\[6\.1rem\] {
+  height: 6.1rem;
+}
+
 .max-h-72 {
   max-height: 18rem;
 }
@@ -1522,6 +1547,10 @@ video {
 
 .place-items-center {
   place-items: center;
+}
+
+.items-stretch {
+  align-items: stretch;
 }
 
 .justify-end {
@@ -3057,6 +3086,14 @@ select {
 }
 
 @media (min-width: 1280px) {
+  .xl\:absolute {
+    position: absolute;
+  }
+
+  .xl\:sticky {
+    position: sticky;
+  }
+
   .xl\:col-span-2 {
     grid-column: span 2 / span 2;
   }
