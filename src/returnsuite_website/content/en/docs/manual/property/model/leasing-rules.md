@@ -18,29 +18,11 @@ the screen to fill in the gaps caused by vacancies.
 In any given period of time, the existing and forecasted lease revenues
 can be summed together to create the projected cashflows of a property.
 
-<figure class="w-full py-2">
-  <div class="grid grid-cols-12 w-full gap-y-2 gap-x-2 text-xs">
-    <div class="col-span-3 text-xs whitespace-nowrap flex place-items-center justify-end font-semibold">Leasing Rule</div>
-    <div class="bg-orange-400 rounded-l-md col-span-9 h-6 flex place-items-center justify-center font-medium text-white">Forecasts Usages</div>
-
-    <div class="col-span-3 whitespace-nowrap flex place-items-center justify-end font-semibold">Space 1</div>
-    <div class="col-span-3 bg-blue-500 rounded-md h-6 flex place-items-center justify-center font-medium text-white">Contracted</div>
-    <div class="col-span-3 border border-orange-400 rounded-md h-6 flex place-items-center justify-center font-medium text-orange-400">Forecasted</div>
-    <div class="col-span-3 border-t border-l border-b border-orange-400 rounded-l-md col-span-1 h-6 flex place-items-center justify-center font-medium text-orange-400">Forecasted</div>
-
-    <div class="col-span-3 whitespace-nowrap flex place-items-center justify-end font-semibold">Space 2</div>
-    <div class="col-span-5 bg-blue-500 rounded-md h-6 flex place-items-center justify-center font-medium text-white">Contracted</div>
-    <div class="col-span-4 border-t border-l border-b border-orange-400 text-orange-400 rounded-l-md h-6 flex place-items-center justify-center font-medium">Forecasted</div>
-
-    <div class="col-span-3 whitespace-nowrap flex place-items-center justify-end font-semibold">Space 3</div>
-    <div class="col-span-7 bg-blue-500 rounded-md h-6 flex place-items-center justify-center font-medium text-white">Contracted Lease</div>
-    <div class="col-span-2 border-t border-l border-b border-orange-400 rounded-l-md h-6 flex place-items-center justify-center font-medium text-orange-400"></div>
-
-    <div class="col-start-7 col-span-3 text-xs text-gray-600 font-italic"><i>time</i> &#8674;</div>
+<figure>
+  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md border border-gray-200">
+    <img src="/img/docs/property-model-leasing-rules.png" alt="Screenshot showing the property leasing rules input">
   </div>
-  <figcaption class="text-center px-8 text-xs pt-2 text-gray-900">
-    Leasing rule populating vacant spaces as they become available
-  </figcaption>
+  <figcaption>Screenshot showing the property leasing rules input</figcaption>
 </figure>
 
 Leasing rules are a key element to building a financial model. Without
