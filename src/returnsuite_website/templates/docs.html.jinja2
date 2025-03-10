@@ -231,8 +231,8 @@
                   {% for level_one in page.toc %}
                     {% for level_two in level_one.children %}
                       {% for level_three in level_two.children %}
-                        <li class="">
-                          <a href="#{{ level_three.id }}" {% if loop.first %}class="text-blue-500"{% endif %}>{{ level_three.name }}</a>
+                        <li {% if loop.first %}class="text-blue-500"{% endif %}>
+                          <a href="#{{ level_three.id }}">{{ level_three.name }}</a>
                         </li>
                         {% for level_four in level_three.children %}
                           <li>
@@ -360,5 +360,26 @@
     </div> #}
     {% include "components/analytics.html.jinja2" %}
     {% include "components/livereload.html.jinja2" %}
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver(entries => {
+          let firstSelected = false
+          entries.forEach(entry => {
+            const id = entry.target.getAttribute('id');
+            if (entry.intersectionRatio > 0 && !firstSelected) {
+              firstSelected = true
+              console.log(document.querySelector(`#toc a[href="#${id}"]`))
+              document.querySelector(`#toc a[href="#${id}"]`).parentElement.classList.add('text-blue-500');
+            } else {
+              document.querySelector(`#toc a[href="#${id}"]`).parentElement.classList.remove('text-blue-500');
+            }
+          });
+        });
+
+        document.querySelectorAll('.documentation-article h3[id], .documentation-article h4[id]').forEach((section) => {
+          observer.observe(section);
+        });
+      });
+    </script>
   </body>
 </html>
