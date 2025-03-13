@@ -177,7 +177,7 @@
               <svg class="inline-block h-3 rounded-sm" viewBox="0 0 640 480">
                 {{ selected_country.get_flag()|safe }}
               </svg>
-              <span class="font-medium tracking-wide">{{ selected_country.name }} - English</span>
+              <span class="font-medium tracking-wide">{{ selected_country.name }} - {{ selected_language.name }}</span>
             </button>
             <div class="absolute bottom-16 left-4" x-show="showCountrySelect">
               <div class="rounded-md border border-gray-300 bg-white shadow-lg w-[60rem] z-50">
@@ -237,7 +237,7 @@
                         </li>
                         {% for level_four in level_three.children %}
                           <li>
-                            <a href="#{{ level_four.id }}" class="pl-4 font-normal border-l border-gray-300">{{ level_four.name }}</a>
+                            <a href="#{{ level_four.id }}" class="block pl-4 font-normal border-l border-gray-300">{{ level_four.name }}</a>
                           </li>
                         {% endfor %}
                       {% endfor %}
