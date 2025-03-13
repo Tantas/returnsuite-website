@@ -9,6 +9,7 @@ from starlette.responses import RedirectResponse
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
 from returnsuite_website.routes.utils import generate_token, get_locale
+from returnsuite_website.services import localization_directory
 from returnsuite_website.services.database import (
     DBSession,
     Waitlist,
@@ -23,12 +24,52 @@ router = APIRouter(default_response_class=HTMLResponse)
 
 @router.get("/brave")
 @router.get("/")  # Must be the last entry to be used with 'for_url'.
-async def get_index(request: Request, success: bool | None = None):
+async def get_index(request: Request):
     logger.warning(f"User agent is {request.headers.get('User-Agent')}")
+    countries = localization_directory.load2()
+
+    selected_country = None
+    selected_language = None
+    for country in countries:
+        for language in country.languages:
+            if language.slug == "en-us":
+                selected_country = country
+                selected_language = language
+                break
+
     return templates.TemplateResponse(
         request=request,
         name="index3.html.jinja2",
-        context={"success": success},
+        context={
+            "countries": countries,
+            "selected_country": selected_country,
+            "selected_language": selected_language,
+        },
+    )
+
+
+@router.get("/{locale}")
+async def get_index_for_locale(request: Request, locale: str):
+    logger.warning(f"User agent is {request.headers.get('User-Agent')}")
+    countries = localization_directory.load2()
+
+    selected_country = None
+    selected_language = None
+    for country in countries:
+        for language in country.languages:
+            if language.slug == locale:
+                selected_country = country
+                selected_language = language
+                break
+
+    return templates.TemplateResponse(
+        request=request,
+        name="index3.html.jinja2",
+        context={
+            "countries": countries,
+            "selected_country": selected_country,
+            "selected_language": selected_language,
+        },
     )
 
 

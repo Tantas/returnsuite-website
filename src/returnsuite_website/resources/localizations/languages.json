@@ -1,0 +1,684 @@
+{
+  "countries": [
+    {
+      "code": "au",
+      "name": "Australia",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-au",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "AUD",
+          "currency_locale": "en_au",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "at",
+      "name": "Austria",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-at",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "en_at",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "be",
+      "name": "Belgium",
+      "languages": [
+        {
+          "name": "Français",
+          "slug": "fr-be",
+          "locale": "en_US",
+          "bundle": "fr_CA",
+          "currency_code": "EUR",
+          "currency_locale": "fr_be",
+          "area_unit": "sm"
+        }, {
+          "name": "English",
+          "slug": "en-be",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "en_be",
+          "area_unit": "sm"
+        }
+      ]
+    },
+    {
+      "code": "br",
+      "name": "Brazil",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-br",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "BRL",
+          "currency_locale": "pt_BR",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "bg",
+      "name": "Bulgaria",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-bg",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_note": "Might become EUR.",
+          "currency_code": "LIM",
+          "currency_locale": "bg_BG",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "ca",
+      "name": "Canada",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-ca",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "CAD",
+          "currency_locale": "en_CA",
+          "area_unit": "sf"
+        }, {
+          "name": "Français",
+          "slug": "fr-ca",
+          "locale": "fr_FR",
+          "bundle": "en_US",
+          "currency_code": "CAD",
+          "currency_locale": "fr_CA",
+          "area_unit": "sf"
+        }
+      ]
+    }, {
+      "code": "hr",
+      "name": "Croatia",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-hr",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "hr_HR",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "cy",
+      "name": "Cyprus",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-cy",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "en_CY",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "cz",
+      "name": "Czech Republic",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-cz",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_note": "Might become EUR.",
+          "currency_code": "CZK",
+          "currency_locale": "cs_CZ",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "dk",
+      "name": "Denmark",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-dk",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "DKK",
+          "currency_locale": "en_DK",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "es",
+      "name": "Estonia",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-es",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "et_EE",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "fi",
+      "name": "Finland",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-fi",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "en_FI",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "fr",
+      "name": "France",
+      "languages": [
+        {
+          "name": "Français",
+          "slug": "fr-fr",
+          "locale": "en_US",
+          "bundle": "fr_CA",
+          "currency_code": "EUR",
+          "currency_locale": "fr_FR",
+          "area_unit": "sm"
+        }, {
+          "name": "English",
+          "slug": "en-fr",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "fr_FR",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "de",
+      "name": "Germany",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-de",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "en_DE",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "gi",
+      "name": "Gibraltar",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-gi",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "GIP",
+          "currency_locale": "en_GI",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "gr",
+      "name": "Greece",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-gr",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "el_GR",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "hk",
+      "name": "Hong Kong",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-hk",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "HKD",
+          "currency_locale": "en_HK",
+          "area_unit": "sf"
+        }
+      ]
+    }, {
+      "code": "hu",
+      "name": "Hungary",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-hu",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "HUF",
+          "currency_locale": "hu_HU",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "in",
+      "name": "India",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-in",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "INR",
+          "currency_locale": "en_IN",
+          "area_unit": "sf"
+        }
+      ]
+    }, {
+      "code": "ie",
+      "name": "Ireland",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-ie",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "en_IE",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "it",
+      "name": "Italy",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-it",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "it_IT",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "jp",
+      "name": "Japan",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-jp",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "JPY",
+          "currency_locale": "ja_JP",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "lv",
+      "name": "Latvia",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-lv",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "lv_LV",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "li",
+      "name": "Liechtenstein",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-li",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "CHF",
+          "currency_locale": "de_LI",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "lt",
+      "name": "Lithuania",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-lt",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "lt_LT",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "lu",
+      "name": "Luxembourg",
+      "languages": [
+        {
+          "name": "Français",
+          "slug": "fr-lu",
+          "locale": "en_US",
+          "bundle": "fr_CA",
+          "currency_code": "EUR",
+          "currency_locale": "fr_lu",
+          "area_unit": "sm"
+        }, {
+          "name": "English",
+          "slug": "en-lu",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "lb_LU",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "my",
+      "name": "Malaysia",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-my",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "MYR",
+          "currency_locale": "en_MY",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "mt",
+      "name": "Malta",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-mt",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "MTL",
+          "currency_locale": "en_MT",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "mx",
+      "name": "Mexico",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-mx",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "MXN",
+          "currency_locale": "es_MX",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "nl",
+      "name": "Netherlands",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-nl",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "en_NL",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "nz",
+      "name": "New Zealand",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-nz",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "NZD",
+          "currency_locale": "en_NZ",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "no",
+      "name": "Norway",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-no",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "NOK",
+          "currency_locale": "nb_NO",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "pl",
+      "name": "Poland",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-pl",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "pl_PL",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "pt",
+      "name": "Portugal",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-pt",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "pt_PT",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "ro",
+      "name": "Romanian",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-ro",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "RON",
+          "currency_locale": "ro_RO",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "sg",
+      "name": "Singapore",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-sg",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "SGD",
+          "currency_locale": "en_SG",
+          "area_unit": "sf"
+        }
+      ]
+    }, {
+      "code": "sk",
+      "name": "Slovakia",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-sk",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "sk_SK",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "sl",
+      "name": "Slovenia",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-sl",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "en_SL",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "za",
+      "name": "South Africa",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-za",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "ZAR",
+          "currency_locale": "en_ZA",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "es",
+      "name": "Spain",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-es",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "EUR",
+          "currency_locale": "es_ES",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "se",
+      "name": "Sweden",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-se",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "SEK",
+          "currency_locale": "en_SE",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "ch",
+      "name": "Switzerland",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-ch",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "CHF",
+          "currency_locale": "en_CH",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "th",
+      "name": "Thailand",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-th",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "THB",
+          "currency_locale": "th_TH",
+          "area_unit": "sm"
+        }
+      ]
+    }, {
+      "code": "as",
+      "name": "United Arab Emirates",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-ae",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "AED",
+          "currency_locale": "en_AE",
+          "area_unit": "sf"
+        }
+      ]
+    }, {
+      "code": "gb",
+      "name": "United Kingdom",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-gb",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "GBP",
+          "currency_locale": "en_GB",
+          "area_unit": "sf"
+        }
+      ]
+    }, {
+      "code": "US",
+      "name": "United States",
+      "languages": [
+        {
+          "name": "English",
+          "slug": "en-us",
+          "locale": "en_US",
+          "bundle": "en_US",
+          "currency_code": "USD",
+          "currency_locale": "en_US",
+          "area_unit": "sf"
+        }
+      ]
+    }
+  ]
+}

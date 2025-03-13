@@ -83,6 +83,7 @@ async def get_blog(form: Annotated[BlogListForm, Depends()], request: Request):
         total=total_posts,
         sort_options=SortOptions.from_values(BlogSort, form.sort),
     )
+
     return templates.TemplateResponse(
         request=request,
         name="blog/index.html.jinja2",

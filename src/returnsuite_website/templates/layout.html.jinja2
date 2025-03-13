@@ -17,7 +17,7 @@
   <body class="bg-white h-screen w-screen text-sm">
     <div>
       <nav class="border-b-2 md:fixed top-0 w-full bg-white z-50">
-        <ul class="flex place-items-center justify-between gap-3 mx-4 md:mx-6 xl:mx-32 py-4 text-base font-medium text-gray-900">
+        <ul class="flex place-items-center justify-between gap-3 mx-4 md:mx-6 xl:mx-32 h-20 text-base font-medium text-gray-900">
           <li>
             <a href="{{ url_for('get_index') }}" title="ReturnSuite">
               <img class="h-12 w-auto" src="{{ url_for('img', path='/returnsuite-logo.svg') }}" alt="ReturnSuite logo" width="360px" height="85px">
@@ -76,268 +76,219 @@
                   <div class="w-full px-6">
                     <a href="{{ app_website }}/login" class="block text-center text-blue-500 border-2 border-blue-500 hover:text-blue-600 hover:border-blue-600 rounded-md py-3 w-full font-semibold whitespace-nowrap">Login</a>
                   </div>
-                  <div class="w-full px-6" id="mobile-locale-display">
-                   {# <!-- This will become the mobile language select. -->
-                     <button class="flex place-items-center gap-2 py-2 w-full justify-center">
-                        <svg class="inline-block h-4" viewBox="0 0 9600 4800">
-                          <path fill="#d52b1e" d="m0 0h2400l99 99h4602l99-99h2400v4800h-2400l-99-99h-4602l-99 99H0z"/>
-                          <path fill="#fff" d="m2400 0h4800v4800h-4800zm2490 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z"/>
+                  {% if selected_language %}
+                    <div class="w-full px-6" id="mobile-locale-display">
+                      <button class="flex place-items-center gap-2 py-2 w-full justify-center">
+                        <svg class="inline-block h-4 rounded-sm" viewBox="0 0 640 480">
+                          {{ selected_country.get_flag()|safe }}
                         </svg>
-                        <span class="text-lg">English</span>
+                        <span class="text-lg">{{ selected_language.name }}</span>
                       </button>
-                   #}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </li>
+          </li>
 
-    {% if not hide_docs %}
-      <li class="hidden md:block pl-4">
-        <a href="{{ url_for('get_documentation') }}" class="py-1.5 border-b-2 border-blue-500">Resources</a>
-      </li>
-
-      <li class="hidden md:block px-4">
-        <a href="{{ url_for('get_blog') }}" class="py-1.5 border-b-2 border-white hover:border-blue-500">Blog</a>
-      </li>
-    {% endif %}
-    <li class="hidden md:block ml-auto" id="locale-display">
-      <script>
-          let flag = ""
-          let title = ""
-          let country = navigator.language.split('-').pop()
-          switch (country) {
-              case "CA":
-                  title = "Canada English"
-                  flag = `
-                                <svg class="inline-block h-4" viewBox="0 0 9600 4800">
-	                                <path fill="#d52b1e" d="m0 0h2400l99 99h4602l99-99h2400v4800h-2400l-99-99h-4602l-99 99H0z" />
-	                                <path fill="#fff" d="m2400 0h4800v4800h-4800zm2490 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z" />
-                                </svg>`
-                  break
-              case "GB":
-                  title = "UK English"
-                  flag = `
-                                <svg class="inline-block h-4" viewBox="0 0 60 30">
-                                        <clipPath id="s">
-                                        	<path d="M0,0 v30 h60 v-30 z" />
-                                        </clipPath>
-                                        <clipPath id="t">
-                                        	<path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
-                                        </clipPath>
-                                        <g clip-path="url(#s)">
-                                        	<path d="M0,0 v30 h60 v-30 z" fill="#012169" />
-                                        	<path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
-                                        	<path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4" />
-                                        	<path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
-                                        	<path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
-                                        </g>
-                                </svg>
-                            `
-                  break
-              case "AU":
-                  title = "Australian English"
-                  flag = `
-                                <svg class="inline-block h-4" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10080 5040">
-                                    <defs>
-                                        <clipPath id="c1"><path d="M0,0H6V3H0z" /></clipPath>
-                                        <clipPath id="c2"><path d="M0,0V1.5H6V3H6zM6,0H3V3H0V3z" /></clipPath>
-                                        <path id="Star7" d="M0,-360 69.421398,-144.155019 281.459334,-224.456329 155.988466,-35.603349 350.974048,80.107536 125.093037,99.758368 156.198146,324.348792 0,160 -156.198146,324.348792 -125.093037,99.758368 -350.974048,80.107536 -155.988466,-35.603349 -281.459334,-224.456329 -69.421398,-144.155019z" />
-                                        <path id="Star5" d="M0,-210 54.859957,-75.508253 199.721868,-64.893569 88.765275,28.841586 123.434903,169.893569 0,93.333333 -123.434903,169.893569 -88.765275,28.841586 -199.721868,-64.893569 -54.859957,-75.508253z" />
-                                    </defs>
-                                    <g transform="scale(840)">
-                                        <rect width="12" height="6" fill="#00008b" />
-                                        <path d="M0,0 6,3M6,0 0,3" stroke="#fff" stroke-width="0.6" clip-path="url(#c1)" />
-                                        <path d="M0,0 6,3M6,0 0,3" stroke="#f00" stroke-width="0.4" clip-path="url(#c2)" />
-                                        <path d="M3,0V3M0,1.5H6" stroke="#fff" />
-                                        <path d="M3,0V3M0,1.5H6" stroke="#f00" stroke-width="0.6" />
-                                    </g>
-                                    <g fill="#fff">
-                                        <use id="Comwlth" xlink:href="#Star7" transform="translate(2520, 3780) scale(2.1)" />
-                                        <use id="αCrucis" xlink:href="#Star7" x="7560" y="4200" />
-                                        <use id="βCrucis" xlink:href="#Star7" x="6300" y="2205" />
-                                        <use id="γCrucis" xlink:href="#Star7" x="7560" y="840" />
-                                        <use id="δCrucis" xlink:href="#Star7" x="8680" y="1869" />
-                                        <use id="εCrucis" xlink:href="#Star5" x="8064" y="2730" />
-                                    </g>
-                                </svg>
-                            `
-                  break
-              case "NZ":
-                  title = "New Zealand English"
-                  flag = `
-                                <svg class="inline-block h-4" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 600">
-                                    <defs>
-                                    	<clipPath id="Canton">
-                                    		<path d="M 0,0 L 600,0 L 600,300 L 0,300 z" />
-                                    	</clipPath>
-                                    	<clipPath id="Diagonals">
-                                    		<path d="M 0,0 L 300,150 L 0,150 z M 300,0 L 600,0 L 300,150 z M 300,150 L 600,150 L 600,300 z M 300,150 L 300,300 L 0,300 z" />
-                                    	</clipPath>
-                                    	<g id="Pentagram">
-                                    		<g id="Arm" transform="translate(0,-0.324925)">
-                                    			<path d="M 0,0 L 0,0.5 L 1,0 z" />
-                                    			<path d="M 0,0 L 0,-0.5 L 1,0 z" transform="rotate(-36,1,0)" />
-                                    		</g>
-                                    		<use xlink:href="#Arm" transform="scale(-1,1)" />
-                                    		<use xlink:href="#Arm" transform="rotate(72,0,0)" />
-                                    		<use xlink:href="#Arm" transform="rotate(-72,0,0)" />
-                                    		<use xlink:href="#Arm" transform="rotate(-72,0,0) scale(-1,1)" />
-                                    	</g>
-                                    </defs>
-
-                                    <rect fill="#012169" x="0" y="0" width="1200" height="600" />
-
-                                    <g id="Flag_of_the_United_Kingdom">
-                                    	<path id="Saint_Andrews_Cross" stroke="#FFF" d="M 0,0 L 600,300 M 0,300 L 600,0" stroke-width="60" clip-path="url(#Canton)" />
-                                    	<path id="Saint_Patricks_Cross" stroke="#C8102E" d="M 0,0 L 600,300 M 0,300 L 600,0" stroke-width="40" clip-path="url(#Diagonals)" />
-                                    	<g id="Saint_Georges_Cross">
-                                    		<path stroke="#FFF" d="M 300,0 L 300,300 M 0,150 L 600,150" stroke-width="100" clip-path="url(#Canton)" />
-                                    		<path stroke="#C8102E" d="M 300,0 L 300,300 M 0,150 L 600,150" stroke-width="60" clip-path="url(#Canton)" />
-                                    	</g>
-                                    </g>
-
-                                    <g id="Southern_Cross">
-                                    	<g id="Gamma_Crucis">
-                                    		<use xlink:href="#Pentagram" fill="#FFF" transform="translate(900,120) scale(45.4)" />
-                                    		<use xlink:href="#Pentagram" fill="#C8102E" transform="translate(900,120) scale(30)" />
-                                    	</g>
-                                    	<g transform="rotate(82,900,240)">
-                                    		<g id="Delta_Crucis">
-                                    			<use xlink:href="#Pentagram" fill="#FFF" transform="translate(900,120) rotate(-82) scale(40.4)" />
-                                    			<use xlink:href="#Pentagram" fill="#C8102E" transform="translate(900,120) rotate(-82) scale(25)" />
-                                    		</g>
-                                    		<g id="Beta_Crucis">
-                                    			<use xlink:href="#Pentagram" fill="#FFF" transform="translate(900,380) rotate(-82) scale(45.4)" />
-                                    			<use xlink:href="#Pentagram" fill="#C8102E" transform="translate(900,380) rotate(-82) scale(30)" />
-                                    		</g>
-                                    	</g>
-                                    	<g id="Alpha_Crucis">
-                                    		<use xlink:href="#Pentagram" fill="#FFF" transform="translate(900,480) scale(50.4)" />
-                                    		<use xlink:href="#Pentagram" fill="#C8102E" transform="translate(900,480) scale(35)" />
-                                    	</g>
-                                    </g>
-                                </svg>
-                            `
-                  break
-              case "US":
-                  title = "US English"
-                  flag = `
-                                <svg class="inline-block h-4" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 7410 3900">
-                                    <rect width="7410" height="3900" fill="#b22234" />
-                                    <path d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0" stroke="#fff" stroke-width="300" />
-                                    <rect width="2964" height="2100" fill="#3c3b6e" />
-                                    <g fill="#fff">
-                                        <g id="s18">
-                                            <g id="s9">
-                                                <g id="s5">
-                                                    <g id="s4">
-                                                        <path id="s" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z" />
-                                                        <use xlink:href="#s" y="420" />
-                                                        <use xlink:href="#s" y="840" />
-                                                        <use xlink:href="#s" y="1260" />
-                                                    </g>
-                                                    <use xlink:href="#s" y="1680" />
-                                                </g>
-                                                <use xlink:href="#s4" x="247" y="210" />
-                                            </g>
-                                            <use xlink:href="#s9" x="494" />
-                                        </g>
-                                        <use xlink:href="#s18" x="988" />
-                                        <use xlink:href="#s9" x="1976" />
-                                        <use xlink:href="#s5" x="2470" />
-                                    </g>
-                                </svg>
-                            `
-          }
-          if (title !== "") {
-              document.getElementById("locale-display").innerHTML = `
-                            <div title="${title}" class="flex place-items-center gap-3">
-                                ${flag}
-                                <span class="hidden xl:block">English</span>
-                            </div>`
-
-              document.getElementById("mobile-locale-display").innerHTML = `
-                            <div title="${title}" class="flex place-items-center gap-2 py-2 w-full justify-center">
-                                ${flag}
-                                <span class="text-lg">English</span>
-                            </div>
-                        `
-          }
-      </script>
-    </li>
-    {# <!-- This will become the language select. For now, use js to mark the visiting country flag. Flags from wikipedia -->
-                                        <li class="hidden md:block ml-auto">
-                                            <a href="#" title="Canada English" class="flex place-items-center gap-2">
-                                                <svg class="inline-block h-3" viewBox="0 0 9600 4800">
-                            	                    <path fill="#d52b1e" d="m0 0h2400l99 99h4602l99-99h2400v4800h-2400l-99-99h-4602l-99 99H0z"/>
-                            	                    <path fill="#fff" d="m2400 0h4800v4800h-4800zm2490 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z"/>
-                                  </svg>
-                    <span class="hidden xl:block">English</span>
-                </a>
-            </li> #}
-{# <li><a href="{{ url_for('get_signup') }}" class="border-2 rounded-md border-blue-500 text-blue-500 font-semibold px-6 py-2">Sign Up</a></li> #}
-{% if signup_enabled %}
-  <li class="hidden md:block">
-    <a href="{{ app_website }}/signup" class="bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 hover:border-blue-600 rounded-md py-2 px-6 font-medium whitespace-nowrap shadow-sm tracking-wide">Sign Up</a>
-  </li>
-  <li class="hidden md:block ">
-    <a href="{{ app_website }}/login" class="border-2 rounded-md border-blue-500 text-blue-500 font-semibold px-6 py-2 whitespace-nowrap hover:text-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
-  </li>
-{% else %}
-  <li class="hidden md:block ">
-    <a href="{{ app_website }}/login" class="border-2 rounded-md border-blue-500 text-white bg-blue-500 font-medium px-6 py-2 whitespace-nowrap hover:bg-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
-  </li>
-{% endif %}
-</ul>
-</nav>
-<div class="hidden md:block h-20"></div>
-{% block content %}{% endblock content %}
-<footer class="flex flex-wrap place-items-center justify-between flex-col-reverse md:flex-row gap-6 font-medium text-xs lg:gap-20 pt-8 pb-12 mx-4 md:mx-32 text-gray-700">
-  <div class="inline-flex place-items-center gap-2 whitespace-nowrap">© {{ now().year }} ReturnSuite Software Inc.</div>
-  <ul class="flex place-items-center gap-4 md:gap-12">
-    <li>
-      <a href="{{ url_for('get_terms_and_conditions') }}" class="hover:underline">Terms</a>
-    </li>
-    <li>
-      <a href="{{ url_for('get_privacy_policy') }}" class="hover:underline">Privacy</a>
-    </li>
-    <li class="hidden md:block">
-      <a href="{{ url_for('get_about') }}" class="hover:underline">About</a>
-    </li>
-    <li class="hidden md:block">
-      <a href="{{ url_for('get_contact') }}" class="hover:underline">Contact</a>
-    </li>
-    <li class="hidden md:block">
-      <a href="{{ url_for('get_blog') }}" class="hover:underline">Blog</a>
-    </li>
-  </ul>
-  <ul class="flex place-items-center gap-4 order-1">
-    <li>
-      <a target="_blank" href="https://www.youtube.com/@SamGambleRS" title="Youtube" class="hover:text-gray-900">
-        <svg class="block h-7" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"></path>
-        </svg>
-      </a>
-    </li>
-    <li class="ml-0.5">
-      <a target="_blank" href="https://www.linkedin.com/company/returnsuite/" title="LinkedIn" class="hover:text-gray-900">
-        <svg class="block h-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M9,17H6.5v-7H9V17z M7.7,8.7c-0.8,0-1.3-0.5-1.3-1.2s0.5-1.2,1.4-1.2c0.8,0,1.3,0.5,1.3,1.2S8.6,8.7,7.7,8.7z M18,17h-2.4v-3.8c0-1.1-0.7-1.3-0.9-1.3	s-1.1,0.2-1.1,1.3c0,0.2,0,3.8,0,3.8h-2.5v-7h2.5v1c0.3-0.6,1-1,2.2-1s2.2,1,2.2,3.2V17z"></path>
-        </svg>
-      </a>
-    </li>
-    {# <li class="ml-1">
-      <a target="_blank" href="https://twitter.com/SamGambleRS" title="Twitter" class="hover:text-gray-900">
-        <svg class="block h-4" viewBox="0 0 1200 1227" fill="currentColor">
-          <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"></path>
-        </svg>
-      </a>
-    </li>#}
-  </ul>
-</footer>
-</div>
-{% include "components/analytics.html.jinja2" %}
-{% include "components/livereload.html.jinja2" %}
-</body>
+          <li class="relative hidden md:flex pl-4 text-gray-900 hover:text-gray-500 h-full place-items-center" x-data="{ showProduct: false }" @mouseover="showProduct = true" @mouseleave="showProduct = false">
+            <button type="button" @click="showProduct = !showProduct" class="flex place-items-center gap-2 h-full">
+              <span>Product</span>
+              <svg class="inline-block h-5" viewBox="0 -960 960 960" fill="currentColor" x-show="!showProduct">
+                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+              </svg>
+              <svg class="inline-block h-5" viewBox="0 -960 960 960" fill="currentColor" x-cloak x-show="showProduct">
+                <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"></path>
+              </svg>
+            </button>
+            <div x-cloak x-show="showProduct" class="absolute top-16 -left-16">
+              <div class="rounded-lg border border-gray-300 bg-white shadow-lg z-50 w-[28rem] text-sm">
+                <div class="flex">
+                  <ul class="w-2/5 px-6 py-6 flex flex-col gap-3 border-r border-gray-300">
+                    <li class="flex place-items-center gap-3 text-gray-900">
+                      <svg class="inline-block h-6 text-blue-500" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M80-160v-400l240-240 240 240v400H80Zm80-80h120v-120h80v120h120v-287L320-687 160-527v287Zm120-200v-80h80v80h-80Zm360 280v-433L433-800h113l174 174v466h-80Zm160 0v-499L659-800h113l108 108v532h-80Zm-640-80h320-320Z"></path>
+                      </svg>
+                      <a href="#">Model</a>
+                    </li>
+                    <li class="flex place-items-center gap-3 text-gray-900">
+                      <svg class="inline-block h-6 text-blue-500" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M160-160v-320h160v320H160Zm240 0v-640h160v640H400Zm240 0v-440h160v440H640Z"></path>
+                      </svg>
+                      <a href="#">Report</a>
+                    </li>
+                    {# <li class="flex place-items-center gap-3 text-gray-900">
+                      <svg class="inline-block h-6 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3 2v5l-1-.75L15 9V4h2zm3 12H8V4h5v9l3-2.25L19 13V4h1v12z"></path>
+                      </svg>
+                      <a href="#">Publish</a>
+                    </li> #}
+                    <li class="flex place-items-center gap-3 text-gray-900">
+                      <svg class="inline-block h-6 text-blue-500" height="24px" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M411-480q-28 0-46-21t-13-49l12-72q8-43 40.5-70.5T480-720q44 0 76.5 27.5T597-622l12 72q5 28-13 49t-46 21H411Zm24-80h91l-8-49q-2-14-13-22.5t-25-8.5q-14 0-24.5 8.5T443-609l-8 49ZM124-441q-23 1-39.5-9T63-481q-2-9-1-18t5-17q0 1-1-4-2-2-10-24-2-12 3-23t13-19l2-2q2-19 15.5-32t33.5-13q3 0 19 4l3-1q5-5 13-7.5t17-2.5q11 0 19.5 3.5T208-626q1 0 1.5.5t1.5.5q14 1 24.5 8.5T251-596q2 7 1.5 13.5T250-570q0 1 1 4 7 7 11 15.5t4 17.5q0 4-6 21-1 2 0 4l2 16q0 21-17.5 36T202-441h-78Zm676 1q-33 0-56.5-23.5T720-520q0-12 3.5-22.5T733-563l-28-25q-10-8-3.5-20t18.5-12h80q33 0 56.5 23.5T880-540v20q0 33-23.5 56.5T800-440ZM0-240v-63q0-44 44.5-70.5T160-400q13 0 25 .5t23 2.5q-14 20-21 43t-7 49v65H0Zm240 0v-65q0-65 66.5-105T480-450q108 0 174 40t66 105v65H240Zm560-160q72 0 116 26.5t44 70.5v63H780v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5Zm-320 30q-57 0-102 15t-53 35h311q-9-20-53.5-35T480-370Zm0 50Zm1-280Z"></path>
+                      </svg>
+                      <a href="#">Collaborate</a>
+                    </li>
+                    <li class="flex place-items-center gap-3 text-gray-900">
+                      <svg class="inline-block h-6 text-blue-500" height="24px" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M680-120q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T760-280q0-33-23.5-56.5T680-360q-33 0-56.5 23.5T600-280q0 33 23.5 56.5T680-200Zm-400-40q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T360-400q0-33-23.5-56.5T280-480q-33 0-56.5 23.5T200-400q0 33 23.5 56.5T280-320Zm160-240q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T520-720q0-33-23.5-56.5T440-800q-33 0-56.5 23.5T360-720q0 33 23.5 56.5T440-640Zm240 360ZM280-400Zm160-320Z"></path>
+                      </svg>
+                      <a href="#">Track</a>
+                    </li>
+                  </ul>
+                  <div class="font-normal text-gray-700 py-6 px-8 bg-gray-100 w-3/5">
+                    <div class="uppercase font-medium text-xs pt-1">What's new</div>
+                    <ol class="pt-4 flex flex-col gap-4 text-gray-900">
+                      <li class="flex place-items-center gap-3">
+                        <div class="rounded-full bg-blue-500 bg-opacity-25 h-4 w-4 flex place-items-center justify-center">
+                          <div class="rounded-full bg-blue-500 opacity-100 h-2 w-2"></div>
+                        </div>
+                        <a href="#">Documentation updates</a>
+                      </li>
+                      <li class="flex place-items-center gap-3">
+                        <div class="rounded-full bg-blue-500 bg-opacity-25 h-4 w-4 flex place-items-center justify-center">
+                          <div class="rounded-full bg-blue-500 opacity-100 h-2 w-2"></div>
+                        </div>
+                        <a href="#">Available for beta use</a>
+                      </li>
+                    </ol>
+                    <!--<p>Build a financial model of a property to examine its cash flows and calculate a valuation.</p>-->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="relative hidden md:flex pl-4 text-gray-900 hover:text-gray-500 h-full place-items-center" x-data="{ showResources: false }" @mouseover="showResources = true" @mouseleave="showResources = false">
+            <button type="button" @click="showResources = !showResources" class="flex place-items-center gap-2">
+              <span>Resources</span>
+              <svg class="inline-block h-5" viewBox="0 -960 960 960" fill="currentColor" x-show="!showResources">
+                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+              </svg>
+              <svg class="inline-block h-5" viewBox="0 -960 960 960" fill="currentColor" x-cloak x-show="showResources">
+                <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"></path>
+              </svg>
+            </button>
+            <div x-cloak x-show="showResources" class="absolute top-16 -left-16">
+              <div class="rounded-lg border border-gray-300 bg-white shadow-lg z-50 w-96 text-sm">
+                <div>
+                  <a href="{{ selected_language.slug ~ '/docs' if selected_language and selected_language.slug != 'en-us' else '/docs' }}" class="flex gap-3 px-6 py-4 pt-5">
+                    <svg class="inline-block h-6 text-blue-500" viewBox="0 -960 960 960" fill="currentColor">
+                      <path d="M560-564v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-600q-38 0-73 9.5T560-564Zm0 220v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-380q-38 0-73 9t-67 27Zm0-110v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-490q-38 0-73 9.5T560-454ZM260-320q47 0 91.5 10.5T440-278v-394q-41-24-87-36t-93-12q-36 0-71.5 7T120-692v396q35-12 69.5-18t70.5-6Zm260 42q44-21 88.5-31.5T700-320q36 0 70.5 6t69.5 18v-396q-33-14-68.5-21t-71.5-7q-47 0-93 12t-87 36v394Zm-40 118q-48-38-104-59t-116-21q-42 0-82.5 11T100-198q-21 11-40.5-1T40-234v-482q0-11 5.5-21T62-752q46-24 96-36t102-12q58 0 113.5 15T480-740q51-30 106.5-45T700-800q52 0 102 12t96 36q11 5 16.5 15t5.5 21v482q0 23-19.5 35t-40.5 1q-37-20-77.5-31T700-240q-60 0-116 21t-104 59ZM280-494Z"></path>
+                    </svg>
+                    <span class="flex flex-col gap-0.5 pt-0.5">
+                      <span class="text-gray-900">Documentation</span>
+                      <span class="text-sm font-normal text-gray-700">From learning concepts to building a model.</span>
+                    </span>
+                  </a>
+                </div>
+                <ul class="pl-[3.75rem] px-6 pb-5 flex flex-col gap-1.5 font-normal text-gray-900">
+                  <li class="hover:font-medium hover:text-gray-900">
+                    <a href="{{ selected_language.slug ~ '/docs/getting-started' if selected_language and selected_language.slug != 'en-us' else '/docs/getting-started' }}">Getting started</a>
+                  </li>
+                  <li class="hover:font-medium hover:text-gray-900">
+                    <a href="{{ selected_language.slug ~ '/docs/concepts' if selected_language and selected_language.slug != 'en-us' else '/docs/concepts' }}">Valuation concepts</a>
+                  </li>
+                  <li class="hover:font-medium hover:text-gray-900">
+                    <a href="{{ selected_language.slug ~ '/docs/manual' if selected_language and selected_language.slug != 'en-us' else '/docs/manual' }}">Using ReturnSuite</a>
+                  </li>
+                </ul>
+                <ul class="grid grid-cols-2 gap-2 bg-gray-100 px-6 py-6">
+                  <li class="flex place-items-center gap-2 text-sm text-gray-800">
+                    <a href="{{ url_for('get_blog') }}" class="flex place-items-center gap-2 px-2">
+                      <svg class="inline-block h-6 text-blue-500 pt-0.5" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="m490-527 37 37 217-217-37-37-217 217ZM200-200h37l233-233-37-37-233 233v37Zm355-205L405-555l167-167-29-29-219 219-56-56 218-219q24-24 56.5-24t56.5 24l29 29 50-50q12-12 28.5-12t28.5 12l93 93q12 12 12 28.5T828-678L555-405ZM270-120H120v-150l285-285 150 150-285 285Z"></path>
+                      </svg>
+                      <span>Blog</span>
+                    </a>
+                  </li>
+                  <li class="flex place-items-center gap-2 text-sm text-gray-800">
+                    <a href="{{ url_for('get_contact') }}" class="flex place-items-center gap-2 px-2">
+                      <svg class="inline-block h-6 text-blue-500 pt-0.5" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="m720-160-56-56 63-64H560v-80h167l-63-64 56-56 160 160-160 160ZM160-280q-33 0-56.5-23.5T80-360v-400q0-33 23.5-56.5T160-840h520q33 0 56.5 23.5T760-760v204q-10-2-20-3t-20-1q-10 0-20 .5t-20 2.5v-147L416-520 160-703v343h323q-2 10-2.5 20t-.5 20q0 10 1 20t3 20H160Zm58-480 198 142 204-142H218Zm-58 400v-400 400Z"></path>
+                      </svg>
+                      <span>Contact sales</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="hidden md:flex pl-4 hover:text-gray-500 h-full place-items-center mr-auto">
+            <a href="{{ url_for('get_pricing') }}">Pricing</a>
+          </li>
+          {% if selected_country %}
+            <li class="hidden md:block relative" x-data="{showCountrySelect: false}">
+              <button type="button" title="Change langauge" class="px-4 ml-0.5 flex place-items-center gap-4" @click="showCountrySelect = !showCountrySelect">
+                <svg class="inline-block h-4 rounded-sm" viewBox="0 0 640 480">
+                  {{ selected_country.get_flag()|safe }}
+                </svg>
+                <span class="hidden lg:block text-base hover:text-gray-500">{{ selected_language.name }}</span>
+              </button>
+              <div x-cloak x-show="showCountrySelect">
+                <div class="absolute top-16 right-0">
+                  <div class="rounded-md border border-gray-300 bg-white shadow-lg w-[60rem] z-50">
+                    {% from "components/countries.html.jinja2" import country_select with context %}
+                    {{ country_select("get_index_for_locale") }}
+                    </div>
+                  </div>
+              </div>
+            </li>
+          {% endif %}
+          <li class="hidden md:block">
+            <a href="{{ app_website }}/signup" class="shadow-md bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 hover:border-blue-600 rounded-md py-2 px-6 font-medium whitespace-nowrap shadow-sm tracking-wide">Sign Up</a>
+          </li>
+          <li class="hidden md:block ">
+            <a href="{{ app_website }}/login" class="shadow-md border-2 rounded-md border-blue-500 text-blue-500 font-semibold px-6 py-2 whitespace-nowrap hover:text-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="hidden md:block h-20"></div>
+      {% block content %}{% endblock content %}
+      <footer class="flex flex-wrap place-items-center justify-between flex-col-reverse md:flex-row gap-6 font-medium text-xs lg:gap-20 pt-8 pb-12 mx-4 md:mx-32 text-gray-700">
+        <div class="inline-flex place-items-center gap-2 whitespace-nowrap">© {{ now().year }} ReturnSuite Software Inc.</div>
+        <ul class="flex place-items-center gap-4 md:gap-12">
+          <li>
+            <a href="{{ url_for('get_terms_and_conditions') }}" class="hover:underline">Terms</a>
+          </li>
+          <li>
+            <a href="{{ url_for('get_privacy_policy') }}" class="hover:underline">Privacy</a>
+          </li>
+          <li class="hidden md:block">
+            <a href="{{ url_for('get_about') }}" class="hover:underline">About</a>
+          </li>
+          <li class="hidden md:block">
+            <a href="{{ url_for('get_contact') }}" class="hover:underline">Contact</a>
+          </li>
+          <li class="hidden md:block">
+            <a href="{{ url_for('get_blog') }}" class="hover:underline">Blog</a>
+          </li>
+        </ul>
+        <ul class="flex place-items-center gap-4 order-1">
+          <li>
+            <a target="_blank" href="https://www.youtube.com/@SamGambleRS" title="Youtube" class="hover:text-gray-900">
+              <svg class="block h-7" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="ml-0.5">
+            <a target="_blank" href="https://www.linkedin.com/company/returnsuite/" title="LinkedIn" class="hover:text-gray-900">
+              <svg class="block h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M9,17H6.5v-7H9V17z M7.7,8.7c-0.8,0-1.3-0.5-1.3-1.2s0.5-1.2,1.4-1.2c0.8,0,1.3,0.5,1.3,1.2S8.6,8.7,7.7,8.7z M18,17h-2.4v-3.8c0-1.1-0.7-1.3-0.9-1.3	s-1.1,0.2-1.1,1.3c0,0.2,0,3.8,0,3.8h-2.5v-7h2.5v1c0.3-0.6,1-1,2.2-1s2.2,1,2.2,3.2V17z"></path>
+              </svg>
+            </a>
+          </li>
+          {# <li class="ml-1">
+            <a target="_blank" href="https://twitter.com/SamGambleRS" title="Twitter" class="hover:text-gray-900">
+              <svg class="block h-4" viewBox="0 0 1200 1227" fill="currentColor">
+                <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"></path>
+              </svg>
+            </a>
+          </li>#}
+        </ul>
+      </footer>
+    </div>
+    {% include "components/analytics.html.jinja2" %}
+    {% include "components/livereload.html.jinja2" %}
+  </body>
 </html>

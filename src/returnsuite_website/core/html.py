@@ -8,7 +8,7 @@ from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.localization import (
     format_date_long,
     format_date_medium,
-    localize,
+    localize, format_currency,
 )
 
 package_root = Path(__file__).parent.parent.resolve()
@@ -54,3 +54,4 @@ templates.env.globals["now"] = _now
 templates.env.filters["analytics_consent"] = analytics_consent
 templates.env.filters["format_date_medium"] = format_date_medium
 templates.env.filters["format_date_long"] = format_date_long
+templates.env.filters["format_currency"] = format_currency

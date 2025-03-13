@@ -2,34 +2,35 @@
 {% set page_title = app_title %}
 
 {% block content %}
-  <header class="bg-gray-100">
-    <div class="flex flex-col md:flex-row place-items-center gap-4 px-6 xl:px-32 py-24 pt-20">
-      <h1 class="w-full lg:w-1/2 xl:w-3/5 text-gray-900 text-5xl font-bold tracking-wide px-4 xl:text-[4rem]" style="line-height:4rem">
+  <header class="bg-gray-100 bg-gradient-to-b from-gray-100 via-[#4299e110]"><!-- class="bg-cover bg-center bg-no-repeat relative" style="background-image: url('/img/test.png')" -->
+    <div class="flex flex-col md:flex-row place-items-center gap-4 px-6 xl:px-32 py-24 pt-20 ">
+      <h1 class="w-full text-gray-900 lg:w-1/2 xl:w-3/5 text-gray-900 text-5xl font-bold tracking-wide px-4 xl:text-[4rem]" style="line-height:5rem">
         <span>Complex</span><br>
         <span>Cash Flow Modeling</span><br>
-        <span >Simplified.</span>
+        <span>Simplified.</span>
       </h1>
       <div class="w-full lg:w-1/2 xl:w-2/5 px-6 md:px-0">
-        <p class="text-xl text-gray-900 leading-9">
+        <p class="text-xl text-black leading-9">
           Designed for commercial real estate professionals,
           ReturnSuite empowers you to create highly detailed financial models
           with precision and ease—without relying on complex spreadsheets.
         </p>
         <div class="flex place-items-center gap-4 pt-4">
-          <a href="{{ app_website }}/signup" class="text-lg font-medium bg-blue-500 border border-blue-500 text-white rounded-md py-3 px-6 tracking-wider">
+          <a href="{{ app_website }}/signup" class="shadow-md text-lg font-medium bg-blue-500 hover:bg-blue-600 border border-blue-500 text-white rounded-md py-3 px-6 tracking-wider">
             Get started for free
           </a>
-          {# <a href="#" class="text-lg font-medium hover:underline tracking-wider px-6 hover:text-blue-500">
+          <a href="#" class="text-gray-900 text-lg font-medium tracking-wider px-6 hover:text-blue-500">
             View demo
-          </a> #}
+          </a>
         </div>
 
       </div>
     </div>
-    <div class="px-6 xl:px-32 pb-6">
+
+    <div class="px-6 xl:px-32 pb-6 z-50">
       <img class="rounded-lg shadow-lg"
         src="{{ url_for('img', path='/landing3/landing-overview-screenshot.png') }}"
-        alt="TODO">
+        alt="Screenshot of a sample property on ReturnSuite">
     </div>
   </header>
 
@@ -46,7 +47,7 @@
           <p class="hidden md:inline">Join the flexible leasing partner beta to get early access.</p>
         </div>
         <div>
-          <a href="{{ url_for('get_flex_leasing_beta_partner') }}" class="block text-center text-white border-2 rounded-md border-blue-500 bg-blue-500 hover:bg-blue-600 hover:border-blue-600 font-semibold w-full py-3 whitespace-nowrap font-semibold px-6">Apply now</a>
+          <a href="{{ url_for('get_flex_leasing_beta_partner') }}" class="shadow-md block text-center text-white border-2 rounded-md border-blue-500 bg-blue-500 hover:bg-blue-600 hover:border-blue-600 font-semibold w-full py-3 whitespace-nowrap font-semibold px-6">Apply now</a>
         </div>
       </div>
     </div>

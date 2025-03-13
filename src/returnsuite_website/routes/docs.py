@@ -6,6 +6,7 @@ from starlette.responses import HTMLResponse, RedirectResponse
 
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
+from returnsuite_website.services import localization_directory
 from returnsuite_website.services.docs_service import load_pages, find_page
 
 router = APIRouter(default_response_class=HTMLResponse)
@@ -400,35 +401,30 @@ def get_docs2(request: Request, path: str):
     return get_docs_locale(request, "en-us", path)
 
 
-@router.get("/en-au/docs/{path:path}")
-def get_docs_en_au(request: Request, path: str):
-    return get_docs_locale(request, "en-au", path)
+@router.get("/{locale}/docs/{path:path}")
+def get_docs_catch_all(request: Request, locale: str, path: str):
+    return get_docs_locale(request, locale, path)
 
 
-@router.get("/en-ca/docs/{path:path}")
-def get_docs_en_ca(request: Request, path: str):
-    return get_docs_locale(request, "en-ca", path)
-
-
-@router.get("/en-gb/docs/{path:path}")
-def get_docs_en_gb(request: Request, path: str):
-    return get_docs_locale(request, "en-gb", path)
-
-
-@router.get("/en-nz/docs/{path:path}")
-def get_docs_en_nz(request: Request, path: str):
-    return get_docs_locale(request, "en-nz", path)
-
-
-@router.get("/en-us/docs/{path:path}")
-def get_docs_en_us(request: Request, path: str):
-    return RedirectResponse(request.url_for("get_docs2", path=path))
-
-
-def get_docs_locale(request: Request, locale: str, path: str):
+def get_docs_locale(request: Request, locale_name: str, path: str):
     english_root = files("returnsuite_website") / "content" / "en"
     root_page = load_pages(english_root)
     page = find_page(root_page, path)
+
+    countries = localization_directory.load2()
+
+    selected_country = None
+    selected_language = None
+    for country in countries:
+        for language in country.languages:
+            if language.slug == locale_name:
+                selected_country = country
+                selected_language = language
+                break
+
+    # TODO: Redirect the the US home.
+    if not selected_country:
+        raise FileNotFoundError(f"Could not find country {locale_name}")
 
     if not page:
         raise FileNotFoundError()
@@ -441,5 +437,8 @@ def get_docs_locale(request: Request, locale: str, path: str):
         context={
             "page": page,
             "menu": root_page,
+            "countries": countries,
+            "selected_country": selected_country,
+            "selected_language": selected_language,
         }
     )
