@@ -1,5 +1,6 @@
 from importlib.resources import files
 from importlib.resources.abc import Traversable
+from typing import Self
 
 import markdown
 import yaml
@@ -7,7 +8,7 @@ import yaml
 
 class Page:
 
-    def __init__(self, root: Traversable, filename: str, route: str):
+    def __init__(self, root: Traversable, filename: str, route: str, previous: Self | None):
         self.filename = filename
         self.route = route
         file = root / filename
@@ -30,7 +31,7 @@ class Page:
         self.nav_title = self.meta["nav-title"][0]
         self.nav_group = self.meta["nav-group"][0]
 
-        self.previous: Page | None = None
+        self.previous = previous
         self.next: Page | None = None
 
         self.children: list[Page] = []
@@ -47,10 +48,16 @@ def find_page(page: Page, path: str) -> Page | None:
 
 
 def load_pages(root: Traversable) -> Page:
+    previous = None
 
     def recurse(item: str | dict[str, str] | list, path: str = "") -> Page:
+        nonlocal previous
         if isinstance(item, str):
-            return Page(root, item, path)
+            page = Page(root, item, path, previous)
+            if previous:
+                previous.next = page
+            previous = page
+            return page
         elif isinstance(item, dict):
             for entry in item.items():
                 return recurse(entry[1], f"{path}/{entry[0]}")

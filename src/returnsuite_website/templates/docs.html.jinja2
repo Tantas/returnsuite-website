@@ -201,15 +201,15 @@
                   {{ page.content|safe }}
                 </article>
                 {% if page.next or page.previous %}
-                  <div class="flex justify-end w-full text-base pb-6 pt-6">
-                    {# {% if page.previous %}
-                      <a href="{{ page.previous.route }}" class="text-blue-500 hover:underline flex place-items-center">
-                        <span>Previous: {{ page.previous.nav_title }}</span>
-                        <svg class="inline-block h-8" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"></path>
+                  <div class="flex justify-end w-full text-base pb-6 pt-6 px-12">
+                    {% if page.previous %}
+                      <a href="{{ page.previous.route }}" class="text-blue-500 hover:underline flex place-items-center mr-auto">
+                        <svg class="inline-block h-8" viewBox="0 -960 960 960" fill="currentColor">
+                          <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"></path>
                         </svg>
+                        <span>{{ page.previous.nav_title }}</span>
                       </a>
-                    {% endif %} #}
+                    {% endif %}
                     {% if page.next %}
                       <a href="{{ page.next.route }}" class="text-blue-500 hover:underline flex place-items-center">
                         <span>Next: {{ page.next.nav_title }}</span>
