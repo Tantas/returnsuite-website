@@ -90,7 +90,7 @@
                   Contact for pricing
                 </span>
               </p>
-              <a href="#" class="button border border-gray-900 bg-gray-900 text-white font-semibold w-full mb-2 shadow-sm hover:bg-gray-900 hover:text-white hover:shadow-md hover:border-gray-900">Contact sales</a>
+              <a href="{{ url_for('get_contact') }}?subject=Request for enterprise pricing" class="button border border-gray-900 bg-gray-900 text-white font-semibold w-full mb-2 shadow-sm hover:bg-gray-900 hover:text-white hover:shadow-md hover:border-gray-900">Contact sales</a>
             </div>
             <ul class="p-4 font-medium flex flex-col gap-3 pb-6">
               <li class="flex gap-4 pb-2 font-normal">
@@ -117,7 +117,7 @@
             <h2 class="font-medium text-base text-gray-900">Get started quickly</h2>
             <p class="text-gray-700">Contact us for help getting started. ReturnSuite can perform the data entry and get your models running at a reasonable rate.</p>
           </div>
-          <a href="#" class="button border-blue-500 bg-blue-500 text-white font-medium shadow-sm ml-auto hover:bg-blue-600 hover:text-white hover:border-blue-600 w-full md:w-fit">
+          <a href="{{ url_for('get_contact') }}?subject=Request for data entry and setup" class="button border-blue-500 bg-blue-500 text-white font-medium shadow-sm ml-auto hover:bg-blue-600 hover:text-white hover:border-blue-600 w-full md:w-fit">
             Contact sales
           </a>
         </div>
