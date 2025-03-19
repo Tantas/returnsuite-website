@@ -50,7 +50,7 @@
     }
   </script>
   <div x-data="footerData()">
-    <div class="py-6" x-cloak x-show="showWasThisPageHelpful">
+    <div class="md:py-6" x-cloak x-show="showWasThisPageHelpful">
       <form class="flex place-items-center gap-3 tracking-wide font-medium text-gray-900 font-lg">
         <input type="hidden" name="page" value="{{ context_page_name }}">
         <p class="text-xl text-gray-800 font-medium pr-2 tracking-wide">Was this page helpful?</p>
@@ -70,7 +70,7 @@
         </label>
       </form>
     </div>
-    <div class="border-t border-gray-300 py-12 text-gray-700 text-base flex flex-col md:flex-row justify-between gap-8">
+    <div class="border-t border-gray-300 py-6 pb-0 mx:py-12 text-gray-700 text-base flex flex-col md:flex-row justify-between gap-8">
       <ul class="flex flex-col gap-3">
         <li class="flex place-items-center gap-3">
           <svg class="inline-block h-5" viewBox="0 -960 960 960" fill="currentColor">

@@ -159,7 +159,7 @@ select {
     @apply text-lg text-gray-900 tracking-wide pt-6 font-medium
   }
   .documentation-article h5 {
-    @apply text-base text-gray-700 tracking-wide pb-2 font-semibold text-sm
+    @apply text-base text-gray-700 tracking-wide py-2 font-semibold text-sm
   }
   .documentation-article p {
     @apply py-3 text-base text-gray-700
