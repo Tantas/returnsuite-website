@@ -16,9 +16,9 @@ main sources of cash outflows for a property.
 
 <figure>
   <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md border border-gray-200">
-    <img src="/img/docs/property-model-operating-expenses.png" alt="Screenshot showing the property operating expenses input">
+    <img src="/img/docs/property-model-operating-expenses.png" alt="Screenshot showing the property operating expenses form">
   </div>
-  <figcaption>Screenshot showing the property operating expenses input</figcaption>
+  <figcaption>Screenshot showing the property operating expenses form</figcaption>
 </figure>
 
 ### Adding an expense

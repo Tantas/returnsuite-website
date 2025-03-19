@@ -10,7 +10,7 @@
           "locale": "en_US",
           "bundle": "en_US",
           "currency_code": "AUD",
-          "currency_locale": "en_au",
+          "currency_locale": "en_AU",
           "area_unit": "sm"
         }
       ]
@@ -24,7 +24,7 @@
           "locale": "en_US",
           "bundle": "en_US",
           "currency_code": "EUR",
-          "currency_locale": "en_at",
+          "currency_locale": "en_AT",
           "area_unit": "sm"
         }
       ]
@@ -38,7 +38,7 @@
           "locale": "en_US",
           "bundle": "fr_CA",
           "currency_code": "EUR",
-          "currency_locale": "fr_be",
+          "currency_locale": "fr_BE",
           "area_unit": "sm"
         }, {
           "name": "English",
@@ -46,7 +46,7 @@
           "locale": "en_US",
           "bundle": "en_US",
           "currency_code": "EUR",
-          "currency_locale": "en_be",
+          "currency_locale": "en_BE",
           "area_unit": "sm"
         }
       ]

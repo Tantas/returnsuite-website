@@ -1,6 +1,6 @@
 ---
-title: TODO - ReturnSuite Docs
-description: TODO - Add a description
+title: Property location
+description: Placing the property on the map.
 nav-title: Property location
 nav-group: Changing property details
 ---
@@ -9,10 +9,22 @@ nav-group: Changing property details
 
 ## Placing the property on the map
 
+The location can be added to a property to provide additional information to
+the overview, reports and improve search results. It can be added by manually
+inputting the details or using an integrated map tool.
+
+<figure>
+  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md border border-gray-200">
+    <img src="/img/docs/property-details-location.png" alt="Screenshot of the property details location form">
+  </div>
+  <figcaption>Screenshot of the property details location form</figcaption>
+</figure>
+
+
 ### Adding the property's location
 
 It is recommended to add the property's location using the map's search widget
-at the top left of the map. Input the properties location and select the correct
+at the top left of the map. Input the property's location and select the correct
 address. This will place the pin on the maps and fill out the form beneath.
 
 Moving the pin on the map will update the latitude and longitude of the location
@@ -44,14 +56,14 @@ Legal address
     be entered if the legal address is different from the civic address.
 
 Neighborhood / Sub-market
-:   The sub-market as defined by other properties in the real estate sector the
-    in which the property operates.
+:   The sub-market as defined by other properties in the real estate sector in
+    which the property operates.
 
 City
 :   The name of the city the property resides.
 
 State / Province / Region
-:   The second level administrative area. This is dependant on the country that
+:   The second level administrative area. This is dependent on the country that
     the property resides.
 
 Country

@@ -1,17 +1,39 @@
 ---
-title: TODO - ReturnSuite Docs
-description: TODO - Add a description
+title: Property Listing Details
+description: Update the property listing details.
 nav-title: Listing details
 nav-group: Changing property details
 ---
 
-# Property listing details
+# Property Listing Details
 
 ## Update the property listing details
 
-### Adding and removing the listing details
+The property listing details could reflect the public listing when researching
+the opportunity or the listing that would be posted when it is time to sell a
+property that is already purchased. The listing details are shown on the
+property overview page and in some reports.
+
+<figure>
+  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md border border-gray-200">
+    <img src="/img/docs/property-details-listing.png" alt="Screenshot of the property details listing form">
+  </div>
+  <figcaption>Screenshot of the property details listing form</figcaption>
+</figure>
+
+
+### Adding the listing details
+
+The property listing details can be added or removed at any time to provide its
+sales context. Select `Add listing details` to add the listing details or press
+the trash icon on the top right to remove them.
+
 
 ### Summary information
+
+The top fields of the form contain facet type information often used when
+searching through listings on various sites.
+Only the property type is required to save.
 
 
 #### Property type

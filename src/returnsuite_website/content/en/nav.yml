@@ -87,3 +87,10 @@ nav:
           # - docs/manual/property/settings/index.md
           - general-settings: docs/manual/property/settings/general-settings.md
           - integrations: docs/manual/property/settings/integrations.md
+      - user:
+          - docs/manual/user/index.md
+          - profile: docs/manual/user/profile.md
+          - account: docs/manual/user/account.md
+          - notifications: docs/manual/user/notifications.md
+          - sessions: docs/manual/user/sessions.md
+          - billing: docs/manual/user/billing.md
