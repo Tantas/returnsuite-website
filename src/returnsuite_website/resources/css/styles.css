@@ -589,12 +589,20 @@ video {
 
 .documentation-breadcrumbs li {
   display: inline-block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 400;
   letter-spacing: 0.025em;
   --tw-text-opacity: 1;
   color: rgb(74 85 104 / var(--tw-text-opacity, 1));
+}
+
+@media (min-width: 768px) {
+  .documentation-breadcrumbs li {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 300;
+  }
 }
 
 .documentation-breadcrumbs li:not(:last-child):after {
@@ -617,22 +625,36 @@ video {
 .documentation-article h1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: 600;
   letter-spacing: 0.025em;
   --tw-text-opacity: 1;
   color: rgb(26 32 44 / var(--tw-text-opacity, 1));
 }
 
+@media (min-width: 768px) {
+  .documentation-article h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
 .documentation-article h2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   letter-spacing: 0.025em;
   --tw-text-opacity: 1;
   color: rgb(26 32 44 / var(--tw-text-opacity, 1));
+}
+
+@media (min-width: 768px) {
+  .documentation-article h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 .documentation-article h3 {
@@ -1283,10 +1305,6 @@ video {
   height: 36rem;
 }
 
-.h-\[6\.1rem\] {
-  height: 6.1rem;
-}
-
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
@@ -1655,6 +1673,10 @@ video {
 
 .overflow-y-scroll {
   overflow-y: scroll;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
 }
 
 .whitespace-nowrap {
@@ -2822,6 +2844,10 @@ select {
     display: block;
   }
 
+  .sm\:h-full {
+    height: 100%;
+  }
+
   .sm\:w-1\/2 {
     width: 50%;
   }
@@ -2861,6 +2887,10 @@ select {
 
   .sm\:pb-6 {
     padding-bottom: 1.5rem;
+  }
+
+  .sm\:pr-8 {
+    padding-right: 2rem;
   }
 
   .sm\:pt-0 {
@@ -2927,8 +2957,17 @@ select {
     display: none;
   }
 
+  .md\:h-\[6\.1rem\] {
+    height: 6.1rem;
+  }
+
   .md\:h-\[calc\(100vh-6\.1rem\)\] {
     height: calc(100vh - 6.1rem);
+  }
+
+  .md\:h-fit {
+    height: -moz-fit-content;
+    height: fit-content;
   }
 
   .md\:h-full {
@@ -2996,6 +3035,10 @@ select {
     gap: 6rem;
   }
 
+  .md\:gap-3 {
+    gap: 0.75rem;
+  }
+
   .md\:gap-6 {
     gap: 1.5rem;
   }
@@ -3055,6 +3098,15 @@ select {
   .md\:text-8xl {
     font-size: 6rem;
     line-height: 1;
+  }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .md\:font-normal {
+    font-weight: 400;
   }
 
   .md\:shadow-md {

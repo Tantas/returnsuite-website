@@ -15,30 +15,41 @@
   </head>
   <body class="bg-white h-full" x-data="{ searchOpen: false }">
     <div>
-      <nav class="hidden md:block border-b border-gray-300 w-full bg-white h-[6.1rem]">
-        <ul class="flex place-items-center justify-between gap-3 mx-4 pt-2 text-base text-gray-800">
-          <li class="flex gap-0.5">
+
+      <nav class="border-b border-gray-300 w-full bg-white h-16 md:h-[6.1rem] sticky top-0 z-50">
+        <ul class="flex sm:h-full place-items-center justify-between md:gap-3 mx-4 pt-2 text-base text-gray-800 h-full md:h-fit">
+          <li class="flex md:hidden">
+            <button type="button" title="Open menu">
+              <svg class="inline-block h-6 text-gray-700" viewBox="0 -960 960 960" fill="currentColor">
+                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"></path>
+              </svg>
+            </button>
+          </li>
+          <li class="flex md:hidden mr-auto">
+            <span class="font-medium text-gray-800 px-4 text-base text-ellipsis whitespace-nowrap">{{ page.title }}</span>
+          </li>
+          <li class="hidden md:flex gap-0.5">
             <a href="{{ url_for('get_index') }}" title="ReturnSuite">
               <img class="h-12 w-auto" src="{{ url_for('img', path='/returnsuite-logo.svg') }}" alt="ReturnSuite logo" width="360px" height="85px">
             </a>
             <span class="font-medium text-gray-800">DOCS</span>
           </li>
-          <li class="ml-auto">
-            <button type="button" class="border border-gray-300 rounded-full pl-2 pr-8 h-10" @click="searchOpen = true">
+          <li class="ml-auto hidden md:block">
+            <button type="button" class="border border-gray-300 rounded-full pl-2 pr-2 sm:pr-8 h-10" @click="searchOpen = true">
               <svg class="inline-block h-6 px-2 text-gray-600 pb-0.5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
               </svg>
-              <span class="text-gray-500">Search the docs or ask a question</span>
+              <span class="text-gray-500">Search the docs<span class="hidden lg:inline"> or ask a question</span></span>
             </button>
           </li>
-          <li class="hidden md:block ml-auto ">
-            <a href="{{ app_website }}/signup" class="text-blue-600 pr-3 tracking-wide hover:text-gray-900">Create account</a>
+          <li class="ml-auto hidden md:block">
+            <a href="{{ app_website }}/signup" class="text-blue-600 pr-3 tracking-wide hover:text-gray-900 text-sm md:text-base font-medium md:font-normal">Create account</a>
           </li>
-          <li class="hidden md:block ">
+          <li class="hidden md:block">
             <a href="{{ app_website }}/login" class="border rounded-md border-gray-300 font-medium px-4 py-1.5 whitespace-nowrap hover:text-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
           </li>
         </ul>
-        <ol class="flex place-items-center gap-8 mx-4 tracking-wide text-gray-900 text-base">
+        <ol class="hidden md:flex place-items-center gap-8 mx-4 tracking-wide text-gray-900 text-base">
           {% set side_menu = {"value": menu.children[0] } %}
           {% set breadcrumbs = [{
             "title": "Home",
@@ -59,6 +70,7 @@
           <li class="ml-auto"><a href="{{ url_for('get_contact') }}" class="inline-block border-blue-500 py-2">Contact Support</a></li>
         </ol>
       </nav>
+
       <div class="flex">
         <aside class="hidden md:block top-[6.2rem] sticky border-r border-gray-300 w-96 z-50 md:h-[calc(100vh-6.1rem)]">
           <div class="absolute z-10 absolute top-3 right-4 text-gray-500 hover:text-gray-800">
@@ -189,7 +201,7 @@
           <div class="w-[1200px] flex gap-6 relative align-items-stretch">
             <main class="relative h-fit flex">
               <div>
-                <ol class="documentation-breadcrumbs pt-12 pb-4 px-4 md:px-12">
+                <ol class="documentation-breadcrumbs pt-6 md:pt-12 pb-4 px-4 md:px-12">
                   {% for breadcrumb in breadcrumbs %}
                     <li><a href="{{ breadcrumb.route }}">{{ breadcrumb.title }}</a></li>
                   {% endfor %}
