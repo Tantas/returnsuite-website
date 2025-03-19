@@ -53,7 +53,7 @@
     <div class="py-6" x-cloak x-show="showWasThisPageHelpful">
       <form class="flex place-items-center gap-3 tracking-wide font-medium text-gray-900 font-lg">
         <input type="hidden" name="page" value="{{ context_page_name }}">
-        <p class="text-2xl text-gray-800 font-medium pr-2 tracking-wide">Was this page helpful?</p>
+        <p class="text-xl text-gray-800 font-medium pr-2 tracking-wide">Was this page helpful?</p>
         <label @click.once="submitWasThisPageHelpful(true)" :class="isHelpful === true ? 'text-white bg-blue-500 border-blue-500' : ''" class="border rounded-md py-1.5 px-4 flex place-items-center gap-2 shadow-sm">
           <svg class="inline-block h-5" viewBox="0 -960 960 960" fill="currentColor">
             <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"></path>

@@ -174,10 +174,10 @@ select {
     @apply underline
   }
   .documentation-article dl  {
-    @apply border border-blue-500 rounded-md py-4 px-6 mb-4 text-base
+    @apply border border-blue-500 rounded-md py-4 px-4 mb-4 text-base
   }
   .documentation-article dt {
-    @apply text-gray-800 tracking-wide font-semibold
+    @apply text-gray-800 tracking-wide font-semibold text-sm
   }
   .documentation-article dd {
     @apply text-gray-700 border-b border-blue-500 pb-3 mb-3 last:border-b-0 last:pb-0 last:mb-0

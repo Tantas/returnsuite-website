@@ -697,13 +697,15 @@ video {
   border-color: rgb(66 153 225 / var(--tw-border-opacity, 1));
   padding-top: 1rem;
   padding-bottom: 1rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 
 .documentation-article dt {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   font-weight: 600;
   letter-spacing: 0.025em;
   --tw-text-opacity: 1;
@@ -2923,6 +2925,10 @@ select {
 
   .md\:hidden {
     display: none;
+  }
+
+  .md\:h-\[calc\(100vh-6\.1rem\)\] {
+    height: calc(100vh - 6.1rem);
   }
 
   .md\:h-full {

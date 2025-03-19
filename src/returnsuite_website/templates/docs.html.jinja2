@@ -1,6 +1,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta type="description" content="{{ page.description }}">
     <title>{{ page.title }} - ReturnSuite Docs</title>
     <link rel="icon" href="{{ url_for('img', path='/favicon-32.png') }}" sizes="32x32">
@@ -14,7 +15,7 @@
   </head>
   <body class="bg-white h-full" x-data="{ searchOpen: false }">
     <div>
-      <nav class="border-b border-gray-300 w-full bg-white h-[6.1rem]">
+      <nav class="hidden md:block border-b border-gray-300 w-full bg-white h-[6.1rem]">
         <ul class="flex place-items-center justify-between gap-3 mx-4 pt-2 text-base text-gray-800">
           <li class="flex gap-0.5">
             <a href="{{ url_for('get_index') }}" title="ReturnSuite">
@@ -22,7 +23,6 @@
             </a>
             <span class="font-medium text-gray-800">DOCS</span>
           </li>
-
           <li class="ml-auto">
             <button type="button" class="border border-gray-300 rounded-full pl-2 pr-8 h-10" @click="searchOpen = true">
               <svg class="inline-block h-6 px-2 text-gray-600 pb-0.5" viewBox="0 0 24 24" fill="currentColor">
@@ -31,15 +31,12 @@
               <span class="text-gray-500">Search the docs or ask a question</span>
             </button>
           </li>
-
           <li class="hidden md:block ml-auto ">
             <a href="{{ app_website }}/signup" class="text-blue-600 pr-3 tracking-wide hover:text-gray-900">Create account</a>
-            <!--<a href="{{ app_website }}/signup" class="bg-blue-500 border-2 border-blue-500 text-white hover:bg-blue-600 hover:border-blue-600 rounded-md py-2 px-6 font-semibold whitespace-nowrap shadow-sm tracking-wide">Sign Up</a>-->
           </li>
           <li class="hidden md:block ">
             <a href="{{ app_website }}/login" class="border rounded-md border-gray-300 font-medium px-4 py-1.5 whitespace-nowrap hover:text-blue-600 hover:border-blue-600 shadow-sm tracking-wide">Login</a>
           </li>
-
         </ul>
         <ol class="flex place-items-center gap-8 mx-4 tracking-wide text-gray-900 text-base">
           {% set side_menu = {"value": menu.children[0] } %}
@@ -63,7 +60,7 @@
         </ol>
       </nav>
       <div class="flex">
-        <aside class="absolute top-[6.2rem] sticky border-r border-gray-300 w-96 z-50" style="height: calc(100vh - 6.1rem)">
+        <aside class="hidden md:block top-[6.2rem] sticky border-r border-gray-300 w-96 z-50 md:h-[calc(100vh-6.1rem)]">
           <div class="absolute z-10 absolute top-3 right-4 text-gray-500 hover:text-gray-800">
             <button type="button" @click="menu_open = !menu_open" x-show="menu_open" title="Hide table of contents" style="transform: rotate(180deg);">
               <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
@@ -188,22 +185,22 @@
           </div>
         </aside>
 
-        <div class="w-full flex justify-center overflow-y-scroll" style="height: calc(100vh - 6.1rem)">
+        <div class="w-full flex justify-center overflow-y-scroll md:h-[calc(100vh-6.1rem)]">
           <div class="w-[1200px] flex gap-6 relative align-items-stretch">
             <main class="relative h-fit flex">
               <div>
-                <ol class="documentation-breadcrumbs pt-12 pb-4 px-12">
+                <ol class="documentation-breadcrumbs pt-12 pb-4 px-4 md:px-12">
                   {% for breadcrumb in breadcrumbs %}
                     <li><a href="{{ breadcrumb.route }}">{{ breadcrumb.title }}</a></li>
                   {% endfor %}
                 </ol>
-                <article class="documentation-article px-12">
+                <article class="documentation-article px-4 md:px-12">
                   {{ page.content|safe }}
                 </article>
                 {% if page.next or page.previous %}
-                  <div class="flex justify-end w-full text-base pb-6 pt-6 px-12">
+                  <div class="flex justify-end w-full text-base pb-6 pt-6 px-4 md:px-12">
                     {% if page.previous %}
-                      <a href="{{ page.previous.route }}" class="text-blue-500 hover:underline flex place-items-center mr-auto">
+                      <a href="{{ page.previous.route }}" class="text-blue-500 hover:underline hidden md:flex place-items-center mr-auto">
                         <svg class="inline-block h-8" viewBox="0 -960 960 960" fill="currentColor">
                           <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"></path>
                         </svg>
@@ -220,7 +217,7 @@
                     {% endif %}
                   </div>
                 {% endif %}
-                <div class="px-12">
+                <div class="px-4 md:px-12">
                   {% include "docs/cta.html.jinja2" %}
                 </div>
               </div>
@@ -248,7 +245,6 @@
             </aside>
 
             </main>
-
 
           </div>
         </div>

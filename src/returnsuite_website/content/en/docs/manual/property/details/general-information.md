@@ -13,7 +13,7 @@ This section allows you to input the name, description and property wide
 modeling units.
 
 <figure>
-  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md border border-gray-200">
+  <div class="flex place-items-center justify-center p-2 bg-gray-100 rounded-md border border-blue-500">
     <img src="/img/docs/property-details-general-information.png" alt="Screenshot of the property details general information form">
   </div>
   <figcaption>Screenshot of the property details general information form</figcaption>

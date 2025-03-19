@@ -15,7 +15,7 @@ property that is already purchased. The listing details are shown on the
 property overview page and in some reports.
 
 <figure>
-  <div class="flex place-items-center justify-center p-6 bg-gray-100 rounded-md border border-gray-200">
+  <div class="flex place-items-center justify-center p-2 bg-gray-100 rounded-md border border-blue-500">
     <img src="/img/docs/property-details-listing.png" alt="Screenshot of the property details listing form">
   </div>
   <figcaption>Screenshot of the property details listing form</figcaption>
