@@ -1740,6 +1740,10 @@ video {
   overflow: scroll;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .overflow-x-scroll {
   overflow-x: scroll;
 }
@@ -3051,6 +3055,10 @@ select {
     height: 100%;
   }
 
+  .md\:h-5 {
+    height: 1.25rem;
+  }
+
   .md\:w-1\/2 {
     width: 50%;
   }
@@ -3155,6 +3163,11 @@ select {
     padding-bottom: 1.5rem;
   }
 
+  .md\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .md\:pr-4 {
     padding-right: 1rem;
   }
@@ -3185,6 +3198,16 @@ select {
   .md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 
   .md\:font-normal {

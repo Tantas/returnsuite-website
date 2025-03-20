@@ -15,20 +15,39 @@
   </head>
   <body class="bg-white h-full">
     <script data-mobile-menu="{{ mobile_menu }}">
+      const menuContent = JSON.parse(document.querySelectorAll("[data-mobile-menu]")[0].dataset.mobileMenu)
       function pageDetails() {
         return {
           searchOpen: false,
+          menuContent: menuContent,
           mobileNavOpen: false,
-          mobileSectionMenu: null,
-          mobileNestedMenu: null,
-          menuContent: (() => {
-            return JSON.parse(document.querySelectorAll("[data-mobile-menu]")[0].dataset.mobileMenu)
-          })()
+          mobileSectionMenu: (() => {
+            const path = "{{ request.url.path }}"
+            for (let section of menuContent) {
+              if (path.includes(section.route)) {
+                return section
+              }
+            }
+            return null
+          })(),
+          mobileNestedMenu: (() => {
+            const path = "{{ request.url.path }}"
+            for (let section of menuContent) {
+              for (let subsection of section.children) {
+                for (let nested of subsection.children) {
+                  if (path.includes(nested.route) && nested.children.length > 0) {
+                    return nested
+                  }
+                }
+              }
+            }
+            return null
+          })(),
         }
       }
     </script>
     <div x-data="pageDetails()">
-      <nav class="border-b border-gray-300 w-full bg-white h-16 md:h-[6.1rem] sticky top-0 z-50">
+      <nav class="border-b border-gray-300 w-full bg-white h-16 md:h-[6.1rem] sticky top-0 z-50 w-screen">
         <ul class="flex sm:h-full place-items-center justify-between md:gap-3 mx-4 pt-2 text-base text-gray-800 h-full md:h-fit">
           <li class="flex md:hidden">
             <button type="button" title="Open menu" @click="mobileNavOpen = true" x-show="!mobileNavOpen">
@@ -42,8 +61,8 @@
               </svg>
             </button>
           </li>
-          <li class="flex md:hidden mr-auto">
-            <span class="font-medium text-gray-800 px-4 text-base text-ellipsis whitespace-nowrap">{{ page.title }}</span>
+          <li class="flex md:hidden mr-auto overflow-x-hidden text-ellipsis whitespace-nowrap">
+            <span class="font-medium text-gray-800 px-4 text-base">{{ page.title }}</span>
           </li>
           <li class="hidden md:flex gap-0.5">
             <a href="{{ url_for('get_index') }}" title="ReturnSuite">
@@ -105,7 +124,7 @@
           <div class="relative">
 
             {#- Root menu. -#}
-            <div x-show="!mobileSectionMenu && !mobileNestedMenu" class="absolute w-full pb-4">
+            <div x-cloak x-show="!mobileSectionMenu && !mobileNestedMenu" class="absolute w-full pb-4">
               <ul class="px-6 text-lg font-normal text-gray-800">
                 <li>
                   <a href="#" class="w-full h-10 flex place-items-center justify-between">
@@ -126,7 +145,7 @@
             </div>
 
             {#- Section menu. -#}
-            <div x-show="mobileSectionMenu && !mobileNestedMenu" class="absolute bg-white w-full text-gray-800 text-base pb-4">
+            <div x-cloak x-show="mobileSectionMenu !== null && mobileNestedMenu === null" class="absolute bg-white w-full text-gray-800 text-base pb-4">
               <button type="button" @click="mobileSectionMenu = null" class="w-full h-10 flex place-items-center px-4">
                 <svg class="inline-block h-6 pr-2" viewBox="0 -960 960 960" fill="currentColor">
                   <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"></path>
@@ -180,7 +199,7 @@
             </div>
 
             {#- Nested menu. -#}
-            <div x-show="mobileNestedMenu" class="absolute w-full bg-white min-h-[calc(100vh-4rem)]">
+            <div x-cloak x-show="mobileNestedMenu !== null" class="absolute w-full bg-white min-h-[calc(100vh-4rem)]">
               <div class="bg-white w-full text-gray-800 text-base pb-4">
                 <button type="button" @click="mobileNestedMenu = null" class="w-full h-10 flex place-items-center px-4">
                   <svg class="inline-block h-6 pr-2" viewBox="0 -960 960 960" fill="currentColor">
@@ -467,7 +486,7 @@
         }
       }
     </script>
-    <div x-cloak class="absolute top-0 left-0 right-0 bottom-0 w-full flex justify-center z-50" x-data="searchData()" x-show="searchOpen">
+    <div x-cloak class="absolute top-0 left-0 right-0 bottom-0 w-full flex justify-center z-50" x-show="searchOpen">
       <div class="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-25 w-full h-full" @click="searchOpen = false"></div>
       <div class="bg-white rounded-md m-4 z-50 h-fit">
         <div class="flex place-items-center py-1">
