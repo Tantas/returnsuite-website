@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Operating Expenses
+description: How real estate operating expenses affect the NOI statement
 nav-title: Operating expenses
 nav-group: NOI and cash flow
 ---

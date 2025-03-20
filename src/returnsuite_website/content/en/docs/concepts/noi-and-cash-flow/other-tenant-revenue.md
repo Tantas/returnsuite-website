@@ -1,13 +1,13 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Other Tenant Revenue
+description: What is included in other tenant revenues
 nav-title: Other tenant revenue
 nav-group: NOI and cash flow
 ---
 
 # Other Tenant Revenue
 
-## What is included in other tenant revenue
+## What is included in other tenant revenues
 
 Other Tenant Revenues are the non-rent based sources of income which can
 be attributed to specific tenants. While the various types of Other

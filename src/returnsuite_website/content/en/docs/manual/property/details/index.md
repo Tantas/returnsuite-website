@@ -1,6 +1,6 @@
 ---
 title: Property Details Overview
-description: Changing property details.
+description: Changing property details
 nav-title: Overview
 nav-group: Changing property details
 ---

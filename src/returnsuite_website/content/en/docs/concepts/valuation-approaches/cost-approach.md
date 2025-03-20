@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: The Cost Approach
+description: How to determine the value of real estate using the Cost Approach
 nav-title: Cost approach
 nav-group: Valuation approaches
 ---

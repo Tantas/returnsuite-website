@@ -1,6 +1,6 @@
 ---
-title: Schedules - ReturnSuite Docs
-description: How to input spaces and uses into a ReturnSuite property model.
+title: Inflation, CPI and Growth Schedules
+description: TODO
 nav-title: Schedules
 nav-group: Updating the model
 ---

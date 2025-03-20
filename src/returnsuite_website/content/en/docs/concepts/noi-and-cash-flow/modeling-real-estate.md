@@ -1,11 +1,11 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Modeling real estate
+description: How real estate model project cash flows
 nav-title: Modeling real estate
 nav-group: NOI and cash flow
 ---
 
-# Quick primer - inner workings of a real estate financial model
+# Inner workings of a real estate financial model
 
 ## How real estate model project cash flows
 

@@ -1,6 +1,6 @@
 ---
-title: Financing - ReturnSuite Docs
-description: How to input spaces and uses into a ReturnSuite property model.
+title: Financing
+description: Add loans to finance the purchase, capital improvements and operating shortfalls
 nav-title: Financing
 nav-group: Updating the model
 ---

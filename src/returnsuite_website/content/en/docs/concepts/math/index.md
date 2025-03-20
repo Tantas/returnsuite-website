@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Key Math Concepts used in Finance
+description: Summary of the key math concepts used in finance
 nav-title: Overview
 nav-group: Key Math Concepts in Finance
 ---

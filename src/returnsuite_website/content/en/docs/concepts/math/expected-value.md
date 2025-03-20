@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Expected value
+description: How to value uncertainty in real estate
 nav-title: Expected value
 nav-group: Key Math Concepts in Finance
 ---

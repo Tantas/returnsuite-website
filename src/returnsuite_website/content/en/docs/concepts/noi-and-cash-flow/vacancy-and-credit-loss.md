@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Vacancy and Credit Loss
+description: How vacancy and credit loss fit into the NOI statement
 nav-title: Vacancy and credit loss
 nav-group: NOI and cash flow
 ---

@@ -1,6 +1,6 @@
 ---
-title: Spaces and Uses - ReturnSuite Docs
-description: How to input spaces and uses into a ReturnSuite property model.
+title: Spaces and Uses
+description: Splitting your property into leasable areas
 nav-title: Spaces and uses
 nav-group: Updating the model
 ---

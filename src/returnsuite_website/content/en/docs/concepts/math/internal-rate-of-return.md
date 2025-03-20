@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Internal Rate of Return
+description: How the Internal Rate of Return relates to NPV
 nav-title: Internal rate of return
 nav-group: Key Math Concepts in Finance
 ---

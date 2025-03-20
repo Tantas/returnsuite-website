@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Net Present Value
+description: How net present value is calculated and used in real estate
 nav-title: Net present value
 nav-group: Key Math Concepts in Finance
 ---

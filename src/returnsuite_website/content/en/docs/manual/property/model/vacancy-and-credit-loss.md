@@ -1,6 +1,6 @@
 ---
-title: Vacancy and Credit Loss - ReturnSuite Docs
-description: How to input spaces and uses into a ReturnSuite property model.
+title: Vacancy and Credit Loss
+description: TODO Second title
 nav-title: Vacancy and credit loss
 nav-group: Updating the model
 ---

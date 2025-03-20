@@ -1,6 +1,6 @@
 ---
 title: Property General Information
-description: Identifying the property, its currency and its measurement unit.
+description: Identifying the property, its currency and its measurement unit
 nav-title: General information
 nav-group: Changing property details
 ---

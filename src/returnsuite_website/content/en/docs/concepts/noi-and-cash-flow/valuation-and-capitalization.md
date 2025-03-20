@@ -1,11 +1,11 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Valuation - Standard Direct Capitalization & NOI
+description: How the NOI statement is used in the standard direct capitalization method
 nav-title: Valuation and capitalization
 nav-group: NOI and cash flow
 ---
 
-# Valuation: Standard Direct Capitalization & NOI
+# Valuation - Standard Direct Capitalization & NOI
 
 ## How the NOI statement is used in the standard direct capitalization method
 

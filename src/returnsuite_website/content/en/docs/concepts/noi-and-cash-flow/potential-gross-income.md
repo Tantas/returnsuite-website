@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Potential Gross Income
+description: How to calculate a property’s potential gross income
 nav-title: Potential gross income
 nav-group: NOI and cash flow
 ---

@@ -1,6 +1,6 @@
 ---
-title: Leasing Rules - ReturnSuite Docs
-description: How to input spaces and uses into a ReturnSuite property model.
+title: Leasing Rules
+description: How to forecast how spaces are used when uses end
 nav-title: Leasing rules
 nav-group: Updating the model
 ---

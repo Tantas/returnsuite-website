@@ -1,6 +1,6 @@
 ---
-title: Operating Expenses - ReturnSuite Docs
-description: Adding expenses to operate the property and how they will be recovered.
+title: Operating Expenses
+description: Adding expenses to operate the property and how they will be recovered
 nav-title: Operating expenses
 nav-group: Updating the model
 ---

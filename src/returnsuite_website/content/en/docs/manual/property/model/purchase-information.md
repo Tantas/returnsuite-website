@@ -1,6 +1,6 @@
 ---
-title: Purchase Information - ReturnSuite Docs
-description: Add purchase information to link start dates and calculate the IRR.
+title: Purchase Information
+description: Add purchase information to link start dates and calculate the IRR
 nav-title: Purchase information
 nav-group: Updating the model
 ---

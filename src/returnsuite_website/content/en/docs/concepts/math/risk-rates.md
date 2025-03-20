@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: The Risk-Free Rate and the Risk-Adjusted Discount Rate
+description: How to determine the Risk-Free Rate and the Risk-Adjusted Discount Rate
 nav-title: Risk rates
 nav-group: Key Math Concepts in Finance
 ---

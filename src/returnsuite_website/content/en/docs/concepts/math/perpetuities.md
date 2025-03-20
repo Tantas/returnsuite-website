@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Perpetuities
+description: How to calculate the value of a Perpetuity
 nav-title: Perpetuities
 nav-group: Key Math Concepts in Finance
 ---

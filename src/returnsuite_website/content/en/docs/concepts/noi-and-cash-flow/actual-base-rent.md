@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Actual or Projected Base Rent
+description: How to calculate the Actual (or Projected) Base Rent
 nav-title: Actual base rent
 nav-group: NOI and cash flow
 ---

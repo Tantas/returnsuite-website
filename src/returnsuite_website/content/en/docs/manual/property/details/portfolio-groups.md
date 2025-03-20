@@ -1,6 +1,6 @@
 ---
 title: Portfolio Groups
-description: Add tags to group properties into portfolios dynamically.
+description: Add tags to group properties into portfolios dynamically
 nav-title: Portfolio groups
 nav-group: Changing property details
 ---

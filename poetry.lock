@@ -781,6 +781,24 @@ win32-setctime = {version = ">=1.0.0", markers = "sys_platform == \"win32\""}
 dev = ["Sphinx (==8.1.3)", "build (==1.2.2)", "colorama (==0.4.5)", "colorama (==0.4.6)", "exceptiongroup (==1.1.3)", "freezegun (==1.1.0)", "freezegun (==1.5.0)", "mypy (==v0.910)", "mypy (==v0.971)", "mypy (==v1.13.0)", "mypy (==v1.4.1)", "myst-parser (==4.0.0)", "pre-commit (==4.0.1)", "pytest (==6.1.2)", "pytest (==8.3.2)", "pytest-cov (==2.12.1)", "pytest-cov (==5.0.0)", "pytest-cov (==6.0.0)", "pytest-mypy-plugins (==1.9.3)", "pytest-mypy-plugins (==3.1.0)", "sphinx-rtd-theme (==3.0.2)", "tox (==3.27.1)", "tox (==4.23.2)", "twine (==6.0.1)"]
 
 [[package]]
+name = "lunr"
+version = "0.8.0"
+description = "A Python implementation of Lunr.js"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "lunr-0.8.0-py3-none-any.whl", hash = "sha256:a2bc4e08dbb35b32723006bf2edbe6dc1f4f4b95955eea0d23165a184d276ce8"},
+    {file = "lunr-0.8.0.tar.gz", hash = "sha256:b46cf5059578d277a14bfc901bb3d5666d013bf73c035331ac0222fdac358228"},
+]
+
+[package.extras]
+dev = ["black", "build", "coverage", "flake8", "furo", "hatch-fancy-pypi-readme", "ipython", "mypy", "myst-parser", "nltk", "pdbpp", "pytest", "pytest-benchmark", "pytest-timeout", "sphinx", "sphinx-autobuild", "tox", "twine", "wheel"]
+docs = ["furo", "myst-parser", "sphinx", "sphinx-autobuild"]
+languages = ["nltk"]
+local = ["black", "build", "flake8", "hatch-fancy-pypi-readme", "ipython", "mypy", "pdbpp", "pytest-benchmark", "twine", "wheel"]
+tests = ["coverage", "nltk", "pytest", "pytest-timeout", "tox"]
+
+[[package]]
 name = "mariadb"
 version = "1.1.11"
 description = "Python MariaDB extension"
@@ -2088,4 +2106,4 @@ dev = ["black (>=19.3b0)", "pytest (>=4.6.2)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "9b2f3bed07d63bfc7d675a86a7bfeff5049cdc1a1e5b5515c416d789b09199f3"
+content-hash = "2588428558363fcf31c450bc72bf5b31aa542f04753b0b89a3d3503683f81733"

@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Net Operating Income
+description: How to calculate a property’s net operating income
 nav-title: Net operating income
 nav-group: NOI and cash flow
 ---

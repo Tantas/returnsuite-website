@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Standard Direct Capitalization
+description: How to calculate real estate values using the Standard Direct Capitalization method
 nav-title: Standard direct capitalization
 nav-group: Income approach
 ---

@@ -1,13 +1,13 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Effective Gross Income
+description: How to calculate a property's effective gross income
 nav-title: Effective gross income
 nav-group: NOI and cash flow
 ---
 
 # Effective Gross Income
 
-## How to calculate a property’s effective gross income
+## How to calculate a property's effective gross income
 
 Effective Gross Income (EGI) is an important intermediate calculation in
 the NOI Statement. Sometimes referred to as Gross Realized Revenue or

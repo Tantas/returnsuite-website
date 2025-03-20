@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Market and Potential Base Rent
+description: How to calculate potential base rent
 nav-title: Potential base rent
 nav-group: NOI and cash flow
 ---

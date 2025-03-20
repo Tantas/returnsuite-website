@@ -1,6 +1,6 @@
 ---
-title: Property Integrations - ReturnSuite Docs
-description: How to import and export the property model and connect to other apps.
+title: Property Integrations
+description: How to import and export the property model and connect to other apps
 nav-title: Integrations
 nav-group: Configure property settings
 ---

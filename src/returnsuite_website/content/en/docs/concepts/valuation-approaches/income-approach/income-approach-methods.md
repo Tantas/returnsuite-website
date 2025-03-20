@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Income Approach Methods
+description: A comprehensive look at the most common Income Approach Methods
 nav-title: Income approach methods
 nav-group: Income approach
 ---

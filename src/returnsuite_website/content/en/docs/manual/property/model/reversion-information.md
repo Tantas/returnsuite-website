@@ -1,6 +1,6 @@
 ---
-title: Reversion Information - ReturnSuite Docs
-description: Project the return of a real estate investment.
+title: Reversion Information
+description: Project the return of a real estate investment
 nav-title: Reversion information
 nav-group: Updating the model
 ---

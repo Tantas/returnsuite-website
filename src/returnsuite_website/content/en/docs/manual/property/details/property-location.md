@@ -1,6 +1,6 @@
 ---
 title: Property location
-description: Placing the property on the map.
+description: Placing the property on the map
 nav-title: Property location
 nav-group: Changing property details
 ---

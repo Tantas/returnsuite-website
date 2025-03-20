@@ -1,6 +1,6 @@
 ---
 title: Property Listing Details
-description: Update the property listing details.
+description: Update the property listing details
 nav-title: Listing details
 nav-group: Changing property details
 ---

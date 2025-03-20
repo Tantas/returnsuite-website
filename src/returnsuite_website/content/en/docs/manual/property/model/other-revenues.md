@@ -1,6 +1,6 @@
 ---
-title: Other Revenues - ReturnSuite Docs
-description: Modeling revenues that are not directly associated with leased spaces.
+title: Other Revenues
+description: Modeling revenues that are not directly associated with leased spaces
 nav-title: Other revenues
 nav-group: Updating the model
 ---

@@ -1,6 +1,6 @@
 ---
-title: TODO - ReturnSuite Docs
-description: TODO - Add a description
+title: Property Overview
+description: Navigating around the property and viewing the property dashboard
 nav-title: Overview
 nav-group: Property
 ---

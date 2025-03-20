@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Summary of real estate valuation methods
+description: The main categories of real estate valuation methods and how they are used
 nav-title: Summary of the methods
 nav-group: Valuation approaches
 ---

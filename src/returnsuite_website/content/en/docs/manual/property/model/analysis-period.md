@@ -1,6 +1,6 @@
 ---
-title: Analysis Period - ReturnSuite Docs
-description: Specify the time frame to evaluate the model.
+title: Analysis Period
+description: Specify the time frame to evaluate the model
 nav-title: Analysis period
 nav-group: Updating the model
 ---

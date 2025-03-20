@@ -1,11 +1,11 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Other Revenues
+description: What income should be categorized as other revenues
 nav-title: Other revenue
 nav-group: NOI and cash flow
 ---
 
-# Other Revenue
+# Other Revenues
 
 ## What income should be categorized as other revenues
 

@@ -1,6 +1,6 @@
 ---
-title: Property General Settings - ReturnSuite Docs
-description: Configure settings and run actions to tailor the experience to your needs.
+title: General Property Settings
+description: Configure settings and run actions to tailor the experience to your needs
 nav-title: General Settings
 nav-group: Configure property settings
 ---

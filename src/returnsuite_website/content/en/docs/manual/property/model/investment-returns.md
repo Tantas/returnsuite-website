@@ -1,6 +1,6 @@
 ---
-title: Investment Returns - ReturnSuite Docs
-description: How to input spaces and uses into a ReturnSuite property model.
+title: Investment Returns
+description: Apply discount rates to compare opportunities
 nav-title: Investment returns
 nav-group: Updating the model
 ---

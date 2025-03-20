@@ -1,6 +1,6 @@
 ---
-title: TODO - ReturnSuite Docs
-description: TODO - Add a description
+title: Navigation
+description: How to navigate around ReturnSuite
 nav-title: Overview
 nav-group: Navigation
 ---

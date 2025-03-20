@@ -1,6 +1,6 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Gordon Growth Model
+description: How to calculate the value of a growing Perpetuity
 nav-title: Gordon growth model
 nav-group: Key Math Concepts in Finance
 ---

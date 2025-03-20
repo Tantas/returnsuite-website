@@ -1,13 +1,13 @@
 ---
-title: Overview - Key Math Concepts used in Finance - ReturnSuite Docs
-description: TODO - Add a description
+title: Additional Rent
+description: How to calculate a property's Additional Rent
 nav-title: Additional rent
 nav-group: NOI and cash flow
 ---
 
 # Additional Rent
 
-## How to calculate a property’s Additional Rent
+## How to calculate a property's Additional Rent
 
 Additional Rent encompasses most of the remaining rental income and
 recoveries specified in a lease agreement that are not part of the fixed

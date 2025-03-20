@@ -1,6 +1,6 @@
 ---
 title: How assets are valued
-description: TODO - Add a description
+description: Market values and the market price.
 nav-title: How assets are valued
 nav-group: Valuation Concepts
 ---

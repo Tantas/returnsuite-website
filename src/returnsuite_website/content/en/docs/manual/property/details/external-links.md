@@ -1,6 +1,6 @@
 ---
 title: External Links
-description: Specifying the listing location, model sources and related information.
+description: Specifying the listing location, model sources and related information
 nav-title: External links
 nav-group: Changing property details
 ---

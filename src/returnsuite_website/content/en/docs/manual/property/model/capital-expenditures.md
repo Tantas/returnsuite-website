@@ -1,6 +1,6 @@
 ---
-title: Capital Expenditures - ReturnSuite Docs
-description: Adding expenditures to improve the property and combat depreciation.
+title: Capital Expenditures
+description: Adding expenditures to improve the property and combat depreciation
 nav-title: Capital expenditures
 nav-group: Updating the model
 ---

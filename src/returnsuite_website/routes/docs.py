@@ -1,13 +1,15 @@
 from importlib.resources import files
+from typing import Annotated
 
-from fastapi import APIRouter, Request
-from pydantic import BaseModel
-from starlette.responses import HTMLResponse, RedirectResponse
+from fastapi import APIRouter, Request, Body
+from pydantic import BaseModel, ConfigDict
+from starlette.responses import HTMLResponse, RedirectResponse, JSONResponse
 
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
 from returnsuite_website.services import localization_directory
 from returnsuite_website.services.docs_service import load_pages, find_page, mobile_menu
+from returnsuite_website.services.search2 import SearchIndex
 
 router = APIRouter(default_response_class=HTMLResponse)
 
@@ -394,6 +396,20 @@ class SearchEntry(BaseModel):
     location: str
     text: str
     title: str
+
+
+class SearchRequest(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True)
+    query: str
+
+
+@router.post("/docs/search", response_class=JSONResponse)
+def post_docs_search(request: Request, body: Annotated[SearchRequest, Body()]):
+    english_root = files("returnsuite_website") / "content" / "en"
+    root_page = load_pages(english_root)
+
+    search_index = SearchIndex(root_page)
+    return search_index.search(body.query)
 
 
 @router.get("/docs/{path:path}")
