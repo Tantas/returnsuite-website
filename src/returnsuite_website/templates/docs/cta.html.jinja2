@@ -90,6 +90,20 @@
           </svg>
           <span>Questions? <a href="{{ url_for('get_contact') }}" class="text-blue-500 hover:underline">Contact Sales.</a></span>
         </li>
+        <li class="relative w-full flex md:hidden place-items-center" x-data="{showCountrySelect: false}">
+          <button type="button" title="Change langauge" class="ml-0.5 flex place-items-center gap-4" @click="showCountrySelect = !showCountrySelect">
+            <svg class="inline-block h-3 rounded-sm" viewBox="0 0 640 480">
+              {{ selected_country.get_flag()|safe }}
+            </svg>
+            <span>{{ selected_country.name }} - {{ selected_language.name }}</span>
+          </button>
+          <div class="absolute bottom-8 left-0 right-0" x-show="showCountrySelect">
+            <div class="rounded-md border border-gray-300 bg-white shadow-lg w-full md:w-[60rem] z-50">
+              {% from "components/countries.html.jinja2" import country_select with context %}
+              {{ country_select("get_docs_catch_all", args={'path': '/docs'}) }}
+            </div>
+          </div>
+        </li>
       </ul>
       <form class="flex flex-col gap-2">
         <div class="flex flex-col gap-1.5" x-show="!newsletterEmail.success">

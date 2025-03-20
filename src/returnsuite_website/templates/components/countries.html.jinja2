@@ -1,16 +1,16 @@
 {% macro country_select(url, args={}) -%}
-  <ul class="grid grid-cols-4 gap-x-4 gap-y-2 p-6 text-sm">
+  <ul class="grid grid-cols-2 md:grid-cols-4 gap-x-2 md:gap-x-4 gap-y-1 md:gap-y-2 p-2 md:p-6 text-sm">
     {% for country in countries %}
       <li class="flex gap-3">
-        <svg class="inline-block h-4 rounded-sm mt-1 border" viewBox="0 0 640 480">
+        <svg class="inline-block h-3 md:h-4 rounded-sm mt-1 border" viewBox="0 0 640 480">
           {{ country.get_flag()|safe }}
         </svg>
         <div class="flex flex-col pt-0.5">
-          <span class="text-sm text-gray-800 font-medium">{{ country.name }}</span>
+          <span class="text-xs md:text-sm text-gray-800 font-medium">{{ country.name }}</span>
           <ul class="flex gap-2">
             {% for language in country.languages %}
               <li>
-                <a href="{{ url_for(url, locale=language.slug, **args) }}" class="text-sm text-gray-600 font-light hover:text-gray-900">{{ language.name }}</a>
+                <a href="{{ url_for(url, locale=language.slug, **args) }}" class="text-xs md:text-sm text-gray-600 font-light hover:text-gray-900">{{ language.name }}</a>
                 {#- <span>{{ 500_000_0|format_currency(language.currency_code, language.currency_locale) }}</span> -#}
               </li>
             {% endfor %}
