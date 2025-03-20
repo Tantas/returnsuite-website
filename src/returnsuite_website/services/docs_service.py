@@ -1,3 +1,4 @@
+import json
 from importlib.resources import files
 from importlib.resources.abc import Traversable
 from typing import Self
@@ -37,6 +38,15 @@ class Page:
         self.children: list[Page] = []
 
 
+class Menu:
+
+    def __init__(self, page: Page):
+        self.nav_title = page.nav_title
+        self.nav_group = page.nav_group
+        self.route = page.route
+        self.children = [Menu(child) for child in page.children]
+
+
 def find_page(page: Page, path: str) -> Page | None:
     if path in page.route:
         return page
@@ -73,7 +83,7 @@ def load_pages(root: Traversable) -> Page:
     return recurse(data["nav"])
 
 
-english_root = files("returnsuite_website") / "content" / "en"
-root_page = load_pages(english_root)
-
-print(root_page)
+def mobile_menu(root: Page) -> str:
+    menu = Menu(root)
+    print(json.dumps(menu.children, default=vars))
+    return json.dumps(menu.children, default=vars)

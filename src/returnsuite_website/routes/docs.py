@@ -7,7 +7,7 @@ from starlette.responses import HTMLResponse, RedirectResponse
 from returnsuite_website.core.config import get_app_settings
 from returnsuite_website.core.html import templates
 from returnsuite_website.services import localization_directory
-from returnsuite_website.services.docs_service import load_pages, find_page
+from returnsuite_website.services.docs_service import load_pages, find_page, mobile_menu
 
 router = APIRouter(default_response_class=HTMLResponse)
 
@@ -437,6 +437,7 @@ def get_docs_locale(request: Request, locale_name: str, path: str):
         context={
             "page": page,
             "menu": root_page,
+            "mobile_menu": mobile_menu(root_page),
             "countries": countries,
             "selected_country": selected_country,
             "selected_language": selected_language,

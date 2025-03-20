@@ -1218,6 +1218,14 @@ video {
   margin-top: auto;
 }
 
+.-mb-2 {
+  margin-bottom: -0.5rem;
+}
+
+.-mb-4 {
+  margin-bottom: -1rem;
+}
+
 .block {
   display: block;
 }
@@ -1335,8 +1343,56 @@ video {
   height: calc(100vh - 4rem);
 }
 
+.h-\[calc\(100vh-20rem\)\] {
+  height: calc(100vh - 20rem);
+}
+
+.h-\[calc\(100vh-12rem\)\] {
+  height: calc(100vh - 12rem);
+}
+
+.h-\[calc\(100vh-14rem\)\] {
+  height: calc(100vh - 14rem);
+}
+
+.h-\[calc\(100vh-16rem\)\] {
+  height: calc(100vh - 16rem);
+}
+
+.h-\[calc\(100vh-15rem\)\] {
+  height: calc(100vh - 15rem);
+}
+
+.h-\[calc\(100vh-6rem\)\] {
+  height: calc(100vh - 6rem);
+}
+
+.h-\[calc\(100vh-8rem\)\] {
+  height: calc(100vh - 8rem);
+}
+
+.h-\[calc\(100vh-10rem\)\] {
+  height: calc(100vh - 10rem);
+}
+
+.h-\[calc\(100vh-11rem\)\] {
+  height: calc(100vh - 11rem);
+}
+
+.h-\[calc\(100vh-9rem\)\] {
+  height: calc(100vh - 9rem);
+}
+
 .max-h-72 {
   max-height: 18rem;
+}
+
+.min-h-full {
+  min-height: 100%;
+}
+
+.min-h-\[calc\(100vh-4rem\)\] {
+  min-height: calc(100vh - 4rem);
 }
 
 .w-0\.5 {
@@ -2358,6 +2414,10 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pl-16 {
+  padding-left: 4rem;
 }
 
 .text-left {

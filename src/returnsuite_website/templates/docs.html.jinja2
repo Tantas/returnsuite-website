@@ -13,8 +13,21 @@
     <script defer src="{{ url_for('js', path='/lib/alpinejs-3.14.1.min.js') }}"></script>
     <style>svg { display: inline-block; } [x-cloak] { display: none; }</style>
   </head>
-  <body class="bg-white h-full" x-data="{ searchOpen: false, mobileNavOpen: true }">
-    <div>
+  <body class="bg-white h-full">
+    <script data-mobile-menu="{{ mobile_menu }}">
+      function pageDetails() {
+        return {
+          searchOpen: false,
+          mobileNavOpen: false,
+          mobileSectionMenu: null,
+          mobileNestedMenu: null,
+          menuContent: (() => {
+            return JSON.parse(document.querySelectorAll("[data-mobile-menu]")[0].dataset.mobileMenu)
+          })()
+        }
+      }
+    </script>
+    <div x-data="pageDetails()">
       <nav class="border-b border-gray-300 w-full bg-white h-16 md:h-[6.1rem] sticky top-0 z-50">
         <ul class="flex sm:h-full place-items-center justify-between md:gap-3 mx-4 pt-2 text-base text-gray-800 h-full md:h-fit">
           <li class="flex md:hidden">
@@ -77,49 +90,132 @@
 
       {#- Small screen menu. -#}
       <div x-show="mobileNavOpen" class="fixed top-16 bg-white z-50 w-full h-[calc(100vh-4rem)]">
-        <div class="w-full h-screen bg-white">
-          <form class="px-4 pb-0 pt-5">
+        <div class="w-full h-[calc(100vh-4rem)] overflow-y-scroll bg-white">
+          <form class="px-4 pb-2 pt-5">
             <div class="border border-gray-300 rounded-md w-full text-lg flex place-items-center">
               <label for="input-mobile-search" title="Search" class="pl-2 py-2 text-gray-600 shrink-0">
                 <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
                   <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"></path>
                 </svg>
               </label>
-              <input type="search" id="input-mobile-search" placeholder="Search documentation" class=" bg-transparent px-2 py-2 w-full">
+              <input type="search" id="input-mobile-search" placeholder="Search documentation" class="placeholder-gray-500 bg-transparent px-2 py-2 w-full">
             </div>
           </form>
 
-          {#- Root menu. -#}
-          <ul class="px-4 text-lg font-normal text-gray-800">
-            <li>
-              <a href="#" class="w-full h-10 flex place-items-center justify-between">
-                <span>Home</span>
-                <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
-                  <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
+          <div class="relative">
+
+            {#- Root menu. -#}
+            <div x-show="!mobileSectionMenu && !mobileNestedMenu" class="absolute w-full pb-4">
+              <ul class="px-6 text-lg font-normal text-gray-800">
+                <li>
+                  <a href="#" class="w-full h-10 flex place-items-center justify-between">
+                    Home
+                  </a>
+                </li>
+                <template x-for="rootItem in menuContent">
+                  <li>
+                    <button type="button" @click="mobileSectionMenu = rootItem" class="w-full h-10 flex place-items-center justify-between">
+                      <span x-text="rootItem.nav_title"></span>
+                      <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+                        <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
+                      </svg>
+                    </button>
+                  </li>
+                </template>
+              </ul>
+            </div>
+
+            {#- Section menu. -#}
+            <div x-show="mobileSectionMenu && !mobileNestedMenu" class="absolute bg-white w-full text-gray-800 text-base pb-4">
+              <button type="button" @click="mobileSectionMenu = null" class="w-full h-10 flex place-items-center px-4">
+                <svg class="inline-block h-6 pr-2" viewBox="0 -960 960 960" fill="currentColor">
+                  <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"></path>
                 </svg>
-              </a>
-            </li>
-            {% for header_menu_item in menu.children %}
-              <li class="w-full h-10 flex place-items-center justify-between">
-                <span>{{ header_menu_item.nav_title }}</span>
-                <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
-                  <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
-                </svg>
-              </li>
-            {% endfor %}
-          </ul>
+                <span x-text="mobileSectionMenu.nav_title"></span>
+              </button>
+              <ul class="px-4 text-base font-normal text-gray-800 flex flex-col gap-3">
+                <li class="-mb-4">
+                  <a :href="mobileSectionMenu.route" class="pl-12 w-full h-10 flex place-items-center justify-between">Overview</a>
+                </li>
+                <li>
+                  <template x-for="sectionItem in mobileSectionMenu.children">
+                    <li>
+                      <template x-if="sectionItem.children.length === 0">
+                        <a :href="sectionItem.route" class="pl-12 w-full h-10 flex place-items-center justify-between" x-text="sectionItem.nav_title"></a>
+                      </template>
+                      <template x-if="sectionItem.children.length > 0">
+                        <div class="pt-3 mt-2 border-t">
+                          <div x-text="sectionItem.nav_group" class="pl-12 text-sm tracking-wide text-gray-600 uppercase"></div>
+                          <a :href="sectionItem.route" class="pl-12 w-full h-10 flex place-items-center justify-between" x-text="sectionItem.nav_title"></a>
+                          <ul>
+                            <template x-for="nestedItem in sectionItem.children">
+                              <li>
+                                <template x-if="nestedItem.children.length > 0">
+                                  <button @click="mobileNestedMenu = nestedItem" type="button" class="pl-12 w-full h-10 flex place-items-center justify-between">
+                                    <span x-text="nestedItem.nav_group"></span>
+                                    <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+                                      <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
+                                    </svg>
+                                  </button>
+                                </template>
+                                <template x-if="nestedItem.children.length === 0">
+                                  <a :href="nestedItem.route" class="pl-12 w-full h-10 flex place-items-center justify-between" x-text="nestedItem.nav_title"></a>
+                                </template>
+                              </li>
+                            </template>
+                          </ul>
+                        </div>
 
-          {#- Section menu. -#}
+                        <button @click="mobileNestedMenu = sectionItem" type="button" class="w-full h-10 flex place-items-center justify-between">
+                          <span x-text="sectionItem.nav_group"></span>
+                          <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
+                            <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"></path>
+                          </svg>
+                        </button>
+                      </template>
+                    </li>
+                  </template>
+                </li>
+              </ul>
+            </div>
 
-          {#- Nested menu. -#}
+            {#- Nested menu. -#}
+            <div x-show="mobileNestedMenu" class="absolute w-full bg-white min-h-[calc(100vh-4rem)]">
+              <div class="bg-white w-full text-gray-800 text-base pb-4">
+                <button type="button" @click="mobileNestedMenu = null" class="w-full h-10 flex place-items-center px-4">
+                  <svg class="inline-block h-6 pr-2" viewBox="0 -960 960 960" fill="currentColor">
+                    <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"></path>
+                  </svg>
+                  <span x-text="mobileNestedMenu.nav_group"></span>
+                </button>
+                <ul class="px-4 text-base font-normal text-gray-800 flex flex-col gap-3">
+                  <li>
+                    <template x-for="nestedItem in mobileNestedMenu.children">
+                      <li>
+                        <template x-if="nestedItem.children.length === 0">
+                          <a :href="nestedItem.route" class="pl-12 w-full h-10 flex place-items-center justify-between" x-text="nestedItem.nav_title"></a>
+                        </template>
+                        <template x-if="nestedItem.children.length > 0">
+                          <div class="pt-3 mt-2 border-t">
+                            <div x-text="nestedItem.nav_group" class="pl-12 text-sm tracking-wide text-gray-600 uppercase"></div>
+                            <a :href="nestedItem.route" class="pl-12 w-full h-10 flex place-items-center justify-between" x-text="nestedItem.nav_title"></a>
+                          </div>
+                        </template>
+                      </li>
+                    </template>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
+          </div>
         </div>
       </div>
 
       <div class="flex">
         <aside class="hidden md:block top-[6.2rem] sticky border-r border-gray-300 w-96 z-50 md:h-[calc(100vh-6.1rem)]">
           <div class="absolute z-10 absolute top-3 right-4 text-gray-500 hover:text-gray-800">
-            <button type="button" @click="menu_open = !menu_open" x-show="menu_open" title="Hide table of contents" style="transform: rotate(180deg);">
+            <button type="button" title="Hide table of contents" style="transform: rotate(180deg);">
               <svg class="inline-block h-6" viewBox="0 -960 960 960" fill="currentColor">
                 <path d="M80-240v-480h80v480H80Zm560 0-57-56 144-144H240v-80h487L584-664l56-56 240 240-240 240Z"></path>
               </svg>
@@ -143,12 +239,12 @@
                   <ol class="flex flex-col gap-3">
                     <li class="pl-4">
                       <a href="{{ side_menu_item.route }}" {% if side_menu_item.route == request.url.path %}class="font-medium text-blue-600"{% endif %}>{{ side_menu_item.nav_title }}</a>
-                      {% if side_menu_item.route in request.url.path %}
+                      {# {% if side_menu_item.route in request.url.path %}
                         {% do breadcrumbs.append({
                           "title": side_menu_item.nav_group,
                           "route": side_menu_item.route,
                         }) %}
-                      {% endif %}
+                      {% endif %} #}
                     </li>
                     {% for nested_menu_item in side_menu_item.children %}
                       {% if not nested_menu_item.children %}
