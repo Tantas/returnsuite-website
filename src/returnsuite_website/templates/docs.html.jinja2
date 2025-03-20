@@ -277,7 +277,7 @@
                           {% endif %}
                         </li>
                       {% else %}
-                        <div x-data="{ collapsed: true }">
+                        <div x-data="{ collapsed: '{{ nested_menu_item.route in request.url.path }}' === 'False' }">
                           <div class="flex place-items-center">
                             <button type="button" title="Expand" x-show="collapsed" @click="collapsed = !collapsed" class="py-0.5 -ml-0.5">
                               <svg class="inline-block h-4" viewBox="0 -960 960 960" fill="currentColor">
