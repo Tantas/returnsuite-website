@@ -288,4 +288,8 @@ select {
   .row-input-group__field .input-unit {
     @apply font-medium text-base text-gray-600 tracking-wide pl-3 pr-2 whitespace-nowrap
   }
+
+  .search-breadcrumbs span:not(:last-child)::after {
+    content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMXJlbSIgdmlld0JveD0iMCAtOTYwIDk2MCA5NjAiIHdpZHRoPSIxcmVtIiBmaWxsPSIjNzE4MDk2Ij48cGF0aCBkPSJNNTA0LTQ4MCAzMjAtNjY0bDU2LTU2IDI0MCAyNDAtMjQwIDI0MC01Ni01NiAxODQtMTg0WiIvPjwvc3ZnPg==");
+  }
 }

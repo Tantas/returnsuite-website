@@ -14,15 +14,11 @@ class Page:
         self.route = route
         file = root / filename
         self.markdown = file.read_text()
-        md = markdown.Markdown(extensions=[
-            "extra",
-            "meta",
-            "toc",
-        ])
+        md = markdown.Markdown(extensions=["extra", "meta", "toc"])
         self.content = md.convert(self.markdown)
 
         # noinspection PyUnresolvedReferences
-        self.toc = md.toc_tokens  # get_toc(md.toc_tokens)
+        self.toc = md.toc_tokens
 
         # noinspection PyUnresolvedReferences
         self.meta = md.Meta
@@ -36,6 +32,7 @@ class Page:
         self.next: Page | None = None
 
         self.children: list[Page] = []
+        self.breadcrumbs: list[Page] = []
 
 
 class Menu:
@@ -80,7 +77,19 @@ def load_pages(root: Traversable) -> Page:
 
     nav_file = root / "nav.yml"
     data = yaml.safe_load(nav_file.read_bytes())
-    return recurse(data["nav"])
+    page_tree = recurse(data["nav"])
+
+    # Produce the breadcrumbs for each page entry.
+    def recurse_breadcrumbs(page: Page, crumbs: list[Page]):
+        page.breadcrumbs = crumbs
+
+        child_crumbs = [x for x in crumbs]
+        child_crumbs.append(page)
+        for child in page.children or []:
+            recurse_breadcrumbs(child, child_crumbs)
+
+    recurse_breadcrumbs(page_tree, [])
+    return page_tree
 
 
 def mobile_menu(root: Page) -> str:

@@ -1,21 +1,15 @@
 from lunr import lunr
+from pydantic import BaseModel
 
 from returnsuite_website.services.docs_service import find_page, Page
 
 
-class SearchResult:
-
-    def __init__(self, page: Page, score: float):
-        self.route = page.route
-        self.title = page.title
-        # route
-        # h1
-        self.description = page.description
-        self.breadcrumbs = ["Valuation Concepts", "Valuation Approaches"],
-        self.score = score
-
-    def __str__(self):
-        return f"{self.score} {self.route}: {self.title}"
+class SearchResult(BaseModel):
+    route: str
+    title: str
+    description: str
+    breadcrumbs: list[str]
+    score: float
 
 
 class SearchIndex:
@@ -42,5 +36,11 @@ class SearchIndex:
         for result in self.idx.search(query):
             page = find_page(self.pages, result["ref"])
             score = result["score"]
-            results.append(SearchResult(page, score))
+            results.append(SearchResult(
+                route=page.route,
+                title=page.title,
+                description=page.description,
+                breadcrumbs=[x.nav_group for x in page.breadcrumbs][1:],
+                score=score,
+            ))
         return results
