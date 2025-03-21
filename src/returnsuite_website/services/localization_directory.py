@@ -19,7 +19,7 @@ class Country(BaseModel):
 
     def get_flag(self) -> str:
         file = files(
-            "returnsuite_website") / "resources" / "localizations" / "flags" / f"{self.code}.svg"
+            "returnsuite_website") / "resources" / "localizations" / "flags" / f"{self.code.lower()}.svg"
         svg = file.read_text()
         clipped_svg = "".join(svg.partition('viewBox="0 0 640 480">\n')[2:]).replace(
             "</svg>\n", "").strip()
