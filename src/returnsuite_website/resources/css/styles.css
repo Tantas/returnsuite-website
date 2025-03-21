@@ -1961,6 +1961,10 @@ video {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
+.bg-none {
+  background-image: none;
+}
+
 .from-blue-200 {
   --tw-gradient-from: #bee3f8 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(190 227 248 / 0) var(--tw-gradient-to-position);
@@ -2634,6 +2638,15 @@ video {
   display: none !important;
 }
 
+/* Hide the Chrome search close button when content. */
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
 /* Hide the Chrome input date icon. */
 
 input[type="date"]::-webkit-inner-spin-button,
@@ -2734,8 +2747,9 @@ select {
 
 /* Toggle */
 
-.last\:hidden:last-child {
-  display: none;
+.hover\:border-blue-500:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(66 153 225 / var(--tw-border-opacity, 1));
 }
 
 .hover\:border-blue-600:hover {
@@ -2852,6 +2866,11 @@ select {
   color: rgb(217 119 6 / var(--tw-text-opacity, 1));
 }
 
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
@@ -2871,6 +2890,10 @@ select {
 .focus\:ring-blue-500:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(66 153 225 / var(--tw-ring-opacity, 1));
+}
+
+.group:hover .group-hover\:inline-block {
+  display: inline-block;
 }
 
 @media (min-width: 640px) {
