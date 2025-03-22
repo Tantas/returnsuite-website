@@ -231,22 +231,23 @@
                   </svg>
                   <span x-text="mobileNestedMenu.nav_group"></span>
                 </button>
-                <ul class="px-4 text-base font-normal text-gray-800 flex flex-col gap-3">
+                <ul class="px-4 text-base font-normal text-gray-800 flex flex-col">
                   <li>
-                    <template x-for="nestedItem in mobileNestedMenu.children">
-                      <li>
-                        <template x-if="nestedItem.children.length === 0">
-                          <a :href="nestedItem.route" class="pl-12 w-full h-10 flex place-items-center justify-between" x-text="nestedItem.nav_title"></a>
-                        </template>
-                        <template x-if="nestedItem.children.length > 0">
-                          <div class="pt-3 mt-2 border-t">
-                            <div x-text="nestedItem.nav_group" class="pl-12 text-sm tracking-wide text-gray-600 uppercase"></div>
-                            <a :href="nestedItem.route" class="pl-12 w-full h-10 flex place-items-center justify-between" x-text="nestedItem.nav_title"></a>
-                          </div>
-                        </template>
-                      </li>
-                    </template>
+                    <a :href="mobileNestedMenu.route" class="pl-12 w-full h-10 flex place-items-center justify-between" x-text="mobileNestedMenu.nav_title"></a>
                   </li>
+                  <template x-for="nestedItem in mobileNestedMenu.children">
+                    <li>
+                      <template x-if="nestedItem.children.length === 0">
+                        <a :href="nestedItem.route" class="pl-12 w-full h-10 flex place-items-center justify-between" x-text="nestedItem.nav_title"></a>
+                      </template>
+                      <template x-if="nestedItem.children.length > 0">
+                        <div class="pt-3 mt-2 border-t">
+                          <div x-text="nestedItem.nav_group" class="pl-12 text-sm tracking-wide text-gray-600 uppercase"></div>
+                          <a :href="nestedItem.route" class="pl-12 w-full h-10 flex place-items-center justify-between" x-text="nestedItem.nav_title"></a>
+                        </div>
+                      </template>
+                    </li>
+                  </template>
                 </ul>
               </div>
             </div>
